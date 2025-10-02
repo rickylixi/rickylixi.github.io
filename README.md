@@ -1,2 +1,2 @@
 # rickylixi.github.io
-Xi's website.
+Xi's Website.
