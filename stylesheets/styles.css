@@ -278,9 +278,3 @@ footer {
   margin-top:10px;
 }
 
-/* Social icons row */
-.social-row {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:space-between;
-}
