@@ -1,0 +1,15 @@
+title: Xi's Site
+baseurl: ""
+url: "https://rickylixi.github.io"
+permalink: /blog/:year/:month/:day/:title.html
+markdown: kramdown
+kramdown:
+  math_engine: mathjax
+  input: GFM
+  syntax_highlighter_opts:
+    disable: true
+plugins:
+  - jekyll-sitemap
+  - jekyll-paginate
+paginate: 5
+paginate_path: "/blog/page:num/"
