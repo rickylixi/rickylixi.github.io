@@ -1,0 +1,10 @@
+title: Xi's Site
+email: xieshenlixi@163.com
+description: "Personal site of Xi Li"
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://rickylixi.github.io"
+permalink: /blog/:year-:month-:day-:title.html
+paginate: 5
+markdown: kramdown
+kramdown:
+  input: GFM
