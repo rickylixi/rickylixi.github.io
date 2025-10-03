@@ -1,0 +1,79 @@
+body {
+    font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #2c3e50;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+header {
+    background: #ffffff;
+    padding: 20px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.social-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+button.accordion {
+    font: 14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 100%;
+    transition: 0.3s;
+    background-color: #f8f8f8;
+}
+
+button.accordion.active, button.accordion:hover {
+    background-color: #f8f8f8;
+}
+
+button.accordion:after {
+    content: " [+] ";
+    font-size: 90%;
+    color: #777;
+    float: left;
+    margin-left: 1px;
+}
+
+button.accordion.active:after {
+    content: " [\2212] ";
+}
+
+div.panel {
+    padding: 0 20px;
+    margin-top: 5px;
+    display: none;
+    background-color: white;
+    font-size: 100%;
+}
+
+div.panel.show {
+    display: block !important;
+}
