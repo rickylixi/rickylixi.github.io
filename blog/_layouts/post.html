@@ -4,6 +4,11 @@ layout: null
 <!doctype html>
 <html lang="en">
   <head>
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="preload" href="/stylesheets/styles.css" as="style">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,6 +38,12 @@ layout: null
     </script>
 
     <link rel="stylesheet" href="/assets/css/academicons.min.css"/>
+    
+    <!-- MathJax for math rendering in posts with LaTeX -->
+    <script>
+      window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }, options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] } };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -43,13 +54,13 @@ layout: null
         <h3><a href="https://rickylixi.github.io/research.html">Research</a></h3>
         <h3><a href="https://rickylixi.github.io/teaching.html">Teaching</a></h3>
         <h3><a href="https://rickylixi.github.io/personal.html">Personal</a></h3>
-        <h3><a href="https://rickylixi.github.io/blog.html">Blog</a></h3>
+        <h3><a href="https://rickylixi.github.io/blog.html" aria-current="page">Blog</a></h3>
         <b>Social</b><br>
         <div class="social-row">
-          <a href="mailto:xieshenlixi@163.com" class="author-social" target="_blank"><i class="fas fa-fw fa-envelope"></i> Email</a><br>
-          <a href="http://github.com/rickylixi"><i class="fab fa-fw fa-github"></i> GitHub</a><br>
-          <a href="http://x.com/pkulixi" class="author-social" target="_blank"><i class="fab fa-fw fa-x-twitter"></i> X</a><br>
-          <a href="https://www.zhihu.com/people/pkulixi" class="author-social" target="_blank"><i class="fab fa-fw fa-zhihu"></i> Zhihu</a><br>
+          <a href="mailto:xieshenlixi@163.com" class="author-social" target="_blank" rel="noopener noreferrer"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> Email</a><br>
+          <a href="https://github.com/rickylixi" target="_blank" rel="noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a><br>
+          <a href="https://x.com/pkulixi" class="author-social" target="_blank" rel="noopener noreferrer"><i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i> X</a><br>
+          <a href="https://www.zhihu.com/people/pkulixi" class="author-social" target="_blank" rel="noopener noreferrer"><i class="fab fa-fw fa-zhihu" aria-hidden="true"></i> Zhihu</a><br>
           <br>
         </div>
         <br>
