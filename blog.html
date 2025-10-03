@@ -81,7 +81,7 @@ layout: null
       <h3>Xi's Blog</h3>
       <ul>
       {% for post in site.posts %}
-        <li><em><a href="{{ post.url }}">{{ post.title }}</a></em> <small>{{ post.date | date: "%Y-%m-%d" }}</small></li>
+        <li>{{ post.title }}</li>
       {% endfor %}
       </ul>
     <script src="javascripts/scale.fix.js" defer></script>
