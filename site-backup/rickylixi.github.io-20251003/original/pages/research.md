@@ -1,1 +1,0 @@
-research.md content backup placeholder
