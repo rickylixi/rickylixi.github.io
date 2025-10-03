@@ -18,7 +18,7 @@ layout: null
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    window.addEventListener("load", function() {
       renderMathInElement(document.body, {
         delimiters: [
           {left: '$$', right: '$$', display: true},
@@ -107,7 +107,7 @@ layout: null
   <p>Text that is a quote</p>
 </blockquote>
 
-<p>The background color is <code class="language-plaintext highlighter-rouge">#ffffff</code> for light mode and <code class="language-plaintext highlighter-rouge">#000000</code> for dark mode.</p>
+<p>The background color is <code>#ffffff</code> for light mode and <code>#000000</code> for dark mode.</p>
 
 <p>This site was built using <a href="https://pages.github.com/">GitHub Pages</a>.</p>
 
@@ -133,11 +133,15 @@ layout: null
 
 <p>这是一个行间公式：</p>
 
-\[\nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_0}\]
+<div class="kdmath">$$
+\nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_0}
+$$</div>
 
 <p><strong>The Cauchy-Schwarz Inequality</strong></p>
 
-\[\left(\sum_{k=1}^n a_k b_k \right)^2 \leq \left(\sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)\]
+<div class="kdmath">$$
+\left(\sum_{k=1}^n a_k b_k \right)^2 \leq \left(\sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
+$$</div>
 <div class="footnotes" role="doc-endnotes">
   <ol>
     <li id="fn:1">
