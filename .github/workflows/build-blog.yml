@@ -1,0 +1,37 @@
+name: Build blog and deploy
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+
+      - name: Install dependencies (if present)
+        run: |
+          cd blog || exit 0
+          if [ -f Gemfile ]; then gem install bundler && bundle install; fi
+
+      - name: Build Jekyll blog to _site/blog
+        run: |
+          mkdir -p _site
+          cd blog
+          if [ -f Gemfile ]; then bundle exec jekyll build --source . --destination ../_site/blog; else jekyll build --source . --destination ../_site/blog; fi
+
+      - name: Copy root static files into _site (preserve blog output)
+        run: |
+          rsync -a --exclude='_site' --exclude='blog' ./ ../_site/
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site

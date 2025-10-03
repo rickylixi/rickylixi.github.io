@@ -1,0 +1,6 @@
+title: Xi's Blog
+baseurl: "/blog"
+url: "https://rickylixi.github.io"
+markdown: kramdown
+permalink: /:year/:month/:day/:title.html
+paginate: 5
