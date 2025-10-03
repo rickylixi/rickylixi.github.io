@@ -24,7 +24,13 @@ jobs:
         run: |
           mkdir -p _site
           cd blog
-          if [ -f Gemfile ]; then bundle exec jekyll build --source . --destination ../_site/blog; else jekyll build --source . --destination ../_site/blog; fi
+          # If Gemfile exists, use bundle; otherwise install jekyll CLI so the command exists
+          if [ -f Gemfile ]; then
+            bundle exec jekyll build --source . --destination ../_site/blog
+          else
+            gem install jekyll --no-document
+            jekyll build --source . --destination ../_site/blog
+          fi
 
       - name: Copy root static files into _site (preserve blog output)
         run: |
