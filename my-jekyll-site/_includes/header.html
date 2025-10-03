@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+    {% include head.html %}
+  </head>
+  <body>
+    <header>
+      <h1>{{ site.title }}</h1>
+      <nav>
+        <ul>
+          <li><a href="{{ '/' | relative_url }}">Home</a></li>
+          <li><a href="{{ '/about.md' | relative_url }}">About</a></li>
+          <li><a href="{{ '/research.md' | relative_url }}">Research</a></li>
+          <li><a href="{{ '/blog.html' | relative_url }}">Blog</a></li>
+        </ul>
+      </nav>
+    </header>
