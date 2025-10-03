@@ -269,3 +269,11 @@ footer {
     color:#444;
   }
 }
+
+/* Blog post layout spacing */
+.post-header {
+  margin-bottom:20px;
+}
+.post-content {
+  margin-top:10px;
+}
