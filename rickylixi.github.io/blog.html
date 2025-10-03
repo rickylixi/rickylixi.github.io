@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include head.html %}
+    <title>Blog - Xi's Space</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Xi Li</h1>
+        <p>Associate Professor of Logic<br>Central South University</p>
+        <nav>
+          <h3><a href="{{ site.baseurl }}/">Home</a></h3>
+          <h3><a href="{{ site.baseurl }}/pages/research.md">Research</a></h3>
+          <h3><a href="{{ site.baseurl }}/pages/about.md">About</a></h3>
+          <h3><a href="{{ site.baseurl }}/blog.html">Blog</a></h3>
+        </nav>
+        <b>Social</b><br>
+        <div class="social-row">
+          <a href="mailto:xieshenlixi@163.com" class="author-social" target="_blank"><i class="fas fa-fw fa-envelope"></i> Email</a><br>
+          <a href="http://github.com/rickylixi"><i class="fab fa-fw fa-github"></i> GitHub</a><br>
+          <a href="http://x.com/pkulixi" class="author-social" target="_blank"><i class="fab fa-fw fa-x-twitter"></i> X</a><br>
+          <a href="https://www.zhihu.com/people/pkulixi" class="author-social" target="_blank"><i class="fab fa-fw fa-zhihu"></i> Zhihu</a><br>
+        </div>
+        <p><b>Contact:</b><br>Department of Philosophy<br>Central South University<br>Changsha, Hunan<br>China</p>
+      </header>
+      <section>
+        <h3>Blog Posts</h3>
+        <ul>
+          {% for post in site.posts %}
+            <li>
+              <a href="{{ post.url }}">{{ post.title }}</a>
+              <span>{{ post.date | date: "%B %d, %Y" }}</span>
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+    </div>
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  </body>
+</html>

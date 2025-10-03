@@ -1,3 +1,20 @@
+---
+layout: default
+title: Blog
+permalink: /blog.html
+---
+
+<div class="wrapper">
+  <h1>Blog</h1>
+  <ul>
+    {% for post in site.posts %}
+      <li>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <small>— {{ post.date | date: "%Y-%m-%d" }}</small>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
 <!doctype html>
 <html lang="en">
   <head>
@@ -106,7 +123,7 @@
       <h3>Xi's Blog</h3>
       <p><b>Others</b></p>
       <ul>
-        <li><em><a href="https://rickylixi.github.io/blog/2025-10-03-markdown.md">How do I use Markdown?</a></em></li>
+        <li><em><a href="/blog/2025-10-03-how-do-i-use-markdown.html">How do I use Markdown?</a></em></li>
       </ul>
       </section>
     </div>

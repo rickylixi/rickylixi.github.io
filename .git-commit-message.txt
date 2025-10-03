@@ -1,0 +1,18 @@
+chore: migrate Jekyll source to repo root; add GA & KaTeX; auto blog list; remove my-jekyll-site
+
+- 将 Jekyll 源（_layouts, _includes, _posts, assets, pages, _config.yml, Gemfile 等）合并到仓库根，便于 GitHub Pages 从根构建。
+- 新增/更新：
+  - `_config.yml`、`Gemfile`
+  - `_layouts/`、`_includes/`（包含合并后的 `head.html` 与 `header.html`）
+  - `_posts/2025-10-03-markdown.md`
+  - `assets/css/styles.css`, `assets/js/main.js`
+  - `blog.html`（使用 `site.posts` 自动列出文章）
+  - `_includes/head_custom.html`（包含 Google Analytics legacy + GA4）
+  - KaTeX 已通过 CDN 添加到 `_includes/head.html`，并启用 auto-render（支持行内与行间公式渲染）
+- 备份：原始静态 HTML 已备份到 `site-backup/`。
+- 移除：尝试移除 `my-jekyll-site/`（大部分内容已迁移/删除），若本地仍存在残留目录请执行 `rm -rf my-jekyll-site` 后提交。
+- 说明：CI workflow 已调整为从仓库根构建 Jekyll（生成 `_site` 并部署到 Pages）。
+
+验收/后续：
+- 本地运行 `bundle install` + `bundle exec jekyll serve` 以检查页面（特别是 `/blog.html` 和文章页）。
+- 如需我把 KaTeX 改为本地静态资源或进一步微调头部 meta/样式，请告知.
