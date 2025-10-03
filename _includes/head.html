@@ -1,0 +1,19 @@
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+
+    <!-- Site styles and icons -->
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ '/assets/css/academicons.min.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/academicons.css' | relative_url }}">
+
+    <!-- KaTeX (math rendering) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+      integrity="" crossorigin="anonymous"
+      onload="renderMathInElement(document.body, {delimiters: [{left:'$$', right:'$$', display:true},{left:'$', right:'$', display:false}]});"></script>
+
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+    {% include head_custom.html %}
