@@ -2,5 +2,8 @@ title: Xi's Blog
 baseurl: ""
 url: "https://rickylixi.github.io"
 markdown: kramdown
+kramdown:
+  math_engine: mathjax
+  syntax_highlighter: rouge
 permalink: /:year/:month/:day/:title.html
 paginate: 5
