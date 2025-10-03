@@ -104,6 +104,15 @@ img {
   max-width:100%;
 }
 
+/* Ensure social links are vertical across all pages, overriding inline styles */
+header .social-row {
+  display:flex !important;
+  flex-direction:column !important;
+  flex-wrap:nowrap !important;
+  justify-content:flex-start !important;
+  gap:4px;
+}
+
 header {
   width:270px;
   float:left;
