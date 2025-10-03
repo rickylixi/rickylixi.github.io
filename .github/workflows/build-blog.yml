@@ -23,6 +23,12 @@ jobs:
       - name: Build Jekyll blog to _site/blog
         run: |
           mkdir -p _site
+          # If the repository has root-level includes, copy them into blog/_includes so
+          # building the blog source can use shared includes (e.g. head.html)
+          if [ -d _includes ]; then
+            rm -rf blog/_includes || true
+            cp -R _includes blog/_includes
+          fi
           cd blog
           # If Gemfile exists, use bundle; otherwise install jekyll CLI so the command exists
           if [ -f Gemfile ]; then
