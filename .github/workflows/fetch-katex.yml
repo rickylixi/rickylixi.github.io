@@ -1,0 +1,35 @@
+name: Fetch KaTeX and commit
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-and-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: true
+
+      - name: Ensure fetch script is executable
+        run: |
+          chmod +x ./scripts/fetch-katex.sh
+
+      - name: Fetch KaTeX assets
+        run: |
+          ./scripts/fetch-katex.sh
+
+      - name: Commit and push KaTeX assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/vendor/katex || true
+          if git diff --staged --quiet; then
+            echo "No KaTeX changes to commit"
+          else
+            git commit -m "chore: add KaTeX vendor assets (fetched by workflow)"
+            git push origin HEAD:main
+          fi
