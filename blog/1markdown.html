@@ -1,21 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script type="text/javascript" id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
-    <!-- 添加Marked.js库来解析Markdown -->
+    <meta charset="UTF-8">
+    <title>Markdown数学公式渲染</title>
+    <!-- 先加载Marked.js -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <!-- 添加Highlight.js库用于代码高亮（可选） -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/github.min.css">
-    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js"></script>
+    <!-- 再加载MathJax -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        #content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        }
+        pre {
+            background: #f8f8f8;
+            padding: 15px;
+            border-radius: 5px;
+            overflow: auto;
+            border-left: 4px solid #007acc;
+        }
+        h1 { color: #333; border-bottom: 2px solid #007acc; padding-bottom: 10px; }
+        h2 { color: #444; margin-top: 30px; }
+    </style>
 </head>
 <body>
-    <div id="content"></div>
-    
+    <div id="content">
+        <!-- 内容将通过JavaScript动态渲染 -->
+        <div id="loading">正在加载数学公式渲染器...</div>
+    </div>
+
     <script>
-        // 你的Markdown内容
-        const markdownContent = `
+        // 等待页面完全加载
+        document.addEventListener('DOMContentLoaded', function() {
+            // 你的Markdown内容
+            const markdownContent = `
 # A first-level heading
     
 ## A second-level heading
@@ -62,18 +109,32 @@ A footnote can also have multiple lines[^2].
 $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$
 `;
 
-        // 配置Marked
-        marked.setOptions({
-            highlight: function(code, lang) {
-                if (lang && hljs.getLanguage(lang)) {
-                    return hljs.highlight(code, { language: lang }).value;
+            // 配置marked选项
+            marked.setOptions({
+                breaks: true,
+                gfm: true
+            });
+
+            try {
+                // 渲染Markdown
+                const htmlContent = marked.parse(markdownContent);
+                document.getElementById('content').innerHTML = htmlContent;
+                
+                // 重新处理数学公式
+                if (window.MathJax) {
+                    MathJax.startup.document.state(0);
+                    MathJax.typesetPromise().then(() => {
+                        console.log('数学公式渲染完成！');
+                    }).catch((err) => {
+                        console.error('数学公式渲染错误:', err);
+                    });
                 }
-                return hljs.highlightAuto(code).value;
+            } catch (error) {
+                console.error('Markdown渲染错误:', error);
+                document.getElementById('content').innerHTML = 
+                    '<p style="color: red">渲染出错，请检查控制台日志。</p>';
             }
         });
-
-        // 渲染Markdown到页面
-        document.getElementById('content').innerHTML = marked.parse(markdownContent);
     </script>
 </body>
 </html>
