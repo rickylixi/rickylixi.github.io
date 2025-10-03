@@ -32,6 +32,9 @@
 
 </footer>
 
+<script defer src="{{ "/assets/vendor/katex/katex.min.js" | relative_url }}"></script>
+<script defer src="{{ "/assets/vendor/katex/contrib/auto-render.min.js" | relative_url }}"></script>
+<!-- CDN fallback if local assets are not present -->
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
 <script>
@@ -52,4 +55,59 @@ document.addEventListener('DOMContentLoaded', function () {
     console.warn('KaTeX auto-render failed:', e);
   }
 });
+</script>
+
+<!-- Fallback loader: if auto-render isn't available, load KaTeX and auto-render dynamically and run it -->
+<script>
+(function(){
+  function runRender(){
+    try{
+      if (typeof renderMathInElement === 'function'){
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '\\(', right: '\\)', display: false},
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+          ],
+          ignoredTags: ['code','pre','script','style']
+        });
+        console.info('KaTeX auto-render: rendered math');
+        return true;
+      }
+    }catch(e){console.warn('KaTeX auto-render run error', e)}
+    return false;
+  }
+
+  if (runRender()) return; // already rendered
+
+  // helper to load script
+  function loadScript(src, cb){
+    var s = document.createElement('script');
+    s.src = src;
+    s.async = false;
+    s.onload = cb;
+    s.onerror = function(){ console.warn('Failed to load', src); if(cb) cb(new Error('load error')); };
+    document.head.appendChild(s);
+  }
+
+  // Try to load missing pieces in order
+  var KA = 'https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js';
+  var AR = 'https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js';
+
+  // If katex or auto-render missing, load them
+  if (typeof renderMathInElement !== 'function'){
+    // ensure katex is present first
+    if (typeof katex === 'undefined'){
+      loadScript(KA, function(err){
+        if (err){ console.warn('Could not load KaTeX'); return; }
+        loadScript(AR, function(err2){ if(err2){ console.warn('Could not load KaTeX auto-render'); return; } runRender(); });
+      });
+    } else {
+      loadScript(AR, function(err2){ if(err2){ console.warn('Could not load KaTeX auto-render'); return; } runRender(); });
+    }
+  }
+
+  // As a last resort, try again after short delay in case scripts are still parsing
+  setTimeout(function(){ if(!runRender()){ console.info('KaTeX auto-render: still not available after fallback attempt'); } }, 2000);
+})();
 </script>

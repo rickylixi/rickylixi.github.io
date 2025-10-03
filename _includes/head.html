@@ -8,7 +8,8 @@
 
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
   <link rel="stylesheet" href="{{ "/css/custom.css" | relative_url }}">
-  <!-- KaTeX for math rendering -->
+  <!-- KaTeX for math rendering: prefer local copy under assets/vendor/katex, fallback to CDN -->
+  <link rel="stylesheet" href="{{ "/assets/vendor/katex/katex.min.css" | relative_url }}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
