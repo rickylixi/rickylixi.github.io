@@ -122,63 +122,9 @@ header {
   -webkit-font-smoothing:subpixel-antialiased;
 }
 
-header ul {
-  list-style:none;
-  height:40px;
-  padding:0;
-  background: #f4f4f4;
-  border-radius:5px;
-  border:1px solid #e0e0e0;
-  width:270px;
-}
-
-header li {
-  width:89px;
-  float:left;
-  border-right:1px solid #e0e0e0;
-  height:40px;
-}
-
-header li:first-child a {
-  border-radius:5px 0 0 5px;
-}
-
-header li:last-child a {
-  border-radius:0 5px 5px 0;
-}
-
-header ul a {
-  line-height:1;
-  font-size:11px;
-  color:#999;
-  display:block;
-  text-align:center;
-  padding-top:6px;
-  height:34px;
-}
-
-header ul a:hover {
-  color:#999;
-}
-
-header ul a:active {
-  background-color:#f0f0f0;
-}
-
 strong {
   color:#222;
   font-weight:500;
-}
-
-header ul li + li + li {
-  border-right:none;
-  width:89px;
-}
-
-header ul a strong {
-  font-size:14px;
-  display:block;
-  color:#222;
 }
 
 section {
@@ -198,13 +144,6 @@ hr {
   margin:0 0 20px;
 }
 
-footer {
-  width:270px;
-  float:left;
-  position:fixed;
-  bottom:50px;
-  -webkit-font-smoothing:subpixel-antialiased;
-}
 
 @media print, screen and (max-width: 960px) {
 
@@ -233,12 +172,6 @@ footer {
   header a small {
     display:inline;
   }
-
-  header ul {
-    position:absolute;
-    right:50px;
-    top:52px;
-  }
 }
 
 @media print, screen and (max-width: 720px) {
@@ -250,7 +183,7 @@ footer {
     padding:0;
   }
 
-  header ul, header p.view {
+  header p.view {
     position:static;
   }
 
@@ -264,13 +197,6 @@ footer {
     padding:15px;
   }
 
-  header ul {
-    width:99%;
-  }
-
-  header li, header ul li + li + li {
-    width:33%;
-  }
 }
 
 @media print {
