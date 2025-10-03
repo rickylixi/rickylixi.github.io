@@ -1,0 +1,17 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Page</title>
+</head>
+<body>
+  <h1>Blog Posts Test</h1>
+  <ul>
+    {% for post in site.posts %}
+      <li>{{ post.title }}</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
