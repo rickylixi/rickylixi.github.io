@@ -106,12 +106,14 @@ img {
 
 /* Ensure social links are vertical across all pages, overriding inline styles */
 header .social-row {
-  display:flex !important;
-  flex-direction:column !important;
-  flex-wrap:nowrap !important;
-  justify-content:flex-start !important;
-  gap:4px;
+  display:flex;
+  flex-direction:column;
+  flex-wrap:nowrap;
+  justify-content:flex-start;
+  gap:2px;
 }
+header .social-row br { display:none; }
+header .social-row a { margin:0; line-height:1.3; }
 
 header {
   width:270px;
