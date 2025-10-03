@@ -1,5 +1,0 @@
-The directory `my-jekyll-site/` remains in the repository root. Most of its files were migrated to the repo root. If you want to remove it locally run:
-
-    rm -rf my-jekyll-site
-
-Before deleting, verify there's no needed content left. A backup of the earlier root HTML files is in site-backup/*.bak.
