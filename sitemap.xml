@@ -10,28 +10,28 @@
  <loc>https://rickylixi.github.io/</loc>
  <priority>0.3</priority>
  <lastmod>2025-10-03</lastmod>
- <changefreq>weekly</changefreq>
+ <changefreq>always</changefreq>
 </url>
 
 <url>
  <loc>https://rickylixi.github.io/research.html</loc>
  <priority>0.3</priority>
  <lastmod>2025-10-03</lastmod>
- <changefreq>weekly</changefreq>
+ <changefreq>always</changefreq>
 </url>
 
 <url>
  <loc>https://rickylixi.github.io/teaching.html</loc>
  <priority>0.3</priority>
  <lastmod>2025-10-03</lastmod>
- <changefreq>weekly</changefreq>
+ <changefreq>always</changefreq>
 </url>
 
 <url>
  <loc>https://rickylixi.github.io/personal.html</loc>
  <priority>0.3</priority>
  <lastmod>2025-10-03</lastmod>
- <changefreq>weekly</changefreq>
+ <changefreq>always</changefreq>
 </url>
 
 </urlset>
