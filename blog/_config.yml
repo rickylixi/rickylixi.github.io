@@ -1,5 +1,5 @@
 title: Xi's Blog
-baseurl: "/blog"
+baseurl: ""
 url: "https://rickylixi.github.io"
 markdown: kramdown
 permalink: /:year/:month/:day/:title.html
