@@ -7,7 +7,19 @@ layout: null
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{ page.title }} | Xi's Space</title>
+    <title>{{ page.title }} | Xi Li</title>
+    <meta name="description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}">
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{ page.title }} | Xi Li">
+    <meta property="og:description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 200 }}">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:image" content="{{ site.url }}/turing-machine1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ page.title }} | Xi Li">
+    <meta name="twitter:description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 200 }}">
+    <meta name="twitter:image" content="{{ site.url }}/turing-machine1.png">
 
     <link rel="stylesheet" href="/stylesheets/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
@@ -24,7 +36,7 @@ layout: null
   </head>
   <body>
     <div class="wrapper">
-      <header>
+      <header role="banner">
         <h1>Xi Li</h1>
         <p>Associate Professor of Logic<br>Central South University</p>
     <h3><a href="https://rickylixi.github.io/">Home</a></h3>
@@ -45,7 +57,7 @@ layout: null
     <p><b>Contact:</b><br>Department of Philosophy<br>Central South University<br>Changsha, Hunan<br>China</p>
       </header>
 
-      <section>
+      <section role="main">
         <article class="post">
           <div class="post-header">
             <h1 class="post-title">{{ page.title }}</h1>
@@ -58,6 +70,6 @@ layout: null
         </article>
       </section>
     </div>
-    <script src="/javascripts/scale.fix.js"></script>
+    <script src="/javascripts/scale.fix.js" defer></script>
   </body>
 </html>
