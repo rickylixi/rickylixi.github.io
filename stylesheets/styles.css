@@ -54,10 +54,6 @@ a:hover small {
   color:#777;
 }
 
-.wrapper {
-  width:860px;
-  margin:0 auto;
-}
 
 blockquote {
   border-left:1px solid #e5e5e5;
@@ -149,11 +145,6 @@ hr {
 
 @media print, screen and (max-width: 960px) {
 
-  div.wrapper {
-    width:auto;
-    margin:0;
-  }
-
   header, section, footer {
     float:none;
     position:static;
@@ -207,13 +198,6 @@ hr {
   }
 }
 
-/* Blog post layout spacing */
-.post-header {
-  margin-bottom:20px;
-}
-.post-content {
-  margin-top:10px;
-}
 
 /* Accordion styles from research.html */
 button.accordion {
@@ -272,4 +256,15 @@ html {
 /* Optimize font loading */
 body {
   font-display: swap;
+}
+
+.publication-entry .button-container {
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.publication-link {
+  margin: 0;
+  font-size: 100%;
+  font-weight: bold;
 }
