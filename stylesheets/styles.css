@@ -244,8 +244,12 @@ button.accordion.active:after {
 div.panel {
   padding: 0 20px;
   margin-top: 5px;
+  display: none;
   background-color: white;
   font-size: 100%;
+}
+div.panel.show {
+  display: block !important;
 }
 
 /* Performance optimizations */
