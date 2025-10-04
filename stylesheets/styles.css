@@ -127,7 +127,7 @@ strong {
 
 section {
   width:500px;
-  float:right;
+  margin-left:300px; /* Adjust margin to account for fixed header */
   padding-bottom:50px;
 }
 
@@ -167,13 +167,13 @@ hr {
 }
 
 @media print, screen and (max-width: 720px) {
-  body {
-    word-wrap:break-word;
-  }
-
-  header {
-    padding:0;
-  }
+body {
+  background-color: #fff;
+  padding:20px; /* Reduced padding to better accommodate fixed sidebar */
+  font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color:#595959;
+  font-weight:400;
+}
 
   /* Removed unused style */
   /* header p.view { position:static; } */
