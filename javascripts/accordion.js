@@ -11,10 +11,10 @@ document.addEventListener('DOMContentLoaded', function() {
       /* Toggle between hiding and showing the active panel */
       var panel = this.nextElementSibling;
       if (panel && panel.classList.contains("panel")) {
-        if (panel.style.display === "none") {
-          panel.style.display = "block";
-        } else {
+        if (panel.style.display === "block") {
           panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
         }
       }
     });
