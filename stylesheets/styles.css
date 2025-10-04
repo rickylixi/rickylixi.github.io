@@ -268,3 +268,85 @@ body {
   font-size: 100%;
   font-weight: bold;
 }
+
+/* Resizable Columns Layout */
+.resizable-layout {
+  display: grid;
+  grid-template-columns: 270px 10px auto; /* Header, Resizer, Section */
+  grid-template-rows: auto;
+  gap: 0; /* No gap between grid items */
+  height: 100vh; /* Example: make it full viewport height */
+  overflow: hidden; /* Prevent scrollbars on the container itself */
+}
+
+.resizable-layout header {
+  grid-column: 1;
+  position: static; /* Remove fixed positioning */
+  width: auto; /* Let grid handle width */
+  float: none; /* Remove float */
+  height: 100%; /* Make header take full height */
+  overflow-y: auto; /* Allow header content to scroll if it overflows */
+}
+
+.resizable-layout section {
+  grid-column: 3;
+  width: auto; /* Let grid handle width */
+  float: none; /* Remove float */
+  height: 100%; /* Make section take full height */
+  overflow-y: auto; /* Allow section content to scroll if it overflows */
+  padding-bottom: 0; /* Remove padding-bottom as section height is handled by grid */
+}
+
+.resizer {
+  grid-column: 2;
+  cursor: col-resize;
+  background-color: #e5e5e5; /* Visual indicator for the resizer */
+  width: 10px; /* Match grid-template-columns */
+  height: 100%; /* Take full height of the grid row */
+}
+
+/* Responsive adjustments for the resizable layout */
+@media (max-width: 960px) {
+  .resizable-layout {
+    grid-template-columns: 1fr 10px auto; /* Adjust for smaller screens */
+  }
+  .resizable-layout header {
+    grid-column: 1;
+    position: static;
+    width: auto;
+    float: none;
+    height: auto; /* Adjust height for responsiveness */
+    overflow-y: visible;
+  }
+  .resizable-layout section {
+    grid-column: 3;
+    width: auto;
+    float: none;
+    height: auto; /* Adjust height for responsiveness */
+    overflow-y: visible;
+  }
+  .resizer {
+    grid-column: 2;
+    width: 10px;
+    height: 100%;
+  }
+}
+
+/* Further adjustments for smaller screens if needed */
+@media (max-width: 720px) {
+  .resizable-layout {
+    grid-template-columns: 1fr; /* Stack columns on very small screens */
+  }
+  .resizable-layout header,
+  .resizable-layout section,
+  .resizer {
+    grid-column: 1; /* All elements in the first column */
+    width: 100%; /* Full width */
+    height: auto; /* Auto height */
+    overflow-y: visible;
+  }
+  .resizer {
+    height: 5px; /* Make resizer a horizontal separator */
+    cursor: row-resize; /* Change cursor for horizontal resize */
+  }
+}
