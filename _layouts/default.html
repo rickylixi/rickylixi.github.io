@@ -53,7 +53,7 @@
   </head>
 
   <body>
-    <div class="wrapper resizable-layout">
+    <div class="wrapper">
       <header>
         <h1><a href="{{ "/" | relative_url }}">李熙 | Xi Li</a></h1>
         <div class="university-info">
@@ -77,8 +77,6 @@
         </div>
       </header>
 
-      <div class="resizer"></div>
-
       <section>
         {{ content }}
       </section>
@@ -90,7 +88,7 @@
 
     <!-- Load accordion script for research page -->
     <script src="{{ "/javascripts/accordion.js" | relative_url }}"></script>
-    <!-- Load resizable columns script -->
-    <script src="{{ "/javascripts/resizable-columns.js" | relative_url }}"></script>
+    <!-- Load scale fix script for mobile -->
+    <script src="{{ "/javascripts/scale.fix.js" | relative_url }}"></script>
   </body>
 </html>
