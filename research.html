@@ -4,6 +4,26 @@ title: "Research"
 description: "Publications and research by Xi Li."
 canonical_url: "/research.html"
 ---
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var acc = document.getElementsByClassName("accordion");
+  
+  for (var i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel && panel.classList.contains("panel")) {
+        if (panel.style.display === "none") {
+          panel.style.display = "block";
+        } else {
+          panel.style.display = "none";
+        }
+      }
+    });
+  }
+});
+</script>
 <!-- No R&Rs or WPs at the moment
 <h2><a id="recent-RRs-updated" class="anchor" href="#RRpapers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Papers under Revision to Resubmit</h2>
 <p style="margin:0"> Coming soon. <br> <br> 
@@ -23,7 +43,7 @@ canonical_url: "/research.html"
   Replication files
 </button>
 <div class="panel" style="display: none;">
-  <p> <a href="https://github.com/rickylixi/rickylixi.github.io/blob/main/research/lawvere.pdf">GitHub repository</a> </p>
+  <p><a href="https://github.com/rickylixi/rickylixi.github.io/blob/main/research/lawvere.pdf">GitHub repository</a></p>
 </div>
 <br><button class="accordion">
   BibTeX citation
