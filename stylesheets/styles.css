@@ -158,9 +158,8 @@ hr {
     width:auto;
   }
 
-  header {
-    padding-right:320px;
-  }
+  /* Removed redundant padding-right for header */
+  /* header { padding-right:320px; } */
 
   section {
     border:1px solid #e5e5e5;
@@ -183,9 +182,8 @@ hr {
     padding:0;
   }
 
-  header p.view {
-    position:static;
-  }
+  /* Removed unused style */
+  /* header p.view { position:static; } */
 
   pre, code {
     word-wrap:normal;
@@ -215,3 +213,39 @@ hr {
   margin-top:10px;
 }
 
+/* Accordion styles from research.html */
+button.accordion {
+  font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  cursor: pointer;
+  padding: 0px;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 100%;
+  transition: 0.3s;
+  background-color: #f8f8f8;
+}
+button.accordion.active, button.accordion:hover {
+  background-color: #f8f8f8;
+}
+button.accordion:after {
+  content: " [+] ";
+  font-size: 90%;
+  color:#777;
+  float: left;
+  margin-left: 1px;
+}
+
+button.accordion.active:after {
+  content: " [\2212] ";
+}
+div.panel {
+  padding: 0 20px;
+  margin-top: 5px;
+  display: none;
+  background-color: white;
+  font-size: 100%;
+}
+div.panel.show {
+  display: block !important;
+}

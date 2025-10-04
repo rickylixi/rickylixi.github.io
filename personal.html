@@ -1,144 +1,27 @@
-<!doctype html>
-<html lang="en">
-  <head>
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-  <link rel="preload" href="stylesheets/styles.css" as="style">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Personal | Xi Li</title>
-    <meta name="description" content="Personal interests and recommendations by Xi Li.">
-    <link rel="canonical" href="https://rickylixi.github.io/personal.html">
+---
+layout: default
+title: "Personal"
+description: "Personal interests and recommendations by Xi Li."
+canonical_url: "/personal.html"
+---
+<img src="{{ "/ai-xi.jpg" | relative_url }}" alt="Portrait of Xi Li" loading="lazy">
+<h3>About me</h3>
+<p>When I am not working, I am reading books, listening to podcasts, or playing PingPong.</p>
 
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Personal | Xi Li">
-    <meta property="og:description" content="Personal interests and recommendations by Xi Li.">
-    <meta property="og:url" content="https://rickylixi.github.io/personal.html">
-    <meta property="og:image" content="https://rickylixi.github.io/ai-xi.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Personal | Xi Li">
-    <meta name="twitter:description" content="Personal interests and recommendations by Xi Li.">
-    <meta name="twitter:image" content="https://rickylixi.github.io/ai-xi.jpg">
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
-    
-    
-    
-
-    <!-- New GA4 tracking code, see https://support.google.com/analytics/answer/10271001#analyticsjs-enable-basic --> 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GNJD50R0Z7"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-GNJD50R0Z7');
-    </script>
-
-    
-    
-    
-    <!-- MathJax for math rendering in all pages -->
-    <script>
-    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }, options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] } };
-    </script>
-    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-    <style>
-      button.accordion {
-      font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-      cursor: pointer;
-      padding: 0px;
-      border: none;
-      text-align: left;
-      outline: none;
-      font-size: 100%;
-      transition: 0.3s;
-      background-color: #f8f8f8;
-      }
-      button.accordion.active, button.accordion:hover {
-      background-color: #f8f8f8;
-      }
-      button.accordion:after {
-      content: " [+] ";
-      font-size: 90%;
-      color:#777;
-      float: left;
-      margin-left: 1px;
-      }
-
-      button.accordion.active:after {
-      content: " [\2212] ";
-      }
-      div.panel {
-      padding: 0 20px;
-      margin-top: 5px;
-      display: none;
-      background-color: white;
-      font-size: 100%;
-      }
-      div.panel.show {
-      display: block !important;
-      }
-      .social-row {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="wrapper">
-      <header role="banner">
-        <h1>Xi Li</h1>
-        <p>Associate Professor of Logic<br>Central South University</p>
-    <nav aria-label="Primary">
-        <h3><a href="https://rickylixi.github.io/">Home</a></h3>
-        <h3><a href="https://rickylixi.github.io/research.html">Research</a></h3>
-        <h3><a href="https://rickylixi.github.io/teaching.html">Teaching</a></h3>
-        <h3><a href="https://rickylixi.github.io/personal.html" aria-current="page">Personal</a></h3>
-        <h3><a href="https://rickylixi.github.io/blog.html">Blog</a></h3>
-    </nav>
-        <b>Social</b><br>
-        <div class="social-row">
-          <a href="mailto:xieshenlixi@163.com" class="author-social" target="_blank" rel="noopener noreferrer"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> Email</a><br>
-          <a href="https://github.com/rickylixi" target="_blank" rel="noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a><br>
-          <a href="https://x.com/pkulixi" class="author-social" target="_blank" rel="noopener noreferrer"><i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i> X</a><br>
-          <a href="https://www.zhihu.com/people/pkulixi" class="author-social" target="_blank" rel="noopener noreferrer"><i class="fab fa-fw fa-zhihu" aria-hidden="true"></i> Zhihu</a><br>
-          <br>
-        </div>
-        <br>
-
-    <p><b>Contact:</b><br>Department of Philosophy<br>Central South University<br>Changsha, Hunan<br>China</p>
-      </header>
-      <section role="main">
-      <img src="ai-xi.jpg" alt="Portrait of Xi Li">
-      <h3>About me</h3>
-      <p>When I am not working, I am reading books, listening to podcasts, or playing PingPong.</p>
-      
-      <hr />
-      <h3>Some books I've read and highly recommend</h3>
-      <p><b>Fiction</b></p>
-      <ul>
-        <li><em><a href="https://www.telelib.com/authors/O/OrwellGeorge/prose/AnimalFarm/index.html" target="_blank" rel="noopener noreferrer">Animal Farm</a></em>, by George Orwell</li>
-        <li><em><a href="https://users.ece.cmu.edu/~gamvrosi/thelastq.html" target="_blank" rel="noopener noreferrer">The Last Question</a></em>, by Isaac Asimov</li>
-        <li><em><a href="https://www.baen.com/Chapters/9781982126032/9781982126032___5.htm" target="_blank" rel="noopener noreferrer">All You Zombies</a></em>, by Robert A. Heinlein</li>
-        <li><em><a href="https://granta.com/the-black-sheep/" target="_blank" rel="noopener noreferrer">The Black Sheep</a></em>, by Italo Calvino</li>
-        <li><em><a href="https://www.owleyes.org/search?q=pride%20and%20prejudice" target="_blank" rel="noopener noreferrer">Pride and Prejudice</a></em>, by Jane Austin</li>
-      </ul>
-      <p><b>Science</b></p>
-      <ul>
-        <li><em><a href="https://homepages.cwi.nl/~paulv/kolmogorov.html" target="_blank" rel="noopener noreferrer">An Introduction to Kolmogorov Complexity and Its Applications</a></em>, by Ming Li and Paul Vitanyi</li>
-        <li><em><a href="https://bayes.cs.ucla.edu/jp_home.html" target="_blank" rel="noopener noreferrer">Causality</a></em>, by Judea Pearl</li>
-        <li><em><a href="https://www.hutter1.net/publ/uaibook2.pdf" target="_blank" rel="noopener noreferrer">An Introduction to Universal Artificial Intelligence</a></em>, by Marcus Hutter and David Quarel and Elliot Catt</li>
-        <li><em><a href="https://arxiv.org/pdf/1803.05316" target="_blank" rel="noopener noreferrer">An Invitation to Applied Category Theory</a></em>, by Brendan Fong and David I. Spivak</li>
-      </ul>
-      </section>
-    </div>
-    <script src="javascripts/scale.fix.js" defer></script>
-  </body>
-</html>
+<hr />
+<h3>Some books I've read and highly recommend</h3>
+<p><b>Fiction</b></p>
+<ul>
+  <li><em><a href="https://www.telelib.com/authors/O/OrwellGeorge/prose/AnimalFarm/index.html" target="_blank" rel="noopener noreferrer">Animal Farm</a></em>, by George Orwell</li>
+  <li><em><a href="https://users.ece.cmu.edu/~gamvrosi/thelastq.html" target="_blank" rel="noopener noreferrer">The Last Question</a></em>, by Isaac Asimov</li>
+  <li><em><a href="https://www.baen.com/Chapters/9781982126032/9781982126032___5.htm" target="_blank" rel="noopener noreferrer">All You Zombies</a></em>, by Robert A. Heinlein</li>
+  <li><em><a href="https://granta.com/the-black-sheep/" target="_blank" rel="noopener noreferrer">The Black Sheep</a></em>, by Italo Calvino</li>
+  <li><em><a href="https://www.owleyes.org/search?q=pride%20and%20prejudice" target="_blank" rel="noopener noreferrer">Pride and Prejudice</a></em>, by Jane Austin</li>
+</ul>
+<p><b>Science</b></p>
+<ul>
+  <li><em><a href="https://homepages.cwi.nl/~paulv/kolmogorov.html" target="_blank" rel="noopener noreferrer">An Introduction to Kolmogorov Complexity and Its Applications</a></em>, by Ming Li and Paul Vitanyi</li>
+  <li><em><a href="https://bayes.cs.ucla.edu/jp_home.html" target="_blank" rel="noopener noreferrer">Causality</a></em>, by Judea Pearl</li>
+  <li><em><a href="https://www.hutter1.net/publ/uaibook2.pdf" target="_blank" rel="noopener noreferrer">An Introduction to Universal Artificial Intelligence</a></em>, by Marcus Hutter and David Quarel and Elliot Catt</li>
+  <li><em><a href="https://arxiv.org/pdf/1803.05316" target="_blank" rel="noopener noreferrer">An Invitation to Applied Category Theory</a></em>, by Brendan Fong and David I. Spivak</li>
+</ul>
