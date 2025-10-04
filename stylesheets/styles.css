@@ -102,6 +102,8 @@ th {
 
 img {
   max-width:100%;
+  height: auto;
+  loading: lazy;
 }
 
 /* Ensure social links are vertical across all pages, overriding inline styles */
@@ -248,4 +250,26 @@ div.panel {
 }
 div.panel.show {
   display: block !important;
+}
+
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+/* Improve focus visibility for accessibility */
+a:focus,
+button:focus {
+  outline: 2px solid #39c;
+  outline-offset: 2px;
+}
+
+/* Smooth scrolling for better UX */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optimize font loading */
+body {
+  font-display: swap;
 }

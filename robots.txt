@@ -1,5 +1,18 @@
 User-agent: *
 Allow: /
 
+# Disallow admin and private directories
+Disallow: /_includes/
+Disallow: /_layouts/
+Disallow: /_posts/
+Disallow: /assets/docs/
+Disallow: /scripts/
+
+# Allow important files
+Allow: /stylesheets/
+Allow: /javascripts/
+Allow: /research/
+Allow: /teaching/
+
 Sitemap: https://rickylixi.github.io/sitemap.xml
 
