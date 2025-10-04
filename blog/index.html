@@ -1,86 +1,12 @@
 ---
-layout: null
-redirect_from: /blog.html
+layout: default
+title: "Blog"
+description: "Xi Li's blog posts."
+canonical_url: "/blog/"
 ---
-<!doctype html>
-<html lang="en">
-  <head>
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-  <link rel="preload" href="/stylesheets/styles.css" as="style">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Blog | Xi Li</title>
-    <meta name="description" content="Xi Li's blog posts.">
-    <link rel="canonical" href="https://rickylixi.github.io/blog/">
-
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Blog | Xi Li">
-    <meta property="og:description" content="Posts and notes by Xi Li.">
-    <meta property="og:url" content="https://rickylixi.github.io/blog/">
-    <meta property="og:image" content="https://rickylixi.github.io/turing-machine1.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Blog | Xi Li">
-    <meta name="twitter:description" content="Posts and notes by Xi Li.">
-    <meta name="twitter:image" content="https://rickylixi.github.io/turing-machine1.png">
-
-    <link rel="stylesheet" href="/stylesheets/styles.css">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
-
-    <!-- New GA4 tracking code, see https://support.google.com/analytics/answer/10271001#analyticsjs-enable-basic --> 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GNJD50R0Z7"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-GNJD50R0Z7');
-    </script>
-
-    
-    <!-- MathJax for math rendering in all pages -->
-    <script>
-    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }, options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] } };
-    </script>
-    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  </head>
-  <body>
-    <div class="wrapper">
-      <header role="banner">
-        <h1>Xi Li</h1>
-        <p>Associate Professor of Logic<br>Central South University</p>
-    <nav aria-label="Primary">
-        <h3><a href="https://rickylixi.github.io/">Home</a></h3>
-        <h3><a href="https://rickylixi.github.io/research.html">Research</a></h3>
-        <h3><a href="https://rickylixi.github.io/teaching.html">Teaching</a></h3>
-        <h3><a href="https://rickylixi.github.io/personal.html">Personal</a></h3>
-        <h3><a href="https://rickylixi.github.io/blog/" aria-current="page">Blog</a></h3>
-    </nav>
-        <b>Social</b><br>
-        <div class="social-row">
-          <a href="mailto:xieshenlixi@163.com" class="author-social" target="_blank" rel="noopener noreferrer"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> Email</a><br>
-          <a href="https://github.com/rickylixi" target="_blank" rel="noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a><br>
-          <a href="https://x.com/pkulixi" class="author-social" target="_blank" rel="noopener noreferrer"><i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i> X</a><br>
-          <a href="https://www.zhihu.com/people/pkulixi" class="author-social" target="_blank" rel="noopener noreferrer"><i class="fab fa-fw fa-zhihu" aria-hidden="true"></i> Zhihu</a><br>
-          <br>
-        </div>
-        <br>
-
-    <p><b>Contact:</b><br>Department of Philosophy<br>Central South University<br>Changsha, Hunan<br>China</p>
-      </header>
-      <section role="main">
-      
-      <h3>Xi's Blog</h3>
-      <ul>
-      {% for post in paginator.posts %}
-        <li><em><a href="{{ post.url }}">{{ post.title }}</a></em> <small>{{ post.date | date: "%Y-%m-%d" }}</small></li>
-      {% endfor %}
-      </ul>
-    </section>
-    </div>
-    <script src="/javascripts/scale.fix.js" defer></script>
-  </body>
-</html>
+<h3>Xi's Blog</h3>
+<ul>
+{% for post in paginator.posts %}
+  <li><em><a href="{{ post.url }}">{{ post.title }}</a></em> <small>{{ post.date | date: "%Y-%m-%d" }}</small></li>
+{% endfor %}
+</ul>
