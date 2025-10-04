@@ -51,28 +51,27 @@
   </head>
   <body>
     <div class="wrapper">
-      <header role="banner">
-        <h1>李熙 (Xi Li)</h1>
-        <p>中南大学哲学系</p>
-        <p>Associate Professor of Logic<br>Central South University</p>
-    <nav aria-label="Primary">
-        <h3><a href="https://rickylixi.github.io/" aria-current="page">Home</a></h3>
-        <h3><a href="https://rickylixi.github.io/research.html">Research</a></h3>
-        <h3><a href="https://rickylixi.github.io/teaching.html">Teaching</a></h3> 
-        <h3><a href="https://rickylixi.github.io/personal.html">Personal</a></h3>
-        <h3><a href="https://rickylixi.github.io/blog.html">Blog</a></h3>
-    </nav>
-        <b>Social</b><br>
-        <div class="social-row">
-          <a href="mailto:xieshenlixi@163.com" class="author-social" target="_blank" rel="noopener noreferrer"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> <span class="sr-only">Email</span> Email</a><br>
-          <a href="https://github.com/rickylixi" target="_blank" rel="noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a><br>
-          <a href="https://x.com/pkulixi" class="author-social" target="_blank" rel="noopener noreferrer"><i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i> X</a><br>
-          <a href="https://www.zhihu.com/people/pkulixi" class="author-social" target="_blank" rel="noopener noreferrer"><i class="fab fa-fw fa-zhihu" aria-hidden="true"></i> Zhihu</a><br>
-          <br>
+      <header>
+        <h1><a href="{{ "/" | relative_url }}">李熙 | Xi Li</a></h1>
+        <div class="university-info">
+            <p style="margin-bottom: 5px;">中南大学哲学系</p>
+            <p style="margin-bottom: 5px;">Department of Philosophy</p>
+            <p style="margin-bottom: 10px;">Central South University</p>
         </div>
-        <br>
-
-    <p><b>Contact:</b><br>Department of Philosophy<br>Central South University<br>Changsha, Hunan<br>China</p>
+        
+        <div class="social-row">
+          <a href="{{ "/research.html" | relative_url }}">Research</a>
+          <a href="{{ "/teaching.html" | relative_url }}">Teaching</a>
+          <a href="{{ "/personal.html" | relative_url }}">Personal</a>
+          <a href="{{ "/blog/" | relative_url }}" style="margin-bottom: 15px;">Blog</a>
+        </div>
+        
+        <div class="social-row">
+            <a href="mailto:xieshenlixi@163.com" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/rickylixi" class="social-link" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://x.com/pkulixi" class="social-link" target="_blank" rel="noopener noreferrer" title="X"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.zhihu.com/people/pkulixi" class="social-link" target="_blank" rel="noopener noreferrer" title="Zhihu"><i class="fab fa-zhihu"></i></a>
+        </div>
       </header>
       <section role="main">
       <img src="turing-machine1.png" alt="Turing machine illustration">
