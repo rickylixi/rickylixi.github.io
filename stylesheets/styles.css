@@ -268,15 +268,3 @@ body {
   font-size: 100%;
   font-weight: bold;
 }
-
-.university-info p {
-  margin-bottom: 5px;
-}
-
-.university-info p:last-child {
-  margin-bottom: 10px;
-}
-
-.social-row a[href*="blog"] {
-  margin-bottom: 15px;
-}
