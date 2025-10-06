@@ -9,7 +9,7 @@ window.addEventListener('load', function() {
       this.classList.toggle("active");
 
       /* Toggle between hiding and showing the active panel */
-      const panel = this.parentElement.getElementsByClassName('panel')[0];
+      const panel = this.nextElementSibling;
       if (panel) {
         panel.classList.toggle("show");
       }
