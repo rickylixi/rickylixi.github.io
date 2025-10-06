@@ -9,18 +9,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{ page.title | default: "李熙 | Xi Li" }}</title>
-    <meta name="description" content="{{ page.description | default: 'Xi Li, Associate Professor of Logic at the Central South University. Research interests: Kolmogorov Complexity, Solomonoff Induction, Universal Reinforcement Learning, Causal Inference, Rational Decision Theory, Philosophy of Artificial Intelligence.'}}">
+    {% assign page_title = page.title | default: "李熙 | Xi Li" %}
+    {% assign page_description = page.description | default: "Xi Li, Associate Professor of Logic at the Central South University. Research interests: Kolmogorov Complexity, Solomonoff Induction, Universal Reinforcement Learning, Causal Inference, Rational Decision Theory, Philosophy of Artificial Intelligence." %}
+    <title>{{ page_title }}</title>
+    <meta name="description" content="{{ page_description }}">
     <link rel="canonical" href="{{ page.canonical_url | default: page.url | replace:'index.html','' | absolute_url }}">
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="{{ page.title | default: 'Xi Li' }} | Central South University">
-    <meta property="og:description" content="{{ page.description | default: 'Associate Professor of Logic at the Central South University. Research interests: Kolmogorov Complexity, Solomonoff Induction, Universal Reinforcement Learning, Causal Inference, Rational Decision Theory, Philosophy of Artificial Intelligence.'}}">
+    <meta property="og:title" content="{{ page_title }} | Central South University">
+    <meta property="og:description" content="{{ page_description }}">
     <meta property="og:url" content="{{ page.canonical_url | default: page.url | replace:'index.html','' | absolute_url }}">
     <meta property="og:image" content="{{ "/turing-machine1.png" | absolute_url }}">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ page.title | default: 'Xi Li' }} | Central South University">
-    <meta name="twitter:description" content="{{ page.description | default: 'Associate Professor of Logic at the Central South University. Research interests: Kolmogorov Complexity, Solomonoff Induction, Universal Reinforcement Learning, Causal Inference, Rational Decision Theory, Philosophy of Artificial Intelligence.'}}">
+    <meta name="twitter:title" content="{{ page_title }} | Central South University">
+    <meta name="twitter:description" content="{{ page_description }}">
     <meta name="twitter:image" content="{{ "/turing-machine1.png" | absolute_url }}">
 
     <link rel="stylesheet" href="{{ "/stylesheets/styles.css" | relative_url }}">
@@ -57,16 +59,16 @@
       <header>
         <h1><a href="{{ "/" | relative_url }}">李熙 | Xi Li</a></h1>
         <div class="university-info">
-            <p style="margin-bottom: 5px;">中南大学哲学系</p>
-            <p style="margin-bottom: 5px;">Department of Philosophy</p>
-            <p style="margin-bottom: 10px;">Central South University</p>
+            <p>中南大学哲学系</p>
+            <p>Department of Philosophy</p>
+            <p>Central South University</p>
         </div>
         
         <div class="social-row">
           <a href="{{ "/research.html" | relative_url }}">Research</a>
           <a href="{{ "/teaching.html" | relative_url }}">Teaching</a>
           <a href="{{ "/personal.html" | relative_url }}">Personal</a>
-          <a href="{{ "/blog/" | relative_url }}" style="margin-bottom: 15px;">Blog</a>
+          <a href="{{ "/blog/" | relative_url }}">Blog</a>
         </div>
         
         <div class="social-row">
@@ -80,14 +82,12 @@
       <section>
         {{ content }}
       </section>
-
-      <footer>
-        <!-- Footer content removed -->
-      </footer>
     </div>
 
     <!-- Load accordion script for research page -->
+    {% if page.url == '/research.html' %}
     <script src="{{ "/javascripts/accordion.js" | relative_url }}"></script>
+    {% endif %}
     <!-- Load scale fix script for mobile -->
     <script src="{{ "/javascripts/scale.fix.js" | relative_url }}"></script>
   </body>
