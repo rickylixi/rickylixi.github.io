@@ -268,3 +268,9 @@ body {
   font-size: 100%;
   font-weight: bold;
 }
+
+.publication-entry-button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
