@@ -205,7 +205,7 @@ button.accordion {
   cursor: pointer;
   padding: 0px;
   border: none;
-  text-align: left;
+  text-align: justify;
   outline: none;
   font-size: 100%;
   transition: 0.3s;
@@ -260,7 +260,7 @@ body {
 
 .publication-entry .button-container {
   margin-top: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .publication-link {
@@ -274,6 +274,5 @@ body {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  margin-top: 5px;
   margin-bottom: 10px;
 }
