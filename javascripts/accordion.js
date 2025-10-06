@@ -11,12 +11,12 @@ window.addEventListener('load', function() {
       this.classList.toggle("active");
 
       /* Toggle between hiding and showing the active panel */
-      var panel = this.nextElementSibling;
-      if (panel && panel.classList.contains("panel")) {
+      var panel = this.parentElement.getElementsByClassName('panel')[0];
+      if (panel) {
         console.log("Toggling 'show' class on panel.");
         panel.classList.toggle("show");
       } else {
-        console.log("Panel not found or is not a panel.");
+        console.log("Panel not found.");
       }
     });
   }
