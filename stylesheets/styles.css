@@ -218,7 +218,7 @@ button.accordion:after {
   content: " [+] ";
   font-size: 90%;
   color:#777;
-  float: justify;
+  float: left;
   margin-left: 1px;
 }
 
