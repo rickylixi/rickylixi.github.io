@@ -236,6 +236,10 @@ div.panel.show {
   display: block !important;
 }
 
+div.panel p {
+  margin: 0;
+}
+
 /* Performance optimizations */
 * {
   box-sizing: border-box;
