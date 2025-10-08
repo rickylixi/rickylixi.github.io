@@ -390,14 +390,7 @@ easier.
 > recognizes in them this fact: that the effect is the trace of its
 > cause."
 >
-> "Thus far we have spoken only of what goes on in the natural world;
-> now we must rise to metaphysics, by making use of the great principle,
-> little employed in general, which affirms that nothing happens without
-> a sufficient reason; i.e. that
->
-> for any true proposition $P$, it is possible for someone who
-> understands things well enough to give a sufficient reason why it the
-> case that $P$ rather than not-$P$.
+> "Thus far we have spoken only of what goes on in the natural world; now we must rise to metaphysics, by making use of the great principle, little employed in general, which affirms that nothing happens without a sufficient reason; i.e. that for any true proposition $P$, it is possible for someone who understands things well enough to give a sufficient reason why it the case that $P$ rather than not-$P$.
 >
 > This principle being laid down, the first question we are entitled to
 > put will be, why is there something rather than nothing? After all,
