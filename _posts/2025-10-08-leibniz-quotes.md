@@ -15,8 +15,7 @@ or is not.
 
 > Nothing is without a reason.
 
-## First principles of a posteriori knowledge (or, of logical
-certainty)
+## First principles of a posteriori knowledge (or, of logical certainty)
 
 > Every perception of my present thinking is true.
 
@@ -57,8 +56,7 @@ easier.
 > shortest descent with regard to them. It is in this way that the
 > smallest parts of the universe are ruled in accordance with the order
 > of greatest perfection; otherwise the whole would not be so ruled."
->
-> --- *Leibniz*
+
 
 > "**As God calculates, so the world is made.**"[^1]
 >
@@ -66,8 +64,7 @@ easier.
 > certain mathematical laws prescribed by God....Unless physical things
 > can be explained by mechanical laws, God cannot, even if he chooses,
 > reveal and explain nature to us."[^2]
->
-> --- *Leibniz*
+
 
 > "If there were no best among all possible worlds, God would not have
 > created one."
@@ -308,8 +305,7 @@ easier.
 > their operations. Whatever perfections they possess they continually
 > receive from him; But whatever imperfection remains with them comes
 > from the essential and original limitation of the created beings."
->
-> --- *Leibniz*
+
 
 > "There is a reason in Nature why something should exist rather than
 > nothing. This is consequence of the great principle that nothing
@@ -346,25 +342,23 @@ easier.
 > produces as much perfection as possible in things, at the same time it
 > bestows on minds as much pleasure as possible, since pleasure consists
 > in the perception of perfection."[^6]
->
-> --- *Leibniz*
+
 
 > "**Knowledge** is either
 >
-> dim or vivid;\
+> - dim or vivid;\
 > vivid knowledge is either
 >
-> confused or clear;\
+> - confused or clear;\
 > clear knowledge is either
 >
-> inadequate or adequate;\
+> - inadequate or adequate;\
 > and adequate knowledge is either
 >
-> symbolic or intuitive.\
+> - symbolic or intuitive.\
 > Knowledge that was at the same time both adequate and intuitive would
 > be absolutely perfect."
->
-> --- *Leibniz*
+
 
 > "Our reasoning is based upon **two great principles**: first, the
 > **principle of contradiction**, by means of which we decide that to be
@@ -415,8 +409,7 @@ easier.
 > nothing is simpler and easier than something. Also, given that things
 > have to exist, we must be able to give a reason why they have to exist
 > as they are and not otherwise."[^8]
->
-> --- *Leibniz*
+
 
 > "Because all truths follow from first truths with the help of
 > definitions, it follows that **in any true proposition the predicate
@@ -513,8 +506,7 @@ easier.
 >
 > "\[The complete notion\] can be approached more and more nearly, so
 > that the difference shall be less than any given difference."
->
-> --- *Leibniz*
+
 
 > "There are also **two kinds of truths**, truths of reasoning and
 > truths of fact.
@@ -539,8 +531,7 @@ easier.
 > terminating. And thus the certainty and the perfect reason of
 > contingent truths is known to God only, who embraces the infinite in
 > one intuition."
->
-> --- *Leibniz*
+
 
 > "Paradoxical as it appears, it is impossible for us to have knowledge
 > of individuals, and to find the means of determining exactly the
@@ -577,8 +568,7 @@ easier.
 > laws, falls in with what the others demand, and the operations of the
 > one thus follow or accompany the operation or change of the
 > other."[^9]
->
-> --- *Leibniz*
+
 
 > "Terms are the same if one can be substituted in place of the other
 > without destroying truth. If there are $A$ and $B$, and $A$ is an
@@ -641,8 +631,7 @@ easier.
 > adapt themselves to it---that is, they are as they are because it is
 > as it is---it can be said to have power over all the others, imitating
 > the creator's omnipotence."
->
-> --- *Leibniz*
+
 
 > "Every individual created substance exercises physical action and
 > passion on all the others. Any change made in one substance leads to
@@ -905,8 +894,7 @@ easier.
 > "If in a series of cases the inputs approach each other continuously
 > and eventually become the same, the consequences or outcomes must do
 > so also."[^11]
->
-> --- *Leibniz*
+
 
 > "Every particle in the universe contains a world of an infinity of
 > creatures. However, the **continuum** is not divided into points,
@@ -924,8 +912,7 @@ easier.
 > circle, nor an ellipse, nor any other definable line exists except in
 > the intellect; lines don't exist until they are drawn, and parts don't
 > exist until they are separated off."
->
-> --- *Leibniz*
+
 
 > "It is to be observed that matter, taken as a complete being (i.e.
 > secondary matter, as opposed to primary, which is something purely
@@ -1153,18 +1140,8 @@ easier.
 >
 > "From the supreme Author's perfection it follows not only that the
 > order of the entire universe is the most perfect that could be, but
-> also that,
->
-> every living mirror that represents the universe according to its own
-> point of view,\
-> that is to say,
->
-> every monad, or,
->
-> every substantial centre,\
-> must have its perceptions and its appetites ordered in the best way
-> that is compatible with the perceptions and appetites of all the
-> rest."
+> also that, every living mirror that represents the universe according to its own
+> point of view, that is to say, every monad, or, every substantial centre, must have its perceptions and its appetites ordered in the best way that is compatible with the perceptions and appetites of all the rest."
 >
 > "This interconnection, or this adapting of all created things to each
 > one, and of each one to all the others, brings it about that each
@@ -1234,8 +1211,7 @@ easier.
 >
 > 5.  and the animal, that is, the corporeal substance, which the
 >     dominating monad makes into one machine.
->
-> --- *Leibniz*
+
 
 > "One suffices to derive all out of nothing."
 >
@@ -1348,14 +1324,12 @@ easier.
 > more important to establish syntheses, because this work is of
 > permanent value, while we often do work that has already been done in
 > beginning the analysis of a particular problem.[^14]"
->
-> --- *Leibniz*
+
 
 > "Since all **belief** consists in memory of past life, of proofs or of
 > reasons, it is not in our power or in our free will to believe or not
 > to believe, since memory is not a thing which depends on our will."
->
-> --- *Leibniz*
+
 
 > "I have also used the analogy of a veined block of marble as opposed
 > to an entirely homogeneous one or to an empty page....This is how
@@ -1411,8 +1385,7 @@ easier.
 > reason, the beauty of things which God has produced, and the more it
 > is moved to imitate this order in the things which God has left to his
 > direction, the happier it will be."
->
-> --- *Leibniz*
+
 
 > "There is an old saying that God created everything according to
 > weight, measure, and number. But there are things which cannot be
@@ -1587,8 +1560,7 @@ easier.
 > perhaps also of the thing itself. But there are mixed arguments also,
 > for testimony may itself furnish a fact which serves to form an
 > artificial argument."
->
-> --- *Leibniz*
+
 
 > "Men are never more ingenious than in games."
 >
@@ -1600,8 +1572,7 @@ easier.
 > and the other to fortune....It is thence that it is necessary to unite
 > certain consequences to those that one evaluates by probability and
 > verisimilitude."[^21]
->
-> --- *Leibniz*
+
 
 > "All magnitudes being infinitely divisible, there is none so small but
 > that we can conceive in it an **infinity** of divisions, which will
@@ -1627,8 +1598,7 @@ easier.
 > everybody, it sufficed in this to explain the infinite by the
 > incomparable, i.e. to conceive quantities incomparably greater or
 > smaller than ours."
->
-> --- *Leibniz*
+
 
 > "But free or intelligent substances possess something greater and more
 > marvellous, in a kind of imitation of God. For they are not bound by
@@ -1669,8 +1639,7 @@ easier.
 > alone that the internal actions of simple substances can consist."
 >
 > "Miracles are not to be multiplied beyond necessity."
->
-> --- *Leibniz*
+
 
 > "Wisdom is merely the science of happiness or that science which
 > teaches us to achieve happiness....Pleasure is the feeling of a
@@ -1820,17 +1789,14 @@ easier.
 > capacity but not in respect to its future intellectual capacity."
 >
 > "There is hardly any paradox without utility."
->
-> --- *Leibniz*
+
 
 > "Thomas Hobbes, everywhere a profound examiner of principles, rightly
 > stated that everything done by our mind is a computation."
->
-> --- *Leibniz*
+
 
 > "He who knows me only through what I have published does not know me."
->
-> --- *Leibniz*
+
 
 [^1]:
     1.  Starting with the numerals $0$ and $1$, one obtains the set of
@@ -2050,16 +2016,16 @@ easier.
 
 [^10]: 李·斯莫林:
 
-    - 宇宙之外一无所有.\
-      --- 宇宙是因果封闭的.\
-      --- 空间是事物之间的相互关系.\
-      --- 时间是事物关系变化的度量.\
-      --- 宇宙不是由物质构成, 而是由事件的因果过程构成.
-      宇宙是一个因果关系的网络.
-      其中每一部分的性质由其与其它部分的关系决定.\
-      --- 观察者是宇宙的一部分.\
-      --- 观察者只能观测到宇宙的部分信息. 未来的观察者可以看到更多信息.\
-      --- 逻辑与观察者有关. 不能假定每个陈述非真即假. 至少有三类:
+    - 宇宙之外一无所有.
+    - 宇宙是因果封闭的.
+    - 空间是事物之间的相互关系.
+    - 时间是事物关系变化的度量.
+    - 宇宙不是由物质构成, 而是由事件的因果过程构成.
+    - 宇宙是一个因果关系的网络.
+    - 其中每一部分的性质由其与其它部分的关系决定.
+    - 观察者是宇宙的一部分.
+    - 观察者只能观测到宇宙的部分信息. 未来的观察者可以看到更多信息.
+    - 逻辑与观察者有关. 不能假定每个陈述非真即假. 至少有三类:
       一类可判断为真, 一类可判断为假, 一类无法判断.
 
 [^11]: Continuity:
