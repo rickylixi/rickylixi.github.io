@@ -19,18 +19,18 @@ or is not.
 
 > Every perception of my present thinking is true.
 
-## Principle of moral certainty
+# Principle of moral certainty
 
 > Everything which is confirmed by many indications, which can hardly
 concur except in the truth, is morally certain, i.e. incomparably more
 probable than its opposite.
 
-## Principle of physical certainty
+# Principle of physical certainty
 
 > Everything which men have experienced always and in many ways will
 still happen: e.g. that iron sinks in water.
 
-## Principles of topical knowledge
+# Principles of topical knowledge
 
 > Everything is presumed to remain in the state in which it is.
 
