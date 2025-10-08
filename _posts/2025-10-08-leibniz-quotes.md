@@ -345,13 +345,13 @@ easier.
 
 
 > "**Knowledge** is either
-> - dim or vivid;
+> - dim or vivid;\
 > vivid knowledge is either
-> - confused or clear;
+> - confused or clear;\
 > clear knowledge is either
-> - inadequate or adequate;
+> - inadequate or adequate;\
 > and adequate knowledge is either
-> - symbolic or intuitive.
+> - symbolic or intuitive.\
 > Knowledge that was at the same time both adequate and intuitive would be absolutely perfect."
 
 
