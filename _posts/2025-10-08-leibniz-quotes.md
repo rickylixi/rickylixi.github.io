@@ -345,19 +345,14 @@ easier.
 
 
 > "**Knowledge** is either
->
 > - dim or vivid;\
 > vivid knowledge is either
->
 > - confused or clear;\
 > clear knowledge is either
->
 > - inadequate or adequate;\
 > and adequate knowledge is either
->
 > - symbolic or intuitive.\
-> Knowledge that was at the same time both adequate and intuitive would
-> be absolutely perfect."
+> Knowledge that was at the same time both adequate and intuitive would be absolutely perfect."
 
 
 > "Our reasoning is based upon **two great principles**: first, the
