@@ -2020,9 +2020,7 @@ easier.
     - 宇宙是因果封闭的.
     - 空间是事物之间的相互关系.
     - 时间是事物关系变化的度量.
-    - 宇宙不是由物质构成, 而是由事件的因果过程构成.
-    - 宇宙是一个因果关系的网络.
-    - 其中每一部分的性质由其与其它部分的关系决定.
+    - 宇宙不是由物质构成, 而是由事件的因果过程构成. 宇宙是一个因果关系的网络. 其中每一部分的性质由其与其它部分的关系决定.
     - 观察者是宇宙的一部分.
     - 观察者只能观测到宇宙的部分信息. 未来的观察者可以看到更多信息.
     - 逻辑与观察者有关. 不能假定每个陈述非真即假. 至少有三类:
@@ -2069,7 +2067,7 @@ easier.
     the Art of Conjecturing.*
 
 [^20]: *Letter to Louis Bourguet.* in: *Die philophischen schriften von
-    Gottfried Wilheim Leibniz, vol. III C. I. Gerhardt (ed) pp 564-570*
+    Gottfried Wilheim Leibniz, vol. III C. I. Gerhardt (ed) pp 564-570.*
 
 [^21]: *Notes on Some Games and Principally on the Chinese Game, on the
     Difference of the Game of Chess from the Littler Robbers, and on a
@@ -2078,7 +2076,7 @@ easier.
 [^22]: Transfer Principle: A map from a standard model to a non-standard
     model is an elementary embedding.
 
-[^23]: *On Wisdom*
+[^23]: *On Wisdom.*
 
 [^24]: *Letter to Louis Bourguet.* in: *The Shorter Leibniz Texts: A
     Collection of New Translations.*
