@@ -11,27 +11,7 @@
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{ page.title | default: "李熙 | Xi Li - Associate Professor of Logic at Central South University" }}</title>
-    <meta name="description" content="{{ page.description | default: 'Xi Li, Associate Professor of Logic at Central South University. Research in Kolmogorov Complexity, Solomonoff Induction, Causal Inference, Rational Decision Theory, and AI Philosophy.'}}">
-    <link rel="canonical" href="{{ page.canonical_url | default: page.url | replace:'index.html','' | absolute_url }}">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="{{ page.title | default: 'Xi Li - Associate Professor of Logic' }} | Central South University">
-    <meta property="og:description" content="{{ page.description | default: 'Associate Professor of Logic at Central South University. Research in Kolmogorov Complexity, Solomonoff Induction, Causal Inference, Rational Decision Theory, and AI Philosophy.'}}">
-    <meta property="og:url" content="{{ page.canonical_url | default: page.url | replace:'index.html','' | absolute_url }}">
-    <meta property="og:image" content="{{ "/turing-machine1.png" | absolute_url }}">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:locale" content="zh_CN">
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ page.title | default: 'Xi Li - Associate Professor of Logic' }} | Central South University">
-    <meta name="twitter:description" content="{{ page.description | default: 'Associate Professor of Logic at Central South University. Research in Kolmogorov Complexity, Solomonoff Induction, Causal Inference, Rational Decision Theory, and AI Philosophy.'}}">
-    <meta name="twitter:image" content="{{ "/turing-machine1.png" | absolute_url }}">
-    <meta name="twitter:site" content="@pkulixi">
-
+    {% seo %}
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
     
     <!-- Web App Manifest -->
