@@ -44,7 +44,7 @@ a:hover {
 }
 
 a small {
-  font-size:11px;
+  font-size:14px;
   color:#777;
   margin-top:-0.3em;
   display:block;
@@ -65,7 +65,7 @@ blockquote {
 code, pre {
   font-family:Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, Consolas, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
   color:#333;
-  font-size:12px;
+  font-size:16px;
 }
 
 pre {
@@ -132,7 +132,7 @@ section {
 }
 
 small {
-  font-size:11px;
+  font-size:14px;
 }
 
 hr {
@@ -193,7 +193,7 @@ body {
 @media print {
   body {
     padding:0.4in;
-    font-size:12pt;
+    font-size:16pt;
     color:#444;
   }
 }
