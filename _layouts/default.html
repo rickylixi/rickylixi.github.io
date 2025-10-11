@@ -5,8 +5,8 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-    <link rel="preload" href="{{ "/stylesheets/styles.css" | relative_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="{{ "/stylesheets/styles.css" | relative_url }}"></noscript>
+    <link rel="preload" href="{{ "/stylesheets/styles.min.css" | relative_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ "/stylesheets/styles.min.css" | relative_url }}"></noscript>
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
     <meta charset="utf-8">
@@ -33,6 +33,10 @@
     <meta name="twitter:site" content="@pkulixi">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="{{ "/manifest.json" | relative_url }}">
+    <meta name="theme-color" content="#39c">
 
     <!-- New GA4 tracking code -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GNJD50R0Z7"></script>
@@ -97,5 +101,19 @@
     <script src="{{ "/javascripts/accordion.js" | relative_url }}" defer></script>
     <!-- Load scale fix script for mobile -->
     <script src="{{ "/javascripts/scale.fix.js" | relative_url }}" defer></script>
+    
+    <!-- Register Service Worker -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('{{ "/sw.js" | relative_url }}')
+            .then(function(registration) {
+              console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, function(err) {
+              console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+      }
+    </script>
   </body>
 </html>
