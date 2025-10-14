@@ -1,18 +1,16 @@
-// Accordion functionality
-window.addEventListener('load', function() {
-  const acc = document.getElementsByClassName("accordion");
+// Accordion functionality with event delegation
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.addEventListener('click', (event) => {
+    const accordion = event.target.closest('.accordion');
+    if (!accordion) return;
 
-  for (let i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function() {
-      /* Toggle between adding and removing the "active" class,
-      to highlight the button that controls the panel */
-      this.classList.toggle("active");
-
-      /* Toggle between hiding and showing the active panel */
-      const panel = this.nextElementSibling;
-      if (panel) {
-        panel.classList.toggle("show");
-      }
-    });
-  }
+    // Toggle active class
+    accordion.classList.toggle('active');
+    
+    // Toggle panel visibility
+    const panel = accordion.nextElementSibling;
+    if (panel && panel.classList.contains('panel')) {
+      panel.classList.toggle('show');
+    }
+  });
 });
