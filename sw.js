@@ -1,5 +1,6 @@
-// Simple Service Worker for caching
-const CACHE_NAME = 'rickylixi-v1';
+// Enhanced Service Worker with versioning and cache strategies
+const CACHE_VERSION = 'v2';
+const CACHE_NAME = `rickylixi-${CACHE_VERSION}`;
 const urlsToCache = [
   '/',
   '/stylesheets/styles.min.css',
@@ -10,23 +11,64 @@ const urlsToCache = [
   '/manifest.json'
 ];
 
-// Install event - cache resources
+// Install event - cache resources with network-first fallback
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
-        return cache.addAll(urlsToCache);
+        return Promise.all(
+          urlsToCache.map(url => {
+            return fetch(url)
+              .then(response => {
+                if (response.ok) {
+                  return cache.put(url, response);
+                }
+                throw new Error(`Failed to cache: ${url}`);
+              })
+              .catch(error => {
+                console.warn(`Could not cache ${url}:`, error);
+              });
+          })
+        );
       })
   );
 });
 
-// Fetch event - serve from cache if available
+// Fetch event - cache-first with network fallback
 self.addEventListener('fetch', event => {
+  // Skip non-GET requests and cross-origin requests
+  if (event.request.method !== 'GET' || !event.request.url.startsWith(self.location.origin)) {
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request)
-      .then(response => {
-        // Return cached version or fetch from network
-        return response || fetch(event.request);
+      .then(cachedResponse => {
+        // Return cached response if available
+        if (cachedResponse) {
+          // Update cache in background
+          fetch(event.request)
+            .then(networkResponse => {
+              if (networkResponse.ok) {
+                caches.open(CACHE_NAME)
+                  .then(cache => cache.put(event.request, networkResponse));
+              }
+            })
+            .catch(() => {}); // Silent fail for background update
+          return cachedResponse;
+        }
+
+        // Fetch from network if not in cache
+        return fetch(event.request)
+          .then(networkResponse => {
+            // Cache successful responses
+            if (networkResponse.ok) {
+              const responseToCache = networkResponse.clone();
+              caches.open(CACHE_NAME)
+                .then(cache => cache.put(event.request, responseToCache));
+            }
+            return networkResponse;
+          });
       })
   );
 });
@@ -37,7 +79,7 @@ self.addEventListener('activate', event => {
     caches.keys().then(cacheNames => {
       return Promise.all(
         cacheNames.map(cacheName => {
-          if (cacheName !== CACHE_NAME) {
+          if (cacheName !== CACHE_NAME && cacheName.startsWith('rickylixi-')) {
             return caches.delete(cacheName);
           }
         })
