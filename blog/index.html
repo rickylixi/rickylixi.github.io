@@ -1,12 +1,38 @@
 ---
 layout: default
-title: "Blog"
-description: "Xi Li's blog posts."
+title: "Xi Li's Blog - Research, Philosophy, and Academic Insights"
+description: "Explore articles on Kolmogorov Complexity, Solomonoff Induction, Mathematical Logic, Philosophy of AI, and academic research by Xi Li, Associate Professor at Central South University."
 canonical_url: "/blog/"
 ---
 <h1>Xi's Blog</h1>
+<p>Academic insights, research notes, and philosophical reflections on mathematics, logic, artificial intelligence, and computational theory.</p>
+
 <ul>
 {% for post in paginator.posts %}
   <li><em><a href="{{ post.url }}">{{ post.title }}</a></em> <small>{{ post.date | date: "%Y-%m-%d" }}</small></li>
 {% endfor %}
 </ul>
+
+<!-- Blog structured data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Xi Li's Blog",
+  "description": "Academic insights, research notes, and philosophical reflections on mathematics, logic, artificial intelligence, and computational theory",
+  "url": "{{ site.url }}/blog/",
+  "publisher": {
+    "@type": "Person",
+    "name": "Xi Li",
+    "jobTitle": "Associate Professor of Logic",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Central South University"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ site.url }}/blog/"
+  }
+}
+</script>
