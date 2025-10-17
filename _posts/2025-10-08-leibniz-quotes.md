@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Leibniz Quotes --- Philosophy, Mathematics and Science"
+title:  "Leibniz Quotes - Philosophy, Mathematics and Science"
 date:   2025-10-08 16:12:00 +0800
 categories: jekyll update
 tags: [Leibniz, Philosophy, Mathematics, Quotes, Rationalism]
