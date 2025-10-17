@@ -1748,10 +1748,10 @@ easier.
 > increase of his perfection."
 >
 > "When God chooses, it is through his knowledge of the best; when man
-> does so, it will be the alternative which has struck him the most."
+> does so, it will be the alternative which has struck him the most.[^24]"
 >
 > "Two hypotheses can be formed, one that nature is always equally
-> perfect, the other that it always increases in perfection.[^24]"
+> perfect, the other that it always increases in perfection.[^25]"
 >
 > "To employ the art of consequences, we need an art of bringing things
 > to mind, another of estimating probabilities and, in addition,
@@ -1813,7 +1813,7 @@ easier.
         respect the best of all possible worlds.
 
 [^2]: Plato(*Timaeus*): "First then, in my judgment, we must make a
-    distinction and ask, What is that which always is and has no
+    distinction and ask, what is that which always is and has no
     becoming; and what is that which is always becoming and never is?
     That which is apprehended by intelligence and reason is always in
     the same state; but that which is conceived by opinion with the help
@@ -2068,5 +2068,7 @@ easier.
 
 [^23]: *On Wisdom.*
 
-[^24]: *Letter to Louis Bourguet.* in: *The Shorter Leibniz Texts: A
+[^24]: 莱布尼茨: "遵循事物的本性, 而非其他人的榜样."
+
+[^25]: *Letter to Louis Bourguet.* in: *The Shorter Leibniz Texts: A
     Collection of New Translations.*
