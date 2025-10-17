@@ -1,9 +1,11 @@
 ---
 layout: post
-title:  "Leibniz Quotes"
-date:   2025-10-08 19:51:00 +0800
+title:  "Gottfried Wilhelm Leibniz Quotes - Philosophy and Mathematics"
+date:   2025-10-08 16:12:00 +0800
 categories: jekyll update
-tags: [Quotes]
+tags: [Leibniz, Philosophy, Mathematics, Quotes, Rationalism]
+description: "Collection of profound quotes by Gottfried Wilhelm Leibniz on philosophy, mathematics, logic, and the nature of reality. Insights from one of history's greatest polymaths."
+canonical_url: "/blog/2025/10/08/leibniz-quotes.html"
 ---
 
 # Principles of metaphysical certainty

@@ -4,9 +4,13 @@ Allow: /
 # Disallow admin and private directories
 Disallow: /_includes/
 Disallow: /_layouts/
-Disallow: /_posts/
 Disallow: /assets/docs/
 Disallow: /scripts/
+Disallow: /.jekyll-cache/
+Disallow: /.github/
+
+# Allow blog posts to be indexed (they are served at /blog/ URLs)
+Allow: /blog/
 
 # Allow important files
 Allow: /stylesheets/
@@ -15,4 +19,3 @@ Allow: /research/
 Allow: /teaching/
 
 Sitemap: https://rickylixi.github.io/sitemap.xml
-
