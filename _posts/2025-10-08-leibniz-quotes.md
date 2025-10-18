@@ -2080,7 +2080,7 @@ easier.
 
 [^24]: 莱布尼茨: "遵循事物的本性, 而非其他人的榜样."
 	
-	Matsuo Basho: ``Do not seek to follow in the footsteps of the wise; seek what they sought.''
+	Matsuo Basho: "Do not seek to follow in the footsteps of the wise; seek what they sought."
 
 [^25]: *Letter to Louis Bourguet.* in: *The Shorter Leibniz Texts: A
     Collection of New Translations.*
