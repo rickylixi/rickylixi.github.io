@@ -395,12 +395,10 @@ easier.
 > arithmetic and geometry, that is, all mathematical principles. But in
 > order to proceed from mathematics to natural philosophy, another
 > principle is required ...the principle of sufficient reason, namely,
-> that **nothing happens without a reason why it should be so rather
-> than otherwise**."
+> that **nothing happens without a reason why it should be so rather than otherwise**."
 >
 > "No one fittingly understands the works of God unless he sufficiently
-> recognizes in them this fact: that the effect is the trace of its
-> cause."
+> recognizes in them this fact: that **the effect is the trace of its cause**."
 >
 > "Thus far we have spoken only of what goes on in the natural world; now we must rise to metaphysics, by making use of the great principle, little employed in general, which affirms that nothing happens without a sufficient reason; i.e. that for any true proposition $P$, it is possible for someone who understands things well enough to give a sufficient reason why it the case that $P$ rather than not-$P$.
 >
@@ -412,8 +410,7 @@ easier.
 
 
 > "Because all truths follow from first truths with the help of
-> definitions, it follows that **in any true proposition the predicate
-> or consequent is always in the subject or antecedent**. It is just
+> definitions, it follows that **in any true proposition the predicate or consequent is always in the subject or antecedent**. It is just
 > this---as Aristotle observes---that constitutes the nature of truth in
 > general, or the true-making connection between the terms of a
 > statement. In identities the connection of the predicate with the
