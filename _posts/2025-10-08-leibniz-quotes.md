@@ -356,6 +356,16 @@ easier.
 > - symbolic or intuitive.\
 > Knowledge that was at the same time both adequate and intuitive would be absolutely perfect."
 
+- knowledge
+  - dim
+  - vivid
+    - confused
+    - clear
+      - inadequate
+      - adequate
+        - symbolic
+        - intuitive
+
 
 > "Our reasoning is based upon **two great principles**: first, the
 > **principle of contradiction**, by means of which we decide that to be
@@ -2069,6 +2079,8 @@ easier.
 [^23]: *On Wisdom.*
 
 [^24]: 莱布尼茨: "遵循事物的本性, 而非其他人的榜样."
+	
+	Matsuo Basho: ``Do not seek to follow in the footsteps of the wise; seek what they sought.''
 
 [^25]: *Letter to Louis Bourguet.* in: *The Shorter Leibniz Texts: A
     Collection of New Translations.*
