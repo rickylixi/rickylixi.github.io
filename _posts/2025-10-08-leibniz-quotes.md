@@ -694,7 +694,7 @@ easier.
 > "Space and time taken together constitute the order of possibilities
 > of one entire universe, so that these orders---space and time, that
 > is---relate not only to what actually is but also to anything that
-> could be put in its place."[^10]
+> could be put in its place."
 >
 > "I hold space to be something merely relative, as time is, that I hold
 > space to be an order of coexistences, just as time is an order of
@@ -722,7 +722,7 @@ easier.
 > reality of space in itself. But in truth the one would exactly be the
 > same thing as the other, they being absolutely indiscernible; and
 > consequently there is no room to enquire after a reason of the
-> preference of the one to the other."
+> preference of the one to the other."[^10]
 >
 > "The case is the same with respect to time....The same argument proves
 > that instants, considered without the things, are nothing at all; and
@@ -2014,14 +2014,17 @@ easier.
 [^10]: 李·斯莫林:
 
      - 宇宙之外一无所有.
-         - 宇宙是因果封闭的.
-         - 空间是事物之间的相互关系.
-         - 时间是事物关系变化的度量.
+         - 因果完备性: 宇宙是因果封闭的.
+         - 时空相对性: 空间是事物之间的相互关系; 时间是事物关系变化的度量.
          - 宇宙不是由物质构成, 而是由事件的因果过程构成. 宇宙是一个因果关系的网络. 其中每一部分的性质由其与其它部分的关系决定.
+         - 相互作用: 如果A作用于B, B也一定会作用于A. (时空告诉物质如何运动; 反过来, 物质告诉时空如何弯曲. 而牛顿的绝对时空是单向的, 时空指引物质运动, 物质却无法影响时空.)
+         - 背景独立性: 基础物理理论不应该依赖于固定不变的背景, 即只建模宇宙的一部分, 而把其余部分视为不随其它要素变化的背景.
+         - 对称性是背景依赖的性质. 由于"不可分辨者的同一性", 不存在终极的对称性. 对称性, 要么是近似的, 要么是破缺的.
+         - 没有任何两个瞬间完全相同, 从这个意义上说, 时间是真实的.
+         - 开放系统的能量流, 倾向于驱动系统向组织度更高的结构演化. (在熵最大的平衡态, 许多瞬间会不断复现.)
          - 观察者是宇宙的一部分.
          - 观察者只能观测到宇宙的部分信息. 未来的观察者可以看到更多信息.
-         - 逻辑与观察者有关. 不能假定每个陈述非真即假. 至少有三类:
-      一类可判断为真, 一类可判断为假, 一类无法判断.
+         - 逻辑与观察者有关. 不能假定每个陈述非真即假. 至少有三类: 一类可判断为真, 一类可判断为假, 一类无法判断.
 
 [^11]: Continuity:
     $$\forall x\in I\forall\varepsilon>0\exists\delta>0\forall y\in I \big(|x-y|<\delta\to|f(x)-f(y)|<\varepsilon\big)$$
