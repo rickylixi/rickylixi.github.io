@@ -694,7 +694,7 @@ easier.
 > "Space and time taken together constitute the order of possibilities
 > of one entire universe, so that these orders---space and time, that
 > is---relate not only to what actually is but also to anything that
-> could be put in its place."
+> could be put in its place."[^10]
 >
 > "I hold space to be something merely relative, as time is, that I hold
 > space to be an order of coexistences, just as time is an order of
@@ -722,7 +722,7 @@ easier.
 > reality of space in itself. But in truth the one would exactly be the
 > same thing as the other, they being absolutely indiscernible; and
 > consequently there is no room to enquire after a reason of the
-> preference of the one to the other."[^10]
+> preference of the one to the other."[^11]
 >
 > "The case is the same with respect to time....The same argument proves
 > that instants, considered without the things, are nothing at all; and
@@ -890,7 +890,7 @@ easier.
 >
 > "If in a series of cases the inputs approach each other continuously
 > and eventually become the same, the consequences or outcomes must do
-> so also."[^11]
+> so also."[^12]
 
 
 > "Every particle in the universe contains a world of an infinity of
@@ -1258,7 +1258,7 @@ easier.
 > most perfect which resolve the thing into simple primitive notions
 > understood in themselves. Such knowledge I usually call adequate or
 > intuitive, for, if there were any inconsistency, it would appear here
-> at once, since no further resolution can take place.[^12]"
+> at once, since no further resolution can take place.[^13]"
 >
 > "A true contingent proposition cannot be reduced to identical
 > propositions, but is proved by showing that if the analysis is
@@ -1295,7 +1295,7 @@ easier.
 > experiments, so that useful inductions can be made from them, causes
 > discovered, and general truths and postulates set up....Our human
 > knowledge of nature seems to me at present like a shop well provided
-> with all kinds of wares but without any order or inventory.[^13]"
+> with all kinds of wares but without any order or inventory.[^14]"
 >
 > "Since the **senses and inductions** can never teach us perfectly
 > universal truths, nor what is absolutely necessary, but only what is,
@@ -1320,7 +1320,7 @@ easier.
 > just as if neither we nor others had discovered anything before. It is
 > more important to establish syntheses, because this work is of
 > permanent value, while we often do work that has already been done in
-> beginning the analysis of a particular problem.[^14]"
+> beginning the analysis of a particular problem.[^15]"
 
 
 > "Since all **belief** consists in memory of past life, of proofs or of
@@ -1333,7 +1333,7 @@ easier.
 > ideas and truths are innate in us---as inclinations, dispositions,
 > tendencies, or natural potentialities, and not as actual thinkings,
 > though these potentialities are always accompanied by certain actual
-> thinkings, often insensible ones, which correspond to them.[^15]"
+> thinkings, often insensible ones, which correspond to them.[^16]"
 >
 > "I have always been, as I still am, in favour of the **innate idea**
 > of God ...and consequently of other innate ideas, which cannot come to
@@ -1396,7 +1396,7 @@ easier.
 > in order to let reasons be pondered too, it will provide a sort of
 > statics. Even probabilities are subject to reckoning and proof, since
 > it is always possible to estimate, from the given circumstances, what
-> will more probably happen.[^16]"
+> will more probably happen.[^17]"
 >
 > "But we must go further than words! Since the admirable connection of
 > things makes it most difficult to give the characteristic numbers of a
@@ -1499,7 +1499,7 @@ easier.
 > reasons in favour of one or the other in some important deliberation.
 > Thus when there are not enough given conditions to demonstrate
 > certainty, the subject being merely probable, one can always give at
-> least demonstrations concerning the probability itself.[^17]"
+> least demonstrations concerning the probability itself.[^18]"
 >
 > "If demonstration shows the connection of ideas, probability is
 > nothing else than the appearance of this connection based upon proofs
@@ -1529,12 +1529,12 @@ easier.
 > better advantage in games than in the most serious matters."
 >
 > "Given any number of points, an infinite number of curves can be found
-> passing through them.[^18] Thus, I show the following: I postulate
+> passing through them.[^19] Thus, I show the following: I postulate
 > (and this can be demonstrated) that given any number of points, some
 > regular curve can be found passing through these points....It may be
 > added that, although a perfect estimation cannot be had empirically,
 > an empirical estimate would nonetheless be useful and sufficient in
-> practice.[^19]"
+> practice.[^20]"
 >
 > "The art of conjecture is founded on what is more or less easy, or
 > rather more or less feasible, for the Latin *facilis* (easy), derived
@@ -1544,7 +1544,7 @@ easier.
 > reasons....It could be said that what happens more or less often is
 > also more or less feasible in the present state of affairs, putting
 > all the considerations together that have to combine to bring about
-> the production of a fact.[^20]"
+> the production of a fact.[^21]"
 >
 > "I prefer to maintain that it is always grounded in likelihood or in
 > conformity with the truth; and the testimony of another is also a
@@ -1568,7 +1568,7 @@ easier.
 > medicine, things in which it is necessary to give one part to science
 > and the other to fortune....It is thence that it is necessary to unite
 > certain consequences to those that one evaluates by probability and
-> verisimilitude."[^21]
+> verisimilitude."[^22]
 
 
 > "All magnitudes being infinitely divisible, there is none so small but
@@ -1586,7 +1586,7 @@ easier.
 > "The idea of the infinite is not formed by extension of finite ideas."
 >
 > "It is found that the rules of the finite succeed in the
-> infinite."[^22]
+> infinite."[^23]
 >
 > "It is not necessary to make mathematical analysis depend upon
 > metaphysical controversies, nor to make sure that there are in nature
@@ -1673,7 +1673,7 @@ easier.
 > happened for the best. For it is one of the eternal laws of nature
 > that we shall enjoy the perfection of things and the pleasure which
 > results from it, only in the measure of our knowledge, our good will,
-> and our contribution to this perfection.[^23]"
+> and our contribution to this perfection.[^24]"
 >
 > "Wisdom is the science of happiness or of the means of attaining the
 > lasting contentment which consists in the continual achievement of a
@@ -1755,10 +1755,10 @@ easier.
 > increase of his perfection."
 >
 > "When God chooses, it is through his knowledge of the best; when man
-> does so, it will be the alternative which has struck him the most.[^24]"
+> does so, it will be the alternative which has struck him the most.[^25]"
 >
 > "Two hypotheses can be formed, one that nature is always equally
-> perfect, the other that it always increases in perfection.[^25]"
+> perfect, the other that it always increases in perfection.[^26]"
 >
 > "To employ the art of consequences, we need an art of bringing things
 > to mind, another of estimating probabilities and, in addition,
@@ -2011,7 +2011,13 @@ easier.
     preceding moment. This assumption is involved in the ordinary search
     for causes of particulars."
 
-[^10]: 李·斯莫林:
+[^10]: Relative Space and Handedness:
+	- An object is an incongruent counterpart of another if they cannot be made to occupy the same place by rigid motions in a local region of space.
+	- An object is said to possess handedness (chirality) just when it and its mirror image are incongruent counterparts.
+	- If the space is 3-dimensional, or 2-dimensional but non-orientable, then ``F'' and its mirror image are congruent counterparts (e.g. a M\"obius strip).
+	- Whether or not a mirror image is an incongruent counterpart depends on the properties of the space it is located in.
+
+[^11]: 李·斯莫林:
 
      - 宇宙之外一无所有.
          - 因果完备性: 宇宙是因果封闭的. (万事皆有因, 但因果链不能追溯到宇宙之外.)
@@ -2026,12 +2032,9 @@ easier.
          - 观察者只能观测到宇宙的部分信息. 未来的观察者可以看到更多信息.
          - 逻辑与观察者有关. 不能假定每个陈述非真即假. 至少有三类: 一类可判断为真, 一类可判断为假, 一类无法判断.
 
-[^11]: Continuity:
+[^12]: Continuity:
     $$\forall x\in I\forall\varepsilon>0\exists\delta>0\forall y\in I \big(|x-y|<\delta\to|f(x)-f(y)|<\varepsilon\big)$$
     $$\textcolor{gray}{\forall (x_n)_{n\in\mathbb{N}}\subset I: \lim\limits_{n\to\infty}f(x_n)=f(\lim\limits_{n\to\infty}x_n)}$$
-
-[^12]: *On Universal Synthesis and Analysis, or the Art of Discovery and
-    Judgment.*
 
 [^13]: *On Universal Synthesis and Analysis, or the Art of Discovery and
     Judgment.*
@@ -2039,13 +2042,16 @@ easier.
 [^14]: *On Universal Synthesis and Analysis, or the Art of Discovery and
     Judgment.*
 
-[^15]: *New Essays on Human Understanding.*
+[^15]: *On Universal Synthesis and Analysis, or the Art of Discovery and
+    Judgment.*
 
-[^16]: *On the General Characteristic.*
+[^16]: *New Essays on Human Understanding.*
 
-[^17]: *Letters to Nicolas Remond.*
+[^17]: *On the General Characteristic.*
 
-[^18]: Jacob Bernoulli: "It is nevertheless known that there are levels
+[^18]: *Letters to Nicolas Remond.*
+
+[^19]: Jacob Bernoulli: "It is nevertheless known that there are levels
     in infinity, and that the ratio of one infinity to another infinity
     is still a finite number, and can be expressed either precisely or
     sufficiently precisely for practical use....If five points have been
@@ -2063,24 +2069,24 @@ easier.
     correct to me, since we see everywhere that nature follows the
     simplest paths."
 
-[^19]: *Gottfried Leibniz and Jacob Bernoulli---Correspondence Regarding
+[^20]: *Gottfried Leibniz and Jacob Bernoulli---Correspondence Regarding
     the Art of Conjecturing.*
 
-[^20]: *Letter to Louis Bourguet.* in: *Die philophischen schriften von
+[^21]: *Letter to Louis Bourguet.* in: *Die philophischen schriften von
     Gottfried Wilheim Leibniz, vol. III C. I. Gerhardt (ed) pp 564-570.*
 
-[^21]: *Notes on Some Games and Principally on the Chinese Game, on the
+[^22]: *Notes on Some Games and Principally on the Chinese Game, on the
     Difference of the Game of Chess from the Littler Robbers, and on a
     New Kind of Naval Game.*
 
-[^22]: Transfer Principle: A map from a standard model to a non-standard
+[^23]: Transfer Principle: A map from a standard model to a non-standard
     model is an elementary embedding.
 
-[^23]: *On Wisdom.*
+[^24]: *On Wisdom.*
 
-[^24]: 莱布尼茨: "遵循事物的本性, 而非其他人的榜样."
+[^25]: 莱布尼茨: "遵循事物的本性, 而非其他人的榜样."
 	
 	Matsuo Basho: "Do not seek to follow in the footsteps of the wise; seek what they sought."
 
-[^25]: *Letter to Louis Bourguet.* in: *The Shorter Leibniz Texts: A
+[^26]: *Letter to Louis Bourguet.* in: *The Shorter Leibniz Texts: A
     Collection of New Translations.*
