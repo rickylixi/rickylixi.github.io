@@ -1795,26 +1795,20 @@ easier.
 > "He who knows me only through what I have published does not know me."
 
 
-[^1]:
+[^1]: How to create the world?
     1.  Starting with the numerals $0$ and $1$, one obtains the set of
         natural numbers.
-
     2.  Each of these numbers is interpreted as representing, or being
         characteristic of, a specific primitive concept.
-
     3.  By way of logical combination the larger set of general concepts
         is obtained.
-
     4.  Individual-concepts, i.e. the "ideas" corresponding to
         individuals, will then be defined as maximally consistent
         concepts.
-
     5.  Among the set of all possible individuals the relation of
         compossibility is introduced.
-
     6.  Possible worlds are defined as certain maximal collections of
         pairwise compossible individuals.
-
     7.  The real world is distinguished from its rivals by being the
         richest, i.e. most numerous and, perhaps, also in some other
         respect the best of all possible worlds.
@@ -2014,7 +2008,7 @@ easier.
 [^10]: Relative Space and Handedness:
 	- An object is an incongruent counterpart of another if they cannot be made to occupy the same place by rigid motions in a local region of space.
 	- An object is said to possess handedness (chirality) just when it and its mirror image are incongruent counterparts.
-	- If the space is 3-dimensional, or 2-dimensional but non-orientable, then ``F'' and its mirror image are congruent counterparts (e.g. a M\"obius strip).
+	- If the space is 3-dimensional, or 2-dimensional but non-orientable, then ``F'' and its mirror image are congruent counterparts (e.g. a Möbius strip).
 	- Whether or not a mirror image is an incongruent counterpart depends on the properties of the space it is located in.
 
 [^11]: 李·斯莫林:
