@@ -694,7 +694,7 @@ easier.
 > "Space and time taken together constitute the order of possibilities
 > of one entire universe, so that these orders---space and time, that
 > is---relate not only to what actually is but also to anything that
-> could be put in its place."[^10]
+> could be put in its place.[^10]"
 >
 > "I hold space to be something merely relative, as time is, that I hold
 > space to be an order of coexistences, just as time is an order of
@@ -722,7 +722,7 @@ easier.
 > reality of space in itself. But in truth the one would exactly be the
 > same thing as the other, they being absolutely indiscernible; and
 > consequently there is no room to enquire after a reason of the
-> preference of the one to the other."[^11]
+> preference of the one to the other.[^11]"
 >
 > "The case is the same with respect to time....The same argument proves
 > that instants, considered without the things, are nothing at all; and
@@ -890,7 +890,7 @@ easier.
 >
 > "If in a series of cases the inputs approach each other continuously
 > and eventually become the same, the consequences or outcomes must do
-> so also."[^12]
+> so also.[^12]"
 
 
 > "Every particle in the universe contains a world of an infinity of
@@ -1568,7 +1568,7 @@ easier.
 > medicine, things in which it is necessary to give one part to science
 > and the other to fortune....It is thence that it is necessary to unite
 > certain consequences to those that one evaluates by probability and
-> verisimilitude."[^22]
+> verisimilitude.[^22]"
 
 
 > "All magnitudes being infinitely divisible, there is none so small but
@@ -2008,7 +2008,7 @@ easier.
 [^10]: Relative Space and Handedness:
 	- An object is an incongruent counterpart of another if they cannot be made to occupy the same place by rigid motions in a local region of space.
 	- An object is said to possess handedness (chirality) just when it and its mirror image are incongruent counterparts.
-	- If the space is 3-dimensional, or 2-dimensional but non-orientable, then ``F'' and its mirror image are congruent counterparts (e.g. a Möbius strip).
+	- If the space is 3-dimensional, or 2-dimensional but non-orientable, then "F" and its mirror image are congruent counterparts (e.g. a Möbius strip).
 	- Whether or not a mirror image is an incongruent counterpart depends on the properties of the space it is located in.
 
 [^11]: 李·斯莫林:
