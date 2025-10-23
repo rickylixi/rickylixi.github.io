@@ -7,53 +7,46 @@ tags: [Leibniz, Philosophy, Mathematics, Quotes, Rationalism]
 description: "Collection of profound quotes by Gottfried Wilhelm Leibniz on philosophy, mathematics, logic, and the nature of reality. Insights from one of history's greatest polymaths."
 canonical_url: "/blog/2025/10/08/leibniz-quotes.html"
 ---
-
-> ::: center
-> ***Principles of metaphysical certainty***
-> :::
 >
-> ::: center
+> ***Principles of metaphysical certainty***
+>
+>>
 > ***First principles a priori***
-> :::
+>
 >
 > Nothing can at the same time be and not be, but everything either is
 > or is not.
 >
 > Nothing is without a reason.
->
-> ::: center
+>>
 > ***First principles of a posteriori knowledge***
 >
 > *(or, of logical certainty)*
-> :::
+>
 >
 > Every perception of my present thinking is true.
->
-> ::: center
+>>
 > ***Principle of moral certainty***
-> :::
+>
 >
 > Everything which is confirmed by many indications, which can hardly
 > concur except in the truth, is morally certain, i.e. incomparably more
 > probable than its opposite.
->
-> ::: center
+>>
 > ***Principle of physical certainty***
-> :::
+>
 >
 > Everything which men have experienced always and in many ways will
 > still happen: e.g. that iron sinks in water.
->
-> ::: center
+>>
 > ***Principles of topical knowledge***
-> :::
+>
 >
 > Everything is presumed to remain in the state in which it is.
 >
 > The more probable is that which has fewer requisites, or, which is
 > easier.
 >
-> --- *Leibniz*
 
 > "All natural phenomena could be explained mechanically if we
 > understood them well enough, but the principles of mechanics
@@ -75,7 +68,6 @@ canonical_url: "/blog/2025/10/08/leibniz-quotes.html"
 > smallest parts of the universe are ruled in accordance with the order
 > of greatest perfection; otherwise the whole would not be so ruled."
 >
-> --- *Leibniz*
 
 > "**As God calculates, so the world is made.**"[^1]
 >
@@ -84,7 +76,6 @@ canonical_url: "/blog/2025/10/08/leibniz-quotes.html"
 > things can be explained by mechanical laws, God cannot, even if he
 > chooses, reveal and explain nature to us."[^3]
 >
-> --- *Leibniz*
 
 > "If there were no best among all possible worlds, God would not have
 > created one."
@@ -326,7 +317,6 @@ canonical_url: "/blog/2025/10/08/leibniz-quotes.html"
 > receive from him; But whatever imperfection remains with them comes
 > from the essential and original limitation of the created beings."
 >
-> --- *Leibniz*
 
 > "There is a reason in Nature why something should exist rather than
 > nothing. This is consequence of the great principle that nothing
@@ -364,7 +354,6 @@ canonical_url: "/blog/2025/10/08/leibniz-quotes.html"
 > bestows on minds as much pleasure as possible, since pleasure consists
 > in the perception of perfection."[^7]
 >
-> --- *Leibniz*
 
 > "**Knowledge** is either
 >
@@ -378,10 +367,10 @@ canonical_url: "/blog/2025/10/08/leibniz-quotes.html"
 > and adequate knowledge is either
 >
 > symbolic or intuitive.\
+
 > Knowledge that was at the same time both adequate and intuitive would
 > be absolutely perfect."
 >
-> --- *Leibniz*
 
 $$\text{knowledge}\begin{cases}
 \text{dim}\\ 
@@ -447,7 +436,6 @@ $$\text{knowledge}\begin{cases}
 > have to exist, we must be able to give a reason why they have to exist
 > as they are and not otherwise."[^9]
 >
-> --- *Leibniz*
 
 > "Because all truths follow from first truths with the help of
 > definitions, it follows that **in any true proposition the predicate
@@ -545,7 +533,6 @@ $$\text{knowledge}\begin{cases}
 > "\[The complete notion\] can be approached more and more nearly, so
 > that the difference shall be less than any given difference."
 >
-> --- *Leibniz*
 
 > "There are also **two kinds of truths**, truths of reasoning and
 > truths of fact.
@@ -572,7 +559,6 @@ $$\text{knowledge}\begin{cases}
 > contingent truths is known to God only, who embraces the infinite in
 > one intuition."
 >
-> --- *Leibniz*
 
 > "Paradoxical as it appears, it is impossible for us to have knowledge
 > of individuals, and to find the means of determining exactly the
@@ -610,7 +596,6 @@ $$\text{knowledge}\begin{cases}
 > one thus follow or accompany the operation or change of the
 > other."[^10]
 >
-> --- *Leibniz*
 
 > "Terms are the same if one can be substituted in place of the other
 > without destroying truth. If there are $A$ and $B$, and $A$ is an
@@ -674,7 +659,6 @@ $$\text{knowledge}\begin{cases}
 > as it is---it can be said to have power over all the others, imitating
 > the creator's omnipotence."
 >
-> --- *Leibniz*
 
 > "Every individual created substance exercises physical action and
 > passion on all the others. Any change made in one substance leads to
@@ -938,7 +922,6 @@ $$\text{knowledge}\begin{cases}
 > and eventually become the same, the consequences or outcomes must do
 > so also."[^14]
 >
-> --- *Leibniz*
 
 > "Every particle in the universe contains a world of an infinity of
 > creatures. However, the **continuum** is not divided into points,
@@ -957,7 +940,6 @@ $$\text{knowledge}\begin{cases}
 > the intellect; lines don't exist until they are drawn, and parts don't
 > exist until they are separated off."
 >
-> --- *Leibniz*
 
 > "It is to be observed that matter, taken as a complete being (i.e.
 > secondary matter, as opposed to primary, which is something purely
@@ -1267,7 +1249,6 @@ $$\text{knowledge}\begin{cases}
 > 5.  and the animal, that is, the corporeal substance, which the
 >     dominating monad makes into one machine.
 >
-> --- *Leibniz*
 
 > "One suffices to derive all out of nothing."
 >
@@ -1381,13 +1362,11 @@ $$\text{knowledge}\begin{cases}
 > permanent value, while we often do work that has already been done in
 > beginning the analysis of a particular problem.[^17]"
 >
-> --- *Leibniz*
 
 > "Since all **belief** consists in memory of past life, of proofs or of
 > reasons, it is not in our power or in our free will to believe or not
 > to believe, since memory is not a thing which depends on our will."
 >
-> --- *Leibniz*
 
 > "I have also used the analogy of a veined block of marble as opposed
 > to an entirely homogeneous one or to an empty page....This is how
@@ -1444,7 +1423,6 @@ $$\text{knowledge}\begin{cases}
 > is moved to imitate this order in the things which God has left to his
 > direction, the happier it will be."
 >
-> --- *Leibniz*
 
 > "There is an old saying that God created everything according to
 > weight, measure, and number. But there are things which cannot be
@@ -1620,7 +1598,6 @@ $$\text{knowledge}\begin{cases}
 > for testimony may itself furnish a fact which serves to form an
 > artificial argument."
 >
-> --- *Leibniz*
 
 > "Men are never more ingenious than in games."
 >
@@ -1633,7 +1610,6 @@ $$\text{knowledge}\begin{cases}
 > certain consequences to those that one evaluates by probability and
 > verisimilitude."[^24]
 >
-> --- *Leibniz*
 
 > "All magnitudes being infinitely divisible, there is none so small but
 > that we can conceive in it an **infinity** of divisions, which will
@@ -1660,7 +1636,6 @@ $$\text{knowledge}\begin{cases}
 > incomparable, i.e. to conceive quantities incomparably greater or
 > smaller than ours."
 >
-> --- *Leibniz*
 
 > "But free or intelligent substances possess something greater and more
 > marvellous, in a kind of imitation of God. For they are not bound by
@@ -1702,7 +1677,6 @@ $$\text{knowledge}\begin{cases}
 >
 > "Miracles are not to be multiplied beyond necessity."
 >
-> --- *Leibniz*
 
 > "Wisdom is merely the science of happiness or that science which
 > teaches us to achieve happiness....Pleasure is the feeling of a
@@ -1854,16 +1828,13 @@ $$\text{knowledge}\begin{cases}
 >
 > "There is hardly any paradox without utility."
 >
-> --- *Leibniz*
 
 > "Thomas Hobbes, everywhere a profound examiner of principles, rightly
 > stated that everything done by our mind is a computation."
 >
-> --- *Leibniz*
 
 > "He who knows me only through what I have published does not know me."
 >
-> --- *Leibniz*
 
 [^1]: How to create the world?
 
@@ -2088,11 +2059,14 @@ $$\text{knowledge}\begin{cases}
 
 [^11]: 莱布尼茨: 所有事物在任何可能世界里都是相互关联的.
     即使最微小的运动都会将其结果传递到无论多么遥远的地方,
-    尽管这个结果随着距离的增大而相应地变小.\
+    尽管这个结果随着距离的增大而相应地变小.
+
     每个微粒都受到宇宙中所有物体的作用, 以这种方式,
-    全知者便能够从每个微粒中认识宇宙中的一切.\
+    全知者便能够从每个微粒中认识宇宙中的一切.
+
     灵魂按其与身体的关系将整个宇宙的其余部分都表象给它自身,
-    从而成为宇宙的一面镜子.\
+    从而成为宇宙的一面镜子.
+    
     灵魂按照它自己的观点表象宇宙,
     就像同一个城市从不同角度看便会形成不同的景观.
 
@@ -2114,31 +2088,31 @@ $$\text{knowledge}\begin{cases}
 
 [^13]: 李·斯莫林:
 
-    -   宇宙之外一无所有.\
+    -   宇宙之外一无所有.
         --- 因果完备性: 宇宙是因果封闭的. (万事皆有因,
-        但因果链不能追溯到宇宙之外.)\
+        但因果链不能追溯到宇宙之外.)
         --- 时空相对性: 空间是事物之间的相互关系;
         时间是事物关系变化的度量. (如果空间是绝对的,
         那么将宇宙往右平移一米将与原宇宙不可区分; 如果时间是绝对的,
         那么将宇宙往后平移一分钟将与原宇宙不可区分.
-        违背"不可分辨者的同一性".)\
+        违背"不可分辨者的同一性".)
         --- 宇宙不是由物质构成, 而是由事件的因果过程构成.
         宇宙是一个因果关系的网络.
-        其中每一部分的性质由其与其它部分的关系决定.\
+        其中每一部分的性质由其与其它部分的关系决定.
         --- 相互作用: 如果A作用于B, B也一定会作用于A.
         (时空告诉物质如何运动; 反过来, 物质告诉时空如何弯曲.
         而牛顿的绝对时空是单向的, 时空指引物质运动,
-        物质却无法影响时空.)\
+        物质却无法影响时空.)
         --- 背景独立性: 基础物理理论不应该依赖于固定不变的背景,
-        即只建模宇宙的一部分, 而把其余部分视为不随其它要素变化的背景.\
+        即只建模宇宙的一部分, 而把其余部分视为不随其它要素变化的背景.
         --- 对称性是背景依赖的性质. 由于"不可分辨者的同一性",
-        不存在终极的对称性. 对称性, 要么是近似的, 要么是破缺的.\
-        --- 没有任何两个瞬间完全相同, 从这个意义上说, 时间是真实的.\
+        不存在终极的对称性. 对称性, 要么是近似的, 要么是破缺的.
+        --- 没有任何两个瞬间完全相同, 从这个意义上说, 时间是真实的.
         --- 开放系统的能量流, 倾向于驱动系统向组织度更高的结构演化.
-        (在熵最大的平衡态, 许多瞬间会不断复现.)\
-        --- 观察者是宇宙的一部分.\
+        (在熵最大的平衡态, 许多瞬间会不断复现.)
+        --- 观察者是宇宙的一部分.
         --- 观察者只能观测到宇宙的部分信息.
-        未来的观察者可以看到更多信息.\
+        未来的观察者可以看到更多信息.
         --- 逻辑与观察者有关. 不能假定每个陈述非真即假. 至少有三类:
         一类可判断为真, 一类可判断为假, 一类无法判断.
 
@@ -2194,7 +2168,7 @@ $$\text{knowledge}\begin{cases}
 
 [^26]: *On Wisdom*.
 
-[^27]: 莱布尼茨: "遵循事物的本性, 而非其他人的榜样."\
+[^27]: 莱布尼茨: "遵循事物的本性, 而非其他人的榜样."
     Matsuo Basho: "Do not seek to follow in the footsteps of the wise;
     seek what they sought."
 
