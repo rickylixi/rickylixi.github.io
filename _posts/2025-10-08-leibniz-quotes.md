@@ -19,9 +19,7 @@ canonical_url: "/blog/2025/10/08/leibniz-quotes.html"
 >
 > Nothing is without a reason.
 >>
-> ***First principles of a posteriori knowledge***
->
-> *(or, of logical certainty)*
+> ***First principles of a posteriori knowledge*** *(or, of logical certainty)*
 >
 >
 > Every perception of my present thinking is true.
@@ -170,7 +168,7 @@ canonical_url: "/blog/2025/10/08/leibniz-quotes.html"
 > existence in proportion to their perfections, the actual world, as the
 > resultant of all these claims, must be the most perfect possible. And
 > without this it would not be possible to give any reason why things
-> have turned out so rather than otherwise.[^5]"
+> have turned out so rather than otherwise."[^5]
 >
 > "Nature in general always pursues its own end."
 >
@@ -257,7 +255,7 @@ canonical_url: "/blog/2025/10/08/leibniz-quotes.html"
 > goodness and wisdom exerted in establishing it....
 >
 > And in general, I hold that there is nothing truer than happiness and
-> nothing happier and sweeter than truth.[^6]"
+> nothing happier and sweeter than truth."[^6]
 >
 > "There were an infinity of possible ways of creating the world,
 > according to the different designs which God might form, and each
@@ -366,8 +364,8 @@ canonical_url: "/blog/2025/10/08/leibniz-quotes.html"
 > inadequate or adequate;\
 > and adequate knowledge is either
 >
-> symbolic or intuitive.\
-
+> symbolic or intuitive.
+>
 > Knowledge that was at the same time both adequate and intuitive would
 > be absolutely perfect."
 >
@@ -395,7 +393,7 @@ $$\text{knowledge}\begin{cases}
 > we believe that no fact can be real or existing and no statement true
 > unless it has a sufficient reason why it should be thus and not
 > otherwise. Most frequently, however, these reasons cannot be known by
-> us.[^8]"
+> us."[^8]
 >
 > "First truths are the ones that assert something of itself or deny
 > something of its opposite."
@@ -1166,19 +1164,7 @@ $$\text{knowledge}\begin{cases}
 > phenomena of aggregates from the reality of the monads."
 >
 > "From the supreme Author's perfection it follows not only that the
-> order of the entire universe is the most perfect that could be, but
-> also that,
->
-> every living mirror that represents the universe according to its own
-> point of view,\
-> that is to say,
->
-> every monad, or,
->
-> every substantial centre,\
-> must have its perceptions and its appetites ordered in the best way
-> that is compatible with the perceptions and appetites of all the
-> rest."
+> order of the entire universe is the most perfect that could be, but also that, every living mirror that represents the universe according to its own point of view, that is to say, every monad, or, every substantial centre, must have its perceptions and its appetites ordered in the best way that is compatible with the perceptions and appetites of all the rest."
 >
 > "This interconnection, or this adapting of all created things to each
 > one, and of each one to all the others, brings it about that each
@@ -1298,7 +1284,7 @@ $$\text{knowledge}\begin{cases}
 > most perfect which resolve the thing into simple primitive notions
 > understood in themselves. Such knowledge I usually call adequate or
 > intuitive, for, if there were any inconsistency, it would appear here
-> at once, since no further resolution can take place.[^15]"
+> at once, since no further resolution can take place."[^15]
 >
 > "A true contingent proposition cannot be reduced to identical
 > propositions, but is proved by showing that if the analysis is
@@ -1335,7 +1321,7 @@ $$\text{knowledge}\begin{cases}
 > experiments, so that useful inductions can be made from them, causes
 > discovered, and general truths and postulates set up....Our human
 > knowledge of nature seems to me at present like a shop well provided
-> with all kinds of wares but without any order or inventory.[^16]"
+> with all kinds of wares but without any order or inventory."[^16]
 >
 > "Since the **senses and inductions** can never teach us perfectly
 > universal truths, nor what is absolutely necessary, but only what is,
@@ -1360,7 +1346,7 @@ $$\text{knowledge}\begin{cases}
 > just as if neither we nor others had discovered anything before. It is
 > more important to establish syntheses, because this work is of
 > permanent value, while we often do work that has already been done in
-> beginning the analysis of a particular problem.[^17]"
+> beginning the analysis of a particular problem."[^17]
 >
 
 > "Since all **belief** consists in memory of past life, of proofs or of
@@ -1373,7 +1359,7 @@ $$\text{knowledge}\begin{cases}
 > ideas and truths are innate in us---as inclinations, dispositions,
 > tendencies, or natural potentialities, and not as actual thinkings,
 > though these potentialities are always accompanied by certain actual
-> thinkings, often insensible ones, which correspond to them.[^18]"
+> thinkings, often insensible ones, which correspond to them."[^18]
 >
 > "I have always been, as I still am, in favour of the **innate idea**
 > of God ...and consequently of other innate ideas, which cannot come to
@@ -1436,7 +1422,7 @@ $$\text{knowledge}\begin{cases}
 > in order to let reasons be pondered too, it will provide a sort of
 > statics. Even probabilities are subject to reckoning and proof, since
 > it is always possible to estimate, from the given circumstances, what
-> will more probably happen.[^19]"
+> will more probably happen."[^19]
 >
 > "But we must go further than words! Since the admirable connection of
 > things makes it most difficult to give the characteristic numbers of a
@@ -1539,7 +1525,7 @@ $$\text{knowledge}\begin{cases}
 > reasons in favour of one or the other in some important deliberation.
 > Thus when there are not enough given conditions to demonstrate
 > certainty, the subject being merely probable, one can always give at
-> least demonstrations concerning the probability itself.[^20]"
+> least demonstrations concerning the probability itself."[^20]
 >
 > "If demonstration shows the connection of ideas, probability is
 > nothing else than the appearance of this connection based upon proofs
@@ -1574,7 +1560,7 @@ $$\text{knowledge}\begin{cases}
 > regular curve can be found passing through these points....It may be
 > added that, although a perfect estimation cannot be had empirically,
 > an empirical estimate would nonetheless be useful and sufficient in
-> practice.[^22]"
+> practice."[^22]
 >
 > "The art of conjecture is founded on what is more or less easy, or
 > rather more or less feasible, for the Latin *facilis* (easy), derived
@@ -1584,7 +1570,7 @@ $$\text{knowledge}\begin{cases}
 > reasons....It could be said that what happens more or less often is
 > also more or less feasible in the present state of affairs, putting
 > all the considerations together that have to combine to bring about
-> the production of a fact.[^23]"
+> the production of a fact."[^23]
 >
 > "I prefer to maintain that it is always grounded in likelihood or in
 > conformity with the truth; and the testimony of another is also a
@@ -1713,7 +1699,7 @@ $$\text{knowledge}\begin{cases}
 > happened for the best. For it is one of the eternal laws of nature
 > that we shall enjoy the perfection of things and the pleasure which
 > results from it, only in the measure of our knowledge, our good will,
-> and our contribution to this perfection.[^26]"
+> and our contribution to this perfection."[^26]
 >
 > "Wisdom is the science of happiness or of the means of attaining the
 > lasting contentment which consists in the continual achievement of a
@@ -1796,10 +1782,10 @@ $$\text{knowledge}\begin{cases}
 >
 > "When God chooses, it is through his knowledge of the best; when man
 > does so, it will be the alternative which has struck him the
-> most.[^27]"
+> most."[^27]
 >
 > "Two hypotheses can be formed, one that nature is always equally
-> perfect, the other that it always increases in perfection.[^28]"
+> perfect, the other that it always increases in perfection."[^28]
 >
 > "To employ the art of consequences, we need an art of bringing things
 > to mind, another of estimating probabilities and, in addition,
@@ -2066,7 +2052,7 @@ $$\text{knowledge}\begin{cases}
 
     灵魂按其与身体的关系将整个宇宙的其余部分都表象给它自身,
     从而成为宇宙的一面镜子.
-    
+
     灵魂按照它自己的观点表象宇宙,
     就像同一个城市从不同角度看便会形成不同的景观.
 
@@ -2089,32 +2075,44 @@ $$\text{knowledge}\begin{cases}
 [^13]: 李·斯莫林:
 
     -   宇宙之外一无所有.
-        --- 因果完备性: 宇宙是因果封闭的. (万事皆有因,
-        但因果链不能追溯到宇宙之外.)
-        --- 时空相对性: 空间是事物之间的相互关系;
-        时间是事物关系变化的度量. (如果空间是绝对的,
-        那么将宇宙往右平移一米将与原宇宙不可区分; 如果时间是绝对的,
-        那么将宇宙往后平移一分钟将与原宇宙不可区分.
-        违背"不可分辨者的同一性".)
-        --- 宇宙不是由物质构成, 而是由事件的因果过程构成.
-        宇宙是一个因果关系的网络.
-        其中每一部分的性质由其与其它部分的关系决定.
-        --- 相互作用: 如果A作用于B, B也一定会作用于A.
-        (时空告诉物质如何运动; 反过来, 物质告诉时空如何弯曲.
-        而牛顿的绝对时空是单向的, 时空指引物质运动,
-        物质却无法影响时空.)
-        --- 背景独立性: 基础物理理论不应该依赖于固定不变的背景,
-        即只建模宇宙的一部分, 而把其余部分视为不随其它要素变化的背景.
-        --- 对称性是背景依赖的性质. 由于"不可分辨者的同一性",
-        不存在终极的对称性. 对称性, 要么是近似的, 要么是破缺的.
-        --- 没有任何两个瞬间完全相同, 从这个意义上说, 时间是真实的.
-        --- 开放系统的能量流, 倾向于驱动系统向组织度更高的结构演化.
-        (在熵最大的平衡态, 许多瞬间会不断复现.)
-        --- 观察者是宇宙的一部分.
-        --- 观察者只能观测到宇宙的部分信息.
-        未来的观察者可以看到更多信息.
-        --- 逻辑与观察者有关. 不能假定每个陈述非真即假. 至少有三类:
-        一类可判断为真, 一类可判断为假, 一类无法判断.
+
+        -   因果完备性: 宇宙是因果封闭的. (万事皆有因,
+            但因果链不能追溯到宇宙之外.)
+
+        -   时空相对性: 空间是事物之间的相互关系;
+            时间是事物关系变化的度量. (如果空间是绝对的,
+            那么将宇宙往右平移一米将与原宇宙不可区分; 如果时间是绝对的,
+            那么将宇宙往后平移一分钟将与原宇宙不可区分.
+            违背"不可分辨者的同一性".)
+
+        -   宇宙不是由物质构成, 而是由事件的因果过程构成.
+            宇宙是一个因果关系的网络.
+            其中每一部分的性质由其与其它部分的关系决定.
+
+        -   相互作用: 如果A作用于B, B也一定会作用于A.
+            (时空告诉物质如何运动; 反过来, 物质告诉时空如何弯曲.
+            而牛顿的绝对时空是单向的, 时空指引物质运动,
+            物质却无法影响时空.)
+
+        -   背景独立性: 基础物理理论不应该依赖于固定不变的背景,
+            即只建模宇宙的一部分,
+            而把其余部分视为不随其它要素变化的背景.
+
+        -   对称性是背景依赖的性质. 由于"不可分辨者的同一性",
+            不存在终极的对称性. 对称性, 要么是近似的, 要么是破缺的.
+
+        -   没有任何两个瞬间完全相同, 从这个意义上说, 时间是真实的.
+
+        -   开放系统的能量流, 倾向于驱动系统向组织度更高的结构演化.
+            (在熵最大的平衡态, 许多瞬间会不断复现.)
+
+        -   观察者是宇宙的一部分.
+
+        -   观察者只能观测到宇宙的部分信息.
+            未来的观察者可以看到更多信息.
+
+        -   逻辑与观察者有关. 不能假定每个陈述非真即假. 至少有三类:
+            一类可判断为真, 一类可判断为假, 一类无法判断.
 
 [^14]: Continuity:
     $$\forall x\in I\forall\varepsilon>0\exists\delta>0\forall y\in I \big(|x-y|<\delta\to|f(x)-f(y)|<\varepsilon\big)$$
@@ -2169,6 +2167,7 @@ $$\text{knowledge}\begin{cases}
 [^26]: *On Wisdom*.
 
 [^27]: 莱布尼茨: "遵循事物的本性, 而非其他人的榜样."
+
     Matsuo Basho: "Do not seek to follow in the footsteps of the wise;
     seek what they sought."
 
