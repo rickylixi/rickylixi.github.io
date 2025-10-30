@@ -8,42 +8,55 @@ description: "Collection of profound quotes by Gottfried Wilhelm Leibniz on phil
 canonical_url: "/blog/2025/10/08/leibniz-quotes.html"
 ---
 >
-> ***Principles of metaphysical certainty***
+> ***Principles of Metaphysical Certainty***
 >
 >>
-> ***First principles a priori***
+> ***Intellectual First Principles of the Essence of Things (a priori)***
 >
+> Every judgment is either true or false.  
+> No judgment is simultaneously true and false.  
+> Either the affirmation or the negation is true.  
+> Either the affirmation or the negation is false.
+>  
+> Nothing can at the same time be and not be, but everything either is or is not.
+>>
+> ***Intellectual Principles of the Existence of Things (a priori)***
 >
-> Nothing can at the same time be and not be, but everything either is
-> or is not.
 >
 > Nothing is without a reason.
+>
+> Of several incompatible possibles, the more perfect exists.
 >>
-> ***First principles of a posteriori knowledge*** *(or, of logical certainty)*
+> ***First Principles of Sensation or of First Perceptions (a posteriori)***
 >
 >
-> Every perception of my present thinking is true.
+> 1. I, who perceive, exist.  
+> 2. The things I perceive are various.  
+> For two things above all occur to someone experiencing, that the perceptions are various, and that it is one and the same person who is perceiving. From this it is not only inferred that there is a percipient, but also that the reason that perceptions are so various must be outside the percipient; and therefore that there are other things besides me. From the first I arrive at a knowledge of myself, from the second at a knowledge of the world.
 >>
-> ***Principle of moral certainty***
+> ***Principles of Opinions***
+>
+>
+> That which is easier is more probable.
+>
+> By the easier I mean that which has fewer requisites, i.e. that for whose sake fewer suppositions must be made.
+>
+> Every single thing must be believed to remain in the state it was in, until one sees a reason for believing that it has abandoned this state.
+>>
+> ***Principle of Moral Certainty***
 >
 >
 > Everything which is confirmed by many indications, which can hardly
 > concur except in the truth, is morally certain, i.e. incomparably more
 > probable than its opposite.
 >>
-> ***Principle of physical certainty***
+> ***Principles of Physical Certainty***
 >
 >
-> Everything which men have experienced always and in many ways will
-> still happen: e.g. that iron sinks in water.
->>
-> ***Principles of topical knowledge***
+> Phenomena which agree with the rest are held to be true, whereby Body, Space, Time, World, Individual are also adumbrated.
 >
->
-> Everything is presumed to remain in the state in which it is.
->
-> The more probable is that which has fewer requisites, or, which is
-> easier.
+> Substantial form, or soul, is the principle of unity and of duration, matter is that of multiplicity and change.  
+> There is no place without body, and no time without change.
 >
 
 > "All natural phenomena could be explained mechanically if we
