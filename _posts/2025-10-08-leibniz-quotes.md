@@ -19,6 +19,7 @@ canonical_url: "/blog/2025/10/08/leibniz-quotes.html"
 > Either the affirmation or the negation is false.
 >  
 > Nothing can at the same time be and not be, but everything either is or is not.
+>
 >>
 > ***Intellectual Principles of the Existence of Things (a priori)***
 >
@@ -26,13 +27,16 @@ canonical_url: "/blog/2025/10/08/leibniz-quotes.html"
 > Nothing is without a reason.
 >
 > Of several incompatible possibles, the more perfect exists.
+>
 >>
 > ***First Principles of Sensation or of First Perceptions (a posteriori)***
 >
 >
 > 1. I, who perceive, exist.  
-> 2. The things I perceive are various.  
+> 2. The things I perceive are various.
+>
 > For two things above all occur to someone experiencing, that the perceptions are various, and that it is one and the same person who is perceiving. From this it is not only inferred that there is a percipient, but also that the reason that perceptions are so various must be outside the percipient; and therefore that there are other things besides me. From the first I arrive at a knowledge of myself, from the second at a knowledge of the world.
+>
 >>
 > ***Principles of Opinions***
 >
@@ -42,6 +46,7 @@ canonical_url: "/blog/2025/10/08/leibniz-quotes.html"
 > By the easier I mean that which has fewer requisites, i.e. that for whose sake fewer suppositions must be made.
 >
 > Every single thing must be believed to remain in the state it was in, until one sees a reason for believing that it has abandoned this state.
+>
 >>
 > ***Principle of Moral Certainty***
 >
@@ -49,6 +54,7 @@ canonical_url: "/blog/2025/10/08/leibniz-quotes.html"
 > Everything which is confirmed by many indications, which can hardly
 > concur except in the truth, is morally certain, i.e. incomparably more
 > probable than its opposite.
+>
 >>
 > ***Principles of Physical Certainty***
 >
