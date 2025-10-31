@@ -925,6 +925,16 @@ $$\text{knowledge}\begin{cases}
 > bodies strive with each other reciprocally, and each body resists the
 > whole universe of bodies."
 >
+> "There is no precise and fixed shape in bodies, because of the actual
+division of the parts to infinity. 
+$$\begin{tikzcd}[row sep=0pt]
+A \& B \& C \\ 
+|[outer sep=-2ex]| {} \ar[r,-] \& |[inner sep=-1ex, outer sep=-1ex]| {} \ar[r,-] \& |[outer sep=-2ex]| {} 
+\end{tikzcd}$$ 
+> Let there be, for example, a straight line $ABC$: I say that it is not exactly straight. For with each part of the universe sympathizing with all the others, it is necessarily the case that if the point $A$ tends along the straight line $AB$, the point $B$ should have a tendency in another direction. For with each part $A$ striving to carry with it every other, but particularly the nearest $B$, the direction of $B$ will be composed of that of $A$ and some others; and it is not at all possible that $B$, which is indefinitely near to $A$, should be exposed to the whole universe in precisely the same fashion as $A$, in such a way that $AB$ composes one whole which has no subdivision.
+>
+> It is true that it will always be possible to draw an imaginary line at each instant; but that line will endure in the same parts only for this instant, because each part has a motion different from every other, since it expresses the whole universe differently. Thus there is no body that has any shape for a definite time, however short it might be. Now I believe that what exists only at a moment has no existence, since it starts and finishes at the same time. I have proved elsewhere that there is no middle moment, or moment of change, but only the last moment of the preceding state and the first moment of the following state."
+>
 > "Noticeable perceptions arise by degrees from ones which are too
 > minute to be noticed."
 >
