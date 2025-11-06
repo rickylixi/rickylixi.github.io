@@ -1,0 +1,286 @@
+%!Mode:: "TeX:UTF-8"
+%!TEX program=xelatex
+%!TEX encoding=UTF-8 Unicode
+\documentclass[UTF8,11pt,colorlinks,aspectratio=43]{beamer}%aspectratio=169 %169宽屏 43窄屏[handout]
+
+\setbeamersize{text margin left=.025\paperwidth,text margin right=.025\paperwidth}
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{frametitle}[default][center]
+\setbeamertemplate{blocks}[rounded]
+
+%%%%%%%%%%% 自定义颜色 %%%%%%%%%%%
+\definecolor{background}{RGB}{255,255,255}
+\definecolor{red}{RGB}{220,50,47}
+\definecolor{green}{RGB}{0,128,0}
+\definecolor{yellow}{RGB}{181,137,0}
+\definecolor{orange}{RGB}{203,75,22}
+\definecolor{pink}{RGB}{247,0,94}
+\definecolor{cyan}{RGB}{42,161,152}
+\definecolor{blue}{RGB}{9,132,227}
+\definecolor{lightgreen}{RGB}{199,237,204}
+\definecolor{lightyellow}{RGB}{253,246,227}
+%%%%%%%%%%%%%% 颜色设置 %%%%%%%%%%%%%%
+\setbeamercolor{normal text}{bg=background}
+\setbeamercolor{structure}{fg=orange,bg=lightgreen!25}
+\setbeamercolor{block body}{bg=lightgreen!7}
+\setbeamercolor{block title example}{fg=orange,bg=lightgreen!25}
+\setbeamercolor{block body example}{bg=lightgreen!7}
+%\setbeamercolor{button}{bg=purple}
+%\setbeamercolor{title}{fg=orange}
+%\setbeamercolor{frametitle}{fg=orange,bg=background!85}
+%\setbeamercolor{block title}{fg=orange,bg=background!85}
+%\setbeamercolor{block title alerted}{fg=orange,bg=background!85}
+%\setbeamercolor{block body alerted}{bg=background!85}
+
+%%%%%%%%%%%%%%%% 宏包 %%%%%%%%%%%%%%%%
+\usepackage[UTF8,heading=false,scheme=plain]{ctex}
+\usefonttheme{professionalfonts}%解决Beamer字体冲突
+\usepackage[english]{babel}%断字
+\usepackage[toc]{multitoc}%多栏目录
+\usepackage{newtxmath} %\let\openbox\relax
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{proof}%\infer
+\usepackage{centernot}
+\usepackage{cancel}%删除线
+\usepackage{marvosym}%阴阳符号
+\usepackage{csquotes}
+%\usepackage{pdfpages}%添加pdf页\includepdf{}
+\usepackage[backend=biber,style=alphabetic]{biblatex}%doi=false,isbn=false,url=false
+\addbibresource{ref.bib}
+\usepackage{hyperref}
+\hypersetup{pdfstartview=FitV,bookmarksopenlevel=0,}
+
+%%%%%%%%%%%% 表格支持宏包 %%%%%%%%%%%%
+\usepackage{varwidth}
+\usepackage{multirow}
+\usepackage{makecell}
+
+%%%%%%%%%%%% 图形支持宏包 %%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{tikz}
+\usetikzlibrary{cd,decorations.pathmorphing,positioning,fit,shapes,automata,circuits.ee.IEC,tikzmark}
+
+\tikzset{
+ opencirc/.style={circle,draw,dashed,minimum size=0.3cm},
+ openbox/.style={rectangle,draw,dashed,minimum size=0.3cm},
+ commutative diagrams/.cd,
+ arrow style=tikz,
+ diagrams={>=latex},
+ ampersand replacement=\&,
+ background color=background,
+}
+
+%%%%%%%%%%%% 定理环境 %%%%%%%%%%%
+\newtheorem{proposition}{Proposition}
+\newtheorem{postulate}{Postulate}
+\newtheorem{remark}{Remark}
+\newtheorem{exercise}{Exercise}
+\newtheorem{thesis}{Thesis}
+\newtheorem{assumption}{Assumption}
+
+%%%%%%%%%%%% 定义 %%%%%%%%%%%
+\newcommand{\eqa}{\,\smash{\stackrel{\raisebox{0.8ex}{$\scriptstyle+$}}{\smash=}}\,}
+\newcommand{\leqa}{\,\smash{\stackrel{\raisebox{1ex}{$\scriptstyle\!\!\;+$}}{\smash\leq}}\,}
+\newcommand{\geqa}{\,\smash{\stackrel{\raisebox{1ex}{$\scriptstyle+\!\!\;$}}{\smash\geq}}\,}
+\newcommand{\eqm}{\,\smash{\stackrel{\raisebox{0.6ex}{$\scriptstyle\times$}}{\smash=}}\,}
+\newcommand{\leqm}{\,\smash{\stackrel{\raisebox{1ex}{$\scriptstyle\!\!\;\times$}}{\smash\leq}}\,}
+\newcommand{\geqm}{\,\smash{\stackrel{\raisebox{1ex}{$\scriptstyle\times\!\!\;$}}{\smash\geq}}\,}
+
+\newcommand{\slashedrightarrow}{\relbar\joinrel\mapstochar\joinrel\rightarrow}%profunctor
+
+\newcommand{\biject}{\rightarrowtail\hspace{-10.6pt}\twoheadrightarrow}
+
+\newcommand{\with}{\,\&\,}
+\newcommand{\parr}{\,\rotatebox[origin=c]{180}{\&}\,}
+
+\newcommand{\bcircle}{\raisebox{2.6pt}{\;\circle{5.5}\!}}
+
+\newcommand{\MapUp}[1]{\Big\Uparrow\rlap{$\vcenter{\hbox{$\scriptstyle#1$}}$}}
+\newcommand{\MapDown}[1]{\Big\Downarrow\rlap{$\vcenter{\hbox{$\scriptstyle#1$}}$}}
+
+\let\aechar\ae
+\renewcommand{\ae}{\text{\sl\aechar}}
+
+%%%%%%%%%%%% bisimulation %%%%%%%%%%%
+\newcommand{\bisim}{\mathrel{\mathchoice
+		{\raisebox{.3ex}{$\,
+				\underline{\makebox[.7em]{$\leftrightarrow$}}\,$}}
+		{\raisebox{.3ex}{$\,
+				\underline{\makebox[.7em]{$\leftrightarrow$}}\,$}}
+		{\raisebox{.2ex}{$\,
+				\underline{\makebox[.5em]{\scriptsize$\leftrightarrow$}}\,$}}
+		{\raisebox{.2ex}{$\,
+				\underline{\makebox[.5em]{\scriptsize$\leftrightarrow$}}\,$}}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\powerset}{\mathtt{P}}
+\renewcommand{\Re}{\mathtt{Re}}
+\renewcommand{\Im}{\mathtt{Im}}
+\newcommand{\doo}{\mathtt{do}}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Cst}{Cst}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Wff}{Wff}
+\DeclareMathOperator{\Formula}{Form}
+\DeclareMathOperator{\Prog}{Prog}
+\DeclareMathOperator{\eval}{eval}
+\DeclareMathOperator{\Lin}{Lin}
+\DeclareMathOperator{\truth}{truth}
+\DeclareMathOperator{\sat}{sat}
+\DeclareMathOperator{\subst}{subst}
+\DeclareMathOperator{\Fv}{Fv}
+\DeclareMathOperator{\Bv}{Bv}
+\DeclareMathOperator{\Ord}{Ord}
+\DeclareMathOperator{\Card}{Card}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\cf}{cf}
+\DeclareMathOperator{\crit}{crit}
+\DeclareMathOperator{\Con}{Con}
+\DeclareMathOperator{\BB}{BB}
+\DeclareMathOperator{\Def}{Def}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Nat}{Nat}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Th}{Th}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\Cn}{Cn}
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\prf}{prf}
+\DeclareMathOperator{\prflen}{prflen}
+\DeclareMathOperator{\prov}{prov}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\mor}{mor}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Sub}{Sub}
+\DeclareMathOperator{\Lan}{Lan}
+\DeclareMathOperator{\Ran}{Ran}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\eq}{eq}
+\DeclareMathOperator{\coeq}{coeq}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\cosk}{cosk}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\spec}{spec}
+\DeclareMathOperator{\Sh}{Sh}
+\DeclareMathOperator{\Disc}{Disc}
+\DeclareMathOperator{\Indisc}{Indisc}
+\DeclareMathOperator{\Multi}{Multi}
+\DeclareMathOperator{\List}{List}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\res}{res}
+\DeclareMathOperator{\germ}{germ}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Loss}{Loss}
+\DeclareMathOperator{\app}{app}
+\DeclareMathOperator{\lam}{lam}
+\DeclareMathOperator{\NOT}{NOT}
+\DeclareMathOperator{\CNOT}{CNOT}
+\DeclareMathOperator{\CCNOT}{CCNOT}
+\DeclareMathOperator{\SWAP}{SWAP}
+\DeclareMathOperator{\CSWAP}{CSWAP}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\Pa}{Pa}
+\DeclareMathOperator{\pa}{pa}
+\DeclareMathOperator{\Ch}{Ch}
+\DeclareMathOperator{\An}{An}
+\DeclareMathOperator{\Desc}{Desc}
+\DeclareMathOperator*{\argmax}{\arg\!\max}
+\DeclareMathOperator*{\argmin}{\arg\!\min}
+
+%%%%%%%%%%%%% 标题 %%%%%%%%%%%%%
+\title{考试样题}
+\author[Xi Li]{Xi Li\\
+\small Department of Philosophy \\ 
+\small Central South University\\
+\scriptsize xieshenlixi@163.com\\
+\scriptsize \href{https://rickylixi.github.io/teaching.html}{github}}
+
+\begin{document}
+\maketitle
+
+%%%%%%%%%%%% 节前目录 %%%%%%%%%%%
+\AtBeginSection[]
+{
+\frame[shrink]{{Contents}
+%\begin{multicols}{2}
+\tableofcontents[currentsection,hideallsubsections]
+%\end{multicols}
+}
+\addtocounter{framenumber}{-1} %目录页不计页码
+}
+\AtBeginSubsection[]
+{
+\frame[shrink]{{Contents}
+\begin{multicols}{2}
+\tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded/hide,subsubsectionstyle=hide]
+\end{multicols}
+}
+\addtocounter{framenumber}{-1} %目录页不计页码
+}
+
+
+\begin{frame}\frametitle{}
+一、选择题. (8 道题, 每题 5 分, 共 40 分)
+\begin{block}{}
+1、以下哪个公式是有效的? 
+\begin{enumerate}[A.]\setlength{\itemsep}{-2pt}
+\item $\exists y\forall xRxy\to\forall y\exists xRxy$\\ 
+\item $\forall x\exists yRxy\to\exists x\forall yRxy$\\
+\item $\forall x\exists yRxy\to\exists y \forall xRxy$\\ 
+\item $\exists x\forall yRxy\to\forall y\exists xRxy$
+\end{enumerate}
+\end{block}
+\begin{block}{}
+2、下面哪个公式在左图上为真, 右图上为假? 其中$Rxy$表示从$x$到$y$有箭头.
+\begin{enumerate}[A.]\setlength{\itemsep}{-2pt}
+\item \dots
+\item \dots
+\item \dots
+\item \dots
+\end{enumerate}
+\end{block}
+\begin{block}{}
+3、公式$\forall xyz(Rxy\wedge Rxz\to Ryz)$在下面哪个图上为假? 其中$Rxy$表示从$x$到$y$有箭头.
+\begin{enumerate}[A.]\setlength{\itemsep}{-2pt}
+\item \dots
+\item \dots
+\item \dots
+\item \dots
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}\frametitle{}
+二、下面公式是否有效? 若有效, 请\textcolor{red}{证明}, 若无效, 给出\textcolor{red}{反模型}. (10 分)
+\[(p\to r)\vee(q\to r)\to(p\vee q)\to r\]
+三、请将如下问题翻译成合适的命题\textcolor{red}{逻辑语言}并用\textcolor{red}{逻辑学方法}求解. (20 分)
+\begin{block}{}
+已知一起凶杀案有三个嫌疑人: 小艾、小白和小菜. 至少有一人是凶手, 但不可能三人同时犯罪. 如果小艾是凶手, 那么小菜是同犯. 如果小白不是凶手, 那么小菜也不是. 请问, 谁肯定是凶手? 
+\end{block}
+四、下面论证是否有效? 若有效, 请\textcolor{red}{证明}, 若无效, 给出\textcolor{red}{反模型}. (20 分)
+\begin{block}{}
+ 人人都怕小艾. 小艾只怕我. 因此, 我就是小艾. 
+\end{block}
+五、论述题. (10 分)
+\begin{block}{}
+ 谈谈你对逻辑学与哲学(或数学、计算机科学、语言学等其它某一学科)关系的理解.
+\end{block}
+六、附加题. (10 分)
+\begin{block}{}
+ 谈谈你对命题逻辑与布尔代数之间的关系的理解.
+\end{block}
+\end{frame}
+
+
+
+\end{document}
