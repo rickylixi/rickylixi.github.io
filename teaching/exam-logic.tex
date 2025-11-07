@@ -263,7 +263,7 @@
 
 \begin{frame}\frametitle{}
 \begin{block}{}
-3、公式$\forall xyz(Rxy\wedge Rxz\to Ryz)$在下面哪个图上为真?
+3、公式$\forall xyz(Rxy\wedge Rxz\to Ryz)$在下面哪个图上为真? 其中$Rxy$表示从$x$到$y$有箭头.
 \begin{enumerate}[A.]\setlength{\itemsep}{-2pt}
 \item \dots
 \item \dots
@@ -272,10 +272,10 @@
 \end{enumerate}
 \end{block}
 \begin{block}{}
-4、一个岛上有``君子''、``小人''两类人. ``君子''只说真话, ``小人''只说假话. 你来岛上遇到了一个土著小帅. 小帅说: ``我是君子''. 这时又来了一个土著小美. 你想请小帅去问下小美的身份. 小帅问过小美后, 回来对你说: ``她说她是君子''. 下面哪一项为真?
+4、某地有两个奇怪的村庄, 张庄和李庄. 张庄的人星期一、三、五说谎; 李庄的人星期二、四、六说谎. 其它日子他们都说真话. 你来到了这个地方, 遇到了两个分别来自张村和李村的土著. 你不记得今天是星期几了, 于是问他们. 他们两人都说: ``前天是我说谎的日子''. 下面哪一项可能为真?
 \begin{enumerate}[A.]\setlength{\itemsep}{-2pt}
-\item 小帅是君子, 小美是小人.
-\item \dots
+\item 今天是星期五或星期日.
+\item 今天是星期一或星期三.
 \item \dots
 \item \dots
 \end{enumerate}
@@ -297,12 +297,26 @@
 \begin{block}{}
  谈谈你对逻辑学与哲学(或数学、计算机科学、语言学等其它某一学科)关系的理解.
 \end{block}
-六、附加题. (10 分)
-\begin{block}{}
- 谈谈你对命题逻辑与布尔代数之间的关系的理解.
-\end{block}
 \end{frame}
 
+\begin{frame}\frametitle{}
 
+六、附加题. (10 分)
+\begin{block}{}
+下面是某位同学给出的论证, 请评价以下论证的有效性: 
+	\begin{quote}
+	如果
+	\[\infer=[x\notin \Fv(A)]{\exists x(B\to A)}{\forall x B\to A}
+	\]
+	那么, 
+	\[\infer={\exists x\in X\; \Big(|x|\leq 1\to \mathsf{diam}(X)\leq 2\Big)}{\big(\forall x\in X \; |x|\leq 1\big)\to \mathsf{diam}(X)\leq 2}\]
+	其中$\mathsf{diam}(X)\coloneq \sup\big\{|x-y|:x,y\in X\big\}$是$X$的直径. \\
+  但是, $\big(\forall x\in X \; |x|\leq 1\big)\to \mathsf{diam}(X)\leq 2$显然成立.\\ 
+	而$\exists x\in X\; \Big(|x|\leq 1\to \mathsf{diam}(X)\leq 2\Big)$显然不成立.\\ 
+	所以二者不等价. \\ 
+	所以$\forall x B\to A$和$\exists x(B\to A)$也不等价. 
+	\end{quote}
+\end{block}
+\end{frame}
 
 \end{document}
