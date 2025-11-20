@@ -115,6 +115,37 @@ img {
   loading: lazy;
 }
 
+/* Explicit responsive image helper for replacing inline styles */
+.responsive-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Small utility to remove margin where inline styles were used */
+.no-margin { margin: 0 !important; }
+
+/* Small helper for inline SVG/img icons used in header */
+.icon { width: 1em; height: 1em; vertical-align: -0.125em; fill: currentColor; display: inline-block; margin-right: 0.35em; }
+
+/* University info spacing moved out of inline styles */
+.university-info .uni-dept { margin-bottom: 5px; }
+.university-info .uni-school { margin-bottom: 10px; }
+
+/* Blog nav link spacing previously inline */
+.nav-blog { margin-bottom: 15px; display: inline-block; }
+
+/* Accessible hidden text helper */
+.sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+/* Annotated line helper used in long post instead of inline styles */
+.annotated-line { position: relative; height: 60px; margin: 20px 0; }
+.annotated-line .line { position: absolute; top: 30px; left: 10%; right: 10%; height: 2px; background-color: black; }
+.annotated-line .marker { position: absolute; top: 10px; transform: translateX(-50%); }
+.annotated-line .marker-a { left: 10%; }
+.annotated-line .marker-b { left: 50%; }
+.annotated-line .marker-c { left: 90%; }
+
 /* Ensure social links are vertical across all pages, overriding inline styles */
 header .social-row {
   display:flex;
