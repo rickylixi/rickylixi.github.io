@@ -159,6 +159,58 @@ header h1 a {
 .university-info {
   font-size: 0.95rem;
   color: var(--color-text-light);
+}
+
+.university-info p {
+  margin-bottom: 4px;
+}
+
+/* Navigation & Social */
+.social-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.social-row a {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
+  color: var(--color-text);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.social-row a:hover {
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+  transform: translateX(4px);
+}
+
+.social-row a.nav-blog {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  fill: currentColor;
+}
+
+/* Main Content */
+section {
+  max-width: var(--content-max-width);
+  min-width: 0;
+  /* Prevent grid blowout */
+}
+
+/* Images */
+img {
+  max-width: 100%;
   height: auto;
   border-radius: var(--border-radius);
 }
