@@ -1,15 +1,16 @@
 // Mobile viewport scaling fix
 (function() {
-    // The following code block has been removed to improve accessibility by allowing users to zoom.
-    // if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
-    //     var viewport = document.querySelector('meta[name="viewport"]');
-    //     if (viewport) {
-    //         var content = viewport.getAttribute('content');
-    //         if (content.indexOf('maximum-scale') === -1) {
-    //             viewport.setAttribute('content', content + ', maximum-scale=1');
-    //         }
-    //     }
-    // }
+    // Prevent zoom on focus for iOS devices
+    if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+        var viewport = document.querySelector('meta[name="viewport"]');
+        if (viewport) {
+            var content = viewport.getAttribute('content');
+            // Add maximum-scale=1 to prevent zooming
+            if (content.indexOf('maximum-scale') === -1) {
+                viewport.setAttribute('content', content + ', maximum-scale=1');
+            }
+        }
+    }
 
     // Fix for Android keyboard issues
     if (navigator.userAgent.match(/Android/i)) {
