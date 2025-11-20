@@ -4,7 +4,9 @@
   "description": "Xi's Website.",
   "main": "sw.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node build.js",
+    "build:css": "node build.js"
   },
   "repository": {
     "type": "git",
