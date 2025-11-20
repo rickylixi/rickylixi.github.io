@@ -1,6 +1,7 @@
 // Simple performance monitoring script
 (function() {
     'use strict';
+    const IS_DEBUG = (location.hostname === 'localhost' || location.hostname === '127.0.0.1');
     
     // Check if browser supports Performance API
     if ('performance' in window) {
@@ -8,7 +9,7 @@
         if ('getEntriesByType' in performance) {
             const paintEntries = performance.getEntriesByType('paint');
             paintEntries.forEach(entry => {
-                console.log(`${entry.name}: ${entry.startTime}ms`);
+                if (IS_DEBUG) console.log(`${entry.name}: ${entry.startTime}ms`);
             });
         }
         
@@ -18,11 +19,11 @@
                 const observer = new PerformanceObserver((list) => {
                     const entries = list.getEntries();
                     const lastEntry = entries[entries.length - 1];
-                    console.log('LCP:', lastEntry.startTime, lastEntry);
+                    if (IS_DEBUG) console.log('LCP:', lastEntry.startTime, lastEntry);
                 });
                 observer.observe({ type: 'largest-contentful-paint', buffered: true });
             } catch (e) {
-                console.log('LCP monitoring not supported');
+                if (IS_DEBUG) console.log('LCP monitoring not supported');
             }
         }
         
@@ -31,9 +32,9 @@
             setTimeout(() => {
                 const navigationTiming = performance.getEntriesByType('navigation')[0];
                 if (navigationTiming) {
-                    console.log('DOMContentLoaded:', navigationTiming.domContentLoadedEventEnd);
-                    console.log('Load:', navigationTiming.loadEventEnd);
-                    console.log('TTFB:', navigationTiming.responseStart - navigationTiming.requestStart);
+                    if (IS_DEBUG) console.log('DOMContentLoaded:', navigationTiming.domContentLoadedEventEnd);
+                    if (IS_DEBUG) console.log('Load:', navigationTiming.loadEventEnd);
+                    if (IS_DEBUG) console.log('TTFB:', navigationTiming.responseStart - navigationTiming.requestStart);
                 }
             }, 0);
         });
@@ -50,13 +51,13 @@
                     if (!entry.hadRecentInput) {
                         clsValue += entry.value;
                         clsEntries.push(entry);
-                        console.log('CLS:', clsValue, entry);
+                        if (IS_DEBUG) console.log('CLS:', clsValue, entry);
                     }
                 }
             });
             observer.observe({ type: 'layout-shift', buffered: true });
         } catch (e) {
-            console.log('CLS monitoring not supported');
+            if (IS_DEBUG) console.log('CLS monitoring not supported');
         }
     }
 })();
