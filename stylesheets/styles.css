@@ -1,21 +1,29 @@
 :root {
   /* Color Palette - Light Mode */
-  --color-primary: #2563eb; /* Vibrant Blue */
-  --color-primary-hover: #1d4ed8;
-  --color-text: #374151; /* Gray 700 */
-  --color-text-light: #6b7280; /* Gray 500 */
-  --color-heading: #111827; /* Gray 900 */
+  --color-primary: #16a34a;
+  /* Green 600 */
+  --color-primary-hover: #15803d;
+  /* Green 700 */
+  --color-text: #374151;
+  /* Gray 700 */
+  --color-text-light: #6b7280;
+  /* Gray 500 */
+  --color-heading: #111827;
+  /* Gray 900 */
   --color-background: #ffffff;
-  --color-surface: #f9fafb; /* Gray 50 */
-  --color-border: #e5e7eb; /* Gray 200 */
-  --color-accent: #8b5cf6; /* Violet */
-  
+  --color-surface: #f9fafb;
+  /* Gray 50 */
+  --color-border: #e5e7eb;
+  /* Gray 200 */
+  --color-accent: #8b5cf6;
+  /* Violet */
+
   /* Spacing & Layout */
   --spacing-unit: 8px;
   --sidebar-width: 280px;
   --content-max-width: 800px;
   --border-radius: 8px;
-  
+
   /* Typography */
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -23,14 +31,22 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-primary: #60a5fa; /* Blue 400 */
-    --color-primary-hover: #93c5fd;
-    --color-text: #d1d5db; /* Gray 300 */
-    --color-text-light: #9ca3af; /* Gray 400 */
-    --color-heading: #f9fafb; /* Gray 50 */
-    --color-background: #0f172a; /* Slate 900 */
-    --color-surface: #1e293b; /* Slate 800 */
-    --color-border: #334155; /* Slate 700 */
+    --color-primary: #4ade80;
+    /* Green 400 */
+    --color-primary-hover: #86efac;
+    /* Green 300 */
+    --color-text: #d1d5db;
+    /* Gray 300 */
+    --color-text-light: #9ca3af;
+    /* Gray 400 */
+    --color-heading: #f9fafb;
+    /* Gray 50 */
+    --color-background: #0f172a;
+    /* Slate 900 */
+    --color-surface: #1e293b;
+    /* Slate 800 */
+    --color-border: #334155;
+    /* Slate 700 */
   }
 }
 
@@ -66,19 +82,43 @@ body {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--color-heading);
   margin-bottom: 1rem;
   line-height: 1.3;
   font-weight: 600;
 }
 
-h1 { font-size: 2.25rem; letter-spacing: -0.025em; }
-h2 { font-size: 1.75rem; margin-top: 2.5rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.5rem; }
-h3 { font-size: 1.35rem; margin-top: 2rem; }
-h4 { font-size: 1.15rem; margin-top: 1.5rem; }
+h1 {
+  font-size: 2.25rem;
+  letter-spacing: -0.025em;
+}
 
-p { margin-bottom: 1.5rem; }
+h2 {
+  font-size: 1.75rem;
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.5rem;
+}
+
+h3 {
+  font-size: 1.35rem;
+  margin-top: 2rem;
+}
+
+h4 {
+  font-size: 1.15rem;
+  margin-top: 1.5rem;
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
 
 a {
   color: var(--color-primary);
@@ -91,7 +131,10 @@ a:hover {
   text-decoration: underline;
 }
 
-small { font-size: 0.875rem; color: var(--color-text-light); }
+small {
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+}
 
 /* Sidebar (Header) */
 header {
@@ -161,7 +204,8 @@ header h1 a {
 /* Main Content */
 section {
   max-width: var(--content-max-width);
-  min-width: 0; /* Prevent grid blowout */
+  min-width: 0;
+  /* Prevent grid blowout */
 }
 
 /* Images */
@@ -177,7 +221,8 @@ img {
 }
 
 /* Code Blocks */
-pre, code {
+pre,
+code {
   font-family: var(--font-mono);
   font-size: 0.9em;
 }
@@ -220,7 +265,8 @@ table {
   margin-bottom: 1.5rem;
 }
 
-th, td {
+th,
+td {
   padding: 12px;
   text-align: left;
   border-bottom: 1px solid var(--color-border);
@@ -232,7 +278,8 @@ th {
 }
 
 /* Lists */
-ul, ol {
+ul,
+ol {
   margin-bottom: 1.5rem;
   padding-left: 1.5rem;
 }
@@ -270,7 +317,8 @@ button.accordion {
   align-items: center;
 }
 
-button.accordion:hover, button.accordion.active {
+button.accordion:hover,
+button.accordion.active {
   background-color: var(--color-border);
 }
 
@@ -319,9 +367,17 @@ div.panel.show {
   text-align: center;
 }
 
-.annotated-line .marker-a { left: 10%; }
-.annotated-line .marker-b { left: 50%; }
-.annotated-line .marker-c { left: 90%; }
+.annotated-line .marker-a {
+  left: 10%;
+}
+
+.annotated-line .marker-b {
+  left: 50%;
+}
+
+.annotated-line .marker-c {
+  left: 90%;
+}
 
 /* Utilities */
 .sr-only {
@@ -336,7 +392,9 @@ div.panel.show {
   border: 0;
 }
 
-.no-margin { margin: 0 !important; }
+.no-margin {
+  margin: 0 !important;
+}
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
@@ -352,16 +410,16 @@ div.panel.show {
     padding-bottom: 24px;
     margin-bottom: 24px;
   }
-  
+
   header h1 {
     font-size: 1.5rem;
   }
-  
+
   .social-row {
     flex-direction: row;
     flex-wrap: wrap;
   }
-  
+
   .social-row a {
     padding: 6px 10px;
     background-color: var(--color-surface);
@@ -373,15 +431,16 @@ div.panel.show {
     background: #fff;
     color: #000;
   }
-  
+
   .wrapper {
     display: block;
   }
-  
-  header, footer {
+
+  header,
+  footer {
     position: static;
   }
-  
+
   a {
     text-decoration: underline;
     color: #000;
