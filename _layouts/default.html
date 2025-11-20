@@ -60,10 +60,10 @@
         </div>
         
         <div class="social-row" role="navigation" aria-label="Main navigation">
-          <a href="{{ "/research.html" | relative_url }}" aria-label="Research publications and projects">Research</a>
-          <a href="{{ "/teaching.html" | relative_url }}" aria-label="Teaching materials and courses">Teaching</a>
-          <a href="{{ "/personal.html" | relative_url }}" aria-label="Personal interests and recommendations">Personal</a>
-          <a href="{{ "/blog/" | relative_url }}" class="nav-blog" aria-label="Blog articles">Blog</a>
+          <a href="{{ "/research.html" | relative_url }}" {% if page.url contains 'research' %}class="active"{% endif %} aria-label="Research publications and projects">Research</a>
+          <a href="{{ "/teaching.html" | relative_url }}" {% if page.url contains 'teaching' %}class="active"{% endif %} aria-label="Teaching materials and courses">Teaching</a>
+          <a href="{{ "/personal.html" | relative_url }}" {% if page.url contains 'personal' %}class="active"{% endif %} aria-label="Personal interests and recommendations">Personal</a>
+          <a href="{{ "/blog/" | relative_url }}" class="nav-blog{% if page.url contains '/blog/' %} active{% endif %}" aria-label="Blog articles">Blog</a>
         </div>
         
         <div class="social-row" role="navigation" aria-label="Social media links">

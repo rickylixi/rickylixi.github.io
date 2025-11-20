@@ -123,12 +123,18 @@ p {
 a {
   color: var(--color-primary);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
 }
 
 a:hover {
   color: var(--color-primary-hover);
+}
+
+a:not(.social-link):not(.accordion):hover {
   text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
 }
 
 small {
@@ -175,18 +181,58 @@ header h1 a {
 .social-row a {
   display: flex;
   align-items: center;
-  padding: 5px 10px;
+  gap: 8px;
+  padding: 8px 12px;
   border-radius: var(--border-radius);
   color: var(--color-text);
   font-weight: 500;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
+  position: relative;
+}
+
+/* Navigation links hover effect */
+.social-row a:hover {
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+  transform: translateX(4px);
+}
+
+/* Active navigation state */
+.social-row a.active {
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+  font-weight: 600;
+  border-left: 3px solid var(--color-primary);
+  padding-left: 9px;
+}
+
+/* Social media links specific styling */
+.social-link {
+  font-size: 0.95rem;
+}
+
+.social-link:hover .icon {
+  transform: scale(1.1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Icon styling */
+.icon {
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 img {
   max-width: 100%;
   height: auto;
   border-radius: var(--border-radius);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .responsive-img {
@@ -278,12 +324,12 @@ button.accordion {
   cursor: pointer;
   padding: 16px;
   width: 100%;
-  border: none;
+  border: 1px solid var(--color-border);
   text-align: left;
   outline: none;
   font-size: 1rem;
   font-weight: 500;
-  transition: 0.3s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: var(--border-radius);
   margin-bottom: 8px;
   display: flex;
@@ -291,30 +337,42 @@ button.accordion {
   align-items: center;
 }
 
-button.accordion:hover,
-button.accordion.active {
+button.accordion:hover {
   background-color: var(--color-border);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button.accordion.active {
+  background-color: var(--color-surface);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 button.accordion:after {
   content: '+';
   font-size: 1.2rem;
   font-weight: bold;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 button.accordion.active:after {
   content: '−';
+  transform: rotate(180deg);
 }
 
 div.panel {
   padding: 0 16px;
   background-color: transparent;
-  display: none;
+  max-height: 0;
   overflow: hidden;
   margin-bottom: 16px;
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
 }
 
 div.panel.show {
+  max-height: 2000px;
+  padding: 16px;
   display: block !important;
 }
 
