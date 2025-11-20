@@ -1,4 +1,30 @@
 <script type="application/ld+json">
+{% if page.layout == 'post' %}
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ page.title | escape }}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+  "description": "{{ page.description | default: page.excerpt | strip_html | strip_newlines | truncate: 160 | escape }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.author.name | default: site.author | default: 'Xi Li' }}"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Xi Li",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ "/turing-machine1.png" | absolute_url }}"
+    }
+  }
+}
+{% else %}
 {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -42,4 +68,5 @@
     "@id": "{{ site.url }}"
   }
 }
+{% endif %}
 </script>
