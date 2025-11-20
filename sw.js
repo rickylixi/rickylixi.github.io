@@ -3,14 +3,14 @@
 // Enhanced Service Worker with versioning and cache strategies
 const ASSET_MANIFEST = {{ site.data['asset-manifest'] | jsonify }};
 const STYLESHEET_PATH = (ASSET_MANIFEST && ASSET_MANIFEST.styles) ? ASSET_MANIFEST.styles : '/stylesheets/styles.min.css';
-const CACHE_VERSION = 'v3';
+const CACHE_VERSION = 'v4';
 const CACHE_NAME = `rickylixi-${CACHE_VERSION}`;
 const urlsToCache = [
   '/',
   STYLESHEET_PATH,
   '/javascripts/accordion.js',
-  '/turing-machine1.png',
-  '/ai-xi.jpg',
+  '/image/turing-machine1.png',
+  '/image/ai-xi.jpg',
   '/manifest.json',
   '/assets/asset-manifest.json'
 ];
