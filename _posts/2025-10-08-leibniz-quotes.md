@@ -929,12 +929,12 @@ $$\text{knowledge}\begin{cases}
 > "There is no precise and fixed shape in bodies, because of the actual
 division of the parts to infinity. 
 
-<figure class="annotated-line" role="img" aria-label="Annotated line with points A, B, C">
-    <div class="line" aria-hidden="true"></div>
-    <div class="marker marker-a" aria-hidden="true">A</div>
-    <div class="marker marker-b" aria-hidden="true">B</div>
-    <div class="marker marker-c" aria-hidden="true">C</div>
-    <figcaption class="sr-only">Annotated line with labels A, B and C.</figcaption>
+<figure class="annotated-line" role="img" aria-label="Annotated line with points A, B, C" style="position:relative;height:60px;margin:20px 0;">
+    <div class="line" aria-hidden="true" style="position:absolute;top:30px;left:10%;right:10%;height:2px;background-color:black;"></div>
+    <div class="marker marker-a" aria-hidden="true" style="position:absolute;top:10px;transform:translateX(-50%);left:10%;">A</div>
+    <div class="marker marker-b" aria-hidden="true" style="position:absolute;top:10px;transform:translateX(-50%);left:50%;">B</div>
+    <div class="marker marker-c" aria-hidden="true" style="position:absolute;top:10px;transform:translateX(-50%);left:90%;">C</div>
+    <figcaption class="sr-only" style="position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">Annotated line with labels A, B and C.</figcaption>
 </figure>
 
 > Let there be, for example, a straight line $ABC$: I say that it is not exactly straight. For with each part of the universe sympathizing with all the others, it is necessarily the case that if the point $A$ tends along the straight line $AB$, the point $B$ should have a tendency in another direction. For with each part $A$ striving to carry with it every other, but particularly the nearest $B$, the direction of $B$ will be composed of that of $A$ and some others; and it is not at all possible that $B$, which is indefinitely near to $A$, should be exposed to the whole universe in precisely the same fashion as $A$, in such a way that $AB$ composes one whole which has no subdivision.
