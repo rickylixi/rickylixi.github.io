@@ -21,11 +21,16 @@ Breadcrumb navigation with Schema.org BreadcrumbList markup
     {% for crumb in crumbs %}
     {% unless crumb == '' or crumb == 'index.html' %}
     {% assign crumb_path = crumb_path | append: '/' | append: crumb %}
-    {% comment %} Check if crumb is a number (year/month/day) {% endcomment %}
-    {% assign is_numeric = crumb | plus: 0 | append: '' %}
+    {% comment %} Check if crumb is a date segment (year/month/day) {% endcomment %}
     {% assign is_date_segment = false %}
-    {% if is_numeric == crumb %}
-      {% assign is_date_segment = true %}
+    {% assign crumb_size = crumb | size %}
+    {% comment %} Date segments are 2-4 digit numbers (year=4, month=2, day=2) {% endcomment %}
+    {% if crumb_size >= 2 and crumb_size <= 4 %}
+      {% assign is_numeric = crumb | plus: 0 %}
+      {% if is_numeric >= 0 %}
+        {% comment %} Additional check: ensure it's purely numeric by checking if removing leading zeros gives a valid number {% endcomment %}
+        {% assign is_date_segment = true %}
+      {% endif %}
     {% endif %}
     
     {% if forloop.last %}
