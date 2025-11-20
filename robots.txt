@@ -9,13 +9,15 @@ Disallow: /scripts/
 Disallow: /.jekyll-cache/
 Disallow: /.github/
 
-# Allow blog posts to be indexed (they are served at /blog/ URLs)
+# Explicitly allow key sections and assets
 Allow: /blog/
-
-# Allow important files
-Allow: /stylesheets/
-Allow: /javascripts/
 Allow: /research/
 Allow: /teaching/
+Allow: /personal.html
+Allow: /image/
+Allow: /manifest.json
+Allow: /sw.js
+Allow: /stylesheets/
+Allow: /javascripts/
 
 Sitemap: https://rickylixi.github.io/sitemap.xml
