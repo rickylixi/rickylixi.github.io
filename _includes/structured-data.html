@@ -13,23 +13,49 @@
   },
   "author": {
     "@type": "Person",
+    "name": "Xi Li",
+    "url": "{{ "/" | absolute_url }}"
+  },
+  "publisher": {
+    "@type": "Person",
     "name": "Xi Li"
-  }
+  },
+  "image": "{{ page.image | default: "/image/optimized/turing-machine1.avif" | absolute_url }}"
   {% else %}
   "@type": "Person",
   "name": "李熙",
+  "givenName": "熙",
+  "familyName": "李",
   "alternateName": "Xi Li",
   "description": "Associate Professor of Logic at Central South University. Research in Kolmogorov Complexity, Solomonoff Induction, Causal Inference, and Philosophy of AI.",
-  "jobTitle": "Associate Professor",
+  "jobTitle": "Associate Professor of Logic",
+  "honorificPrefix": "Dr.",
+  "email": "xieshenlixi@163.com",
   "affiliation": {
-    "@type": "Organization",
+    "@type": "CollegeOrUniversity",
     "name": "Central South University",
+    "alternateName": "中南大学",
+    "url": "https://www.csu.edu.cn/",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Changsha",
+      "addressRegion": "Hunan",
+      "addressCountry": "CN"
+    },
     "department": {
       "@type": "Organization",
-      "name": "Department of Philosophy"
+      "name": "Department of Philosophy",
+      "alternateName": "哲学系"
     }
   },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Peking University",
+    "alternateName": "北京大学",
+    "url": "https://www.pku.edu.cn/"
+  },
   "url": "{{ "/" | absolute_url }}",
+  "image": "{{ "/image/optimized/ai-xi.avif" | absolute_url }}",
   "sameAs": [
     "https://github.com/rickylixi",
     "https://x.com/rickylixi",
@@ -40,11 +66,21 @@
     "Philosophy of Artificial Intelligence",
     "Causal Inference",
     "Game Theory",
-    "Kolmogorov Complexity"
+    "Kolmogorov Complexity",
+    "Solomonoff Induction",
+    "Universal Reinforcement Learning",
+    "Rational Decision Theory"
   ],
   "worksFor": {
     "@type": "CollegeOrUniversity",
-    "name": "Central South University"
+    "name": "Central South University",
+    "alternateName": "中南大学"
+  },
+  "hasOccupation": {
+    "@type": "Occupation",
+    "name": "Associate Professor",
+    "occupationalCategory": "25-1199.00",
+    "educationRequirements": "PhD in Logic"
   }
   {% endif %}
 }

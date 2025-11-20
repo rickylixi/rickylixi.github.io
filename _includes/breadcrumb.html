@@ -1,0 +1,44 @@
+{% comment %}
+Breadcrumb navigation with Schema.org BreadcrumbList markup
+{% endcomment %}
+
+{% unless page.url == "/" %}
+<nav aria-label="Breadcrumb" class="breadcrumb">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList"
+    style="list-style: none; padding: 0; margin: 0 0 2rem 0; display: flex; flex-wrap: wrap; gap: 8px; font-size: 0.9rem; color: var(--color-text-light);">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="{{- " /" | relative_url }}">
+        <span itemprop="name">Home</span>
+      </a>
+      <meta itemprop="position" content="1" />
+      <span style="margin: 0 8px;">›</span>
+    </li>
+
+    {% assign crumbs = page.url | split: '/' %}
+    {% assign crumb_path = '' %}
+    {% assign position = 2 %}
+
+    {% for crumb in crumbs %}
+    {% unless crumb == '' or crumb == 'index.html' %}
+    {% assign crumb_path = crumb_path | append: '/' | append: crumb %}
+    {% if forloop.last %}
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+      <span itemprop="name">{{ page.title | default: crumb | replace: '.html', '' | replace: '-', ' ' | capitalize
+        }}</span>
+      <meta itemprop="position" content="{{ position }}" />
+    </li>
+    {% else %}
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="{{ crumb_path | relative_url }}">
+        <span itemprop="name">{{ crumb | replace: '.html', '' | replace: '-', ' ' | capitalize }}</span>
+      </a>
+      <meta itemprop="position" content="{{ position }}" />
+      <span style="margin: 0 8px;">›</span>
+    </li>
+    {% endif %}
+    {% assign position = position | plus: 1 %}
+    {% endunless %}
+    {% endfor %}
+  </ol>
+</nav>
+{% endunless %}

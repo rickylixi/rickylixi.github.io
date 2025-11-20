@@ -1,0 +1,28 @@
+# Sitemap configuration for better SEO
+
+# Pages to include in sitemap
+defaults:
+  - scope:
+      path: ""
+    values:
+      sitemap: true
+      
+# Exclude these from sitemap
+exclude:
+  - README.md
+  - CDN_CONFIG.md
+  - SEO_GUIDE.md
+  - teaching/s-beamer.tex
+  - node_modules/
+  - .git/
+  - .github/
+  - scripts/
+  - build.js
+  - package.json
+  - package-lock.json
+
+# Sitemap settings
+sitemap:
+  changefreq: monthly
+  priority: 0.8
+  lastmod: site.time
