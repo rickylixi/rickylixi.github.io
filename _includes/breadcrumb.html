@@ -26,10 +26,16 @@ Breadcrumb navigation with Schema.org BreadcrumbList markup
     {% assign crumb_size = crumb | size %}
     {% comment %} Date segments are 2-4 digit numbers (year=4, month=2, day=2) {% endcomment %}
     {% if crumb_size >= 2 and crumb_size <= 4 %}
-      {% assign is_numeric = crumb | plus: 0 %}
-      {% if is_numeric >= 0 %}
-        {% comment %} Additional check: ensure it's purely numeric by checking if removing leading zeros gives a valid number {% endcomment %}
-        {% assign is_date_segment = true %}
+      {% assign crumb_as_number = crumb | plus: 0 %}
+      {% assign number_as_string = crumb_as_number | append: '' %}
+      {% comment %} Check if it's purely numeric: "03" -> 3 -> "3", "blog" -> 0 -> "0" {% endcomment %}
+      {% comment %} For "03": crumb_as_number=3, for "blog": crumb_as_number=0 {% endcomment %}
+      {% if crumb_as_number > 0 or crumb == "00" or crumb == "0" %}
+        {% comment %} Remove leading zeros from original for comparison {% endcomment %}
+        {% assign crumb_trimmed = crumb | plus: 0 | append: '' %}
+        {% if crumb_trimmed == number_as_string %}
+          {% assign is_date_segment = true %}
+        {% endif %}
       {% endif %}
     {% endif %}
     
