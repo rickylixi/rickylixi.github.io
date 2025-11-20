@@ -1,12 +1,18 @@
 <!doctype html>
 <html lang="zh-Hans">
   <head>
+    {% assign asset_manifest = site.data['asset-manifest'] %}
+    {% if asset_manifest %}
+    {% assign stylesheet_path = asset_manifest.styles | default: "/stylesheets/styles.min.css" %}
+    {% else %}
+    {% assign stylesheet_path = "/stylesheets/styles.min.css" %}
+    {% endif %}
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-    <link rel="preload" href="{{ "/stylesheets/styles.min.css" | relative_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="{{ "/stylesheets/styles.min.css" | relative_url }}"></noscript>
+    <link rel="preload" href="{{ stylesheet_path | relative_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ stylesheet_path | relative_url }}"></noscript>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     {% seo %}
@@ -102,8 +108,9 @@
       </footer>
     </div>
 
-    <!-- Load accordion script for research page -->
+    {% if page.accordion %}
     <script src="{{ "/javascripts/accordion.js" | relative_url }}" defer></script>
+    {% endif %}
     <!-- Load scale fix script for mobile -->
     <script src="{{ "/javascripts/scale.fix.js" | relative_url }}" defer></script>
     

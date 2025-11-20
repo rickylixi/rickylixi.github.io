@@ -1,14 +1,19 @@
+---
+---
 // Enhanced Service Worker with versioning and cache strategies
-const CACHE_VERSION = 'v2';
+const ASSET_MANIFEST = {{ site.data['asset-manifest'] | jsonify }};
+const STYLESHEET_PATH = (ASSET_MANIFEST && ASSET_MANIFEST.styles) ? ASSET_MANIFEST.styles : '/stylesheets/styles.min.css';
+const CACHE_VERSION = 'v3';
 const CACHE_NAME = `rickylixi-${CACHE_VERSION}`;
 const urlsToCache = [
   '/',
-  '/stylesheets/styles.min.css',
+  STYLESHEET_PATH,
   '/javascripts/accordion.js',
   '/javascripts/scale.fix.js',
   '/turing-machine1.png',
   '/ai-xi.jpg',
-  '/manifest.json'
+  '/manifest.json',
+  '/assets/asset-manifest.json'
 ];
 
 // Install event - cache resources with network-first fallback

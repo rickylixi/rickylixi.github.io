@@ -1,40 +1,77 @@
 const fs = require('fs');
 const path = require('path');
-const { execSync } = require('child_process');
+const crypto = require('crypto');
+const { transform } = require('lightningcss');
 
-// 简单的 CSS 压缩函数
-function minifyCSS(inputPath, outputPath) {
-  try {
-    const cssContent = fs.readFileSync(inputPath, 'utf8');
-    
-    // 基本的 CSS 压缩
-    const minified = cssContent
-      .replace(/\/\*[\s\S]*?\*\//g, '') // 移除注释
-      .replace(/\s+/g, ' ') // 压缩空格
-      .replace(/;\s*/g, ';') // 移除分号后的空格
-      .replace(/:\s*/g, ':') // 移除冒号后的空格
-      .replace(/\s*\{\s*/g, '{') // 压缩大括号周围的空格
-      .replace(/\s*\}\s*/g, '}')
-      .replace(/\s*\,\s*/g, ',')
-      .replace(/\s*\!\s*/g, '!')
-      .trim();
-    
-    fs.writeFileSync(outputPath, minified);
-    console.log(`✓ CSS 压缩完成: ${outputPath}`);
-  } catch (error) {
-    console.error(`✗ CSS 压缩失败: ${error.message}`);
+const ROOT = __dirname;
+const INPUT_CSS = path.join(ROOT, 'stylesheets', 'styles.css');
+const CSS_DIST_DIR = path.join(ROOT, 'stylesheets', 'dist');
+const LEGACY_MIN_PATH = path.join(ROOT, 'stylesheets', 'styles.min.css');
+const PUBLIC_MANIFEST_PATH = path.join(ROOT, 'assets', 'asset-manifest.json');
+const DATA_DIR = path.join(ROOT, '_data');
+const DATA_MANIFEST_PATH = path.join(DATA_DIR, 'asset-manifest.json');
+
+function ensureDir(dirPath) {
+  if (!fs.existsSync(dirPath)) {
+    fs.mkdirSync(dirPath, { recursive: true });
   }
 }
 
-// 主构建函数
+function cleanOldBundles(dirPath, prefix) {
+  if (!fs.existsSync(dirPath)) return;
+  for (const file of fs.readdirSync(dirPath)) {
+    if (file.startsWith(prefix)) {
+      fs.unlinkSync(path.join(dirPath, file));
+    }
+  }
+}
+
+function buildStyles() {
+  console.log('→ 正在编译 CSS ...');
+  const source = fs.readFileSync(INPUT_CSS);
+
+  const { code } = transform({
+    filename: INPUT_CSS,
+    code: source,
+    minify: true,
+    sourceMap: false
+  });
+
+  const hash = crypto.createHash('sha256').update(code).digest('hex').slice(0, 10);
+  const fileName = `styles.${hash}.css`;
+
+  ensureDir(CSS_DIST_DIR);
+  cleanOldBundles(CSS_DIST_DIR, 'styles.');
+
+  fs.writeFileSync(path.join(CSS_DIST_DIR, fileName), code);
+  fs.writeFileSync(LEGACY_MIN_PATH, code);
+
+  console.log(`✓ CSS 输出: ${fileName}`);
+  return { hash, fileName };
+}
+
+function writeManifest(manifest) {
+  console.log('→ 写入资源清单 ...');
+  ensureDir(path.dirname(PUBLIC_MANIFEST_PATH));
+  ensureDir(DATA_DIR);
+
+  const data = JSON.stringify(manifest, null, 2);
+  fs.writeFileSync(PUBLIC_MANIFEST_PATH, data);
+  fs.writeFileSync(DATA_MANIFEST_PATH, data);
+}
+
 function build() {
   console.log('开始构建网站...');
-  
-  // 压缩 CSS
-  minifyCSS('stylesheets/styles.css', 'stylesheets/styles.min.css');
-  
+  const cssBundle = buildStyles();
+
+  const manifest = {
+    generatedAt: new Date().toISOString(),
+    styles: `/stylesheets/dist/${cssBundle.fileName}`,
+    hash: cssBundle.hash
+  };
+
+  writeManifest(manifest);
   console.log('构建完成！');
 }
 
-// 执行构建
 build();
