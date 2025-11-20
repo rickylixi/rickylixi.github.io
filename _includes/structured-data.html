@@ -1,45 +1,51 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  {% if page.layout == 'post' %}
+  "@type": "BlogPosting",
+  "headline": "{{ page.title | escape }}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+  "description": "{{ page.description | default: page.excerpt | strip_html | normalize_whitespace | escape }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Xi Li"
+  }
+  {% else %}
   "@type": "Person",
   "name": "李熙",
   "alternateName": "Xi Li",
-  "description": "Associate Professor of Logic at Central South University. Research in Kolmogorov Complexity, Solomonoff Induction, Causal Inference, Rational Decision Theory, and AI Philosophy.",
+  "description": "Associate Professor of Logic at Central South University. Research in Kolmogorov Complexity, Solomonoff Induction, Causal Inference, and Philosophy of AI.",
   "jobTitle": "Associate Professor",
-  "worksFor": {
+  "affiliation": {
     "@type": "Organization",
-    "name": "中南大学",
-    "alternateName": "Central South University",
-    "url": "https://www.csu.edu.cn/"
+    "name": "Central South University",
+    "department": {
+      "@type": "Organization",
+      "name": "Department of Philosophy"
+    }
   },
-  "alumniOf": {
-    "@type": "Organization",
-    "name": "北京大学",
-    "alternateName": "Peking University",
-    "url": "https://logic.pku.edu.cn/"
-  },
-  "url": "{{ site.url }}",
-  "image": "{{ "/turing-machine1.png" | absolute_url }}",
+  "url": "{{ "/" | absolute_url }}",
   "sameAs": [
     "https://github.com/rickylixi",
     "https://x.com/rickylixi",
     "https://www.zhihu.com/people/pkulixi"
   ],
   "knowsAbout": [
-    "Kolmogorov Complexity",
-    "Solomonoff Induction", 
-    "Universal Reinforcement Learning",
+    "Logic",
+    "Philosophy of Artificial Intelligence",
     "Causal Inference",
-    "Rational Decision Theory",
-    "Philosophy of Artificial Intelligence"
+    "Game Theory",
+    "Kolmogorov Complexity"
   ],
-  "teaches": [
-    "Mathematical Logic",
-    "Philosophy of Artificial Intelligence"
-  ],
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "{{ site.url }}"
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "Central South University"
   }
+  {% endif %}
 }
 </script>

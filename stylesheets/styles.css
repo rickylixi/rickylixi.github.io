@@ -78,7 +78,7 @@ body {
   padding: 40px 20px;
   display: grid;
   grid-template-columns: var(--sidebar-width) 1fr;
-  gap: 30px;
+  gap: 20px;
 }
 
 /* Typography */
@@ -175,7 +175,7 @@ header h1 a {
 .social-row a {
   display: flex;
   align-items: center;
-  padding: 8px 12px;
+  padding: 5px 10px;
   border-radius: var(--border-radius);
   color: var(--color-text);
   font-weight: 500;
@@ -183,32 +183,6 @@ header h1 a {
   text-decoration: none;
 }
 
-.social-row a:hover {
-  background-color: var(--color-surface);
-  color: var(--color-primary);
-  transform: translateX(4px);
-}
-
-.social-row a.nav-blog {
-  font-weight: 600;
-  color: var(--color-primary);
-}
-
-.icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 12px;
-  fill: currentColor;
-}
-
-/* Main Content */
-section {
-  max-width: var(--content-max-width);
-  min-width: 0;
-  /* Prevent grid blowout */
-}
-
-/* Images */
 img {
   max-width: 100%;
   height: auto;

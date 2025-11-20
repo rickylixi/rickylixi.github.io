@@ -1,5 +1,5 @@
 ---
----
+  ---
 // Enhanced Service Worker with versioning and cache strategies
 const ASSET_MANIFEST = {{ site.data['asset-manifest'] | jsonify }};
 const STYLESHEET_PATH = (ASSET_MANIFEST && ASSET_MANIFEST.styles) ? ASSET_MANIFEST.styles : '/stylesheets/styles.min.css';
@@ -9,7 +9,6 @@ const urlsToCache = [
   '/',
   STYLESHEET_PATH,
   '/javascripts/accordion.js',
-  '/javascripts/scale.fix.js',
   '/turing-machine1.png',
   '/ai-xi.jpg',
   '/manifest.json',
@@ -59,7 +58,7 @@ self.addEventListener('fetch', event => {
                   .then(cache => cache.put(event.request, networkResponse));
               }
             })
-            .catch(() => {}); // Silent fail for background update
+            .catch(() => { }); // Silent fail for background update
           return cachedResponse;
         }
 
