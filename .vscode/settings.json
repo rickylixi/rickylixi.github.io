@@ -13,7 +13,7 @@
   "html.format.enable": false,
   // 保存时不要自动修复
   "editor.codeActionsOnSave": {
-    "source.fixAll": false
+    "source.fixAll": "never"
   },
   // 其他文件类型可以保持自动格式化
   "[javascript]": {

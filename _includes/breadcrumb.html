@@ -21,13 +21,29 @@ Breadcrumb navigation with Schema.org BreadcrumbList markup
     {% for crumb in crumbs %}
     {% unless crumb == '' or crumb == 'index.html' %}
     {% assign crumb_path = crumb_path | append: '/' | append: crumb %}
+    {% comment %} Check if crumb is a number (year/month/day) {% endcomment %}
+    {% assign is_numeric = crumb | plus: 0 | append: '' %}
+    {% assign is_date_segment = false %}
+    {% if is_numeric == crumb %}
+      {% assign is_date_segment = true %}
+    {% endif %}
+    
     {% if forloop.last %}
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
       <span itemprop="name">{{ page.title | default: crumb | replace: '.html', '' | replace: '-', ' ' | capitalize
         }}</span>
       <meta itemprop="position" content="{{ position }}" />
     </li>
+    {% elsif is_date_segment %}
+    {% comment %} Date segments (year/month/day) are not clickable {% endcomment %}
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span itemprop="name">{{ crumb }}</span>
+      <meta itemprop="item" content="{{ crumb_path | absolute_url }}" />
+      <meta itemprop="position" content="{{ position }}" />
+      <span style="margin: 0 8px;">›</span>
+    </li>
     {% else %}
+    {% comment %} Non-date segments like "blog" are clickable {% endcomment %}
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
       <a itemprop="item" href="{{ crumb_path | relative_url }}">
         <span itemprop="name">{{ crumb | replace: '.html', '' | replace: '-', ' ' | capitalize }}</span>
