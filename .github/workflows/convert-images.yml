@@ -1,0 +1,52 @@
+name: Generate optimized images
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+jobs:
+  optimize_images:
+    name: Convert images and upload artifact
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: |
+          npm ci
+
+      - name: Run image conversion script
+        run: |
+          node scripts/convert-images.js --src=image --out=image/optimized --formats=webp,avif
+
+      - name: List optimized files
+        run: |
+          if [ -d image/optimized ]; then ls -l image/optimized || true; else echo "No optimized dir"; fi
+
+      - name: Upload optimized images artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: optimized-images
+          path: image/optimized
+
+      # Optional: commit optimized images back to the branch.
+      # Disabled by default for repository hygiene. To enable, set the
+      # `COMMIT_OPTIMIZED` repository secret to 'true' and make sure the
+      # workflow has permission to write (GITHUB_TOKEN or PAT with repo scope).
+      - name: Commit optimized images (optional)
+        if: ${{ secrets.COMMIT_OPTIMIZED == 'true' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add image/optimized || true
+          git commit -m "CI: add optimized images" || echo "No changes to commit"
+          git push origin HEAD:$(git rev-parse --abbrev-ref HEAD)
