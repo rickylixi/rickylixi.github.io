@@ -1,0 +1,24 @@
+{
+  "name": "rickylixi.github.io",
+  "version": "1.0.0",
+  "description": "Xi's Website.",
+  "main": "sw.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rickylixi/rickylixi.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rickylixi/rickylixi.github.io/issues"
+  },
+  "homepage": "https://github.com/rickylixi/rickylixi.github.io#readme",
+  "dependencies": {
+    "minimist": "^1.2.8",
+    "sharp": "^0.34.5"
+  }
+}
