@@ -78,7 +78,7 @@ body {
   padding: 40px 20px;
   display: grid;
   grid-template-columns: var(--sidebar-width) 1fr;
-  gap: 20px;
+  gap: 30px;
 }
 
 /* Typography */
