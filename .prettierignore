@@ -1,3 +1,7 @@
 *.html
 _layouts/*.html
+_inode_modules/
+_site/
+*.html
 _includes/*.html
+_layouts/*.htmlml

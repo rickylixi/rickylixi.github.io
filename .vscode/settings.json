@@ -1,0 +1,35 @@
+{
+  // 禁用 HTML 文件的自动格式化
+  "[html]": {
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": false,
+    "editor.formatOnType": false
+  },
+  // 禁用 Prettier 对 HTML 文件的格式化
+  "prettier.disableLanguages": [
+    "html"
+  ],
+  // 如果使用了其他格式化工具，也禁用它们
+  "html.format.enable": false,
+  // 保存时不要自动修复
+  "editor.codeActionsOnSave": {
+    "source.fixAll": false
+  },
+  // 其他文件类型可以保持自动格式化
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

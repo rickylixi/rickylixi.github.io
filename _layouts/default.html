@@ -24,7 +24,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
 
   <!-- Web App Manifest -->
-  <link rel="manifest" href="{{- " /manifest.json" | relative_url }}">
+  <link rel="manifest" href="{{"/manifest.json" | relative_url }}">
   <meta name="theme-color" content="#39c">
 
   <!-- New GA4 tracking code -->
@@ -58,20 +58,20 @@
 <body>
   <div class="wrapper">
     <header>
-      <h1><a href="{{- " /" | relative_url }}">李熙 | Xi Li</a></h1>
+      <h1><a href="{{"/" | relative_url }}">李熙 | Xi Li</a></h1>
       <div class="university-info">
         <p class="uni-dept">中南大学哲学系</p>
         <p class="uni-school">Central South University</p>
       </div>
 
       <div class="social-row" role="navigation" aria-label="Main navigation">
-        <a href="{{- " /research.html" | relative_url }}" {% if page.url contains 'research' %}class="active" {% endif
-          %} aria-label="Research publications and projects">Research</a>
-        <a href="{{- " /teaching.html" | relative_url }}" {% if page.url contains 'teaching' %}class="active" {% endif
-          %} aria-label="Teaching materials and courses">Teaching</a>
-        <a href="{{- " /personal.html" | relative_url }}" {% if page.url contains 'personal' %}class="active" {% endif
-          %} aria-label="Personal interests and recommendations">Personal</a>
-        <a href="{{- " /blog/" | relative_url }}" class="nav-blog{% if page.url contains '/blog/' %} active{% endif %}"
+        <a href="{{"/research.html" | relative_url }}" {% if page.url contains 'research' %}class="active" {% endif %}
+          aria-label="Research publications and projects">Research</a>
+        <a href="{{"/teaching.html" | relative_url }}" {% if page.url contains 'teaching' %}class="active" {% endif %}
+          aria-label="Teaching materials and courses">Teaching</a>
+        <a href="{{"/personal.html" | relative_url }}" {% if page.url contains 'personal' %}class="active" {% endif %}
+          aria-label="Personal interests and recommendations">Personal</a>
+        <a href="{{"/blog/" | relative_url }}" class="nav-blog{% if page.url contains '/blog/' %} active{% endif %}"
           aria-label="Blog articles">Blog</a>
       </div>
 
@@ -130,7 +130,7 @@
   </div>
 
   {% if page.accordion %}
-  <script src="{{- " /javascripts/accordion.js" | relative_url }}" defer></script>
+  <script src="{{"/javascripts/accordion.js" | relative_url }}" defer></script>
   {% endif %}
   <!-- Service Worker Registration -->
 
@@ -138,7 +138,7 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
-        navigator.serviceWorker.register('{{ "/sw.js" | relative_url }}');
+        navigator.serviceWorker.register('{{"/sw.js" | relative_url }}');
       });
     }
   </script>
