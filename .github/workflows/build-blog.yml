@@ -1,9 +1,9 @@
-name: Build blog and deploy
+name: Build and Deploy Site
 
 on:
   push:
     branches: [ main ]
- 
+
 permissions:
   contents: write
   pages: write
@@ -20,33 +20,11 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1'
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
-      - name: Install dependencies (if present)
+      - name: Build Jekyll site
         run: |
-          cd blog || exit 0
-          if [ -f Gemfile ]; then gem install bundler && bundle install; fi
-
-      - name: Build Jekyll blog to _site/blog
-        run: |
-          mkdir -p _site
-          # If the repository has root-level includes, copy them into blog/_includes so
-          # building the blog source can use shared includes (e.g. head.html)
-          if [ -d _includes ]; then
-            rm -rf blog/_includes || true
-            cp -R _includes blog/_includes
-          fi
-          cd blog
-          # If Gemfile exists, use bundle; otherwise install jekyll CLI so the command exists
-          if [ -f Gemfile ]; then
-            bundle exec jekyll build --source . --destination ../_site/blog
-          else
-            gem install jekyll --no-document
-            jekyll build --source . --destination ../_site/blog
-          fi
-
-      - name: Copy root static files into _site (preserve blog output)
-        run: |
-          rsync -a --exclude='_site' --exclude='blog' ./ ../_site/
+          bundle exec jekyll build --source . --destination ./_site
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

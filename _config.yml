@@ -23,3 +23,16 @@ paginate_path: "/blog/page:num/"
 exclude:
   - "README.md"
   - "teaching/s-beamer.tex"
+  - "node_modules"
+  - ".github"
+  - "package.json"
+  - "package-lock.json"
+  - "build.js"
+  - "_config_sitemap.yml"
+  - "Gemfile"
+  - "Gemfile.lock"
+
+sitemap:
+  changefreq: monthly
+  priority: 0.8
+  lastmod: site.time
