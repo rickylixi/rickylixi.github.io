@@ -50,53 +50,6 @@
   }
 }
 
-[data-theme="dark"] {
-  --color-primary: #4ade80;
-  --color-primary-hover: #86efac;
-  --color-text: #d1d5db;
-  --color-text-light: #9ca3af;
-  --color-heading: #f9fafb;
-  --color-background: #0f172a;
-  --color-surface: #1e293b;
-  --color-border: #334155;
-}
-
-[data-theme="light"] {
-  --color-primary: #16a34a;
-  --color-primary-hover: #15803d;
-  --color-text: #374151;
-  --color-text-light: #6b7280;
-  --color-heading: #111827;
-  --color-background: #ffffff;
-  --color-surface: #f9fafb;
-  --color-border: #e5e7eb;
-}
-
-/* Theme Toggle Button */
-.theme-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  color: var(--color-text);
-  border-radius: var(--border-radius);
-  transition: background-color 0.3s ease, color 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.theme-toggle:hover {
-  background-color: var(--color-surface);
-  color: var(--color-primary);
-}
-
-.theme-toggle svg {
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
-}
-
 /* Reset & Base Styles */
 * {
   box-sizing: border-box;
