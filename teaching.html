@@ -13,100 +13,64 @@ image: "/image/optimized/turing-machine1.avif"
 <p><a href="{{"/teaching/beamer.tex" | relative_url }}" target="_blank" rel="noopener noreferrer">A Beamer Template</a></p>
 
 <hr />
-<h2><b>Logic</b></h2>
-Undergraduate course on Elementary Logic
-<button class="accordion">
-  Advanced material
-</button>
-<div class="panel">
-  <p><a href="{{"/teaching/s-logic.pdf" | relative_url }}" target="_blank" rel="noopener noreferrer">GitHub repository</a></p>
-</div>
-<ul>
-  <li><a href="https://builds.openlogicproject.org/" target="_blank" rel="noopener noreferrer">Textbook</a></li>
-  <li><a href="{{"/teaching/s-logic-intro.pdf" | relative_url }}" target="_blank" rel="noopener noreferrer">Slides</a>
-  </li>
-  <li><a href="{{"/teaching/answers.pdf" | relative_url }}" target="_blank" rel="noopener noreferrer">Answers to the Exercises</a></li>
-  <li><a href="{{"/teaching/exam-logic.pdf" | relative_url }}" target="_blank" rel="noopener noreferrer">Sample Exam Questions</a></li>
-</ul>
 
-<h2><b>Philosophy of Artificial Intelligence</b></h2>
-Graduate course on Universal Induction and Causal Inference
-<button class="accordion">
-  Advanced material
-</button>
-<div class="panel">
-  <p><a href="{{"/teaching/s-uai.pdf" | relative_url }}" target="_blank" rel="noopener noreferrer">GitHub repository</a></p>
-</div>
-<ul>
-  <li><a href="https://www.hutter1.net/publ/uaibook2.pdf" target="_blank" rel="noopener noreferrer">Textbook</a></li>
-  <li><a href="{{"/teaching/s-uai-intro.pdf" | relative_url }}" target="_blank" rel="noopener noreferrer">Slides</a>
-  </li>
-  <li><a href="{{"/teaching/exam-ai.pdf" | relative_url }}" target="_blank" rel="noopener noreferrer">Sample Exam Questions</a></li>
-</ul>
-
-
-<h2><b>Game Theory and Ethics</b></h2>
-Undergraduate course on Game Theory
-<ul>
-  <li><a href="https://www.masfoundations.org/mas.pdf" target="_blank" rel="noopener noreferrer">Textbook</a></li>
-  <li><a href="{{"/teaching/s-game.pdf" | relative_url }}" target="_blank" rel="noopener noreferrer">Slides</a></li>
-</ul>
+{% for course_key in site.data.teaching %}
+  {% assign course = course_key[1] %}
+  {% if course_key[0] == 'causality_reading_group' %}{% continue %}{% endif %}
+  
+  <h2><b>{{ course.title }}</b></h2>
+  {{ course.description }}
+  {% if course.advanced_material %}
+  <button class="accordion">
+    Advanced material
+  </button>
+  <div class="panel">
+    <p><a href="{{ course.advanced_material.link | relative_url }}" target="_blank" rel="noopener noreferrer">{{ course.advanced_material.text }}</a></p>
+  </div>
+  {% endif %}
+  <ul>
+    {% for resource in course.resources %}
+    <li><a href="{{ resource.link | relative_url }}" target="_blank" rel="noopener noreferrer">{{ resource.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endfor %}
 
 <hr />
+{% assign group = site.data.teaching.causality_reading_group %}
 <h2><b>Causality Reading Group</b></h2>
 <p><b>因果读书会基本信息:</b></p>
 <ul class="level-1">
-  <li>时间: 每周一次, 长期进行, 节假日除外, 默认周一晚上7:00, 偶尔会根据大家的时间灵活调整</li>
-  <li>地点: 中南大学麓南校区二教415</li>
-  <li>成员: 不限于我的学生, 欢迎任何对因果感兴趣的朋友加入</li>
-  <li>形式: 线下, 成员轮流主讲, 一起讨论</li>
+  {% for info in group.info %}
+  <li>{{ info }}</li>
+  {% endfor %}
   <li>内容: 经典著作与前沿论文穿插进行, 主题包括但不限于以下几个方面:</li>
   <ul class="level-2">
-    <li>因果图模型/结构因果模型/潜在结果模型</li>
-    <li>因果效应识别</li>
-    <li>因果反事实推理</li>
-    <li>因果中介分析</li>
-    <li>因果解释</li>
-    <li><a href="https://fairness.causalai.net/" target="_blank" rel="noopener noreferrer">因果公平</a></li>
-    <li>因果责任</li>
-    <li><a href="https://causalincentives.com/" target="_blank" rel="noopener noreferrer">因果激励</a></li>
-    <li>因果能动性</li>
-    <li><a href="https://github.com/zhijing-jin/CausalNLP_Papers" target="_blank" rel="noopener noreferrer">因果大语言模型</a>
-    </li>
-    <li>因果抽象</li>
-    <li>因果涌现</li>
-    <li>因果表征学习</li>
-    <li>因果发现</li>
-    <li>因果机制学习</li>
-    <li><a href="https://crl.causalai.net/" target="_blank" rel="noopener noreferrer">因果强化学习</a></li>
-    <li>因果决策</li>
-    <li>因果博弈</li>
-    <li>事实因果</li>
-    <li>回溯因果</li>
-    <li>逆向因果</li>
-    <li>下向因果</li>
-    <li>循环因果</li>
-    <li>量子因果</li>
+    {% for topic in group.topics %}
+      {% if topic.title %}
+      <li><a href="{{ topic.link }}" target="_blank" rel="noopener noreferrer">{{ topic.title }}</a></li>
+      {% else %}
+      <li>{{ topic }}</li>
+      {% endif %}
+    {% endfor %}
   </ul>
 </ul>
+
 <p><b>著作: 因果方面的书有很多, 推荐以下几本作为参考, 以帮助我们了解因果科学的整体框架、基本概念、模型与方法:</b></p>
 <ul class="level-1">
-  <li>经典参考书是 <a href="https://bayes.cs.ucla.edu/BOOK-2K/" target="_blank" rel="noopener noreferrer">Judea Pearl:
-      <em>Causality</em>.</a></li>
-  <li>对基础知识不熟悉的同学可以通过阅读科普书 <a href="https://bayes.cs.ucla.edu/WHY/" target="_blank" rel="noopener noreferrer">Judea
-      Pearl and Dana Mackenzie: <em>The Book of Why</em></a> 快速入门. 如果发现哪里不够严谨, 可以搭配 <a
-      href="https://bayes.cs.ucla.edu/PRIMER/" target="_blank" rel="noopener noreferrer">Judea Pearl and Madelyn Glymour
-      and Nicholas P. Jewell: <em>Causal Inference in Statistics: A Primer</em>.</a></li>
-  <li>更新更全的参考书是 <a href="https://causalai-book.net/" target="_blank" rel="noopener noreferrer">Elias Bareinboim:
-      <em>Causal Artificial Intelligence</em>.</a></li>
+  {% for book in group.books %}
+  <li>
+    {% if book.description contains "经典" %}经典参考书是 {% elsif book.description contains "科普" %}对基础知识不熟悉的同学可以通过阅读科普书 {% elsif book.description contains "更新" %}更新更全的参考书是 {% endif %}
+    <a href="{{ book.link }}" target="_blank" rel="noopener noreferrer">{{ book.title }}</a>
+    {% if book.description contains "搭配" %} 快速入门. 如果发现哪里不够严谨, 可以搭配 <a href="https://bayes.cs.ucla.edu/PRIMER/" target="_blank" rel="noopener noreferrer">Judea Pearl and Madelyn Glymour and Nicholas P. Jewell: <em>Causal Inference in Statistics: A Primer</em>.</a>{% endif %}
+  </li>
+  {% endfor %}
 </ul>
+
 <p><b>论文: 除了我偶尔推荐的和大家正在推进的研究外, 主讲的论文需要大家根据自己的兴趣自行选择. 如果不晓得选读什么文章, 可以参考下面几个网站:</b></p>
 <ul class="level-1">
-  <li><a href="https://causalincentives.com/" target="_blank" rel="noopener noreferrer">Causal Incentives Working
-      Group</a></li>
-  <li><a href="https://sites.google.com/view/ocis" target="_blank" rel="noopener noreferrer">Online Causal Inference
-      Seminar</a></li>
-  <li><a href="https://causalai.net" target="_blank" rel="noopener noreferrer">Elias Bareinboim</a></li>
+  {% for site in group.websites %}
+  <li><a href="{{ site.link }}" target="_blank" rel="noopener noreferrer">{{ site.title }}</a></li>
+  {% endfor %}
 </ul>
 
 <hr />
