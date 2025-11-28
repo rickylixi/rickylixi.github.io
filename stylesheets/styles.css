@@ -110,19 +110,22 @@
     display: none;
 }
 
-/* Default to showing moon (for light mode) if no theme set and system is light */
+/* Default to showing sun (for light mode) if no theme set and system is light */
 @media (prefers-color-scheme: light) {
-    :root:not([data-theme="dark"]) .icon-sun {
+    :root:not([data-theme]) .icon-sun {
+        display: block;
+   }
+    :root:not([data-theme]) .icon-moon {
         display: none;
     }
 }
 
-/* If system is dark and no theme set, show sun (to switch to light) */
+/* If system is dark and no theme set, show moon (for dark mode) */
 @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) .icon-moon {
+    :root:not([data-theme]) .icon-sun {
         display: none;
     }
-    :root:not([data-theme="light"]) .icon-sun {
+    :root:not([data-theme]) .icon-moon {
         display: block;
     }
 }
