@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Disallow admin and private directories
+Disallow: /_includes/
+Disallow: /_layouts/
+Disallow: /assets/docs/
+Disallow: /scripts/
+Disallow: /.jekyll-cache/
+Disallow: /.github/
+
+# Explicitly allow key sections and assets
+Allow: /blog/
+Allow: /research/
+Allow: /teaching/
+Allow: /personal.html
+Allow: /image/
+Allow: /manifest.json
+Allow: /sw.js
+Allow: /stylesheets/
+Allow: /javascripts/
+
+Sitemap: https://rickylixi.github.io/sitemap.xml

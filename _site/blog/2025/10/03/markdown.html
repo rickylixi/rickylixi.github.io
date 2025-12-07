@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="zh-Hans">
+
+<head>
+  
+  
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="stylesheet" href="/stylesheets/dist/styles.0b9aef876a.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>How to use Markdown in Jekyll Blogs? | 李熙 Xi Li</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="How to use Markdown in Jekyll Blogs?" />
+<meta name="author" content="Xi Li" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Learn how to use Markdown syntax with practical examples for headings, bold/italic text, code blocks, math formulas, and footnotes. Perfect for Jekyll blogs and GitHub Pages." />
+<meta property="og:description" content="Learn how to use Markdown syntax with practical examples for headings, bold/italic text, code blocks, math formulas, and footnotes. Perfect for Jekyll blogs and GitHub Pages." />
+<link rel="canonical" href="/blog/2025/10/03/how-to-use-markdown.html" />
+<meta property="og:url" content="/blog/2025/10/03/how-to-use-markdown.html" />
+<meta property="og:site_name" content="李熙 Xi Li" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-10-03T16:12:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How to use Markdown in Jekyll Blogs?" />
+<meta name="twitter:site" content="@rickylixi" />
+<meta name="twitter:creator" content="@Xi Li" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Xi Li"},"dateModified":"2025-10-03T16:12:00+08:00","datePublished":"2025-10-03T16:12:00+08:00","description":"Learn how to use Markdown syntax with practical examples for headings, bold/italic text, code blocks, math formulas, and footnotes. Perfect for Jekyll blogs and GitHub Pages.","headline":"How to use Markdown in Jekyll Blogs?","mainEntityOfPage":{"@type":"WebPage","@id":"/blog/2025/10/03/how-to-use-markdown.html"},"url":"/blog/2025/10/03/how-to-use-markdown.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  
+
+
+
+
+
+
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://localhost:4000/blog/2025/10/03/markdown.html">
+<meta property="og:title" content="How to use Markdown in Jekyll Blogs?">
+<meta property="og:description" content="Learn how to use Markdown syntax with practical examples for headings, bold/italic text, code blocks, math formulas, and footnotes. Perfect for Jekyll blogs and GitHub Pages.">
+<meta property="og:image" content="http://localhost:4000/image/optimized/turing-machine1.webp">
+<meta property="og:image:alt" content="How to use Markdown in Jekyll Blogs?">
+<meta property="og:site_name" content="李熙 | Xi Li">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="en_US">
+
+
+<meta property="article:published_time" content="2025-10-03T16:12:00+08:00">
+<meta property="article:modified_time" content="2025-10-03T16:12:00+08:00">
+<meta property="article:author" content="Xi Li">
+
+
+<meta property="article:tag" content="Markdown">
+
+<meta property="article:tag" content="Tutorial">
+
+<meta property="article:tag" content="Jekyll">
+
+<meta property="article:tag" content="GitHub Pages">
+
+<meta property="article:tag" content="Formatting">
+
+
+
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@rickylixi">
+<meta name="twitter:creator" content="@rickylixi">
+<meta name="twitter:title" content="How to use Markdown in Jekyll Blogs?">
+<meta name="twitter:description" content="Learn how to use Markdown syntax with practical examples for headings, bold/italic text, code blocks, math formulas, and footnotes. Perfect for Jekyll blogs and GitHub Pages.">
+<meta name="twitter:image" content="http://localhost:4000/image/optimized/turing-machine1.webp">
+<meta name="twitter:image:alt" content="How to use Markdown in Jekyll Blogs?">
+
+<!-- Additional SEO meta tags -->
+<meta name="author" content="Xi Li">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+<link rel="canonical" href="http://localhost:4000/blog/2025/10/03/how-to-use-markdown.html">
+
+
+<!-- Language alternates -->
+<link rel="alternate" hreflang="zh-Hans" href="http://localhost:4000/blog/2025/10/03/markdown.html">
+<link rel="alternate" hreflang="en" href="http://localhost:4000/blog/2025/10/03/markdown.html">
+<link rel="alternate" hreflang="x-default" href="http://localhost:4000/blog/2025/10/03/markdown.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/png" href="/image/turing-machine1.png">
+  <link rel="apple-touch-icon" href="/image/turing-machine1.png">
+  <meta name="theme-color" content="#39c">
+
+  <!-- New GA4 tracking code -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GNJD50R0Z7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-GNJD50R0Z7');
+  </script>
+
+  <!-- MathJax for math rendering (load only when page.math is true) -->
+  
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  
+  "@type": "BlogPosting",
+  "headline": "How to use Markdown in Jekyll Blogs?",
+  "datePublished": "2025-10-03T16:12:00+08:00",
+  "dateModified": "2025-10-03T16:12:00+08:00",
+  "description": "Learn how to use Markdown syntax with practical examples for headings, bold/italic text, code blocks, math formulas, and footnotes. Perfect for Jekyll blogs and GitHub Pages.",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:4000/blog/2025/10/03/markdown.html"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Xi Li",
+    "url": "http://localhost:4000/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Xi Li"
+  },
+  "image": "http://localhost:4000/image/optimized/turing-machine1.avif"
+  
+}
+</script>
+</head>
+
+<body>
+  <script>
+    // Immediately check for saved theme to prevent FOUC
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
+    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+
+  <div class="wrapper">
+    <header>
+      <h1><a href="/">李熙 | Xi Li</a></h1>
+      <div class="university-info">
+        <p class="uni-dept">中南大学哲学系</p>
+        <p class="uni-school">Central South University</p>
+      </div>
+
+      <div class="social-row" role="navigation" aria-label="Main navigation">
+        <a href="/research.html" 
+          aria-label="Research publications and projects">Research</a>
+        <a href="/teaching.html" 
+          aria-label="Teaching materials and courses">Teaching</a>
+        <a href="/personal.html" 
+          aria-label="Personal interests and recommendations">Personal</a>
+        <a href="/blog/" class="nav-blog active"
+          aria-label="Blog articles">Blog</a>
+      </div>
+
+      <div class="social-row" role="navigation" aria-label="Social media links">
+        <a href="mailto:xieshenlixi@163.com" class="social-link" title="Email" aria-label="Send email to Xi Li">
+  <svg class="icon" width="24" height="24" viewBox="0 0 512 512" aria-hidden="true" focusable="false" role="img">
+    <!-- Font Awesome Free 6.x envelope -->
+    <path
+      d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
+  </svg>
+  Email
+</a>
+<a href="https://github.com/rickylixi" class="social-link" target="_blank" rel="noopener noreferrer" title="GitHub"
+  aria-label="Visit GitHub profile">
+  <svg class="icon" width="24" height="24" viewBox="0 0 496 512" aria-hidden="true" focusable="false" role="img">
+    <!-- Font Awesome Free 6.x github -->
+    <path
+      d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+  </svg>
+  GitHub
+</a>
+<a href="https://x.com/rickylixi" class="social-link" target="_blank" rel="noopener noreferrer" title="X"
+  aria-label="Visit X (Twitter) profile">
+  <svg class="icon" width="24" height="24" viewBox="0 0 512 512" aria-hidden="true" focusable="false" role="img">
+    <!-- Font Awesome Free 6.x twitter (used as X fallback) -->
+    <path
+      d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" />
+  </svg>
+  X
+</a>
+<a href="https://www.zhihu.com/people/pkulixi" class="social-link" target="_blank" rel="noopener noreferrer"
+  title="Zhihu" aria-label="Visit Zhihu profile">
+  <svg class="icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false" role="img">
+    <!-- Local custom Zhihu icon retained -->
+    <rect x="2" y="2" width="20" height="20" rx="3" ry="3" fill="none" stroke="currentColor" stroke-width="1.5" />
+    <text x="12" y="16" font-size="9" text-anchor="middle" fill="currentColor" font-family="Arial, sans-serif">知</text>
+  </svg>
+  Zhihu
+</a>
+
+      </div>
+    </header>
+
+    <section>
+      
+
+
+<nav aria-label="Breadcrumb" class="breadcrumb">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList"
+    style="list-style: none; padding: 0; margin: 0 0 2rem 0; display: flex; flex-wrap: wrap; gap: 8px; font-size: 0.9rem; color: var(--color-text-light);">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="/">
+        <span itemprop="name">Home</span>
+      </a>
+      <meta itemprop="position" content="1" />
+      <span style="margin: 0 8px;">›</span>
+    </li>
+
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="/blog">
+        <span itemprop="name">Blog</span>
+      </a>
+      <meta itemprop="position" content="2" />
+      <span style="margin: 0 8px;">›</span>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span itemprop="name">2025</span>
+      <meta itemprop="item" content="http://localhost:4000/blog/2025" />
+      <meta itemprop="position" content="3" />
+      <span style="margin: 0 8px;">›</span>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span itemprop="name">10</span>
+      <meta itemprop="item" content="http://localhost:4000/blog/2025/10" />
+      <meta itemprop="position" content="4" />
+      <span style="margin: 0 8px;">›</span>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span itemprop="name">03</span>
+      <meta itemprop="item" content="http://localhost:4000/blog/2025/10/03" />
+      <meta itemprop="position" content="5" />
+      <span style="margin: 0 8px;">›</span>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+      <span itemprop="name">How to use markdown in jekyll blogs?</span>
+      <meta itemprop="position" content="6" />
+    </li>
+    
+    
+    
+    
+  </ol>
+</nav>
+
+      <article class="post">
+  <div class="post-header">
+    <h1 class="post-title">How to use Markdown in Jekyll Blogs?</h1>
+    <p class="post-meta"><small>October 03, 2025</small></p>
+  </div>
+
+  <div class="post-content">
+    <h1 id="a-first-level-heading">A first-level heading</h1>
+
+<h2 id="a-second-level-heading">A second-level heading</h2>
+
+<h3 id="a-third-level-heading">A third-level heading</h3>
+
+<p><strong>This is bold text</strong></p>
+
+<p><em>This text is italicized</em></p>
+
+<p><del>This was mistaken text</del></p>
+
+<p><strong>This text is <em>extremely</em> important</strong></p>
+
+<p>This is a <sub>subscript</sub> text</p>
+
+<p>This is a <sup>superscript</sup> text</p>
+
+<p>This is an <ins>underlined</ins> text</p>
+
+<blockquote>
+  <p>Text that is a quote</p>
+</blockquote>
+
+<p>The background color is <code>#ffffff</code> for light mode and <code>#000000</code> for dark mode.</p>
+
+<p>This site was built using <a href="https://pages.github.com/">GitHub Pages</a>.</p>
+
+<ol>
+  <li>First list item
+    <ul>
+      <li>First nested list item
+        <ul>
+          <li>Second nested list item</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<p>Here is a simple footnote<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>.</p>
+
+<p>A footnote can also have multiple lines<sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>.</p>
+
+<p>This is a second line.</p>
+
+<p>这是一个行内公式: $E = mc^2$ 和 $a^2+b^2=c^2$.</p>
+
+<p>这是一个行间公式:</p>
+
+\[\nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_0}\]
+
+<p><strong>The Cauchy-Schwarz Inequality</strong></p>
+
+\[\left(\sum_{k=1}^n a_k b_k \right)^2 \leq \left(\sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)\]
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1">
+      <p>My reference. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>To add line breaks within a footnote, prefix new lines with 2 spaces. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+  </div>
+</article>
+
+<!-- Giscus Comments - https://giscus.app/ -->
+<!-- Giscus Comments - lazy load: a button and intersection observer will load the widget on demand -->
+<div id="giscus-wrapper">
+  <div id="giscus-container" aria-live="polite"></div>
+  <button id="load-giscus" class="load-comments-button" aria-label="加载评论">加载评论</button>
+</div>
+
+<script>
+  (function(){
+    'use strict';
+    var loaded = false;
+    var loadButton = document.getElementById('load-giscus');
+    var container = document.getElementById('giscus-container');
+
+    function injectGiscus() {
+      if (loaded || !container) return;
+      loaded = true;
+      var script = document.createElement('script');
+      script.src = 'https://giscus.app/client.js';
+      script.async = true;
+      script.crossOrigin = 'anonymous';
+      script.setAttribute('data-repo', 'rickylixi/rickylixi.github.io');
+      script.setAttribute('data-repo-id', 'R_kgDOP6yAsA');
+      script.setAttribute('data-category', 'Announcements');
+      script.setAttribute('data-category-id', 'DIC_kwDOP6yAsM4CwIgU');
+      script.setAttribute('data-mapping', 'title');
+      script.setAttribute('data-strict', '1');
+      script.setAttribute('data-reactions-enabled', '1');
+      script.setAttribute('data-emit-metadata', '1');
+      script.setAttribute('data-input-position', 'top');
+      script.setAttribute('data-theme', 'preferred_color_scheme');
+      script.setAttribute('data-lang', 'zh-CN');
+      script.setAttribute('data-loading', 'lazy');
+      container.appendChild(script);
+      if (loadButton) loadButton.style.display = 'none';
+    }
+
+    // Load on button click
+    if (loadButton) loadButton.addEventListener('click', injectGiscus, { once: true });
+
+    // Auto-load when container is near viewport
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) {
+            injectGiscus();
+            io.disconnect();
+          }
+        });
+      }, { rootMargin: '300px' });
+      io.observe(container);
+    }
+  })();
+</script>
+
+    </section>
+
+    <footer>
+      <p>&copy; Xi Li</p>
+    </footer>
+  </div>
+
+  
+  <!-- Service Worker Registration -->
+
+  <!-- Register Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
+  <script src="/assets/js/theme.js"></script>
+</body>
+
+</html>
