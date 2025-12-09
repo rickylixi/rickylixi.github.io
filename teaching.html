@@ -57,13 +57,9 @@ image: "/image/optimized/turing-machine1.avif"
 
 <p><b>著作: 因果方面的书有很多, 推荐以下几本作为参考, 以帮助我们了解因果科学的整体框架、基本概念、模型与方法:</b></p>
 <ul class="level-1">
-  {% for book in group.books %}
-  <li>
-    {% if book.description contains "经典" %}经典参考书是 {% elsif book.description contains "科普" %}对基础知识不熟悉的同学可以通过阅读科普书 {% elsif book.description contains "更新" %}更新更全的参考书是 {% endif %}
-    <a href="{{ book.link }}" target="_blank" rel="noopener noreferrer">{{ book.title }}</a>
-    {% if book.description contains "搭配" %} 快速入门. 如果发现哪里不够严谨, 可以搭配 <a href="https://bayes.cs.ucla.edu/PRIMER/" target="_blank" rel="noopener noreferrer">Judea Pearl and Madelyn Glymour and Nicholas P. Jewell: <em>Causal Inference in Statistics: A Primer</em>.</a>{% endif %}
-  </li>
-  {% endfor %}
+  <li>经典参考书是 <a href="https://bayes.cs.ucla.edu/BOOK-2K/" target="_blank" rel="noopener noreferrer">Judea Pearl: <em>Causality</em>.</a></li>
+  <li>对基础知识不熟悉的同学可以通过阅读科普书 <a href="https://bayes.cs.ucla.edu/WHY/" target="_blank" rel="noopener noreferrer">Judea Pearl and Dana Mackenzie: <em>The Book of Why</em></a> 快速入门. 如果发现哪里不够严谨, 可以搭配 <a href="https://bayes.cs.ucla.edu/PRIMER/" target="_blank" rel="noopener noreferrer">Judea Pearl and Madelyn Glymour and Nicholas P. Jewell: <em>Causal Inference in Statistics: A Primer</em>.</a></li>
+  <li>更新更全的参考书是 <a href="https://causalai-book.net/" target="_blank" rel="noopener noreferrer">Elias Bareinboim: <em>Causal Artificial Intelligence</em>.</a></li>
 </ul>
 
 <p><b>论文: 除了我偶尔推荐的和大家正在推进的研究外, 主讲的论文需要大家根据自己的兴趣自行选择. 如果不晓得选读什么文章, 可以参考下面几个网站:</b></p>
