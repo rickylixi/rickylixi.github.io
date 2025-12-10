@@ -831,7 +831,7 @@ $$\text{knowledge}\begin{cases}
 > is the shortest path from one to the other, whose magnitude is called
 > distance."
 >
-> Any body can be imagined to be at rest, if only a sentient being is understood to be on it. But being thrown off along the tangent does not argue the real motion of the rotating thing, since it would be the same if everything moved around it. Of course, we humans are accustomed to attribute rest to larger bodies, and this for the sake of the abbreviation or ordering of thought.
+> "Any body can be imagined to be at rest, if only a sentient being is understood to be on it. But being thrown off along the tangent does not argue the real motion of the rotating thing, since it would be the same if everything moved around it. Of course, we humans are accustomed to attribute rest to larger bodies, and this for the sake of the abbreviation or ordering of thought."
 >
 > "The first thing to be properly grasped is that in substances,
 > including created ones, **force** is absolutely real in a way in which
