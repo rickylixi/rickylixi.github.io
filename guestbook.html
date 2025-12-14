@@ -1,0 +1,113 @@
+---
+layout: default
+---
+<article class="post">
+  <div class="post-header">
+    <h1 class="post-title">Guestbook</h1>
+  </div>
+
+  <div class="post-content">
+    <p>Welcome! Feel free to leave a message.</p>
+
+    <!-- Guestbook Form -->
+    <div style="margin-bottom: 2rem; padding: 1rem; border: 1px solid #e1e4e8; border-radius: 6px;">
+        <div style="margin-bottom: 1rem;">
+            <label for="gb-name" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Name / Nickname</label>
+            <input type="text" id="gb-name" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;" placeholder="Anonymous">
+        </div>
+        <div style="margin-bottom: 1rem;">
+            <label for="gb-message" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Message</label>
+            <textarea id="gb-message" rows="3" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;" placeholder="Say something nice..."></textarea>
+        </div>
+        <button id="gb-submit" style="background-color: #24292e; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer;">Sign Guestbook</button>
+    </div>
+
+    <!-- Messages List -->
+    <h3>Recent Messages</h3>
+    <div id="gb-messages">
+        <p>Loading messages...</p>
+    </div>
+
+  </div>
+</article>
+
+<!-- Supabase Script -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  // 1. Initialize Supabase
+  const SUPABASE_URL = 'https://dtiivkyoieucoqkivfha.supabase.co';
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0aWl2a3lvaWV1Y29xa2l2ZmhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU3MjAzMjAsImV4cCI6MjA4MTI5NjMyMH0.KbmvXU1aUft7adEAhVNPEDp8dVdY-4QwkrK8vHyLfII';
+  const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  const messagesContainer = document.getElementById('gb-messages');
+  const submitBtn = document.getElementById('gb-submit');
+
+  // Load Messages
+  async function loadMessages() {
+    const { data, error } = await supabase
+        .from('guestbook_messages')
+        .select('*')
+        .order('created_at', { ascending: false })
+        .limit(20);
+
+    if (error) {
+        messagesContainer.innerHTML = '<p>Error loading messages.</p>';
+        return;
+    }
+
+    if (!data || data.length === 0) {
+        messagesContainer.innerHTML = '<p>No messages yet. Be the first!</p>';
+        return;
+    }
+
+    messagesContainer.innerHTML = data.map(msg => `
+        <div style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #eee;">
+            <strong>${escapeHtml(msg.name)}</strong> 
+            <small style="color: #666;">${new Date(msg.created_at).toLocaleDateString()}</small>
+            <div style="margin-top: 0.5rem;">${escapeHtml(msg.message)}</div>
+        </div>
+    `).join('');
+  }
+
+  // Submit Message
+  submitBtn.addEventListener('click', async () => {
+    const name = document.getElementById('gb-name').value.trim() || 'Anonymous';
+    const message = document.getElementById('gb-message').value.trim();
+
+    if (!message) {
+        alert('Please enter a message.');
+        return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.innerText = 'Posting...';
+
+    const { error } = await supabase
+        .from('guestbook_messages')
+        .insert([{ name, message }]);
+
+    if (error) {
+        alert('Failed to post message: ' + error.message);
+    } else {
+        document.getElementById('gb-message').value = '';
+        await loadMessages();
+    }
+
+    submitBtn.disabled = false;
+    submitBtn.innerText = 'Sign Guestbook';
+  });
+
+  // Utility to prevent XSS
+  function escapeHtml(text) {
+    if (!text) return text;
+    return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+  }
+
+  // Initial Load
+  loadMessages();
+</script>

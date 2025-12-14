@@ -102,6 +102,7 @@
           aria-label="Personal interests and recommendations">Personal</a>
         <a href="{{"/blog/" | relative_url }}" class="nav-blog{% if page.url contains '/blog/' %} active{% endif %}"
           aria-label="Blog articles">Blog</a>
+        <a href="{{"/guestbook.html" | relative_url }}" {% if page.url contains 'guestbook' %}class="active" {% endif %} aria-label="Guestbook">Guestbook</a>
       </div>
 
       <div class="social-row" role="navigation" aria-label="Social media links">
