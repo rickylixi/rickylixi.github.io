@@ -299,9 +299,8 @@
 <!-- Supabase Script -->
 <script>
   // 1. Initialize Supabase
-  const SUPABASE_URL = 'https://dtiivkyoieucoqkivfha.supabase.co';
-  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0aWl2a3lvaWV1Y29xa2l2ZmhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU3MjAzMjAsImV4cCI6MjA4MTI5NjMyMH0.KbmvXU1aUft7adEAhVNPEDp8dVdY-4QwkrK8vHyLfII';
-  const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  // Reuse global client from default.html to avoid const redeclaration errors
+  const _supabase = window.sbClient;
 
   const messagesContainer = document.getElementById('gb-messages');
   const submitBtn = document.getElementById('gb-submit');
