@@ -162,6 +162,8 @@
   
 }
 </script>
+  <!-- Supabase Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
@@ -213,6 +215,7 @@
           aria-label="Personal interests and recommendations">Personal</a>
         <a href="/blog/" class="nav-blog"
           aria-label="Blog articles">Blog</a>
+        <a href="/guestbook.html"  aria-label="Guestbook">Guestbook</a>
       </div>
 
       <div class="social-row" role="navigation" aria-label="Social media links">
@@ -320,6 +323,12 @@
   </li>
   
   <li>
+    <em><a href="https://libraryofbabel.app/pdf/Borges-The-Library-of-Babel.pdf" target="_blank" rel="noopener noreferrer">The Library of Babel</a></em>
+    
+    , by Jorge Luis Borges
+  </li>
+  
+  <li>
     <em><a href="https://www.baen.com/Chapters/9781982126032/9781982126032___5.htm" target="_blank" rel="noopener noreferrer">All You Zombies</a></em>
     
     , by Robert A. Heinlein
@@ -397,7 +406,7 @@
     </section>
 
     <footer>
-      <p>&copy; Xi Li</p>
+      <p>&copy; Xi Li <span style="margin: 0 10px;">|</span> <span style="display: inline-flex; align-items: center; gap: 5px;">👀 <span id="visitor-count" style="opacity: 0; transition: opacity 0.5s;">...</span></span></p>
     </footer>
   </div>
 
@@ -413,6 +422,41 @@
     }
   </script>
   <script src="/assets/js/theme.js"></script>
+  
+  <!-- Supabase Visitor Counter -->
+  <script>
+    document.addEventListener("DOMContentLoaded", async function() {
+      const SUPABASE_URL = 'https://dtiivkyoieucoqkivfha.supabase.co';
+      const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0aWl2a3lvaWV1Y29xa2l2ZmhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU3MjAzMjAsImV4cCI6MjA4MTI5NjMyMH0.KbmvXU1aUft7adEAhVNPEDp8dVdY-4QwkrK8vHyLfII';
+      
+      try {
+        const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        
+        // Use 'site-total' as the slug for the global website counter
+        const pageSlug = 'site-total';
+        
+        // 1. Increment the counter
+        await client.rpc('increment_page_view', { page_slug: pageSlug });
+        
+        // 2. Fetch the updated count
+        const { data, error } = await client
+          .from('page_views')
+          .select('view_count')
+          .eq('slug', pageSlug)
+          .single();
+          
+        if (data && data.view_count) {
+          const counterEl = document.getElementById('visitor-count');
+          if (counterEl) {
+            counterEl.innerText = data.view_count.toLocaleString();
+            counterEl.style.opacity = 1; // Fade in effect
+          }
+        }
+      } catch (err) {
+        console.error('Error updating visitor count:', err);
+      }
+    });
+  </script>
 </body>
 
 </html>

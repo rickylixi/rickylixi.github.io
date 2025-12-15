@@ -149,6 +149,8 @@
   
 }
 </script>
+  <!-- Supabase Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
@@ -200,6 +202,7 @@
           aria-label="Personal interests and recommendations">Personal</a>
         <a href="/blog/" class="nav-blog active"
           aria-label="Blog articles">Blog</a>
+        <a href="/guestbook.html"  aria-label="Guestbook">Guestbook</a>
       </div>
 
       <div class="social-row" role="navigation" aria-label="Social media links">
@@ -368,7 +371,7 @@
       <article class="post">
   <div class="post-header">
     <h1 class="post-title">How to use Markdown in Jekyll Blogs?</h1>
-    <p class="post-meta"><small>October 03, 2025</small></p>
+    <p class="post-meta"><small>October 03, 2025</small> • <small id="page-views">Loading views...</small></p>
   </div>
 
   <div class="post-content">
@@ -496,10 +499,47 @@
   })();
 </script>
 
+<!-- Supabase View Counter -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  (async function() {
+    // 1. Initialize Supabase
+    const SUPABASE_URL = 'https://dtiivkyoieucoqkivfha.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0aWl2a3lvaWV1Y29xa2l2ZmhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU3MjAzMjAsImV4cCI6MjA4MTI5NjMyMH0.KbmvXU1aUft7adEAhVNPEDp8dVdY-4QwkrK8vHyLfII';
+    
+    // Check if supabase global exists, if not, wait or fail gracefully
+    if (typeof supabase !== 'undefined') {
+      const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+      
+      // 2. Identify current page
+      const pageSlug = window.location.pathname;
+
+      try {
+        // 3. Increment usage (Blind fire, don't wait for result to show loading faster? No, we need fresh count)
+        await _supabase.rpc('increment_page_view', { page_slug: pageSlug });
+
+        // 4. Fetch updated count
+        const { data, error } = await _supabase
+          .from('page_views')
+          .select('view_count')
+          .eq('slug', pageSlug)
+          .single();
+
+        if (data) {
+          document.getElementById('page-views').innerText = data.view_count + ' views';
+        }
+      } catch (e) {
+        console.error('View counter validation failed', e);
+        document.getElementById('page-views').style.display = 'none'; // Hide if failed
+      }
+    }
+  })();
+</script>
+
     </section>
 
     <footer>
-      <p>&copy; Xi Li</p>
+      <p>&copy; Xi Li <span style="margin: 0 10px;">|</span> <span style="display: inline-flex; align-items: center; gap: 5px;">👀 <span id="visitor-count" style="opacity: 0; transition: opacity 0.5s;">...</span></span></p>
     </footer>
   </div>
 
@@ -515,6 +555,41 @@
     }
   </script>
   <script src="/assets/js/theme.js"></script>
+  
+  <!-- Supabase Visitor Counter -->
+  <script>
+    document.addEventListener("DOMContentLoaded", async function() {
+      const SUPABASE_URL = 'https://dtiivkyoieucoqkivfha.supabase.co';
+      const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0aWl2a3lvaWV1Y29xa2l2ZmhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU3MjAzMjAsImV4cCI6MjA4MTI5NjMyMH0.KbmvXU1aUft7adEAhVNPEDp8dVdY-4QwkrK8vHyLfII';
+      
+      try {
+        const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        
+        // Use 'site-total' as the slug for the global website counter
+        const pageSlug = 'site-total';
+        
+        // 1. Increment the counter
+        await client.rpc('increment_page_view', { page_slug: pageSlug });
+        
+        // 2. Fetch the updated count
+        const { data, error } = await client
+          .from('page_views')
+          .select('view_count')
+          .eq('slug', pageSlug)
+          .single();
+          
+        if (data && data.view_count) {
+          const counterEl = document.getElementById('visitor-count');
+          if (counterEl) {
+            counterEl.innerText = data.view_count.toLocaleString();
+            counterEl.style.opacity = 1; // Fade in effect
+          }
+        }
+      } catch (err) {
+        console.error('Error updating visitor count:', err);
+      }
+    });
+  </script>
 </body>
 
 </html>
