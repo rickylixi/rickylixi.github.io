@@ -67,39 +67,31 @@ layout: default
   })();
 </script>
 
-<!-- Supabase View Counter -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-  (async function() {
-    // 1. Initialize Supabase
-    const SUPABASE_URL = 'https://dtiivkyoieucoqkivfha.supabase.co';
-    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0aWl2a3lvaWV1Y29xa2l2ZmhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU3MjAzMjAsImV4cCI6MjA4MTI5NjMyMH0.KbmvXU1aUft7adEAhVNPEDp8dVdY-4QwkrK8vHyLfII';
-    
-    // Check if supabase global exists, if not, wait or fail gracefully
-    if (typeof supabase !== 'undefined') {
-      const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-      
-      // 2. Identify current page
-      const pageSlug = window.location.pathname;
+  <!-- Supabase View Counter -->
+  <script>
+    (async function() {
+      // Check if global client exists
+      if (window.sbClient) {
+        const pageSlug = window.location.pathname;
 
-      try {
-        // 3. Increment usage (Blind fire, don't wait for result to show loading faster? No, we need fresh count)
-        await _supabase.rpc('increment_page_view', { page_slug: pageSlug });
+        try {
+          // 1. Increment usage
+          await window.sbClient.rpc('increment_page_view', { page_slug: pageSlug });
 
-        // 4. Fetch updated count
-        const { data, error } = await _supabase
-          .from('page_views')
-          .select('view_count')
-          .eq('slug', pageSlug)
-          .single();
+          // 2. Fetch updated count
+          const { data, error } = await window.sbClient
+            .from('page_views')
+            .select('view_count')
+            .eq('slug', pageSlug)
+            .single();
 
-        if (data) {
-          document.getElementById('page-views').innerText = data.view_count + ' views';
+          if (data) {
+            document.getElementById('page-views').innerText = data.view_count + ' views';
+          }
+        } catch (e) {
+          console.error('View counter validation failed', e);
+          document.getElementById('page-views').style.display = 'none'; // Hide if failed
         }
-      } catch (e) {
-        console.error('View counter validation failed', e);
-        document.getElementById('page-views').style.display = 'none'; // Hide if failed
       }
-    }
-  })();
-</script>
+    })();
+  </script>

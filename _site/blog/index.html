@@ -31,47 +31,12 @@
 {"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Xi Li"},"description":"李熙的博客","headline":"Xi’s Blog","url":"/blog/"}</script>
 <!-- End Jekyll SEO tag -->
 
-  
-
-
-
-
-
-
-
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="http://localhost:4000/blog/">
-<meta property="og:title" content="Xi's Blog">
-<meta property="og:description" content="李熙的博客">
-<meta property="og:image" content="http://localhost:4000/image/optimized/turing-machine1.webp">
-<meta property="og:image:alt" content="Xi's Blog">
-<meta property="og:site_name" content="李熙 | Xi Li">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:locale:alternate" content="en_US">
-
-
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@rickylixi">
-<meta name="twitter:creator" content="@rickylixi">
-<meta name="twitter:title" content="Xi's Blog">
-<meta name="twitter:description" content="李熙的博客">
-<meta name="twitter:image" content="http://localhost:4000/image/optimized/turing-machine1.webp">
-<meta name="twitter:image:alt" content="Xi's Blog">
-
-<!-- Additional SEO meta tags -->
+  <!-- Additional SEO meta tags -->
 <meta name="author" content="Xi Li">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
 <link rel="canonical" href="http://localhost:4000/blog/">
 
-
-<!-- Language alternates -->
-<link rel="alternate" hreflang="zh-Hans" href="http://localhost:4000/blog/">
-<link rel="alternate" hreflang="en" href="http://localhost:4000/blog/">
-<link rel="alternate" hreflang="x-default" href="http://localhost:4000/blog/">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
 
   <!-- Web App Manifest -->
@@ -162,6 +127,11 @@
 </script>
   <!-- Supabase Client -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL = 'https://dtiivkyoieucoqkivfha.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0aWl2a3lvaWV1Y29xa2l2ZmhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU3MjAzMjAsImV4cCI6MjA4MTI5NjMyMH0.KbmvXU1aUft7adEAhVNPEDp8dVdY-4QwkrK8vHyLfII';
+    window.sbClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  </script>
 </head>
 
 <body>
@@ -359,20 +329,15 @@
   <!-- Supabase Visitor Counter -->
   <script>
     document.addEventListener("DOMContentLoaded", async function() {
-      const SUPABASE_URL = 'https://dtiivkyoieucoqkivfha.supabase.co';
-      const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0aWl2a3lvaWV1Y29xa2l2ZmhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU3MjAzMjAsImV4cCI6MjA4MTI5NjMyMH0.KbmvXU1aUft7adEAhVNPEDp8dVdY-4QwkrK8vHyLfII';
-      
       try {
-        const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-        
         // Use 'site-total' as the slug for the global website counter
         const pageSlug = 'site-total';
         
         // 1. Increment the counter
-        await client.rpc('increment_page_view', { page_slug: pageSlug });
+        await window.sbClient.rpc('increment_page_view', { page_slug: pageSlug });
         
         // 2. Fetch the updated count
-        const { data, error } = await client
+        const { data, error } = await window.sbClient
           .from('page_views')
           .select('view_count')
           .eq('slug', pageSlug)

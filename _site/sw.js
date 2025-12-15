@@ -10,7 +10,7 @@ const urlsToCache = [
   STYLESHEET_PATH,
   '/javascripts/accordion.js',
   '/image/turing-machine1.png',
-  '/image/ai-xi.jpg',
+  '/image/optimized/ai-xi.webp',
   '/manifest.json',
   '/assets/asset-manifest.json'
 ];

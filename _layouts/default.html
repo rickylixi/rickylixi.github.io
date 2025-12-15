@@ -53,6 +53,11 @@
   {% include structured-data.html %}
   <!-- Supabase Client -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL = 'https://dtiivkyoieucoqkivfha.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0aWl2a3lvaWV1Y29xa2l2ZmhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU3MjAzMjAsImV4cCI6MjA4MTI5NjMyMH0.KbmvXU1aUft7adEAhVNPEDp8dVdY-4QwkrK8vHyLfII';
+    window.sbClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  </script>
 </head>
 
 <body>
@@ -140,20 +145,15 @@
   <!-- Supabase Visitor Counter -->
   <script>
     document.addEventListener("DOMContentLoaded", async function() {
-      const SUPABASE_URL = 'https://dtiivkyoieucoqkivfha.supabase.co';
-      const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0aWl2a3lvaWV1Y29xa2l2ZmhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU3MjAzMjAsImV4cCI6MjA4MTI5NjMyMH0.KbmvXU1aUft7adEAhVNPEDp8dVdY-4QwkrK8vHyLfII';
-      
       try {
-        const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-        
         // Use 'site-total' as the slug for the global website counter
         const pageSlug = 'site-total';
         
         // 1. Increment the counter
-        await client.rpc('increment_page_view', { page_slug: pageSlug });
+        await window.sbClient.rpc('increment_page_view', { page_slug: pageSlug });
         
         // 2. Fetch the updated count
-        const { data, error } = await client
+        const { data, error } = await window.sbClient
           .from('page_views')
           .select('view_count')
           .eq('slug', pageSlug)
