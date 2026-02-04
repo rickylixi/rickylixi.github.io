@@ -1,44 +1,50 @@
 ---
 layout: default
 title: "Teaching | Courses and Reading Groups"
-description: "Teaching materials and courses by Xi Li at Central South University: Mathematical Logic, Philosophy of Artificial Intelligence, Game Theory and Ethics, Universal Induction, and Causal Inference. Includes lecture slides, textbooks, and exam materials."
+description: "Teaching materials and courses by Xi Li at Central South University: Mathematical Logic, Philosophy of
+Artificial Intelligence, Game Theory and Ethics, Universal Induction, and Causal Inference. Includes lecture slides,
+textbooks, and exam materials."
 canonical_url: "/teaching.html"
 accordion: true
 sitemap: true
 image: "/image/optimized/turing-machine1.avif"
 ---
 <h1>Teaching Experience</h1>
-<p><a href="{{"/teaching/template.pdf" | relative_url }}" target="_blank" rel="noopener noreferrer">哲学论文写作指南</a></p>
+<p><a href="{{" /teaching/template.pdf" | relative_url }}" target="_blank" rel="noopener noreferrer">哲学论文写作指南</a></p>
 <p><a href="https://www.logicmatters.net/latex-for-logicians/" target="_blank" rel="noopener noreferrer">LaTeX</a></p>
-<p><a href="{{"/teaching/beamer.tex" | relative_url }}" target="_blank" rel="noopener noreferrer">A Beamer Template</a></p>
+<p><a href="{{" /teaching/beamer.tex" | relative_url }}" target="_blank" rel="noopener noreferrer">A Beamer Template</a>
+</p>
 
 <hr />
 
 {% for course_key in site.data.teaching %}
-  {% assign course = course_key[1] %}
-  {% if course_key[0] == 'causality_reading_group' %}{% continue %}{% endif %}
-  
-  <h2><b>{{ course.title }}</b></h2>
-  {{ course.description }}
-  {% if course.advanced_material %}
-  <button class="accordion">
-    Advanced material
-  </button>
-  <div class="panel">
-    <p><a href="{{ course.advanced_material.link | relative_url }}" target="_blank" rel="noopener noreferrer">{{ course.advanced_material.text }}</a></p>
-  </div>
-  {% endif %}
-  <ul>
-    {% for resource in course.resources %}
-    <li><a href="{{ resource.link | relative_url }}" target="_blank" rel="noopener noreferrer">{{ resource.title }}</a></li>
-    {% endfor %}
-  </ul>
+{% assign course = course_key[1] %}
+{% if course_key[0] == 'causality_reading_group' %}{% continue %}{% endif %}
+
+<h2><b>{{ course.title }}</b></h2>
+{{ course.description }}
+{% if course.advanced_material %}
+<button class="accordion">
+  Advanced material
+</button>
+<div class="panel">
+  <p><a href="{{ course.advanced_material.link | relative_url }}" target="_blank" rel="noopener noreferrer">{{
+      course.advanced_material.text }}</a></p>
+</div>
+{% endif %}
+<ul>
+  {% for resource in course.resources %}
+  <li><a href="{{ resource.link | relative_url }}" target="_blank" rel="noopener noreferrer">{{ resource.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
 {% endfor %}
 
 <hr />
 {% assign group = site.data.teaching.causality_reading_group %}
-<h2><b>Causality Reading Group</b></h2>
-<p><b>因果读书会基本信息:</b></p>
+<h2><b>{{ group.title | default: "Causality Reading Group" }}</b></h2>
+
+<h3>因果读书会基本信息</h3>
 <ul class="level-1">
   {% for info in group.info %}
   <li>{{ info }}</li>
@@ -46,30 +52,39 @@ image: "/image/optimized/turing-machine1.avif"
   <li>内容: 经典著作与前沿论文穿插进行, 主题包括但不限于以下几个方面:</li>
   <ul class="level-2">
     {% for topic in group.topics %}
-      {% if topic.title %}
-      <li><a href="{{ topic.link }}" target="_blank" rel="noopener noreferrer">{{ topic.title }}</a></li>
-      {% else %}
-      <li>{{ topic }}</li>
-      {% endif %}
+    {% if topic.title %}
+    <li><a href="{{ topic.link }}" target="_blank" rel="noopener noreferrer">{{ topic.title }}</a></li>
+    {% else %}
+    <li>{{ topic }}</li>
+    {% endif %}
     {% endfor %}
   </ul>
 </ul>
 
-<p><b>著作: 因果方面的书有很多, 推荐以下几本作为参考, 以帮助我们了解因果科学的整体框架、基本概念、模型与方法:</b></p>
+{% if group.books %}
+<h3>著作</h3>
+<p>{{ group.books.intro }}</p>
 <ul class="level-1">
-  <li>经典参考书是 <a href="https://bayes.cs.ucla.edu/BOOK-2K/" target="_blank" rel="noopener noreferrer">Judea Pearl: <em>Causality</em>.</a></li>
-  <li>对基础知识不熟悉的同学可以通过阅读科普书 <a href="https://bayes.cs.ucla.edu/WHY/" target="_blank" rel="noopener noreferrer">Judea Pearl and Dana Mackenzie: <em>The Book of Why</em></a> 快速入门. 如果发现哪里不够严谨, 可以搭配 <a href="https://bayes.cs.ucla.edu/PRIMER/" target="_blank" rel="noopener noreferrer">Judea Pearl and Madelyn Glymour and Nicholas P. Jewell: <em>Causal Inference in Statistics: A Primer</em>.</a></li>
-  <li>更新更全的参考书是 <a href="https://causalai-book.net/" target="_blank" rel="noopener noreferrer">Elias Bareinboim: <em>Causal Artificial Intelligence</em>.</a></li>
+  {% for book in group.books.list %}
+  <li>{{ book | markdownify | remove: '<p>' | remove: '</p>' }}</li>
+  {% endfor %}
 </ul>
+{% endif %}
 
-<p><b>论文: 除了我偶尔推荐的和大家正在推进的研究外, 主讲的论文需要大家根据自己的兴趣自行选择. 如果不晓得选读什么文章, 可以参考下面几个网站:</b></p>
+{% if group.websites %}
+<h3>论文</h3>
+<p>除了我偶尔推荐的和大家正在推进的研究外, 主讲的论文需要大家根据自己的兴趣自行选择. 如果不晓得选读什么文章, 可以参考下面几个网站:</p>
 <ul class="level-1">
   {% for site in group.websites %}
   <li><a href="{{ site.link }}" target="_blank" rel="noopener noreferrer">{{ site.title }}</a></li>
   {% endfor %}
 </ul>
+{% endif %}
 
 <hr />
-<h2><b>Information for Prospective Students:</b></h2>
+{% assign prospective = site.data.teaching.prospective_students %}
+{% if prospective %}
+<h2><b>{{ prospective.title }}</b></h2>
 
-<p> 我个人偏好以清晰严谨的方式做哲学, 不喜欢空对空的思辨, 也比较排斥华丽的辞藻或晦涩的表达. 为求清晰严谨, 我会借助一些数理工具. 如果想跟我一起做研究, 希望你对数学与逻辑至少抱有开放不排斥的心态. </p>
+<p>{{ prospective.content }}</p>
+{% endif %}
