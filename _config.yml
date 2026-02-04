@@ -3,6 +3,13 @@ description: "Associate Professor of Logic at Central South University. Research
 author: "Xi Li"
 twitter:
   username: rickylixi
+logo: "/image/optimized/ai-xi.avif"
+social:
+  name: "Xi Li"
+  links:
+    - "https://github.com/rickylixi"
+    - "https://x.com/rickylixi"
+    - "https://www.zhihu.com/people/pkulixi"
 baseurl: ""
 url: "https://rickylixi.github.io"
 permalink: /blog/:year/:month/:day/:title.html
