@@ -45,7 +45,7 @@ causality_reading_group:
     - "形式: 线下, 成员轮流主讲, 一起讨论"
   topics:
     - title: "因果图模型/结构因果模型/潜在结果模型"
-      link: "https://causalai.net/r60.pdf"
+      link: "https://arxiv.org/abs/2511.21516"
     - title: "因果效应识别"
       link: "https://causalinference.gitlab.io/causal-reasoning-book-chapter3/"
     - title: "因果反事实推理"
