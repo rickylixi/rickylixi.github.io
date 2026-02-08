@@ -104,8 +104,10 @@ causality_reading_group:
       link: "https://arxiv.org/abs/1611.06221"
     - title: "心灵因果"
       link: "https://www.cambridge.org/core/books/mental-causation/DFAEAB44CDB560D41F0242371474D91A"
-    - "逆向因果"
-    - "量子因果"
+    - title: "逆向因果"
+      link: "https://plato.stanford.edu/entries/causation-backwards/"
+    - title: "量子因果"
+      link: "https://plato.stanford.edu/entries/qm-retrocausality/"
   websites:
     - title: "Causal Incentives Working Group"
       link: "https://causalincentives.com/"
