@@ -50,7 +50,7 @@ causality_reading_group:
       link: "https://miguelhernan.org/whatifbook"
     - title: "单世界干预图"
       link: "https://csss.uw.edu/files/working-papers/2013/wp128.pdf"
-    - title: "决策论统计因果"
+    - title: "决策论因果模型"
       link: "https://arxiv.org/abs/2004.12493"
     - title: "因果效应识别"
       link: "https://causalinference.gitlab.io/causal-reasoning-book-chapter3/"
