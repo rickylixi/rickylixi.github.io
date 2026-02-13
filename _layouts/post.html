@@ -69,35 +69,4 @@ layout: default
 </script>
 
   <!-- Page View Counter (uses fetch API directly, no SDK needed) -->
-  <script>
-    document.addEventListener("DOMContentLoaded", async function() {
-      try {
-        const pageSlug = window.location.pathname;
-        const headers = {
-          'apikey': window.SUPABASE_KEY,
-          'Content-Type': 'application/json'
-        };
 
-        // 1. Increment usage via RPC
-        await fetch(window.SUPABASE_URL + '/rest/v1/rpc/increment_page_view', {
-          method: 'POST',
-          headers: headers,
-          body: JSON.stringify({ page_slug: pageSlug })
-        });
-
-        // 2. Fetch updated count
-        const res = await fetch(
-          window.SUPABASE_URL + '/rest/v1/page_views?slug=eq.' + encodeURIComponent(pageSlug) + '&select=view_count',
-          { headers: { 'apikey': window.SUPABASE_KEY } }
-        );
-        const data = await res.json();
-
-        if (data && data[0]) {
-          document.getElementById('page-views').innerText = data[0].view_count + ' views';
-        }
-      } catch (e) {
-        console.error('View counter error:', e);
-        document.getElementById('page-views').style.display = 'none';
-      }
-    });
-  </script>

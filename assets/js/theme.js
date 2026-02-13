@@ -8,6 +8,18 @@ document.addEventListener('DOMContentLoaded', () => {
       
       document.documentElement.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
+
+      // Sync Giscus theme
+      const iframe = document.querySelector('iframe.giscus-frame');
+      if (iframe && iframe.contentWindow) {
+        iframe.contentWindow.postMessage({
+          giscus: {
+            setConfig: {
+              theme: newTheme
+            }
+          }
+        }, 'https://giscus.app');
+      }
     });
   }
 });

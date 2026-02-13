@@ -10,8 +10,6 @@
   {% else %}
   {% assign stylesheet_path = "/stylesheets/styles.min.css" %}
   {% endif %}
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="stylesheet" href="{{ stylesheet_path | relative_url }}">
@@ -121,7 +119,7 @@
     </section>
 
     <footer>
-      <p>&copy; {{ site.time | date: "%Y" }} Xi Li <span class="footer-sep">|</span> <span class="visitor-badge">👀 <span id="visitor-count" class="visitor-count">...</span></span></p>
+      <p>&copy; {{ site.time | date: "%Y" }} Xi Li <span class="footer-sep">|</span> <span class="visitor-badge">👀 <span id="visitor-count" class="visitor-count" data-slug="site-total">...</span></span></p>
     </footer>
   </div>
 
@@ -138,42 +136,8 @@
   </script>
   <script src="{{"/assets/js/theme.js" | relative_url }}" defer></script>
   
-  <!-- Visitor Counter (uses fetch API directly, no SDK needed) -->
-  <script>
-    document.addEventListener("DOMContentLoaded", async function() {
-      try {
-        const pageSlug = 'site-total';
-        const headers = {
-          'apikey': window.SUPABASE_KEY,
-          'Content-Type': 'application/json'
-        };
-        
-        // 1. Increment the counter via RPC
-        await fetch(window.SUPABASE_URL + '/rest/v1/rpc/increment_page_view', {
-          method: 'POST',
-          headers: headers,
-          body: JSON.stringify({ page_slug: pageSlug })
-        });
-        
-        // 2. Fetch the updated count
-        const res = await fetch(
-          window.SUPABASE_URL + '/rest/v1/page_views?slug=eq.' + encodeURIComponent(pageSlug) + '&select=view_count',
-          { headers: { 'apikey': window.SUPABASE_KEY } }
-        );
-        const data = await res.json();
-          
-        if (data && data[0] && data[0].view_count) {
-          const counterEl = document.getElementById('visitor-count');
-          if (counterEl) {
-            counterEl.innerText = data[0].view_count.toLocaleString();
-            counterEl.style.opacity = 1;
-          }
-        }
-      } catch (err) {
-        console.error('Error updating visitor count:', err);
-      }
-    });
-  </script>
+  <!-- Visitor Counter -->
+  <script src="{{"/assets/js/visitor-counter.js" | relative_url }}" defer></script>
 </body>
 
 </html>

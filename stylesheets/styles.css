@@ -51,26 +51,7 @@
   /* Slate 700 */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --color-primary: #4ade80;
-    /* Green 400 */
-    --color-primary-hover: #86efac;
-    /* Green 300 */
-    --color-text: #d1d5db;
-    /* Gray 300 */
-    --color-text-light: #9ca3af;
-    /* Gray 400 */
-    --color-heading: #f9fafb;
-    /* Gray 50 */
-    --color-background: #0f172a;
-    /* Slate 900 */
-    --color-surface: #1e293b;
-    /* Slate 800 */
-    --color-border: #334155;
-    /* Slate 700 */
-  }
-}
+
 
 /* Theme Toggle Button */
 .theme-toggle {
@@ -121,19 +102,7 @@
   display: block;
 }
 
-/* System Default (Light): Show Moon */
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme]) .icon-moon {
-    display: block;
-  }
-}
 
-/* System Default (Dark): Show Sun */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) .icon-sun {
-    display: block;
-  }
-}
 
 html {
   scroll-behavior: smooth;
@@ -644,6 +613,29 @@ div.panel.show {
   font-weight: 500;
   font-size: 0.95rem;
   transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.load-comments-button {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  margin: 2rem auto;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.load-comments-button:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .gb-submit-btn:hover:not(:disabled) {
