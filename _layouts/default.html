@@ -2,6 +2,8 @@
 <html lang="zh-Hans">
 
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   {% assign asset_manifest = site.data['asset-manifest'] %}
   {% if asset_manifest %}
   {% assign stylesheet_path = asset_manifest.styles | default: "/stylesheets/styles.min.css" %}
@@ -13,8 +15,6 @@
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="stylesheet" href="{{ stylesheet_path | relative_url }}">
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   {% seo %}
   {% include seo-meta.html %}
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
@@ -31,7 +31,7 @@
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'G-GNJD50R0Z7');
+    gtag('config', 'G-GNJD50R0Z7', { 'anonymize_ip': true });
   </script>
 
   <!-- MathJax for math rendering (load only when page.math is true) -->
@@ -121,15 +121,13 @@
     </section>
 
     <footer>
-      <p>&copy; Xi Li <span style="margin: 0 10px;">|</span> <span style="display: inline-flex; align-items: center; gap: 5px;">👀 <span id="visitor-count" style="opacity: 0; transition: opacity 0.5s;">...</span></span></p>
+      <p>&copy; {{ site.time | date: "%Y" }} Xi Li <span class="footer-sep">|</span> <span class="visitor-badge">👀 <span id="visitor-count" class="visitor-count">...</span></span></p>
     </footer>
   </div>
 
   {% if page.accordion %}
   <script src="{{"/javascripts/accordion.js" | relative_url }}" defer></script>
   {% endif %}
-  <!-- Service Worker Registration -->
-
   <!-- Register Service Worker -->
   <script>
     if ('serviceWorker' in navigator) {

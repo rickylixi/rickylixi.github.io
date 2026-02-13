@@ -4,14 +4,13 @@ Breadcrumb navigation with Schema.org BreadcrumbList markup
 
 {% unless page.url == "/" %}
 <nav aria-label="Breadcrumb" class="breadcrumb">
-  <ol itemscope itemtype="https://schema.org/BreadcrumbList"
-    style="list-style: none; padding: 0; margin: 0 0 2rem 0; display: flex; flex-wrap: wrap; gap: 8px; font-size: 0.9rem; color: var(--color-text-light);">
+  <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
       <a itemprop="item" href="{{"/" | relative_url }}">
         <span itemprop="name">Home</span>
       </a>
       <meta itemprop="position" content="1" />
-      <span style="margin: 0 8px;">›</span>
+      <span class="breadcrumb-sep">›</span>
     </li>
 
     {% assign crumbs = page.url | split: '/' %}
@@ -51,7 +50,7 @@ Breadcrumb navigation with Schema.org BreadcrumbList markup
       <span itemprop="name">{{ crumb }}</span>
       <meta itemprop="item" content="{{ crumb_path | absolute_url }}" />
       <meta itemprop="position" content="{{ position }}" />
-      <span style="margin: 0 8px;">›</span>
+      <span class="breadcrumb-sep">›</span>
     </li>
     {% else %}
     {% comment %} Non-date segments like "blog" are clickable {% endcomment %}
@@ -60,7 +59,7 @@ Breadcrumb navigation with Schema.org BreadcrumbList markup
         <span itemprop="name">{{ crumb | replace: '.html', '' | replace: '-', ' ' | capitalize }}</span>
       </a>
       <meta itemprop="position" content="{{ position }}" />
-      <span style="margin: 0 8px;">›</span>
+      <span class="breadcrumb-sep">›</span>
     </li>
     {% endif %}
     {% assign position = position | plus: 1 %}
