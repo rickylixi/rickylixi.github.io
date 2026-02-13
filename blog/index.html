@@ -14,6 +14,19 @@ image: "/image/optimized/turing-machine1.avif"
 {% endfor %}
 </ul>
 
+<!-- Pagination Navigation -->
+{% if paginator.total_pages > 1 %}
+<nav class="pagination" aria-label="Blog pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}" aria-label="Previous page">&laquo; Prev</a>
+  {% endif %}
+  <span class="current-page">Page {{ paginator.page }} / {{ paginator.total_pages }}</span>
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | relative_url }}" aria-label="Next page">Next &raquo;</a>
+  {% endif %}
+</nav>
+{% endif %}
+
 <!-- Blog structured data for SEO -->
 <script type="application/ld+json">
 {

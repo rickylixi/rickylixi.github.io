@@ -15,16 +15,18 @@ image: "/image/optimized/turing-machine1.avif"
     <p>Welcome! Feel free to leave a message.</p>
 
     <!-- Guestbook Form -->
-    <div style="margin-bottom: 2rem; padding: 1rem; border: 1px solid #e1e4e8; border-radius: 6px;">
-        <div style="margin-bottom: 1rem;">
-            <label for="gb-name" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Name / Nickname</label>
-            <input type="text" id="gb-name" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;" placeholder="Anonymous">
+    <div class="gb-form">
+        <div class="gb-field">
+            <label for="gb-name">Name / Nickname</label>
+            <input type="text" id="gb-name" maxlength="50" placeholder="Anonymous">
         </div>
-        <div style="margin-bottom: 1rem;">
-            <label for="gb-message" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Message</label>
-            <textarea id="gb-message" rows="3" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;" placeholder="Say something nice..."></textarea>
+        <div class="gb-field">
+            <label for="gb-message">Message</label>
+            <textarea id="gb-message" rows="3" maxlength="500" placeholder="Say something nice..."></textarea>
+            <small class="gb-char-count"><span id="gb-char-count">0</span>/500</small>
         </div>
-        <button id="gb-submit" style="background-color: #24292e; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer;">Sign Guestbook</button>
+        <button id="gb-submit" class="gb-submit-btn">Sign Guestbook</button>
+        <p id="gb-status" class="gb-status" hidden></p>
     </div>
 
     <!-- Messages List -->
@@ -44,6 +46,25 @@ image: "/image/optimized/turing-machine1.avif"
 
   const messagesContainer = document.getElementById('gb-messages');
   const submitBtn = document.getElementById('gb-submit');
+  const statusEl = document.getElementById('gb-status');
+  const messageInput = document.getElementById('gb-message');
+  const charCount = document.getElementById('gb-char-count');
+
+  // Character counter
+  messageInput.addEventListener('input', () => {
+    charCount.textContent = messageInput.value.length;
+  });
+
+  // Rate limiting: 30-second cooldown between posts
+  let lastPostTime = 0;
+  const COOLDOWN_MS = 30000;
+
+  function showStatus(msg, isError) {
+    statusEl.textContent = msg;
+    statusEl.className = 'gb-status' + (isError ? ' gb-status-error' : '');
+    statusEl.hidden = false;
+    setTimeout(() => { statusEl.hidden = true; }, 4000);
+  }
 
   // Load Messages
   async function loadMessages() {
@@ -64,10 +85,10 @@ image: "/image/optimized/turing-machine1.avif"
     }
 
     messagesContainer.innerHTML = data.map(msg => `
-        <div style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #eee;">
-            <strong>${escapeHtml(msg.name)}</strong> 
-            <small style="color: #666;">${new Date(msg.created_at).toLocaleDateString()}</small>
-            <div style="margin-top: 0.5rem;">${escapeHtml(msg.message)}</div>
+        <div class="gb-message-item">
+            <strong>${escapeHtml(msg.name)}</strong>
+            <small>${new Date(msg.created_at).toLocaleDateString()}</small>
+            <div class="gb-message-text">${escapeHtml(msg.message)}</div>
         </div>
     `).join('');
   }
@@ -75,10 +96,18 @@ image: "/image/optimized/turing-machine1.avif"
   // Submit Message
   submitBtn.addEventListener('click', async () => {
     const name = document.getElementById('gb-name').value.trim() || 'Anonymous';
-    const message = document.getElementById('gb-message').value.trim();
+    const message = messageInput.value.trim();
 
     if (!message) {
-        alert('Please enter a message.');
+        showStatus('Please enter a message.', true);
+        return;
+    }
+
+    // Rate limiting check
+    const now = Date.now();
+    if (now - lastPostTime < COOLDOWN_MS) {
+        const remaining = Math.ceil((COOLDOWN_MS - (now - lastPostTime)) / 1000);
+        showStatus(`Please wait ${remaining}s before posting again.`, true);
         return;
     }
 
@@ -90,9 +119,12 @@ image: "/image/optimized/turing-machine1.avif"
         .insert([{ name, message }]);
 
     if (error) {
-        alert('Failed to post message: ' + error.message);
+        showStatus('Failed to post message: ' + error.message, true);
     } else {
-        document.getElementById('gb-message').value = '';
+        lastPostTime = Date.now();
+        messageInput.value = '';
+        charCount.textContent = '0';
+        showStatus('Message posted successfully!', false);
         await loadMessages();
     }
 
