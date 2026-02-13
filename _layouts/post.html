@@ -67,31 +67,36 @@ layout: default
   })();
 </script>
 
-  <!-- Supabase View Counter -->
+  <!-- Page View Counter (uses fetch API directly, no SDK needed) -->
   <script>
-    (async function() {
-      // Check if global client exists
-      if (window.sbClient) {
+    document.addEventListener("DOMContentLoaded", async function() {
+      try {
         const pageSlug = window.location.pathname;
+        const headers = {
+          'apikey': window.SUPABASE_KEY,
+          'Content-Type': 'application/json'
+        };
 
-        try {
-          // 1. Increment usage
-          await window.sbClient.rpc('increment_page_view', { page_slug: pageSlug });
+        // 1. Increment usage via RPC
+        await fetch(window.SUPABASE_URL + '/rest/v1/rpc/increment_page_view', {
+          method: 'POST',
+          headers: headers,
+          body: JSON.stringify({ page_slug: pageSlug })
+        });
 
-          // 2. Fetch updated count
-          const { data, error } = await window.sbClient
-            .from('page_views')
-            .select('view_count')
-            .eq('slug', pageSlug)
-            .single();
+        // 2. Fetch updated count
+        const res = await fetch(
+          window.SUPABASE_URL + '/rest/v1/page_views?slug=eq.' + encodeURIComponent(pageSlug) + '&select=view_count',
+          { headers: { 'apikey': window.SUPABASE_KEY } }
+        );
+        const data = await res.json();
 
-          if (data) {
-            document.getElementById('page-views').innerText = data.view_count + ' views';
-          }
-        } catch (e) {
-          console.error('View counter validation failed', e);
-          document.getElementById('page-views').style.display = 'none'; // Hide if failed
+        if (data && data[0]) {
+          document.getElementById('page-views').innerText = data[0].view_count + ' views';
         }
+      } catch (e) {
+        console.error('View counter error:', e);
+        document.getElementById('page-views').style.display = 'none';
       }
-    })();
+    });
   </script>

@@ -51,12 +51,10 @@
 
   <!-- Structured Data for SEO -->
   {% include structured-data.html %}
-  <!-- Supabase Client -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- Supabase config (used by visitor counter via fetch and guestbook via SDK) -->
   <script>
-    const SUPABASE_URL = 'https://dtiivkyoieucoqkivfha.supabase.co';
-    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0aWl2a3lvaWV1Y29xa2l2ZmhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU3MjAzMjAsImV4cCI6MjA4MTI5NjMyMH0.KbmvXU1aUft7adEAhVNPEDp8dVdY-4QwkrK8vHyLfII';
-    window.sbClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    window.SUPABASE_URL = 'https://dtiivkyoieucoqkivfha.supabase.co';
+    window.SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0aWl2a3lvaWV1Y29xa2l2ZmhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU3MjAzMjAsImV4cCI6MjA4MTI5NjMyMH0.KbmvXU1aUft7adEAhVNPEDp8dVdY-4QwkrK8vHyLfII';
   </script>
 </head>
 
@@ -142,28 +140,35 @@
   </script>
   <script src="{{"/assets/js/theme.js" | relative_url }}"></script>
   
-  <!-- Supabase Visitor Counter -->
+  <!-- Visitor Counter (uses fetch API directly, no SDK needed) -->
   <script>
     document.addEventListener("DOMContentLoaded", async function() {
       try {
-        // Use 'site-total' as the slug for the global website counter
         const pageSlug = 'site-total';
+        const headers = {
+          'apikey': window.SUPABASE_KEY,
+          'Content-Type': 'application/json'
+        };
         
-        // 1. Increment the counter
-        await window.sbClient.rpc('increment_page_view', { page_slug: pageSlug });
+        // 1. Increment the counter via RPC
+        await fetch(window.SUPABASE_URL + '/rest/v1/rpc/increment_page_view', {
+          method: 'POST',
+          headers: headers,
+          body: JSON.stringify({ page_slug: pageSlug })
+        });
         
         // 2. Fetch the updated count
-        const { data, error } = await window.sbClient
-          .from('page_views')
-          .select('view_count')
-          .eq('slug', pageSlug)
-          .single();
+        const res = await fetch(
+          window.SUPABASE_URL + '/rest/v1/page_views?slug=eq.' + encodeURIComponent(pageSlug) + '&select=view_count',
+          { headers: { 'apikey': window.SUPABASE_KEY } }
+        );
+        const data = await res.json();
           
-        if (data && data.view_count) {
+        if (data && data[0] && data[0].view_count) {
           const counterEl = document.getElementById('visitor-count');
           if (counterEl) {
-            counterEl.innerText = data.view_count.toLocaleString();
-            counterEl.style.opacity = 1; // Fade in effect
+            counterEl.innerText = data[0].view_count.toLocaleString();
+            counterEl.style.opacity = 1;
           }
         }
       } catch (err) {

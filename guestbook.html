@@ -36,11 +36,11 @@ image: "/image/optimized/turing-machine1.avif"
   </div>
 </article>
 
-<!-- Supabase Script -->
+<!-- Supabase SDK (loaded only on guestbook page) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-  // 1. Initialize Supabase
-  // Reuse global client from default.html to avoid const redeclaration errors
-  const _supabase = window.sbClient;
+  // Initialize Supabase client for guestbook
+  const _supabase = supabase.createClient(window.SUPABASE_URL, window.SUPABASE_KEY);
 
   const messagesContainer = document.getElementById('gb-messages');
   const submitBtn = document.getElementById('gb-submit');
