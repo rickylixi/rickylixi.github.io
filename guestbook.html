@@ -45,11 +45,16 @@ image: "/image/optimized/turing-machine1.avif"
 <!-- Supabase SDK (loaded only on guestbook page) -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-  const cfg = window.PUBLIC_CONFIG || {};
-  const supabaseUrl = cfg.supabaseUrl;
-  const supabaseKey = cfg.supabaseAnonKey;
-  const canUseSupabase = Boolean(supabaseUrl && supabaseKey);
-  const _supabase = canUseSupabase ? supabase.createClient(supabaseUrl, supabaseKey) : null;
+  let _supabase = null;
+
+  function resolveSupabaseConfig() {
+    const cfg = window.PUBLIC_CONFIG || {};
+    const supabaseUrl = cfg.supabaseUrl || window.SUPABASE_URL;
+    const supabaseKey = cfg.supabaseAnonKey || window.SUPABASE_KEY;
+    if (!supabaseUrl || !supabaseKey) return null;
+    if (!window.supabase || typeof window.supabase.createClient !== 'function') return null;
+    return { supabaseUrl, supabaseKey };
+  }
 
   const messagesContainer = document.getElementById('gb-messages');
   const formEl = document.getElementById('gb-form');
@@ -211,6 +216,12 @@ image: "/image/optimized/turing-machine1.avif"
         .replace(/'/g, "&#039;");
   }
 
-  // Initial Load
-  loadMessages();
+  // Initialize after layout scripts (including PUBLIC_CONFIG) have run.
+  document.addEventListener('DOMContentLoaded', () => {
+    const config = resolveSupabaseConfig();
+    if (config) {
+      _supabase = supabase.createClient(config.supabaseUrl, config.supabaseKey);
+    }
+    loadMessages();
+  });
 </script>
