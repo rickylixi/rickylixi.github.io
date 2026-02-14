@@ -15,19 +15,23 @@ image: "/image/optimized/turing-machine1.avif"
     <p>Welcome! Feel free to leave a message.</p>
 
     <!-- Guestbook Form -->
-    <div class="gb-form">
+    <form id="gb-form" class="gb-form" novalidate>
         <div class="gb-field">
             <label for="gb-name">Name / Nickname</label>
-            <input type="text" id="gb-name" maxlength="50" placeholder="Anonymous">
+            <input type="text" id="gb-name" maxlength="50" placeholder="Anonymous" autocomplete="nickname">
         </div>
         <div class="gb-field">
             <label for="gb-message">Message</label>
-            <textarea id="gb-message" rows="3" maxlength="500" placeholder="Say something nice..."></textarea>
+            <textarea id="gb-message" rows="3" maxlength="500" placeholder="Say something nice..." required></textarea>
             <small class="gb-char-count"><span id="gb-char-count">0</span>/500</small>
         </div>
-        <button id="gb-submit" class="gb-submit-btn">Sign Guestbook</button>
-        <p id="gb-status" class="gb-status" hidden></p>
-    </div>
+        <div class="gb-honeypot" aria-hidden="true">
+          <label for="gb-website">Website</label>
+          <input type="text" id="gb-website" tabindex="-1" autocomplete="off">
+        </div>
+        <button id="gb-submit" type="submit" class="gb-submit-btn">Sign Guestbook</button>
+        <p id="gb-status" class="gb-status" role="status" aria-live="polite" hidden></p>
+    </form>
 
     <!-- Messages List -->
     <h3>Recent Messages</h3>
@@ -41,13 +45,19 @@ image: "/image/optimized/turing-machine1.avif"
 <!-- Supabase SDK (loaded only on guestbook page) -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-  // Initialize Supabase client for guestbook
-  const _supabase = supabase.createClient(window.SUPABASE_URL, window.SUPABASE_KEY);
+  const cfg = window.PUBLIC_CONFIG || {};
+  const supabaseUrl = cfg.supabaseUrl;
+  const supabaseKey = cfg.supabaseAnonKey;
+  const canUseSupabase = Boolean(supabaseUrl && supabaseKey);
+  const _supabase = canUseSupabase ? supabase.createClient(supabaseUrl, supabaseKey) : null;
 
   const messagesContainer = document.getElementById('gb-messages');
+  const formEl = document.getElementById('gb-form');
   const submitBtn = document.getElementById('gb-submit');
   const statusEl = document.getElementById('gb-status');
   const messageInput = document.getElementById('gb-message');
+  const nameInput = document.getElementById('gb-name');
+  const honeypotInput = document.getElementById('gb-website');
   const charCount = document.getElementById('gb-char-count');
 
   // Character counter
@@ -56,8 +66,25 @@ image: "/image/optimized/turing-machine1.avif"
   });
 
   // Rate limiting: 30-second cooldown between posts
-  let lastPostTime = 0;
   const COOLDOWN_MS = 30000;
+  const LAST_POST_KEY = 'guestbook:last-post-time';
+
+  function getLastPostTime() {
+    try {
+      const value = localStorage.getItem(LAST_POST_KEY);
+      return value ? Number(value) : 0;
+    } catch (e) {
+      return 0;
+    }
+  }
+
+  function setLastPostTime(timestamp) {
+    try {
+      localStorage.setItem(LAST_POST_KEY, String(timestamp));
+    } catch (e) {
+      // Ignore storage errors.
+    }
+  }
 
   function showStatus(msg, isError) {
     statusEl.textContent = msg;
@@ -68,6 +95,11 @@ image: "/image/optimized/turing-machine1.avif"
 
   // Load Messages
   async function loadMessages() {
+    if (!_supabase) {
+      messagesContainer.innerHTML = '<p>Guestbook is temporarily unavailable.</p>';
+      return;
+    }
+
     const { data, error } = await _supabase
         .from('guestbook_messages')
         .select('*')
@@ -93,18 +125,50 @@ image: "/image/optimized/turing-machine1.avif"
     `).join('');
   }
 
+  function normalizeName(rawName) {
+    const name = rawName.trim();
+    if (!name) return 'Anonymous';
+    return name.slice(0, 50);
+  }
+
+  function isLikelySpam(message) {
+    const lower = message.toLowerCase();
+    return lower.includes('http://') || lower.includes('https://') || lower.includes('[url]');
+  }
+
   // Submit Message
-  submitBtn.addEventListener('click', async () => {
-    const name = document.getElementById('gb-name').value.trim() || 'Anonymous';
+  formEl.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    if (!_supabase) {
+      showStatus('Guestbook is temporarily unavailable.', true);
+      return;
+    }
+
+    if (honeypotInput.value.trim() !== '') {
+      showStatus('Submission blocked.', true);
+      return;
+    }
+
+    const name = normalizeName(nameInput.value);
     const message = messageInput.value.trim();
 
     if (!message) {
         showStatus('Please enter a message.', true);
         return;
     }
+    if (message.length < 2) {
+        showStatus('Message is too short.', true);
+        return;
+    }
+    if (isLikelySpam(message)) {
+        showStatus('Links are not allowed in messages.', true);
+        return;
+    }
 
     // Rate limiting check
     const now = Date.now();
+    const lastPostTime = getLastPostTime();
     if (now - lastPostTime < COOLDOWN_MS) {
         const remaining = Math.ceil((COOLDOWN_MS - (now - lastPostTime)) / 1000);
         showStatus(`Please wait ${remaining}s before posting again.`, true);
@@ -114,15 +178,19 @@ image: "/image/optimized/turing-machine1.avif"
     submitBtn.disabled = true;
     submitBtn.innerText = 'Posting...';
 
-    const { error } = await _supabase
-        .from('guestbook_messages')
-        .insert([{ name, message }]);
+    const { error } = await _supabase.rpc('submit_guestbook_message', {
+      p_name: name,
+      p_message: message,
+      p_honeypot: honeypotInput.value.trim()
+    });
 
     if (error) {
         showStatus('Failed to post message: ' + error.message, true);
     } else {
-        lastPostTime = Date.now();
+        setLastPostTime(Date.now());
         messageInput.value = '';
+        nameInput.value = '';
+        honeypotInput.value = '';
         charCount.textContent = '0';
         showStatus('Message posted successfully!', false);
         await loadMessages();

@@ -79,6 +79,11 @@
   transform: scale(1.1);
 }
 
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
 .theme-toggle svg {
   width: 20px;
   height: 20px;
@@ -663,6 +668,14 @@ div.panel.show {
   border-color: #ef4444;
 }
 
+.gb-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .gb-message-item {
   margin-bottom: 1rem;
   padding-bottom: 1rem;
@@ -722,6 +735,22 @@ div.panel.show {
   margin: 0 !important;
 }
 
+.publication-entry {
+  margin-bottom: 1.5rem;
+}
+
+.publication-meta {
+  line-height: 1.5;
+}
+
+.publication-entry-button-container {
+  margin-top: 0.75rem;
+}
+
+.bibtex-block {
+  margin: 0.25rem 0;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .wrapper {
@@ -770,5 +799,30 @@ div.panel.show {
   a {
     text-decoration: underline;
     color: #000;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .social-row a:hover,
+  .theme-toggle:hover,
+  img:hover,
+  button.accordion:hover,
+  .error-home-btn:hover,
+  .gb-submit-btn:hover:not(:disabled),
+  .load-comments-button:hover,
+  .pagination a:hover {
+    transform: none !important;
+    box-shadow: none !important;
   }
 }

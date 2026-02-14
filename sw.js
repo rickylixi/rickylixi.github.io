@@ -1,13 +1,16 @@
 ---
-  ---
-// Enhanced Service Worker with versioning and cache strategies
+---
 const ASSET_MANIFEST = {{ site.data['asset-manifest'] | jsonify }};
 const STYLESHEET_PATH = (ASSET_MANIFEST && ASSET_MANIFEST.styles) ? ASSET_MANIFEST.styles : '/stylesheets/styles.min.css';
-const CACHE_VERSION = (ASSET_MANIFEST && ASSET_MANIFEST.hash) ? ASSET_MANIFEST.hash : 'v4';
-const CACHE_NAME = `rickylixi-${CACHE_VERSION}`;
-const urlsToCache = [
+const CACHE_VERSION = (ASSET_MANIFEST && ASSET_MANIFEST.hash) ? ASSET_MANIFEST.hash : 'v5';
+const STATIC_CACHE = `rickylixi-static-${CACHE_VERSION}`;
+const RUNTIME_CACHE = `rickylixi-runtime-${CACHE_VERSION}`;
+
+const STATIC_URLS = [
   '/',
   STYLESHEET_PATH,
+  '/assets/js/theme.js',
+  '/assets/js/visitor-counter.js',
   '/javascripts/accordion.js',
   '/image/turing-machine1.png',
   '/image/optimized/ai-xi.webp',
@@ -15,79 +18,87 @@ const urlsToCache = [
   '/assets/asset-manifest.json'
 ];
 
-// Install event - cache resources with network-first fallback
+function isSameOrigin(requestUrl) {
+  return requestUrl.origin === self.location.origin;
+}
+
+function isNavigationalRequest(request) {
+  return request.mode === 'navigate';
+}
+
+function isStaticAssetRequest(requestUrl) {
+  return (
+    requestUrl.pathname.startsWith('/stylesheets/') ||
+    requestUrl.pathname.startsWith('/assets/') ||
+    requestUrl.pathname.startsWith('/image/') ||
+    requestUrl.pathname.startsWith('/javascripts/')
+  );
+}
+
+function networkFirst(request) {
+  return fetch(request)
+    .then(response => {
+      if (response && response.ok) {
+        const copy = response.clone();
+        caches.open(RUNTIME_CACHE).then(cache => cache.put(request, copy));
+      }
+      return response;
+    })
+    .catch(() => caches.match(request).then(cached => cached || caches.match('/')));
+}
+
+function staleWhileRevalidate(request) {
+  return caches.match(request).then(cached => {
+    const networkPromise = fetch(request)
+      .then(response => {
+        if (response && response.ok) {
+          const copy = response.clone();
+          caches.open(RUNTIME_CACHE).then(cache => cache.put(request, copy));
+        }
+        return response;
+      })
+      .catch(() => null);
+
+    return cached || networkPromise;
+  });
+}
+
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => {
-        return Promise.all(
-          urlsToCache.map(url => {
-            return fetch(url)
-              .then(response => {
-                if (response.ok) {
-                  return cache.put(url, response);
-                }
-                throw new Error(`Failed to cache: ${url}`);
-              })
-              .catch(error => {
-                console.warn(`Could not cache ${url}:`, error);
-              });
-          })
-        );
-      })
+    caches.open(STATIC_CACHE).then(cache => cache.addAll(STATIC_URLS))
   );
+  self.skipWaiting();
 });
 
-// Fetch event - cache-first with network fallback
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(names => Promise.all(
+      names.map(name => {
+        const isOldRickylixiCache = name.startsWith('rickylixi-') && name !== STATIC_CACHE && name !== RUNTIME_CACHE;
+        if (isOldRickylixiCache) return caches.delete(name);
+        return Promise.resolve();
+      })
+    ))
+  );
+  self.clients.claim();
+});
+
 self.addEventListener('fetch', event => {
-  // Skip non-GET requests and cross-origin requests
-  if (event.request.method !== 'GET' || !event.request.url.startsWith(self.location.origin)) {
+  const { request } = event;
+  const url = new URL(request.url);
+
+  if (request.method !== 'GET' || !isSameOrigin(url)) return;
+
+  if (url.pathname.startsWith('/rest/v1/') || url.pathname.startsWith('/auth/v1/')) {
     return;
   }
 
-  event.respondWith(
-    caches.match(event.request)
-      .then(cachedResponse => {
-        // Return cached response if available
-        if (cachedResponse) {
-          // Update cache in background
-          fetch(event.request)
-            .then(networkResponse => {
-              if (networkResponse.ok) {
-                caches.open(CACHE_NAME)
-                  .then(cache => cache.put(event.request, networkResponse));
-              }
-            })
-            .catch(() => { }); // Silent fail for background update
-          return cachedResponse;
-        }
+  if (isNavigationalRequest(request)) {
+    event.respondWith(networkFirst(request));
+    return;
+  }
 
-        // Fetch from network if not in cache
-        return fetch(event.request)
-          .then(networkResponse => {
-            // Cache successful responses
-            if (networkResponse.ok) {
-              const responseToCache = networkResponse.clone();
-              caches.open(CACHE_NAME)
-                .then(cache => cache.put(event.request, responseToCache));
-            }
-            return networkResponse;
-          });
-      })
-  );
-});
-
-// Activate event - clean up old caches
-self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cacheName => {
-          if (cacheName !== CACHE_NAME && cacheName.startsWith('rickylixi-')) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
-  );
+  if (isStaticAssetRequest(url)) {
+    event.respondWith(staleWhileRevalidate(request));
+  }
 });

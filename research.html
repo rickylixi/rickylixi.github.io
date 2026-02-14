@@ -13,31 +13,34 @@ image: "/image/optimized/turing-machine1.avif"
 
 <h1 id="publications">Some Publications</h1>
 {% for pub in site.data.publications %}
-<p class="no-margin"> <a class="publication-link" href="{{ pub.link }}">{{ pub.title }}</a> <br> <i>{{ pub.journal }}</i>, {{ pub.year }}, {{ pub.volume }}{% if pub.issue %} ({{ pub.issue }}){% endif %}: {{ pub.pages }}. <br>
-<div class="button-container publication-entry-button-container">
-  <button class="accordion">
-    Abstract
-  </button>
-  <div class="panel">
-    <p>{{ pub.abstract }}</p>
-  </div>
-  <button class="accordion">
-    Replication files
-  </button>
-  <div class="panel">
-    <p><a href="{{ pub.replication_link | relative_url }}" target="_blank" rel="noopener noreferrer">GitHub repository</a></p>
-  </div>
-  <button class="accordion">
-    BibTeX citation
-  </button>
-  <div class="panel">
-    <p>
-    <pre> <code>
+<article class="publication-entry">
+  <p class="publication-meta no-margin">
+    <a class="publication-link" href="{{ pub.link }}">{{ pub.title }}</a><br>
+    <i>{{ pub.journal }}</i>, {{ pub.year }}, {{ pub.volume }}{% if pub.issue %} ({{ pub.issue }}){% endif %}: {{ pub.pages }}.
+  </p>
+  <div class="button-container publication-entry-button-container">
+    <button class="accordion">
+      Abstract
+    </button>
+    <div class="panel">
+      <p>{{ pub.abstract }}</p>
+    </div>
+    <button class="accordion">
+      Replication files
+    </button>
+    <div class="panel">
+      <p><a href="{{ pub.replication_link | relative_url }}" target="_blank" rel="noopener noreferrer">GitHub repository</a></p>
+    </div>
+    <button class="accordion">
+      BibTeX citation
+    </button>
+    <div class="panel">
+      <pre class="bibtex-block"><code>
 {{ pub.bibtex }}
-    </code> </pre>
-    </p>
+      </code></pre>
+    </div>
   </div>
-</div>
+</article>
 {% endfor %}
 
 <hr />

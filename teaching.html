@@ -51,16 +51,18 @@ image: "/image/optimized/turing-machine1.avif"
   {% for info in group.info %}
   <li>{{ info }}</li>
   {% endfor %}
-  <li>内容: 经典著作与前沿论文穿插进行, 主题包括但不限于以下几个方面:</li>
-  <ul class="level-2">
-    {% for topic in group.topics %}
-    {% if topic.title %}
-    <li><a href="{{ topic.link }}" target="_blank" rel="noopener noreferrer">{{ topic.title }}</a></li>
-    {% else %}
-    <li>{{ topic }}</li>
-    {% endif %}
-    {% endfor %}
-  </ul>
+  <li>
+    内容: 经典著作与前沿论文穿插进行, 主题包括但不限于以下几个方面:
+    <ul class="level-2">
+      {% for topic in group.topics %}
+      {% if topic.title %}
+      <li><a href="{{ topic.link }}" target="_blank" rel="noopener noreferrer">{{ topic.title }}</a></li>
+      {% else %}
+      <li>{{ topic }}</li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </li>
 </ul>
 
 {% if group.books %}

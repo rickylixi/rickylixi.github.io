@@ -4,6 +4,21 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+  <meta name="theme-color" content="#39c">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    (function() {
+      try {
+        const savedTheme = localStorage.getItem('theme');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = (savedTheme === 'dark' || (!savedTheme && systemDark)) ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
   {% assign asset_manifest = site.data['asset-manifest'] %}
   {% if asset_manifest %}
   {% assign stylesheet_path = asset_manifest.styles | default: "/stylesheets/styles.min.css" %}
@@ -14,14 +29,11 @@
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="stylesheet" href="{{ stylesheet_path | relative_url }}">
   {% seo %}
-  {% include seo-meta.html %}
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
 
   <!-- Web App Manifest -->
   <link rel="manifest" href="{{"/manifest.json" | relative_url }}">
   <link rel="icon" type="image/png" href="{{"/image/turing-machine1.png" | relative_url }}">
   <link rel="apple-touch-icon" href="{{"/image/turing-machine1.png" | relative_url }}">
-  <meta name="theme-color" content="#39c">
 
   <!-- New GA4 tracking code -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GNJD50R0Z7"></script>
@@ -49,29 +61,10 @@
 
   <!-- Structured Data for SEO -->
   {% include structured-data.html %}
-  <!-- Supabase config (used by visitor counter via fetch and guestbook via SDK) -->
-  <script>
-    window.SUPABASE_URL = 'https://dtiivkyoieucoqkivfha.supabase.co';
-    window.SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0aWl2a3lvaWV1Y29xa2l2ZmhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU3MjAzMjAsImV4cCI6MjA4MTI5NjMyMH0.KbmvXU1aUft7adEAhVNPEDp8dVdY-4QwkrK8vHyLfII';
-  </script>
 </head>
 
 <body>
-  <script>
-    // Immediately check for saved theme to prevent FOUC
-    (function() {
-      const savedTheme = localStorage.getItem('theme');
-      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      
-      if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-      }
-    })();
-  </script>
-
-  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
+  <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle Dark Mode" aria-pressed="false">
     <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="12" cy="12" r="5"></circle>
       <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -96,7 +89,7 @@
         <p class="uni-school">Central South University</p>
       </div>
 
-      <div class="social-row" role="navigation" aria-label="Main navigation">
+      <nav class="social-row" aria-label="Main navigation">
         <a href="{{"/research.html" | relative_url }}" {% if page.url contains 'research' %}class="active" {% endif %}
           aria-label="Research publications and projects">Research</a>
         <a href="{{"/teaching.html" | relative_url }}" {% if page.url contains 'teaching' %}class="active" {% endif %}
@@ -106,11 +99,11 @@
         <a href="{{"/blog/" | relative_url }}" class="nav-blog{% if page.url contains '/blog/' %} active{% endif %}"
           aria-label="Blog articles">Blog</a>
         <a href="{{"/guestbook.html" | relative_url }}" {% if page.url contains 'guestbook' %}class="active" {% endif %} aria-label="Guestbook">Guestbook</a>
-      </div>
+      </nav>
 
-      <div class="social-row" role="navigation" aria-label="Social media links">
+      <nav class="social-row" aria-label="Social media links">
         {% include social-icons.html %}
-      </div>
+      </nav>
     </header>
 
     <section>
@@ -119,12 +112,20 @@
     </section>
 
     <footer>
-      <p>&copy; {{ site.time | date: "%Y" }} Xi Li <span class="footer-sep">|</span> <span class="visitor-badge">👀 <span id="visitor-count" class="visitor-count" data-slug="site-total">...</span></span></p>
+      <p>&copy; {{ site.time | date: "%Y" }} Xi Li</p>
     </footer>
   </div>
 
   {% if page.accordion %}
   <script src="{{"/javascripts/accordion.js" | relative_url }}" defer></script>
+  {% endif %}
+  {% if page.layout == 'post' or page.url == '/guestbook.html' %}
+    <script>
+      window.PUBLIC_CONFIG = {
+        supabaseUrl: 'https://dtiivkyoieucoqkivfha.supabase.co',
+        supabaseAnonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0aWl2a3lvaWV1Y29xa2l2ZmhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU3MjAzMjAsImV4cCI6MjA4MTI5NjMyMH0.KbmvXU1aUft7adEAhVNPEDp8dVdY-4QwkrK8vHyLfII'
+      };
+    </script>
   {% endif %}
   <!-- Register Service Worker -->
   <script>
@@ -136,8 +137,9 @@
   </script>
   <script src="{{"/assets/js/theme.js" | relative_url }}" defer></script>
   
-  <!-- Visitor Counter -->
+  {% if page.layout == 'post' %}
   <script src="{{"/assets/js/visitor-counter.js" | relative_url }}" defer></script>
+  {% endif %}
 </body>
 
 </html>
