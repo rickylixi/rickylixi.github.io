@@ -1,14 +1,14 @@
-const fs = require('fs');
-const path = require('path');
-const crypto = require('crypto');
-const { transform } = require('lightningcss');
+const fs = require("fs");
+const path = require("path");
+const crypto = require("crypto");
+const { transform } = require("lightningcss");
 
 const ROOT = __dirname;
-const INPUT_CSS = path.join(ROOT, 'stylesheets', 'styles.css');
-const OUTPUT_MIN_PATH = path.join(ROOT, 'stylesheets', 'styles.min.css');
-const PUBLIC_MANIFEST_PATH = path.join(ROOT, 'assets', 'asset-manifest.json');
-const DATA_DIR = path.join(ROOT, '_data');
-const DATA_MANIFEST_PATH = path.join(DATA_DIR, 'asset-manifest.json');
+const INPUT_CSS = path.join(ROOT, "stylesheets", "styles.css");
+const OUTPUT_MIN_PATH = path.join(ROOT, "stylesheets", "styles.min.css");
+const PUBLIC_MANIFEST_PATH = path.join(ROOT, "assets", "asset-manifest.json");
+const DATA_DIR = path.join(ROOT, "_data");
+const DATA_MANIFEST_PATH = path.join(DATA_DIR, "asset-manifest.json");
 
 function ensureDir(dirPath) {
   if (!fs.existsSync(dirPath)) {
@@ -17,24 +17,28 @@ function ensureDir(dirPath) {
 }
 
 function buildStyles() {
-  console.log('→ 正在编译 CSS ...');
+  console.log("→ 正在编译 CSS ...");
   const source = fs.readFileSync(INPUT_CSS);
 
   const { code } = transform({
     filename: INPUT_CSS,
     code: source,
     minify: true,
-    sourceMap: false
+    sourceMap: false,
   });
 
-  const hash = crypto.createHash('sha256').update(code).digest('hex').slice(0, 10);
+  const hash = crypto
+    .createHash("sha256")
+    .update(code)
+    .digest("hex")
+    .slice(0, 10);
   fs.writeFileSync(OUTPUT_MIN_PATH, code);
-  console.log('✓ CSS 输出: styles.min.css');
+  console.log("✓ CSS 输出: styles.min.css");
   return { hash };
 }
 
 function writeManifest(manifest) {
-  console.log('→ 写入资源清单 ...');
+  console.log("→ 写入资源清单 ...");
   ensureDir(path.dirname(PUBLIC_MANIFEST_PATH));
   ensureDir(DATA_DIR);
 
@@ -44,17 +48,17 @@ function writeManifest(manifest) {
 }
 
 function build() {
-  console.log('开始构建网站...');
+  console.log("开始构建网站...");
   const styles = buildStyles();
 
   const manifest = {
     generatedAt: new Date().toISOString(),
-    styles: '/stylesheets/styles.min.css',
-    hash: styles.hash
+    styles: "/stylesheets/styles.min.css",
+    hash: styles.hash,
   };
 
   writeManifest(manifest);
-  console.log('构建完成！');
+  console.log("构建完成！");
 }
 
 build();

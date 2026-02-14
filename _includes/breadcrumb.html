@@ -37,7 +37,7 @@ Breadcrumb navigation with Schema.org BreadcrumbList markup
         {% endif %}
       {% endif %}
     {% endif %}
-    
+
     {% if forloop.last %}
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
       <span itemprop="name">{{ page.title | default: crumb | replace: '.html', '' | replace: '-', ' ' | capitalize

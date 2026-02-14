@@ -42,33 +42,51 @@ image: "/image/optimized/turing-machine1.avif"
   </div>
 </article>
 
-<!-- Supabase SDK (loaded only on guestbook page) -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- Supabase SDK (loaded only on guestbook page; with CDN fallback) -->
 <script>
   let _supabase = null;
-  const FALLBACK_SUPABASE_SDK = 'https://unpkg.com/@supabase/supabase-js@2';
+  const SUPABASE_SDK_SOURCES = [
+    'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2',
+    'https://unpkg.com/@supabase/supabase-js@2'
+  ];
+
+  function hasSupabaseClient() {
+    return Boolean(window.supabase && typeof window.supabase.createClient === 'function');
+  }
 
   function loadScript(src) {
     return new Promise((resolve, reject) => {
+      const existing = document.querySelector(`script[src="${src}"]`);
+      if (existing) {
+        if (hasSupabaseClient()) {
+          resolve();
+          return;
+        }
+        existing.addEventListener('load', resolve, { once: true });
+        existing.addEventListener('error', () => reject(new Error(`Failed to load ${src}`)), { once: true });
+        return;
+      }
+
       const script = document.createElement('script');
       script.src = src;
       script.async = true;
       script.onload = resolve;
-      script.onerror = reject;
+      script.onerror = () => reject(new Error(`Failed to load ${src}`));
       document.head.appendChild(script);
     });
   }
 
   async function ensureSupabaseSdk() {
-    if (window.supabase && typeof window.supabase.createClient === 'function') {
-      return true;
+    if (hasSupabaseClient()) return true;
+    for (const src of SUPABASE_SDK_SOURCES) {
+      try {
+        await loadScript(src);
+      } catch (e) {
+        // Try next CDN.
+      }
+      if (hasSupabaseClient()) return true;
     }
-    try {
-      await loadScript(FALLBACK_SUPABASE_SDK);
-    } catch (e) {
-      return false;
-    }
-    return Boolean(window.supabase && typeof window.supabase.createClient === 'function');
+    return hasSupabaseClient();
   }
 
   function resolveSupabaseConfig() {
@@ -98,11 +116,6 @@ image: "/image/optimized/turing-machine1.avif"
   const honeypotInput = document.getElementById('gb-website');
   const charCount = document.getElementById('gb-char-count');
 
-  // Character counter
-  messageInput.addEventListener('input', () => {
-    charCount.textContent = messageInput.value.length;
-  });
-
   // Rate limiting: 30-second cooldown between posts
   const COOLDOWN_MS = 30000;
   const LAST_POST_KEY = 'guestbook:last-post-time';
@@ -125,6 +138,7 @@ image: "/image/optimized/turing-machine1.avif"
   }
 
   function showStatus(msg, isError) {
+    if (!statusEl) return;
     statusEl.textContent = msg;
     statusEl.className = 'gb-status' + (isError ? ' gb-status-error' : '');
     statusEl.hidden = false;
@@ -133,28 +147,36 @@ image: "/image/optimized/turing-machine1.avif"
 
   // Load Messages
   async function loadMessages() {
+    if (!messagesContainer) return;
     if (!_supabase) {
       messagesContainer.innerHTML = '<p>Guestbook is temporarily unavailable.</p>';
       return;
     }
 
-    const { data, error } = await _supabase
+    let result = null;
+    try {
+      result = await _supabase
         .from('guestbook_messages')
         .select('name,message,created_at')
         .order('created_at', { ascending: false })
         .limit(20);
+    } catch (e) {
+      messagesContainer.innerHTML = '<p>Error loading messages.</p>';
+      return;
+    }
+    const { data, error } = result;
 
     if (error) {
-        messagesContainer.innerHTML = '<p>Error loading messages.</p>';
-        return;
+      messagesContainer.innerHTML = '<p>Error loading messages.</p>';
+      return;
     }
 
     if (!data || data.length === 0) {
-        messagesContainer.innerHTML = '<p>No messages yet. Be the first!</p>';
-        return;
+      messagesContainer.innerHTML = '<p>No messages yet. Be the first!</p>';
+      return;
     }
 
-    messagesContainer.innerHTML = data.map(msg => `
+    messagesContainer.innerHTML = data.map((msg) => `
         <div class="gb-message-item">
             <strong>${escapeHtml(msg.name)}</strong>
             <small>${new Date(msg.created_at).toLocaleDateString()}</small>
@@ -164,7 +186,7 @@ image: "/image/optimized/turing-machine1.avif"
   }
 
   function normalizeName(rawName) {
-    const name = rawName.trim();
+    const name = String(rawName || '').trim();
     if (!name) return 'Anonymous';
     return name.slice(0, 50);
   }
@@ -203,8 +225,7 @@ image: "/image/optimized/turing-machine1.avif"
       .insert([{ name, message }]);
   }
 
-  // Submit Message
-  formEl.addEventListener('submit', async (event) => {
+  async function handleFormSubmit(event) {
     event.preventDefault();
 
     if (!_supabase) {
@@ -221,66 +242,91 @@ image: "/image/optimized/turing-machine1.avif"
     const message = messageInput.value.trim();
 
     if (!message) {
-        showStatus('Please enter a message.', true);
-        return;
+      showStatus('Please enter a message.', true);
+      return;
     }
     if (message.length < 2) {
-        showStatus('Message is too short.', true);
-        return;
+      showStatus('Message is too short.', true);
+      return;
     }
     if (isLikelySpam(message)) {
-        showStatus('Links are not allowed in messages.', true);
-        return;
+      showStatus('Links are not allowed in messages.', true);
+      return;
     }
 
     // Rate limiting check
     const now = Date.now();
     const lastPostTime = getLastPostTime();
     if (now - lastPostTime < COOLDOWN_MS) {
-        const remaining = Math.ceil((COOLDOWN_MS - (now - lastPostTime)) / 1000);
-        showStatus(`Please wait ${remaining}s before posting again.`, true);
-        return;
+      const remaining = Math.ceil((COOLDOWN_MS - (now - lastPostTime)) / 1000);
+      showStatus(`Please wait ${remaining}s before posting again.`, true);
+      return;
     }
 
     submitBtn.disabled = true;
     submitBtn.innerText = 'Posting...';
 
-    const { error } = await submitGuestbookMessage(name, message, honeypotInput.value.trim());
+    let error = null;
+    try {
+      ({ error } = await submitGuestbookMessage(name, message, honeypotInput.value.trim()));
+    } catch (e) {
+      error = e;
+    }
 
     if (error) {
-        showStatus('Failed to post message: ' + error.message, true);
+      showStatus('Failed to post message: ' + (error.message || 'Unknown error'), true);
     } else {
-        setLastPostTime(Date.now());
-        messageInput.value = '';
-        nameInput.value = '';
-        honeypotInput.value = '';
-        charCount.textContent = '0';
-        showStatus('Message posted successfully!', false);
-        await loadMessages();
+      setLastPostTime(Date.now());
+      messageInput.value = '';
+      nameInput.value = '';
+      honeypotInput.value = '';
+      charCount.textContent = '0';
+      showStatus('Message posted successfully!', false);
+      await loadMessages();
     }
 
     submitBtn.disabled = false;
     submitBtn.innerText = 'Sign Guestbook';
-  });
+  }
 
   // Utility to prevent XSS
   function escapeHtml(text) {
     if (!text) return text;
     return text
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
   }
 
   // Initialize after layout scripts (including supabase-config) have run.
   document.addEventListener('DOMContentLoaded', async () => {
+    const requiredElements = [
+      messagesContainer,
+      formEl,
+      submitBtn,
+      statusEl,
+      messageInput,
+      nameInput,
+      honeypotInput,
+      charCount
+    ];
+    if (requiredElements.some((el) => !el)) {
+      console.error('Guestbook UI initialization failed: required elements are missing.');
+      return;
+    }
+
+    messageInput.addEventListener('input', () => {
+      charCount.textContent = messageInput.value.length;
+    });
+    formEl.addEventListener('submit', handleFormSubmit);
+
     await ensureSupabaseSdk();
     const config = resolveSupabaseConfig();
     if (config) {
       _supabase = supabase.createClient(config.supabaseUrl, config.supabaseKey);
     }
-    loadMessages();
+    await loadMessages();
   });
 </script>
