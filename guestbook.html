@@ -167,6 +167,34 @@ image: "/image/optimized/turing-machine1.avif"
     return lower.includes('http://') || lower.includes('https://') || lower.includes('[url]');
   }
 
+  async function submitGuestbookMessage(name, message, honeypot) {
+    // Preferred call (new RPC signature)
+    let result = await _supabase.rpc('submit_guestbook_message', {
+      p_name: name,
+      p_message: message,
+      p_honeypot: honeypot
+    });
+
+    if (!result.error) return result;
+
+    const msg = String(result.error.message || '');
+    const missingFn = msg.includes('Could not find the function public.submit_guestbook_message');
+    if (!missingFn) return result;
+
+    // Compatibility call (legacy argument names, if backend has older function)
+    result = await _supabase.rpc('submit_guestbook_message', {
+      name,
+      message,
+      honeypot
+    });
+    if (!result.error) return result;
+
+    // Last-resort fallback for environments without RPC function deployed.
+    return await _supabase
+      .from('guestbook_messages')
+      .insert([{ name, message }]);
+  }
+
   // Submit Message
   formEl.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -209,11 +237,7 @@ image: "/image/optimized/turing-machine1.avif"
     submitBtn.disabled = true;
     submitBtn.innerText = 'Posting...';
 
-    const { error } = await _supabase.rpc('submit_guestbook_message', {
-      p_name: name,
-      p_message: message,
-      p_honeypot: honeypotInput.value.trim()
-    });
+    const { error } = await submitGuestbookMessage(name, message, honeypotInput.value.trim());
 
     if (error) {
         showStatus('Failed to post message: ' + error.message, true);
