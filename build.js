@@ -5,8 +5,7 @@ const { transform } = require('lightningcss');
 
 const ROOT = __dirname;
 const INPUT_CSS = path.join(ROOT, 'stylesheets', 'styles.css');
-const CSS_DIST_DIR = path.join(ROOT, 'stylesheets', 'dist');
-const LEGACY_MIN_PATH = path.join(ROOT, 'stylesheets', 'styles.min.css');
+const OUTPUT_MIN_PATH = path.join(ROOT, 'stylesheets', 'styles.min.css');
 const PUBLIC_MANIFEST_PATH = path.join(ROOT, 'assets', 'asset-manifest.json');
 const DATA_DIR = path.join(ROOT, '_data');
 const DATA_MANIFEST_PATH = path.join(DATA_DIR, 'asset-manifest.json');
@@ -14,15 +13,6 @@ const DATA_MANIFEST_PATH = path.join(DATA_DIR, 'asset-manifest.json');
 function ensureDir(dirPath) {
   if (!fs.existsSync(dirPath)) {
     fs.mkdirSync(dirPath, { recursive: true });
-  }
-}
-
-function cleanOldBundles(dirPath, prefix) {
-  if (!fs.existsSync(dirPath)) return;
-  for (const file of fs.readdirSync(dirPath)) {
-    if (file.startsWith(prefix)) {
-      fs.unlinkSync(path.join(dirPath, file));
-    }
   }
 }
 
@@ -38,16 +28,9 @@ function buildStyles() {
   });
 
   const hash = crypto.createHash('sha256').update(code).digest('hex').slice(0, 10);
-  const fileName = `styles.${hash}.css`;
-
-  ensureDir(CSS_DIST_DIR);
-  cleanOldBundles(CSS_DIST_DIR, 'styles.');
-
-  fs.writeFileSync(path.join(CSS_DIST_DIR, fileName), code);
-  fs.writeFileSync(LEGACY_MIN_PATH, code);
-
-  console.log(`✓ CSS 输出: ${fileName}`);
-  return { hash, fileName };
+  fs.writeFileSync(OUTPUT_MIN_PATH, code);
+  console.log('✓ CSS 输出: styles.min.css');
+  return { hash };
 }
 
 function writeManifest(manifest) {
@@ -62,12 +45,12 @@ function writeManifest(manifest) {
 
 function build() {
   console.log('开始构建网站...');
-  const cssBundle = buildStyles();
+  const styles = buildStyles();
 
   const manifest = {
     generatedAt: new Date().toISOString(),
-    styles: `/stylesheets/dist/${cssBundle.fileName}`,
-    hash: cssBundle.hash
+    styles: '/stylesheets/styles.min.css',
+    hash: styles.hash
   };
 
   writeManifest(manifest);

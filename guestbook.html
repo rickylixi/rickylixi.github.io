@@ -46,8 +46,6 @@ image: "/image/optimized/turing-machine1.avif"
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
   let _supabase = null;
-  const FALLBACK_SUPABASE_URL = 'https://dtiivkyoieucoqkivfha.supabase.co';
-  const FALLBACK_SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0aWl2a3lvaWV1Y29xa2l2ZmhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU3MjAzMjAsImV4cCI6MjA4MTI5NjMyMH0.KbmvXU1aUft7adEAhVNPEDp8dVdY-4QwkrK8vHyLfII';
   const FALLBACK_SUPABASE_SDK = 'https://unpkg.com/@supabase/supabase-js@2';
 
   function loadScript(src) {
@@ -74,9 +72,18 @@ image: "/image/optimized/turing-machine1.avif"
   }
 
   function resolveSupabaseConfig() {
-    const cfg = window.PUBLIC_CONFIG || {};
-    const supabaseUrl = cfg.supabaseUrl || window.SUPABASE_URL || FALLBACK_SUPABASE_URL;
-    const supabaseKey = cfg.supabaseAnonKey || window.SUPABASE_KEY || FALLBACK_SUPABASE_KEY;
+    let cfg = {};
+    const configEl = document.getElementById('supabase-config');
+    if (configEl) {
+      try {
+        cfg = JSON.parse(configEl.textContent || '{}');
+      } catch (e) {
+        cfg = {};
+      }
+    }
+
+    const supabaseUrl = cfg.supabaseUrl || window.SUPABASE_URL;
+    const supabaseKey = cfg.supabaseAnonKey || window.SUPABASE_KEY;
     if (!supabaseUrl || !supabaseKey) return null;
     if (!window.supabase || typeof window.supabase.createClient !== 'function') return null;
     return { supabaseUrl, supabaseKey };
@@ -133,7 +140,7 @@ image: "/image/optimized/turing-machine1.avif"
 
     const { data, error } = await _supabase
         .from('guestbook_messages')
-        .select('*')
+        .select('name,message,created_at')
         .order('created_at', { ascending: false })
         .limit(20);
 
@@ -189,10 +196,12 @@ image: "/image/optimized/turing-machine1.avif"
     });
     if (!result.error) return result;
 
-    // Last-resort fallback for environments without RPC function deployed.
-    return await _supabase
-      .from('guestbook_messages')
-      .insert([{ name, message }]);
+    return {
+      data: null,
+      error: {
+        message: 'Guestbook backend function is missing. Please deploy submit_guestbook_message in Supabase.'
+      }
+    };
   }
 
   // Submit Message
@@ -266,7 +275,7 @@ image: "/image/optimized/turing-machine1.avif"
         .replace(/'/g, "&#039;");
   }
 
-  // Initialize after layout scripts (including PUBLIC_CONFIG) have run.
+  // Initialize after layout scripts (including supabase-config) have run.
   document.addEventListener('DOMContentLoaded', async () => {
     await ensureSupabaseSdk();
     const config = resolveSupabaseConfig();

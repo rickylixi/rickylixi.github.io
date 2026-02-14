@@ -8,9 +8,16 @@ const SELECT_VIEW_PATH = '/rest/v1/page_views';
 const REQUEST_TIMEOUT_MS = 8000;
 
 function getSupabaseConfig() {
-  const cfg = window.PUBLIC_CONFIG || {};
-  if (!cfg.supabaseUrl || !cfg.supabaseAnonKey) return null;
-  return cfg;
+  const configEl = document.getElementById('supabase-config');
+  if (configEl) {
+    try {
+      const cfg = JSON.parse(configEl.textContent || '{}');
+      if (cfg.supabaseUrl && cfg.supabaseAnonKey) return cfg;
+    } catch (e) {
+      // Ignore parse failure.
+    }
+  }
+  return null;
 }
 
 function buildHeaders(apiKey) {

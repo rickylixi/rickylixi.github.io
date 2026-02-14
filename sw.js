@@ -64,7 +64,18 @@ function staleWhileRevalidate(request) {
 
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(STATIC_CACHE).then(cache => cache.addAll(STATIC_URLS))
+    caches.open(STATIC_CACHE).then(async cache => {
+      for (const url of STATIC_URLS) {
+        try {
+          const response = await fetch(url, { cache: 'no-cache' });
+          if (response && response.ok) {
+            await cache.put(url, response.clone());
+          }
+        } catch (e) {
+          // Ignore cache warm-up failures; runtime strategies will handle misses.
+        }
+      }
+    })
   );
   self.skipWaiting();
 });
