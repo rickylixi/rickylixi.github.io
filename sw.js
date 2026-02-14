@@ -1,14 +1,13 @@
 ---
 ---
 const ASSET_MANIFEST = {{ site.data['asset-manifest'] | jsonify }};
-const STYLESHEET_PATH = (ASSET_MANIFEST && ASSET_MANIFEST.styles) ? ASSET_MANIFEST.styles : '/stylesheets/styles.min.css';
 const CACHE_VERSION = (ASSET_MANIFEST && ASSET_MANIFEST.hash) ? ASSET_MANIFEST.hash : 'v5';
 const STATIC_CACHE = `rickylixi-static-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `rickylixi-runtime-${CACHE_VERSION}`;
 
 const STATIC_URLS = [
   '/',
-  STYLESHEET_PATH,
+  '/stylesheets/styles.min.css',
   '/assets/js/theme.js',
   '/assets/js/visitor-counter.js',
   '/javascripts/accordion.js',
