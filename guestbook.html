@@ -196,12 +196,11 @@ image: "/image/optimized/turing-machine1.avif"
     });
     if (!result.error) return result;
 
-    return {
-      data: null,
-      error: {
-        message: 'Guestbook backend function is missing. Please deploy submit_guestbook_message in Supabase.'
-      }
-    };
+    // Temporary compatibility fallback: if RPC is missing, write directly.
+    // Keep this only until submit_guestbook_message is deployed.
+    return await _supabase
+      .from('guestbook_messages')
+      .insert([{ name, message }]);
   }
 
   // Submit Message
