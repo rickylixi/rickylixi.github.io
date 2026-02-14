@@ -114,7 +114,7 @@
   {% if page.accordion %}
   <script src="{{"/javascripts/accordion.js" | relative_url }}" defer></script>
   {% endif %}
-  {% if page.layout == 'post' or page.url == '/guestbook.html' %}
+  {% if page.layout == 'post' or page.url contains 'guestbook' %}
     <script>
       window.PUBLIC_CONFIG = {
         supabaseUrl: 'https://dtiivkyoieucoqkivfha.supabase.co',
