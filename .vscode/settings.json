@@ -1,13 +1,36 @@
 {
+  // 全局禁用保存时自动格式化，避免 Cmd+S 改写代码
+  "editor.formatOnSave": false,
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
   // 禁用 HTML 文件的自动格式化
   "[html]": {
     "editor.formatOnSave": false,
     "editor.formatOnPaste": false,
     "editor.formatOnType": false
   },
+  // 某些扩展会把 Jekyll 页面识别为 liquid/jinja-html/jekyll
+  "[liquid]": {
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": false,
+    "editor.formatOnType": false
+  },
+  "[jinja-html]": {
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": false,
+    "editor.formatOnType": false
+  },
+  "[jekyll]": {
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": false,
+    "editor.formatOnType": false
+  },
   // 禁用 Prettier 对 HTML 文件的格式化
   "prettier.disableLanguages": [
-    "html"
+    "html",
+    "liquid",
+    "jinja-html",
+    "jekyll"
   ],
   // 如果使用了其他格式化工具，也禁用它们
   "html.format.enable": false,
@@ -15,21 +38,22 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": "never"
   },
-  // 其他文件类型可以保持自动格式化
+  // 仍可手动格式化，但不在保存时触发
+  "prettier.requireConfig": true,
   "[javascript]": {
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[css]": {
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[json]": {
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[markdown]": {
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }

@@ -8,14 +8,14 @@
   <meta name="theme-color" content="#39c">
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-  <link rel="stylesheet" href="{{"/stylesheets/styles.min.css" | relative_url }}">
+  <link rel="stylesheet" href="{{ "/stylesheets/styles.min.css" | relative_url }}">
   {% seo %}
   {% include seo-meta.html %}
 
   <!-- Web App Manifest -->
-  <link rel="manifest" href="{{"/manifest.json" | relative_url }}">
-  <link rel="icon" type="image/png" href="{{"/image/turing-machine1.png" | relative_url }}">
-  <link rel="apple-touch-icon" href="{{"/image/turing-machine1.png" | relative_url }}">
+  <link rel="manifest" href="{{ "/manifest.json" | relative_url }}">
+  <link rel="icon" type="image/png" href="{{ "/image/turing-machine1.png" | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ "/image/turing-machine1.png" | relative_url }}">
 
   <!-- New GA4 tracking code -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GNJD50R0Z7"></script>
@@ -85,22 +85,22 @@
 
   <div class="wrapper">
     <header>
-      <h1><a href="{{"/" | relative_url }}">李熙 | Xi Li</a></h1>
+      <h1><a href="{{ "/" | relative_url }}">李熙 | Xi Li</a></h1>
       <div class="university-info">
         <p class="uni-dept">中南大学哲学系</p>
         <p class="uni-school">Central South University</p>
       </div>
 
       <nav class="social-row" aria-label="Main navigation">
-        <a href="{{"/research.html" | relative_url }}" {% if page.url contains 'research' %}class="active" {% endif %}
+        <a href="{{ "/research.html" | relative_url }}" {% if page.url contains 'research' %}class="active" {% endif %}
           aria-label="Research publications and projects">Research</a>
-        <a href="{{"/teaching.html" | relative_url }}" {% if page.url contains 'teaching' %}class="active" {% endif %}
+        <a href="{{ "/teaching.html" | relative_url }}" {% if page.url contains 'teaching' %}class="active" {% endif %}
           aria-label="Teaching materials and courses">Teaching</a>
-        <a href="{{"/personal.html" | relative_url }}" {% if page.url contains 'personal' %}class="active" {% endif %}
+        <a href="{{ "/personal.html" | relative_url }}" {% if page.url contains 'personal' %}class="active" {% endif %}
           aria-label="Personal interests and recommendations">Personal</a>
-        <a href="{{"/blog/" | relative_url }}" class="nav-blog{% if page.url contains '/blog/' %} active{% endif %}"
+        <a href="{{ "/blog/" | relative_url }}" class="nav-blog{% if page.url contains '/blog/' %} active{% endif %}"
           aria-label="Blog articles">Blog</a>
-        <a href="{{"/guestbook.html" | relative_url }}" {% if page.url contains 'guestbook' %}class="active" {% endif %} aria-label="Guestbook">Guestbook</a>
+        <a href="{{ "/guestbook.html" | relative_url }}" {% if page.url contains 'guestbook' %}class="active" {% endif %} aria-label="Guestbook">Guestbook</a>
       </nav>
 
       <nav class="social-row" aria-label="Social media links">
@@ -119,7 +119,7 @@
   </div>
 
   {% if page.accordion %}
-  <script src="{{"/javascripts/accordion.js" | relative_url }}" defer></script>
+  <script src="{{ "/javascripts/accordion.js" | relative_url }}" defer></script>
   {% endif %}
   <script id="supabase-config" type="application/json">
     {"supabaseUrl":"https://dtiivkyoieucoqkivfha.supabase.co","supabaseAnonKey":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0aWl2a3lvaWV1Y29xa2l2ZmhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU3MjAzMjAsImV4cCI6MjA4MTI5NjMyMH0.KbmvXU1aUft7adEAhVNPEDp8dVdY-4QwkrK8vHyLfII"}
@@ -128,13 +128,13 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
-        navigator.serviceWorker.register('{{"/sw.js" | relative_url }}');
+        navigator.serviceWorker.register('{{ "/sw.js" | relative_url }}');
       });
     }
   </script>
-  <script src="{{"/assets/js/theme.js" | relative_url }}" defer></script>
+  <script src="{{ "/assets/js/theme.js" | relative_url }}" defer></script>
 
-  <script src="{{"/assets/js/visitor-counter.js" | relative_url }}" defer></script>
+  <script src="{{ "/assets/js/visitor-counter.js" | relative_url }}" defer></script>
 </body>
 
 </html>
