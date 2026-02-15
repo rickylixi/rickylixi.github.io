@@ -1,14 +1,16 @@
 ---
 layout: default
 title: "Personal | Interests"
-description: "Personal interests, hobbies, and book recommendations by Xi Li. Includes favorite fiction works (Asimov, Ted Chiang, Orwell) and science books on Kolmogorov Complexity, Causality, and Universal AI. Contact information available."
+description: "Personal interests, hobbies, and book recommendations by Xi Li. Includes favorite fiction works (Asimov,
+Ted Chiang, Orwell) and science books on Kolmogorov Complexity, Causality, and Universal AI. Contact information
+available."
 sitemap: true
 image: "/image/optimized/ai-xi.avif"
 ---
 <picture>
-  <source type="image/avif" srcset="{{"/image/optimized/ai-xi.avif" | relative_url }}">
-  <source type="image/webp" srcset="{{"/image/optimized/ai-xi.webp" | relative_url }}">
-  <img src="{{"/image/ai-xi.jpg" | relative_url }}" alt="Portrait of Xi Li" loading="lazy" class="responsive-img">
+  <source type="image/avif" srcset="{{" /image/optimized/ai-xi.avif" | relative_url }}">
+  <source type="image/webp" srcset="{{" /image/optimized/ai-xi.webp" | relative_url }}">
+  <img src="{{" /image/ai-xi.png" | relative_url }}" alt="Portrait of Xi Li" loading="lazy" class="responsive-img">
 </picture>
 <h2>About me</h2>
 <p>Outside of work, I love to unwind with a good book, listen to podcasts and old Cantonese songs, or stay active by
@@ -24,7 +26,8 @@ image: "/image/optimized/ai-xi.avif"
   <li>
     <em><a href="{{ book.link }}" target="_blank" rel="noopener noreferrer">{{ book.title }}</a></em>
     {% if book.extra_book %}
-    and <em><a href="{{ book.extra_book.link }}" target="_blank" rel="noopener noreferrer">{{ book.extra_book.title }}</a></em>
+    and <em><a href="{{ book.extra_book.link }}" target="_blank" rel="noopener noreferrer">{{ book.extra_book.title
+        }}</a></em>
     {% endif %}
     , by {{ book.author }}
   </li>
@@ -33,6 +36,7 @@ image: "/image/optimized/ai-xi.avif"
 <p><b>Science</b></p>
 <ul>
   {% for book in site.data.books.science %}
-  <li><em><a href="{{ book.link }}" target="_blank" rel="noopener noreferrer">{{ book.title }}</a></em>, by {{ book.author }}</li>
+  <li><em><a href="{{ book.link }}" target="_blank" rel="noopener noreferrer">{{ book.title }}</a></em>, by {{
+    book.author }}</li>
   {% endfor %}
 </ul>
