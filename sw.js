@@ -11,7 +11,7 @@ const STATIC_URLS = [
   '/assets/js/theme.js',
   '/assets/js/visitor-counter.js',
   '/javascripts/accordion.js',
-  '/image/x-logo-192.png',
+  '/image/x-logo.png',
   '/image/optimized/ai-xi.webp',
   '/manifest.json',
   '/assets/asset-manifest.json'
