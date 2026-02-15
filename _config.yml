@@ -38,6 +38,7 @@ exclude:
   - "_config_sitemap.yml"
   - "Gemfile"
   - "Gemfile.lock"
+  - "supabase"
 
 sitemap:
   changefreq: monthly
