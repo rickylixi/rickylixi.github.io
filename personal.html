@@ -5,11 +5,44 @@ description: "Personal interests, hobbies, and book recommendations by Xi Li. In
 sitemap: true
 image: "/image/optimized/ai-xi.avif"
 ---
-<picture>
-  <source type="image/avif" srcset="{{ '/image/optimized/ai-xi.avif' | strip | relative_url }}">
-  <source type="image/webp" srcset="{{ '/image/optimized/ai-xi.webp' | strip | relative_url }}">
-  <img src="{{ '/image/ai-xi.png' | strip | relative_url }}" alt="Portrait of Xi Li" loading="lazy" class="responsive-img">
+<picture id="portrait-toggle" data-current="ai-xi">
+  <source id="portrait-avif" type="image/avif" srcset="{{ '/image/optimized/ai-xi.avif' | strip | relative_url }}">
+  <source id="portrait-webp" type="image/webp" srcset="{{ '/image/optimized/ai-xi.webp' | strip | relative_url }}">
+  <img id="portrait-img" src="{{ '/image/ai-xi.png' | strip | relative_url }}" alt="Portrait of Xi Li" loading="lazy" class="responsive-img" style="cursor: pointer;" title="Click to switch portrait">
 </picture>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const picture = document.getElementById("portrait-toggle");
+    const avifSource = document.getElementById("portrait-avif");
+    const webpSource = document.getElementById("portrait-webp");
+    const img = document.getElementById("portrait-img");
+
+    if (!picture || !avifSource || !webpSource || !img) return;
+
+    const portraits = {
+      "ai-xi": {
+        avif: "{{ '/image/optimized/ai-xi.avif' | strip | relative_url }}",
+        webp: "{{ '/image/optimized/ai-xi.webp' | strip | relative_url }}",
+        png: "{{ '/image/ai-xi.png' | strip | relative_url }}"
+      },
+      "ai-xili": {
+        avif: "{{ '/image/optimized/ai-xili.avif' | strip | relative_url }}",
+        webp: "{{ '/image/optimized/ai-xili.webp' | strip | relative_url }}",
+        png: "{{ '/image/ai-xili.png' | strip | relative_url }}"
+      }
+    };
+
+    img.addEventListener("click", () => {
+      const current = picture.dataset.current === "ai-xili" ? "ai-xili" : "ai-xi";
+      const next = current === "ai-xi" ? "ai-xili" : "ai-xi";
+      picture.dataset.current = next;
+
+      avifSource.setAttribute("srcset", portraits[next].avif);
+      webpSource.setAttribute("srcset", portraits[next].webp);
+      img.setAttribute("src", portraits[next].png);
+    });
+  });
+</script>
 <h2>About me</h2>
 <p>Outside of work, I love to unwind with a good book, listen to podcasts and old Cantonese songs, or stay active by playing ping-pong and swimming.</p>
 <p> Email: xieshenlixi at 163.com </p>
