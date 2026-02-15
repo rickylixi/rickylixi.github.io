@@ -1053,7 +1053,7 @@ division of the parts to infinity.
 > perfect spontaneity relative to itself, and yet with a perfect
 > conformity relative to external things."
 >
-> "This is what makes every substance represent the whole universe
+> "This is what makes every substance represents the whole universe
 > exactly and in its own way, from a certain point of view, and makes
 > the perceptions or expressions of external things occur in the soul at
 > a given time, in virtue of its own laws, as if in a world apart, and
@@ -2178,8 +2178,8 @@ division of the parts to infinity.
 [^22]: *Gottfried Leibniz and Jacob Bernoulli---Correspondence Regarding
     the Art of Conjecturing.*
 
-[^23]: *Letter to Louis Bourguet.* in: *Die philophischen schriften von
-    Gottfried Wilheim Leibniz, vol. III C. I. Gerhardt (ed) pp 564-570*.
+[^23]: *Letter to Louis Bourguet.* in: *Die philosophischen schriften von
+    Gottfried Wilhelm Leibniz, vol. III C. I. Gerhardt (ed) pp 564-570*.
 
 [^24]: *Notes on Some Games and Principally on the Chinese Game, on the
     Difference of the Game of Chess from the Littler Robbers, and on a
