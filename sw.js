@@ -12,7 +12,8 @@ const STATIC_URLS = [
   '/assets/js/visitor-counter.js',
   '/javascripts/accordion.js',
   '/image/x-logo.png',
-  '/image/optimized/ai-xi.webp',
+  '/image/optimized/ai-xi.avif',
+  '/image/optimized/turing-machine1.avif',
   '/manifest.json',
   '/assets/asset-manifest.json'
 ];
