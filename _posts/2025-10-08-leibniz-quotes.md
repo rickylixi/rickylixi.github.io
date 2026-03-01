@@ -1684,6 +1684,8 @@ division of the parts to infinity.
 > prevail, in a manner which, although it is certain and infallible,
 > inclines without necessitating."
 >
+> "Freedom \... consists in intelligence, which includes a distinct knowledge of the object of deliberation, in spontaneity, by which we determine ourselves, and in contingency, that is, in the exclusion of logical or metaphysical necessity. \... The free substance determines itself by itself, following the motive of the good recognized by the understanding, which inclines it without necessitating it."
+>
 > "It must be confessed, moreover, that perception and what depends on
 > it are inexplicable by mechanical reasons, that is, by figures and
 > motions. If we pretend that there is a machine whose structure enables
