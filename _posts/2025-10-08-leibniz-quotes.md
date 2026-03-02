@@ -389,19 +389,27 @@ math: true
 > be absolutely perfect."
 >
 
-$$\text{knowledge}\begin{cases}
-\text{dim}\\ 
-\text{vivid}\begin{cases}
-\text{confused}\\ 
-\text{clear}\begin{cases}
-\text{inadequate}\\
-\text{adequate}\begin{cases}
-\text{symbolic}\\ 
-\text{intuitive}
+$$
+\begin{aligned}
+\text{knowledge} &=
+\begin{cases}
+\text{dim},\\
+\text{vivid} =
+\begin{cases}
+\text{confused},\\
+\text{clear} =
+\begin{cases}
+\text{inadequate},\\
+\text{adequate} =
+\begin{cases}
+\text{symbolic},\\
+\text{intuitive}.
 \end{cases}
 \end{cases}
 \end{cases}
-\end{cases}$$
+\end{cases}
+\end{aligned}
+$$
 
 > "Our reasoning is based upon **two great principles**: first, the
 > **principle of contradiction**, by means of which we decide that to be
@@ -2141,7 +2149,7 @@ division of the parts to infinity.
 
 [^14]: Continuity:
     $$\forall x\in I\forall\varepsilon>0\exists\delta>0\forall y\in I \big(|x-y|<\delta\to|f(x)-f(y)|<\varepsilon\big)$$
-    $$\textcolor{gray}{\forall (x_n)_{n\in\mathbb{N}}\subset I: \lim\limits_{n\to\infty}f(x_n)=f(\lim\limits_{n\to\infty}x_n)}$$
+    $$\forall (x_n)_{n\in\mathbb{N}}\subset I: \lim_{n\to\infty}f(x_n)=f(\lim_{n\to\infty}x_n)$$
 
 [^15]: *On Universal Synthesis and Analysis, or the Art of Discovery and
     Judgment.*
