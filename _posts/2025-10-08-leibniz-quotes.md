@@ -1,4 +1,4 @@
- --- 
+---
 layout: post
 title:  "Leibniz Quotes - Philosophy, Mathematics and Science"
 date:   2025-10-08 16:12:00 +0800
@@ -6,7 +6,8 @@ categories: jekyll update
 tags: [Leibniz, Philosophy, Mathematics, Quotes, Rationalism]
 description: "Collection of profound quotes by Gottfried Wilhelm Leibniz on philosophy, mathematics, logic, and the nature of reality. Insights from one of history's greatest polymaths."
 math: true
- --- 
+---
+
 >
 > ***Principles of Metaphysical Certainty***
 >
@@ -67,18 +68,18 @@ math: true
 
 > "All natural phenomena could be explained mechanically if we
 > understood them well enough, but the principles of mechanics
-> themselves cannot be so explained \... since they depend on more
-> substantive principles \... The final analysis of the laws of nature
+> themselves cannot be so explained ... since they depend on more
+> substantive principles ... The final analysis of the laws of nature
 > leads us to the most sublime principles of order and perfection, which
 > indicate that the universe is the effect of a universal intelligent
-> power \... It is wrong that laws are entirely indifferent, since they
+> power ... It is wrong that laws are entirely indifferent, since they
 > originate in the wisdom of their Author or in the principle of
-> greatest perfection \... The most beautiful thing about this view seems
+> greatest perfection ... The most beautiful thing about this view seems
 > to me to be that the principle of perfection is not limited to the
 > general but descends also to the particulars of things and of
 > phenomena and that in this respect it closely resembles the method of
 > optimal forms, that is to say, of forms which provide a maximum or
-> minimum \... If in the case of the curve of shortest descent between two
+> minimum ... If in the case of the curve of shortest descent between two
 > given points, we choose any two points on this curve at will, the part
 > of the line intercepted between them is also necessarily the line of
 > shortest descent with regard to them. It is in this way that the
@@ -389,6 +390,7 @@ math: true
 > be absolutely perfect."
 >
 
+<div>
 $$
 \begin{aligned}
 \text{knowledge} &=
@@ -410,6 +412,7 @@ $$
 \end{cases}
 \end{aligned}
 $$
+</div>
 
 > "Our reasoning is based upon **two great principles**: first, the
 > **principle of contradiction**, by means of which we decide that to be
@@ -451,15 +454,15 @@ $$
 > little employed in general, which affirms that nothing happens without
 > a sufficient reason; i.e. that
 >
-> for any true proposition $P$, it is possible for someone who
-> understands things well enough to give a sufficient reason why it the
-> case that $P$ rather than not-$P$.
->
-> This principle being laid down, the first question we are entitled to
-> put will be, why is there something rather than nothing? After all,
-> nothing is simpler and easier than something. Also, given that things
-> have to exist, we must be able to give a reason why they have to exist
-> as they are and not otherwise."[^9]
+> > for any true proposition $P$, it is possible for someone who
+> > understands things well enough to give a sufficient reason why it the
+> > case that $P$ rather than not-$P$.
+> >
+> > This principle being laid down, the first question we are entitled to
+> > put will be, why is there something rather than nothing? After all,
+> > nothing is simpler and easier than something. Also, given that things
+> > have to exist, we must be able to give a reason why they have to exist
+> > as they are and not otherwise."[^9]
 >
 
 > "Because all truths follow from first truths with the help of
@@ -1535,7 +1538,7 @@ division of the parts to infinity.
 > data, one can do one of two things: either to approximate ad
 > infinitum, or else, when dealing with conjectures, at least to
 > determine, by means of demonstrative reason, the degree of probability
-> itself that it is possible to obtain from the data \... I cultivate a
+> itself that it is possible to obtain from the data ... I cultivate a
 > certain part of logic dealing with the estimation of the degrees of
 > probability, and with the balance of proofs, conjectures, and
 > indications."
@@ -1683,7 +1686,7 @@ division of the parts to infinity.
 > established as is possible in the case of bodies which are sufficient
 > for predicting a mind's choice."
 >
-> "Free will \... consists in the view that the strongest reasons or
+> "Free will ... consists in the view that the strongest reasons or
 > impressions which the understanding presents to the will do not
 > prevent the act of the will from being contingent, and do not confer
 > upon it an absolute or (so to speak) metaphysical necessity. It is in
@@ -1692,7 +1695,7 @@ division of the parts to infinity.
 > prevail, in a manner which, although it is certain and infallible,
 > inclines without necessitating."
 >
-> "Freedom \... consists in intelligence, which includes a distinct knowledge of the object of deliberation, in spontaneity, by which we determine ourselves, and in contingency, that is, in the exclusion of logical or metaphysical necessity. \... The free substance determines itself by itself, following the motive of the good recognized by the understanding, which inclines it without necessitating it."
+> "Freedom ... consists in intelligence, which includes a distinct knowledge of the object of deliberation, in spontaneity, by which we determine ourselves, and in contingency, that is, in the exclusion of logical or metaphysical necessity. ... The free substance determines itself by itself, following the motive of the good recognized by the understanding, which inclines it without necessitating it."
 >
 > "It must be confessed, moreover, that perception and what depends on
 > it are inexplicable by mechanical reasons, that is, by figures and
@@ -1976,8 +1979,8 @@ division of the parts to infinity.
 
 [^4]: Richard Feynman: "Is it true that the particle doesn't just 'take
     the right path' but that it looks at all the other possible
-    trajectories? \... The miracle of it all is, of course, that it does
-    just that. \... It isn't that a particle takes the path of least
+    trajectories? ... The miracle of it all is, of course, that it does
+    just that. ... It isn't that a particle takes the path of least
     action but that it smells all the paths in the neighborhood and
     chooses the one that has the least action."
 
@@ -2148,7 +2151,9 @@ division of the parts to infinity.
             一类可判断为真, 一类可判断为假, 一类无法判断.
 
 [^14]: Continuity:
+
     $$\forall x\in I\forall\varepsilon>0\exists\delta>0\forall y\in I \big(|x-y|<\delta\to|f(x)-f(y)|<\varepsilon\big)$$
+
     $$\forall (x_n)_{n\in\mathbb{N}}\subset I: \lim_{n\to\infty}f(x_n)=f(\lim_{n\to\infty}x_n)$$
 
 [^15]: *On Universal Synthesis and Analysis, or the Art of Discovery and
