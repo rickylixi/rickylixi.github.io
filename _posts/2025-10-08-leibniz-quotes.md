@@ -1,4 +1,4 @@
----
+ --- 
 layout: post
 title:  "Leibniz Quotes - Philosophy, Mathematics and Science"
 date:   2025-10-08 16:12:00 +0800
@@ -6,7 +6,7 @@ categories: jekyll update
 tags: [Leibniz, Philosophy, Mathematics, Quotes, Rationalism]
 description: "Collection of profound quotes by Gottfried Wilhelm Leibniz on philosophy, mathematics, logic, and the nature of reality. Insights from one of history's greatest polymaths."
 math: true
----
+ --- 
 >
 > ***Principles of Metaphysical Certainty***
 >
@@ -67,18 +67,18 @@ math: true
 
 > "All natural phenomena could be explained mechanically if we
 > understood them well enough, but the principles of mechanics
-> themselves cannot be so explained\...since they depend on more
-> substantive principles\...The final analysis of the laws of nature
+> themselves cannot be so explained \... since they depend on more
+> substantive principles \... The final analysis of the laws of nature
 > leads us to the most sublime principles of order and perfection, which
 > indicate that the universe is the effect of a universal intelligent
-> power\...It is wrong that laws are entirely indifferent, since they
+> power \... It is wrong that laws are entirely indifferent, since they
 > originate in the wisdom of their Author or in the principle of
-> greatest perfection\...The most beautiful thing about this view seems
+> greatest perfection \... The most beautiful thing about this view seems
 > to me to be that the principle of perfection is not limited to the
 > general but descends also to the particulars of things and of
 > phenomena and that in this respect it closely resembles the method of
 > optimal forms, that is to say, of forms which provide a maximum or
-> minimum\...If in the case of the curve of shortest descent between two
+> minimum \... If in the case of the curve of shortest descent between two
 > given points, we choose any two points on this curve at will, the part
 > of the line intercepted between them is also necessarily the line of
 > shortest descent with regard to them. It is in this way that the
@@ -89,7 +89,7 @@ math: true
 > "**As God calculates, so the world is made.**"[^1]
 >
 > "Everything happens mechanically in nature, that is, according to
-> certain mathematical laws prescribed by God.[^2]...Unless physical
+> certain mathematical laws prescribed by God.[^2] ... Unless physical
 > things can be explained by mechanical laws, God cannot, even if he
 > chooses, reveal and explain nature to us."[^3]
 >
@@ -98,13 +98,13 @@ math: true
 > created one."
 >
 > "**The simplicity of means is balanced against the richness of
-> ends**....The simplicity of God's ways relates to the means he adopts,
+> ends**. ... The simplicity of God's ways relates to the means he adopts,
 > while their variety, richness or abundance relate to ends or effects.
 > These should be in balance with one another, as the money for putting
 > up a building has to be balanced against its desired size and beauty.
-> Admittedly, whatever God does costs him nothing---even less than it
+> Admittedly, whatever God does costs him nothing --- even less than it
 > costs a philosopher or scientist to invent theories out of which to
-> build his imaginary world---for God can bring a real world into
+> build his imaginary world --- for God can bring a real world into
 > existence merely by decreeing it. But in the exercise of wisdom by God
 > or a scientist there is something analogous to the cost of a building,
 > namely the number of independent decrees or theories that are
@@ -123,7 +123,7 @@ math: true
 > proof, and showing that the things which now happen would follow from
 > these assumptions. A hypothesis of this kind is like the key to a
 > cryptograph, and the simpler it is, and the greater the number of
-> events that can be explained by it; the more probable it is....The
+> events that can be explained by it; the more probable it is. ... The
 > same effect can have several causes. Hence no firm demonstration can
 > be made from the success of hypotheses. Yet I shall not deny that the
 > number of phenomena which are happily explained by a given hypothesis
@@ -148,7 +148,7 @@ math: true
 > truth."
 >
 > "God does nothing disorderly, and it isn't possible even to feign
-> events that are not regular....Not only does nothing absolutely
+> events that are not regular. ... Not only does nothing absolutely
 > irregular ever happen in the world, but we cannot even feign such a
 > thing. Suppose that someone haphazardly draws points on a page, like
 > people who practice the ridiculous art of fortune-telling through
@@ -222,7 +222,7 @@ math: true
 > absolute or metaphysical necessity, whose contrary implies a
 > contradiction) but incline. These considerations show clearly that we
 > cannot escape an ultimate extramundane reason for things, or God, even
-> by assuming the eternity of the world....
+> by assuming the eternity of the world. ...
 >
 > Furthermore, in order to explain a bit more distinctly how temporal,
 > contingent, or physical truths arise from eternal, essential or
@@ -241,7 +241,7 @@ math: true
 > the greatest amount of essence or possibility is brought into
 > existence. There is always a principle of determination in nature
 > which must be sought by maxima and minima; namely, that a maximum
-> effect should be achieved with a minimum outlay, so to speak....
+> effect should be achieved with a minimum outlay, so to speak. ...
 >
 > Thus we now have a physical necessity derived from a metaphysical
 > necessity, for although the world is not metaphysically necessary,
@@ -255,7 +255,7 @@ math: true
 > even though he does all things determinately because he acts on the
 > principle of wisdom or perfection. Indifference arises from ignorance,
 > and the wiser a man is, the more determined he is toward the most
-> perfect....
+> perfect. ...
 >
 > We therefore have the ultimate reason for the reality of essences as
 > well as existences in one being, which must necessarily be greater,
@@ -271,7 +271,7 @@ math: true
 > how there is in him not only the efficient but the final cause of the
 > world. Thus we have in him the reason not merely for the greatness and
 > power in the world mechanism as already established. but also for the
-> goodness and wisdom exerted in establishing it....
+> goodness and wisdom exerted in establishing it. ...
 >
 > And in general, I hold that there is nothing truer than happiness and
 > nothing happier and sweeter than truth."[^6]
@@ -317,7 +317,7 @@ math: true
 > -   the appetitive faculty.
 >
 > But in God these attributes are absolutely infinite or perfect,
-> whereas in created monads ...they are only imitations of the divine
+> whereas in created monads ... they are only imitations of the divine
 > attributes, imitations that are more or less close depending on how
 > much perfection they possess."
 >
@@ -430,7 +430,7 @@ $$\text{knowledge}\begin{cases}
 > This single principle is sufficient to demonstrate every part of
 > arithmetic and geometry, that is, all mathematical principles. But in
 > order to proceed from mathematics to natural philosophy, another
-> principle is required ...the principle of sufficient reason, namely,
+> principle is required ... the principle of sufficient reason, namely,
 > that **nothing happens without a reason why it should be so rather
 > than otherwise**."
 >
@@ -467,8 +467,8 @@ $$\text{knowledge}\begin{cases}
 > "Finally I gave a decisive argument, which in my view amounts to a
 > proof. This is that in all true affirmative propositions, necessary or
 > contingent, universal or singular, the notion of the predicate is
-> always in some way included in that of the subject---**the predicate
-> is present in the subject**---or I do not know what truth is.
+> always in some way included in that of the subject --- **the predicate
+> is present in the subject** --- or I do not know what truth is.
 >
 > Now, I want nothing more in the way of connectedness here than what is
 > found objectively between the terms of a true proposition, and it is
@@ -523,7 +523,7 @@ $$\text{knowledge}\begin{cases}
 > made (in consequence of the first), in regard to human nature, which
 > is that man will always do (though freely) what appears best. Now
 > every truth which is founded on decrees of this kind is contingent,
-> although it is certain....All contingent propositions have reasons for
+> although it is certain. ... All contingent propositions have reasons for
 > being as they are rather than otherwise, or (what is the same thing)
 > they have a priori proofs of their truth, which render them certain,
 > and show that the connection of subject and predicate in these
@@ -544,7 +544,7 @@ $$\text{knowledge}\begin{cases}
 > "There are no purely extrinsic denominations."
 >
 > "Every individual substance contains in its complete notion the entire
-> universe and everything that exists in it---past, present, and
+> universe and everything that exists in it --- past, present, and
 > future."
 >
 > "\[The complete notion\] can be approached more and more nearly, so
@@ -561,7 +561,7 @@ $$\text{knowledge}\begin{cases}
 >
 > When a truth is necessary, we can find the reason for it by analysis,
 > breaking it down into simple ideas and truths until we reach the
-> primitive....But there must also be a sufficient reason for contingent
+> primitive. ... But there must also be a sufficient reason for contingent
 > truths or truths of fact, i.e. for the sequence of things which are
 > dispersed throughout the universe of created beings, in which the
 > resolution into particular reasons might go on into endless detail."
@@ -593,7 +593,7 @@ $$\text{knowledge}\begin{cases}
 > different individuals of the same shape and size."
 >
 > "All individual things are successions or are subject to
-> succession....For me nothing is permanent in things except the law
+> succession. ... For me nothing is permanent in things except the law
 > itself which involves a continuous succession and which corresponds,
 > in individual things, to that law which determines the whole world."
 >
@@ -624,7 +624,7 @@ $$\text{knowledge}\begin{cases}
 > is the same as $B$ signifies that the one can be substituted for the
 > other, `salva veritate`, in any proposition whatever."
 >
-> "I infer from \[the Principle of Sufficient Reason\]...that there are
+> "I infer from \[the Principle of Sufficient Reason\] ... that there are
 > not in nature two real, absolute beings, indiscernible from each
 > other; because if there were, God and nature would act without reason,
 > in treating the one otherwise than the other; and that therefore God
@@ -661,7 +661,7 @@ $$\text{knowledge}\begin{cases}
 > natural course of events the number of substances remains the same,
 > although substances are often transformed. Moreover, each substance is
 > like a whole world, and like a mirror of God, or indeed of the whole
-> universe, which each substance expresses in its own fashion---rather
+> universe, which each substance expresses in its own fashion --- rather
 > as the same town looks different according to the position from which
 > it is viewed. In a way, then, the universe is multiplied as many times
 > as there are substances, and in the same way the glory of God is
@@ -669,11 +669,11 @@ $$\text{knowledge}\begin{cases}
 > can even be said that each substance carries within it, in a certain
 > way, the imprint of God's infinite wisdom and omnipotence, and
 > imitates him as far as it can. For it expresses (though confusedly)
-> everything that happens in the universe---past, present, and
-> future---and this is a little like infinite perception or knowledge.
+> everything that happens in the universe --- past, present, and
+> future --- and this is a little like infinite perception or knowledge.
 > And as all the other substances express this one in their turn, and
-> adapt themselves to it---that is, they are as they are because it is
-> as it is---it can be said to have power over all the others, imitating
+> adapt themselves to it --- that is, they are as they are because it is
+> as it is --- it can be said to have power over all the others, imitating
 > the creator's omnipotence."
 >
 
@@ -705,8 +705,8 @@ $$\text{knowledge}\begin{cases}
 > "**There is no vacuum.** For if there were empty space, two different
 > parts of it could be perfectly similar and congruent and
 > indistinguishable from one another. Thus, they would differ in number
-> alone---differ in being two, but not in any other way---which is
-> absurd. One can also prove that time is not a thing, ...if time were a
+> alone --- differ in being two, but not in any other way --- which is
+> absurd. One can also prove that time is not a thing, ... if time were a
 > thing there could be stretches of empty time, i.e. time when nothing
 > happens; and two parts of such empty time would be exactly alike,
 > differing only in number, which is absurd."
@@ -739,8 +739,8 @@ $$\text{knowledge}\begin{cases}
 > "**Time and space are not things, but orders of things.**"
 >
 > "Space and time taken together constitute the order of possibilities
-> of one entire universe, so that these orders---space and time, that
-> is---relate not only to what actually is but also to anything that
+> of one entire universe, so that these orders --- space and time, that
+> is --- relate not only to what actually is but also to anything that
 > could be put in its place."[^12]
 >
 > "I hold space to be something merely relative, as time is, that I hold
@@ -749,7 +749,7 @@ $$\text{knowledge}\begin{cases}
 > things that exist at the same time, considered as existing together,
 > without entering into their particular manners of existing. And when
 > many things are seen together, one perceives that order of things
-> among themselves....If space was an absolute being, there would
+> among themselves. ... If space was an absolute being, there would
 > something happen, for which it would be impossible there should be a
 > sufficient reason. Which is against my Axiom. And I prove it thus.
 > Space is something absolutely uniform; and without the things placed
@@ -771,7 +771,7 @@ $$\text{knowledge}\begin{cases}
 > consequently there is no room to enquire after a reason of the
 > preference of the one to the other."[^13]
 >
-> "The case is the same with respect to time....The same argument proves
+> "The case is the same with respect to time. ... The same argument proves
 > that instants, considered without the things, are nothing at all; and
 > that they consist only in the successive order of things."
 >
@@ -851,9 +851,9 @@ $$\text{knowledge}\begin{cases}
 > everything else in the universe in ways that make it alter, also
 > preserves all the states that have been impressed on it in the past
 > and contains in advance all that will be impressed on it in the
-> future....Not only must there be effects produced in an atom from all
+> future. ... Not only must there be effects produced in an atom from all
 > the impacts of the universe upon it, but also conversely the state of
-> the whole universe must be inferable from the states of the atom---the
+> the whole universe must be inferable from the states of the atom --- the
 > cause must be inferable from the effect. However, any given motion of
 > an atom and any given shape could have come about through different
 > impacts, so there is no way to infer from the present shape and motion
@@ -861,14 +861,14 @@ $$\text{knowledge}\begin{cases}
 >
 > "Something further that follows from my notions of body and forces is
 > that whatever happens in a substance can be understood as happening
-> spontaneously---not caused from outside the substance---and in an
+> spontaneously --- not caused from outside the substance --- and in an
 > orderly way. Connected to this is the proposition that **no change
 > takes place in a jump**.
 >
 > Given this, it also follows that there cannot be atoms. To see how
 > that follows, think about two bodies that collide and rebound away
-> from each other. If these bodies were atoms---that is, bodies of
-> maximal hardness and inflexibility---then clearly their change of
+> from each other. If these bodies were atoms --- that is, bodies of
+> maximal hardness and inflexibility --- then clearly their change of
 > motion would be taking place in a 'jump', i.e. instantaneously, for
 > the forward motion would have to change to backward at the very moment
 > of collision. 'Perhaps the atoms might become stationary for an
@@ -876,7 +876,7 @@ $$\text{knowledge}\begin{cases}
 > different direction.' That means that for a moment they lose all their
 > force and then regain it! Anyway, as well as containing this and other
 > absurdities, this proposal would again involve a change taking place
-> in a single jump---an instantaneous change from motion to rest, with
+> in a single jump --- an instantaneous change from motion to rest, with
 > no intermediate stages.
 >
 > So we have to recognise that when two bodies collide, from the point
@@ -888,15 +888,15 @@ $$\text{knowledge}\begin{cases}
 > Then, their elasticity begins to restore them, and they rebound from
 > each other in the opposite direction; their motion begins from rest
 > and continuously increases until they finally reach the same speed
-> they had when they came together but in the opposite direction...."
+> they had when they came together but in the opposite direction. ..."
 >
-> "In just the same way, one shape can't be turned into another---e.g. a
-> circle into an oval---except by passing through all the countless
+> "In just the same way, one shape can't be turned into another --- e.g. a
+> circle into an oval --- except by passing through all the countless
 > intermediate shapes, and nothing gets from one place to another, or
 > from one time to another, without going through all the places and
 > times in between."
 >
-> "No transition happens by a leap....This holds, I think, not only of
+> "No transition happens by a leap. ... This holds, I think, not only of
 > transitions from place to place, but also of those from form to form,
 > or from state to state."
 >
@@ -906,14 +906,14 @@ $$\text{knowledge}\begin{cases}
 > appearance of leaps."
 >
 > "It also follows that all rebounding arises from
-> **elasticity**....Bodies change shape before they bounce off anything.
+> **elasticity**. ... Bodies change shape before they bounce off anything.
 > And finally there is the most wonderful conclusion that each body,
 > however small, is elastic, and is permeated by a fluid consisting of
 > bodies that are even smaller than it is."
 >
 > "Nothing happens all at once, and it is one of my great maxims, and
 > among the most completely verified, that nature never makes leaps:
-> which I called the **Law of Continuity**....I have remarked also that,
+> which I called the **Law of Continuity**. ... I have remarked also that,
 > in virtue of insensible variations, two individual things cannot be
 > perfectly similar, and must always differ more than numerically."
 >
@@ -964,7 +964,7 @@ division of the parts to infinity.
 > there. It's just that a series of divisions could go on ad infinitum
 > separating some from others at each stage. But no such sequence
 > separates out all the parts, all the 'contained creatures', because
-> every division leaves some of them clumped together---just as someone
+> every division leaves some of them clumped together --- just as someone
 > who bisects a line leaves clumped together some parts of it that would
 > be separated if the line were trisected."
 >
@@ -987,7 +987,7 @@ division of the parts to infinity.
 >
 > "Something unextended is required for the substance of bodies. Without
 > that there would be no source for the reality of phenomena or for true
-> unity....Since I have ruled out atoms, all that remains as a source of
+> unity. ... Since I have ruled out atoms, all that remains as a source of
 > unity is something unextended, analogous to the soul, which they once
 > called **'form' or 'species'**."
 >
@@ -1002,14 +1002,14 @@ division of the parts to infinity.
 >
 > "A monad's perceptions arise out of its other perceptions by the
 >
-> -   laws of appetites---the **laws of the final causes** of good and
+> -   laws of appetites --- the **laws of the final causes** of good and
 >     evil (these appetites are just conspicuous perceptions, whether
 >     orderly or disorderly),
 >
 > just as changes in bodies or in external phenomena arise one from
 > another by the
 >
-> -   **laws of efficient causes**---the laws governing the movements of
+> -   **laws of efficient causes** --- the laws governing the movements of
 >     bodies.
 >
 > So there is perfect harmony between the perceptions of the monad and
@@ -1062,7 +1062,7 @@ division of the parts to infinity.
 > being expressed more closely by the soul, is in turn ready to act by
 > itself, following the laws of the corporeal machine, at the moment
 > when the soul wills it to act, without disturbing the laws of the
-> other---the spirits and blood then having exactly the motions that
+> other --- the spirits and blood then having exactly the motions that
 > they need to respond to the passions and perceptions of the soul."
 >
 > "It is this mutual relation, regulated in advance in each substance of
@@ -1071,7 +1071,7 @@ division of the parts to infinity.
 >
 > "For what happens with perception happens nonetheless mechanically,
 > and to the passions of the soul there correspond bodily motions in the
-> organs which always follow mechanical laws....Everything is by nature
+> organs which always follow mechanical laws. ... Everything is by nature
 > to be understood clearly and distinctly and could be manifested to our
 > understanding by God if he willed to do so. And the operation of a
 > body cannot be understood adequately unless we know what its parts
@@ -1103,7 +1103,7 @@ division of the parts to infinity.
 >
 > "Imagine two clocks or watches which are in perfect agreement. Now
 > this can happen in three ways. The first is that of a natural
-> influence....The second way of making two clocks, even poor ones,
+> influence. ... The second way of making two clocks, even poor ones,
 > agree always is to assign a skilled craftsman to them who adjusts them
 > and constantly sets them in agreement. The third way is to construct
 > these two timepieces at the beginning with such skill and accuracy
@@ -1155,7 +1155,7 @@ division of the parts to infinity.
 > each of us aware of the thing that is called 'I', and let us have
 > thoughts about this or that thing in us. And by thinking of ourselves
 > in this way we think of being, of substance, of simples and
-> composites, of what is immaterial---and of God himself, through the
+> composites, of what is immaterial --- and of God himself, through the
 > thought that what is limited in us is limitless in him. And so these
 > acts of reflection provide the principal objects of our reasonings."
 >
@@ -1166,8 +1166,8 @@ division of the parts to infinity.
 > "Each monad, together with its own body, constitutes a living
 > substance. So every living substance is made up of smaller living
 > substances which in their turn are made up of still smaller ones, and
-> so on down to infinity. Thus, not only is there life everywhere---the
-> life of organisms equipped with limbs or organs---but there are
+> so on down to infinity. Thus, not only is there life everywhere --- the
+> life of organisms equipped with limbs or organs --- but there are
 > infinite levels of life among monads, some of which are more or less
 > dominant over others."
 >
@@ -1183,7 +1183,7 @@ division of the parts to infinity.
 >
 > Furthermore, adding to the wonderful simplicity of the basic laws of
 > physics, action is always equal to reaction, and the complete effect
-> is always equivalent to the total cause....If we want to explain why
+> is always equivalent to the total cause. ... If we want to explain why
 > they are laws, it turns out, surprisingly, that we can't do this
 > purely in terms of efficient causes, that is, in terms of matter. I
 > have found that to explain why the basic laws of physics are laws we
@@ -1209,7 +1209,7 @@ division of the parts to infinity.
 > universe."
 >
 > "And just as the same town when seen from different sides will seem
-> quite different---as though it were multiplied perspectively---the
+> quite different --- as though it were multiplied perspectively --- the
 > same thing happens here: because of the infinite multitude of simple
 > substances it's as though there were that many different universes;
 > but they are all perspectives on the same one, differing according to
@@ -1240,7 +1240,7 @@ division of the parts to infinity.
 > from simple substances which alone have unity and absolute reality."
 >
 > "Accurately speaking, matter is not composed of these constitutive
-> unities but results from them....Substantial unities are not parts but
+> unities but results from them. ... Substantial unities are not parts but
 > foundations of phenomena."
 >
 > "The union which I find some difficulty explaining is that which joins
@@ -1248,7 +1248,7 @@ division of the parts to infinity.
 > us, such that it makes one thing from them, nor is it sufficiently
 > clear how, in addition to the existence of individual monads, there
 > may arise a new existing thing, unless they are bound by a continuous
-> bond ...which the phenomena display to us."
+> bond ... which the phenomena display to us."
 >
 > "Any mass contains innumerable monads, for although any one organic
 > body in nature has its corresponding dominant monad, it nevertheless
@@ -1337,7 +1337,7 @@ division of the parts to infinity.
 > order; they are an effect of the choice and wisdom of God."
 >
 > "Whatever is thought by us is either conceived through itself, or
-> involves the concept of another....Thus one must proceed to infinity,
+> involves the concept of another. ... Thus one must proceed to infinity,
 > or all thoughts are resolved into those which are conceived through
 > themselves."
 >
@@ -1355,14 +1355,14 @@ division of the parts to infinity.
 > combining with them truths abstracted from experience. But we need a
 > particular art for arranging as well as for ordering and combining our
 > experiments, so that useful inductions can be made from them, causes
-> discovered, and general truths and postulates set up....Our human
+> discovered, and general truths and postulates set up. ... Our human
 > knowledge of nature seems to me at present like a shop well provided
 > with all kinds of wares but without any order or inventory."[^16]
 >
 > "Since the **senses and inductions** can never teach us perfectly
 > universal truths, nor what is absolutely necessary, but only what is,
 > and what is found in particular examples, and since we nevertheless
-> know necessary and universal truths ...it follows that we have derived
+> know necessary and universal truths ... it follows that we have derived
 > these truths in part from what is within us."
 >
 > "The simpler a hypotheses is, the better it is."
@@ -1370,7 +1370,7 @@ division of the parts to infinity.
 > "Would that incomprehensibility were an attribute of God only! We
 > should then have better hope of understanding nature. But it is too
 > true that there is no part of nature which we can perfectly
-> understand....No creature however noble can distinctly perceive or
+> understand. ... No creature however noble can distinctly perceive or
 > comprehend an infinity at one time; nay more, whoever understood one
 > piece of matter, would understand the whole universe."
 >
@@ -1391,18 +1391,18 @@ division of the parts to infinity.
 >
 
 > "I have also used the analogy of a veined block of marble as opposed
-> to an entirely homogeneous one or to an empty page....This is how
-> ideas and truths are innate in us---as inclinations, dispositions,
+> to an entirely homogeneous one or to an empty page. ... This is how
+> ideas and truths are innate in us --- as inclinations, dispositions,
 > tendencies, or natural potentialities, and not as actual thinkings,
 > though these potentialities are always accompanied by certain actual
 > thinkings, often insensible ones, which correspond to them."[^18]
 >
 > "I have always been, as I still am, in favour of the **innate idea**
-> of God ...and consequently of other innate ideas, which cannot come to
+> of God ... and consequently of other innate ideas, which cannot come to
 > us from the senses. Now I go still further, in conformity to the new
 > system, and I even think that all the thoughts and actions of our soul
 > come from its own nature, and that it is impossible they should be
-> given to it by the senses....there are ideas and principles which do
+> given to it by the senses. ... there are ideas and principles which do
 > not come to us from the senses, which we find in us without forming
 > them, though the senses give us occasion to notice them."
 >
@@ -1411,7 +1411,7 @@ division of the parts to infinity.
 > but instances, that is to say, particular or singular truths. But
 > however many instances confirm a general truth, they do not suffice to
 > establish its universal necessity, for it does not follow that what
-> happened will always happen in the same way....From this it appears
+> happened will always happen in the same way. ... From this it appears
 > that necessary truths, such as we find in pure mathematics, and
 > particularly in arithmetic and geometry, must have principles whose
 > proof does not depend on instances, nor, consequently, on the
@@ -1527,7 +1527,7 @@ division of the parts to infinity.
 > data, one can do one of two things: either to approximate ad
 > infinitum, or else, when dealing with conjectures, at least to
 > determine, by means of demonstrative reason, the degree of probability
-> itself that it is possible to obtain from the data\...I cultivate a
+> itself that it is possible to obtain from the data \... I cultivate a
 > certain part of logic dealing with the estimation of the degrees of
 > probability, and with the balance of proofs, conjectures, and
 > indications."
@@ -1544,7 +1544,7 @@ division of the parts to infinity.
 > could be a kind of universal language or writing, though infinitely
 > different from all such languages which have thus far been proposed,
 > for the characters and the words themselves would give directions to
-> reason, and the errors---except those of fact---would be only mistakes
+> reason, and the errors --- except those of fact --- would be only mistakes
 > in calculation. It would be very difficult to form or invent this
 > language or characteristic but very easy to learn it without any
 > dictionaries. When we lack sufficient data to arrive at certainty in
@@ -1552,7 +1552,7 @@ division of the parts to infinity.
 > to see what is needed to provide this certainty. Such an estimate
 > would be most important for the problems of life and for practical
 > considerations, where our errors in estimating probabilities often
-> amount to more than a half....
+> amount to more than a half. ...
 >
 > It is true that this part of useful logic has not yet been found, but
 > it will be of marvellous use in practical matters when it is a
@@ -1574,7 +1574,7 @@ division of the parts to infinity.
 >
 > "This is the axiom: aequalibus aequalia, equal suppositions must have
 > equal consideration. But when the suppositions are unequal they
-> compare them with each other....A new kind of logic would be required
+> compare them with each other. ... A new kind of logic would be required
 > which would treat of the degrees of probability, since Aristotle in
 > his 'Topics' has done nothing less than this, and has contented
 > himself with putting in a certain order certain popular rules
@@ -1593,7 +1593,7 @@ division of the parts to infinity.
 > "Given any number of points, an infinite number of curves can be found
 > passing through them.[^21] Thus, I show the following: I postulate
 > (and this can be demonstrated) that given any number of points, some
-> regular curve can be found passing through these points....It may be
+> regular curve can be found passing through these points. ... It may be
 > added that, although a perfect estimation cannot be had empirically,
 > an empirical estimate would nonetheless be useful and sufficient in
 > practice."[^22]
@@ -1601,9 +1601,9 @@ division of the parts to infinity.
 > "The art of conjecture is founded on what is more or less easy, or
 > rather more or less feasible, for the Latin *facilis* (easy), derived
 > from *faciendo* (from what is to be done), literally means
-> feasible....One may still estimate likelihoods a posteriori, by
+> feasible. ... One may still estimate likelihoods a posteriori, by
 > experience, to which one must have recourse in default of a priori
-> reasons....It could be said that what happens more or less often is
+> reasons. ... It could be said that what happens more or less often is
 > also more or less feasible in the present state of affairs, putting
 > all the considerations together that have to combine to bring about
 > the production of a fact."[^23]
@@ -1628,7 +1628,7 @@ division of the parts to infinity.
 > "The **games** mixed of fortune and combinations represent very well
 > human life, and especially military actions and the practice of
 > medicine, things in which it is necessary to give one part to science
-> and the other to fortune....It is thence that it is necessary to unite
+> and the other to fortune. ... It is thence that it is necessary to unite
 > certain consequences to those that one evaluates by probability and
 > verisimilitude."[^24]
 >
@@ -1640,7 +1640,7 @@ division of the parts to infinity.
 > "Properly speaking, it is true that there are an infinity of things,
 > i.e. that there are always more of them than can be assigned. But
 > there is no infinite number, or line or any other infinite quantity,
-> if these are understood as true wholes, as it is easy to prove....The
+> if these are understood as true wholes, as it is easy to prove. ... The
 > true infinite exists, strictly speaking, only in the Absolute, which
 > is anterior to all composition, and is not formed by addition of
 > parts."
@@ -1652,7 +1652,7 @@ division of the parts to infinity.
 >
 > "It is not necessary to make mathematical analysis depend upon
 > metaphysical controversies, nor to make sure that there are in nature
-> strictly infinitesimal lines....This is why, in order to avoid these
+> strictly infinitesimal lines. ... This is why, in order to avoid these
 > subtleties, thought that, to render the reasoning intelligible to
 > everybody, it sufficed in this to explain the infinite by the
 > incomparable, i.e. to conceive quantities incomparably greater or
@@ -1675,7 +1675,7 @@ division of the parts to infinity.
 > established as is possible in the case of bodies which are sufficient
 > for predicting a mind's choice."
 >
-> "Free will\...consists in the view that the strongest reasons or
+> "Free will \... consists in the view that the strongest reasons or
 > impressions which the understanding presents to the will do not
 > prevent the act of the will from being contingent, and do not confer
 > upon it an absolute or (so to speak) metaphysical necessity. It is in
@@ -1695,17 +1695,17 @@ division of the parts to infinity.
 > but parts which push upon each other; we should never see anything
 > which would explain a perception. So it is in the simple substance,
 > and not in the composite substance or machine, that perception must be
-> sought. Furthermore, this is the only thing---namely, perceptions and
-> their changes---that can be found in simple substance. It is in this
+> sought. Furthermore, this is the only thing --- namely, perceptions and
+> their changes --- that can be found in simple substance. It is in this
 > alone that the internal actions of simple substances can consist."
 >
 > "Miracles are not to be multiplied beyond necessity."
 >
 
 > "Wisdom is merely the science of happiness or that science which
-> teaches us to achieve happiness....Pleasure is the feeling of a
+> teaches us to achieve happiness. ... Pleasure is the feeling of a
 > perfection or an excellence, whether in ourselves or in something
-> else....Thus we see that happiness, pleasure, love, perfection, being,
+> else. ... Thus we see that happiness, pleasure, love, perfection, being,
 > power, freedom, harmony, order, and beauty are all tied to each other,
 > a truth which is rightly perceived by few. Now when the soul feels
 > within itself a great harmony, order, freedom, power, or perfection,
@@ -1845,7 +1845,7 @@ division of the parts to infinity.
 > mathematics, for example, to understand the mechanical functioning of
 > animals, to foresee certain future contingencies with a certain degree
 > of accuracy, and to do certain wonderful things in nature, which are
-> now beyond our capacity....
+> now beyond our capacity. ...
 >
 > Every mind has a horizon in respect to its present intellectual
 > capacity but not in respect to its future intellectual capacity."
@@ -1903,8 +1903,8 @@ division of the parts to infinity.
     and perfect; but when he looks to the created only, and uses a
     created pattern, it is not fair or perfect. Was the heaven then or
     the world, whether called by this or by any other more appropriate
-    name---assuming the name, I am asking a question which has to be
-    asked at the beginning of an enquiry about anything---was the world,
+    name --- assuming the name, I am asking a question which has to be
+    asked at the beginning of an enquiry about anything --- was the world,
     I say, always in existence and without beginning? or created, and
     had it a beginning? Created, I reply, being visible and tangible and
     having a body, and therefore sensible; and all sensible things are
@@ -1914,7 +1914,7 @@ division of the parts to infinity.
     this universe is past finding out; and even if we found him, to tell
     of him to all men would be impossible. And there is still a question
     to be asked about him: Which of the patterns had the artificer in
-    view when he made the world---the pattern of the unchangeable, or of
+    view when he made the world --- the pattern of the unchangeable, or of
     that which is created? If the world be indeed fair and the artificer
     good, it is manifest that he must have looked to that which is
     eternal; but if what cannot be said without blasphemy is true, then
@@ -1929,7 +1929,7 @@ division of the parts to infinity.
     assume that words are akin to the matter which they describe; when
     they relate to the lasting and permanent and intelligible, they
     ought to be lasting and unalterable, and, as far as their nature
-    allows, irrefutable and immovable---nothing less. But when they
+    allows, irrefutable and immovable --- nothing less. But when they
     express only the copy or likeness and not the eternal things
     themselves, they need only be likely and analogous to the real
     words. As being is to becoming, so is truth to belief."
@@ -2001,20 +2001,20 @@ division of the parts to infinity.
 [^9]: Bertrand Russell: "Leibniz based his philosophy upon two logical
     premises, the law of contradiction and the law of sufficient reason.
     Both depend upon the notion of an 'analytic' proposition, which is
-    one in which the predicate is contained in the subject---for
+    one in which the predicate is contained in the subject --- for
     instance, 'all white men are men.' The law of contradiction states
     that all analytic propositions are true. The law of sufficient
     reason (in the esoteric system only) states that all true
     propositions are analytic."
 
-    "The principle of sufficient reason ...is usually supposed to be, by
+    "The principle of sufficient reason ... is usually supposed to be, by
     itself, adequate to the deduction of what actually exists. To this
     supposition, it must be confessed, Leibniz's words often lend
     colour. But we shall find that there are really two principles
     included under the same name, the one general, and applying to all
     possible worlds, the other special, and applying only to the actual
     world. Both differ from the law of contradiction, by the fact that
-    they apply specially---the former, however, not exclusively---to
+    they apply specially --- the former, however, not exclusively --- to
     existents, possible or actual. The former, as we shall see, is a
     form of the law of causality, asserting all possible causes to be
     desires or appetites; the latter, on the other hand, is the
@@ -2161,7 +2161,7 @@ division of the parts to infinity.
 [^21]: Jacob Bernoulli: "It is nevertheless known that there are levels
     in infinity, and that the ratio of one infinity to another infinity
     is still a finite number, and can be expressed either precisely or
-    sufficiently precisely for practical use....If five points have been
+    sufficiently precisely for practical use. ... If five points have been
     observed, all of which are perceived to lie along a parabola, the
     notion of a parabola will be stronger than if only four points had
     been observed: for although there are an infinite number of curves
@@ -2176,7 +2176,7 @@ division of the parts to infinity.
     indeed seems quite correct to me, since we see everywhere that
     nature follows the simplest paths."
 
-[^22]: *Gottfried Leibniz and Jacob Bernoulli---Correspondence Regarding
+[^22]: *Gottfried Leibniz and Jacob Bernoulli --- Correspondence Regarding
     the Art of Conjecturing.*
 
 [^23]: *Letter to Louis Bourguet.* in: *Die philosophischen schriften von
