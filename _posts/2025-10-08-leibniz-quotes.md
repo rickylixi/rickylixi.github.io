@@ -393,19 +393,19 @@ math: true
 <div>
 $$
 \begin{aligned}
-\text{knowledge} &=
+\text{knowledge} &
 \begin{cases}
-\text{dim},\\
-\text{vivid} =
+\text{dim}\\
+\text{vivid} 
 \begin{cases}
-\text{confused},\\
-\text{clear} =
+\text{confused}\\
+\text{clear} 
 \begin{cases}
-\text{inadequate},\\
-\text{adequate} =
+\text{inadequate}\\
+\text{adequate} 
 \begin{cases}
-\text{symbolic},\\
-\text{intuitive}.
+\text{symbolic}\\
+\text{intuitive}
 \end{cases}
 \end{cases}
 \end{cases}
@@ -455,7 +455,7 @@ $$
 > a sufficient reason; i.e. that
 >
 > > for any true proposition $P$, it is possible for someone who
-> > understands things well enough to give a sufficient reason why it the
+> > understands things well enough to give a sufficient reason why it is the
 > > case that $P$ rather than not-$P$.
 > >
 > > This principle being laid down, the first question we are entitled to
@@ -2152,9 +2152,13 @@ division of the parts to infinity.
 
 [^14]: Continuity:
 
+    <div>
     $$\forall x\in I\forall\varepsilon>0\exists\delta>0\forall y\in I \big(|x-y|<\delta\to|f(x)-f(y)|<\varepsilon\big)$$
+    </div>
 
+    <div>
     $$\forall (x_n)_{n\in\mathbb{N}}\subset I: \lim_{n\to\infty}f(x_n)=f(\lim_{n\to\infty}x_n)$$
+    </div>
 
 [^15]: *On Universal Synthesis and Analysis, or the Art of Discovery and
     Judgment.*
