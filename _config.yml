@@ -15,7 +15,7 @@ url: "https://rickylixi.github.io"
 permalink: /blog/:year/:month/:day/:title.html
 markdown: kramdown
 kramdown:
-  math_engine: mathjax
+  math_engine: null
   input: GFM
   syntax_highlighter_opts:
     disable: true
