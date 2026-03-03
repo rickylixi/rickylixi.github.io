@@ -1880,52 +1880,52 @@ division of the parts to infinity.
   }
 
   % Left chain (top-left)
-  \node[draw=green,line width=1pt,fill=green!20,rounded corners=10pt, text width=2.2cm,minimum height=0.82cm,main] (law) at (1.2,6.25) {矛盾律(逻辑)\\充足理由律(序)};
+  \node[draw=green,line width=1pt,fill=green!20,rounded corners=5pt,main] (law) at (1.2,6.25) {矛盾律(逻辑)\\充足理由律(序)};
 
   \node[draw=green,dashed,line width=1.1pt,fill=cyan!20,ellipse,inner sep=1pt] (monad) at (4.85,6.25) {单子库};
 
-  \node[draw=green,line width=1.1pt,fill=green!20,rounded corners=10pt,text width=1.4cm,minimum height=0.82cm,main] (world) at (8.5,6.25) {可能世界\\(紧致空间)\\信道};
+  \node[draw=green,line width=1.1pt,fill=green!20,rounded corners=5pt,main] (world) at (8.5,6.25) {可能世界\\(紧致空间)\\信道};
 
-  \draw[-{latex[length=3.6mm,width=3mm]},line width=1.9pt,green] (law.east) -- node[ann,above=1pt] {上} (monad.west);
-  \draw[-{latex[length=3.6mm,width=3mm]},line width=1.9pt,green] (monad.east) -- node[ann,above=1pt] {帝} (world.west);
+  \draw[-,line width=1.9pt,green] (law.east) -- node[ann,above=1pt] {上} (monad.west);
+  \draw[-latex,line width=1.9pt,green] (monad.east) -- node[ann,above=1pt] {帝} (world.west);
 
   % Top principles frame
 
-  \draw[line width=1.9pt,green,-{latex[length=2.8mm]}] (law.north) -- ([yshift=.6cm]law.north |- world.north) -| (world.north);
-  \draw[line width=1.9pt,green,-{latex[length=2.8mm]}] (law.south) -- ([yshift=-.6cm]law.south |- world.south) -| (world.south);
+  \draw[line width=1.9pt,green,-latex] (law.north) -- ([yshift=.6cm]law.north |- world.north) -| (world.north);
+  \draw[line width=1.9pt,green,-latex] (law.south) -- ([yshift=-.6cm]law.south |- world.south) -| (world.south);
   \node[ann,text=green] at (4.8,7.95) {不可分辨者的同一性原则};
   \node[ann,text=green] at (4.8,7.35) {连续律-效果是假设的连续函数};
   \node[ann,text=green] at (4.8,5.1) {完满性原则-越完满越具有存在倾向};
 
   % Ontology and right title (top-right)
-  \node[draw=green,line width=1.1pt,fill=green!20,rounded corners=10pt,text width=2.4cm,minimum height=0.82cm,main] (onto) at (14.5,6.35) {本体论\\\textcolor{red}{极简假设-极大效果}\\现实世界};
+  \node[draw=green,line width=1.1pt,fill=green!20,rounded corners=5pt,main] (onto) at (14.5,6.35) {本体论\\\textcolor{red}{极简假设-极大效果}\\现实世界};
 
-  \draw[-{latex[length=3.6mm,width=3mm]},line width=1.9pt,green] (world.east) -- ([yshift=-2pt]onto.west);
-  \node[ann,text=green,text width=2.2cm] at (11,7.18) {“最优性原则”\\极值存在且唯一\\最小作用量原理\\路径积分};
+  \draw[-latex,line width=1.9pt,green] (world.east) -- ([yshift=-2pt]onto.west);
+  \node[ann,text=green] at (11,7.18) {"最优性原则"\\极值存在且唯一\\最小作用量原理\\路径积分};
 
   % Middle band
   \node[ann,text=green] (calc) at (10.9,2.2) {通用文字/理性演算\\(演绎/归纳)};
 
-  \draw[dashed,line width=1pt,-{latex[length=2.9mm]}] (calc.north) -- node[right,ann] {刻画} (world);
-  \draw[dashed,line width=1pt,-{latex[length=2.9mm]}] (calc.north) -- node[left,ann] {逼近} (onto);
+  \draw[dashed,line width=1pt,-latex] (calc.north) -- node[right,ann] {刻画} (world);
+  \draw[dashed,line width=1pt,-latex] (calc.north) -- node[left,ann] {逼近} (onto);
 
   % Lower diamonds
-  \node[draw=orange,line width=1.2pt,fill=yellow!25,rounded corners=10pt,text width=1.9cm,minimum height=0.82cm,main] (epist) at (10.9,1.10) {认识论\\动力因:熵梯度\\物理世界};
+  \node[draw=orange,line width=1.2pt,fill=yellow!25,rounded corners=5pt,main] (epist) at (10.9,1.10) {认识论\\动力因:熵梯度\\物理世界};
 
-  \node[draw=orange,line width=1.2pt,fill=yellow!25,rounded corners=10pt,text width=1.9cm,minimum height=0.82cm,main] (ethic) at (17.1,1.10) {伦理学\\目的因:完满性\\道德世界};
+  \node[draw=orange,line width=1.2pt,fill=yellow!25,rounded corners=5pt,main] (ethic) at (17.1,1.10) {伦理学\\目的因:完满性\\道德世界};
 
-  \draw[dotted,line width=1.2pt,-{latex[length=2.9mm]},black] (onto.south) -- (epist);
-  \draw[dotted,line width=1.2pt,-{latex[length=2.9mm]},black] (onto.south) -- (ethic);
+  \draw[dotted,line width=1.2pt,-latex,black] (onto.south) -- (epist);
+  \draw[dotted,line width=1.2pt,-latex,black] (onto.south) -- (ethic);
 
-  \node[ellipse,draw=red!50,dashed,fill=orange!30,minimum width=1.8cm,minimum height=0.3cm, ann] at (14.25,3) {前定和谐幻象};
+  \node[ellipse,draw=red!50,dashed,fill=orange!30,ann] at (14.25,3) {前定和谐幻象};
 
   % Long green diagonal and Bayes
 
-  \draw[orange,line width=1.2pt,-{latex[length=2.9mm]}] ([yshift=-2pt]epist.east) -- node[ann,above,text=green] {贝叶斯博弈} ([yshift=-2pt]ethic.west);
+  \draw[orange,line width=1.2pt,-latex] ([yshift=-2pt]epist.east) -- node[ann,above,text=green] {贝叶斯博弈} ([yshift=-2pt]ethic.west);
 
   % Predetermined harmony loop
-  \draw[line width=1.9pt,green,-{latex[length=2.8mm]}] ([yshift=-.85cm]monad.south) -- ([yshift=-.8cm]monad.south |- epist.south) -| (epist.south);
-  \draw[line width=1.9pt,green,-{latex[length=2.8mm]}] ([yshift=-.8cm]epist.south) -| (ethic.south);
+  \draw[line width=1.9pt,green,-latex] ([yshift=-.85cm]monad.south) -- ([yshift=-.8cm]monad.south |- epist.south) -| (epist.south);
+  \draw[line width=1.9pt,green,-latex] ([yshift=-.8cm]epist.south) -| (ethic.south);
   \node[text=green,font=\bfseries\fontsize{10}{10}\selectfont,above] at (8,-.5) {通用先验};
   \node[text=green,font=\bfseries\fontsize{10}{10}\selectfont,above] at (14.25,-.5) {前定和谐};
 
