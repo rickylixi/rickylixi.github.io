@@ -1563,7 +1563,7 @@ division of the parts to infinity.
 > to see what is needed to provide this certainty. Such an estimate
 > would be most important for the problems of life and for practical
 > considerations, where our errors in estimating probabilities often
-> amount to more than a half. ...
+> amount to more than a half. ...[^characteristica]
 >
 > It is true that this part of useful logic has not yet been found, but
 > it will be of marvellous use in practical matters when it is a
@@ -2247,12 +2247,32 @@ division of the parts to infinity.
     | Maximal degree of existence | Observed path |
 
     $$P=\left|\langle q_2,t_2\mid q_1,t_1\rangle\right|^2$$
+
     $$\langle q_2,t_2\mid q_1,t_1\rangle=\int_{q_1}^{q_2}\!\! \varphi[q]\mathcal{D}q$$
+
     $$\varphi[q]\propto \mathrm{e}^{\frac{\mathrm{i}}{\hbar}S[q]}$$
+
     $$S[q]=\int_{t_1}^{t_2}\!\!\!L[q(t),\dot{q}(t)] \,\mathrm{d}t$$
+
     $$\delta S=0$$
 
     - Probability of the actual path $=$ maximum
     - Action of the actual path $=$ minimum
 
     The absolute square of the sum of probability amplitudes over all possible paths.
+
+[^characteristica]: Characteristica Universalis vs Calculus Ratiocinator.
+
+    1. Characteristica Universalis --- a universal language of human thought whose symbolic structure would reflect the structure of the world.
+    2. Calculus Ratiocinator --- a method of symbolic calculation which would mirror the processes of human reasoning.
+
+    | **Characteristica Universalis** | **Calculus Ratiocinator** |
+    | --- | --- |
+    | Language as Medium | Language as Calculus |
+    | Semantics can't be defined in the language itself | Semantics is possible |
+    | Interpretation can't be varied | Interpretation can be varied |
+    | Model theory impossible | Model theory possible |
+    | Only one world can be talked about | Possible worlds are possible |
+    | Only one domain of quantifiers | Domains of quantifiers can be different |
+    | Ontology is the central problem | Ontology conventional |
+    | Logical truths are about this world | Logical truth as truth in all possible worlds |
