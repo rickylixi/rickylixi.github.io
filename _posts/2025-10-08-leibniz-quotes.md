@@ -6,6 +6,7 @@ categories: jekyll update
 tags: [Leibniz, Philosophy, Mathematics, Quotes, Rationalism]
 description: "Collection of profound quotes by Gottfried Wilhelm Leibniz on philosophy, mathematics, logic, and the nature of reality. Insights from one of history's greatest polymaths."
 math: true
+tikz: true
 ---
 
 >
@@ -1879,13 +1880,13 @@ division of the parts to infinity.
   }
 
   % Left chain (top-left)
-  \node[draw=green,line width=1pt,fill=lightgreen,rounded corners=10pt, text width=2.2cm,minimum height=0.82cm,main] (law) at (1.2,6.25) {矛盾律(逻辑)\\充足理由律(序)};
+  \node[draw=green,line width=1pt,fill=green!20,rounded corners=10pt, text width=2.2cm,minimum height=0.82cm,main] (law) at (1.2,6.25) {矛盾律(逻辑)\\充足理由律(序)};
 
   \node[draw=green,dashed,line width=1.1pt,fill=cyan!20,ellipse,inner sep=1pt] (monad) at (4.85,6.25) {单子库};
 
-  \node[draw=green,line width=1.1pt,fill=lightgreen,rounded corners=10pt,text width=1.4cm,minimum height=0.82cm,main] (world) at (8.5,6.25) {可能世界\\(紧致空间)\\信道};
+  \node[draw=green,line width=1.1pt,fill=green!20,rounded corners=10pt,text width=1.4cm,minimum height=0.82cm,main] (world) at (8.5,6.25) {可能世界\\(紧致空间)\\信道};
 
-  \draw[-{[length=3.6mm,width=3mm]},line width=1.9pt,green] (law.east) -- node[ann,above=1pt] {上} (monad.west);
+  \draw[-{latex[length=3.6mm,width=3mm]},line width=1.9pt,green] (law.east) -- node[ann,above=1pt] {上} (monad.west);
   \draw[-{latex[length=3.6mm,width=3mm]},line width=1.9pt,green] (monad.east) -- node[ann,above=1pt] {帝} (world.west);
 
   % Top principles frame
@@ -1897,7 +1898,7 @@ division of the parts to infinity.
   \node[ann,text=green] at (4.8,5.1) {完满性原则-越完满越具有存在倾向};
 
   % Ontology and right title (top-right)
-  \node[draw=green,line width=1.1pt,fill=lightgreen,rounded corners=10pt,text width=2.4cm,minimum height=0.82cm,main] (onto) at (14.5,6.35) {本体论\\\textcolor{red}{极简假设-极大效果}\\现实世界};
+  \node[draw=green,line width=1.1pt,fill=green!20,rounded corners=10pt,text width=2.4cm,minimum height=0.82cm,main] (onto) at (14.5,6.35) {本体论\\\textcolor{red}{极简假设-极大效果}\\现实世界};
 
   \draw[-{latex[length=3.6mm,width=3mm]},line width=1.9pt,green] (world.east) -- ([yshift=-2pt]onto.west);
   \node[ann,text=green,text width=2.2cm] at (11,7.18) {“最优性原则”\\极值存在且唯一\\最小作用量原理\\路径积分};
@@ -1909,9 +1910,9 @@ division of the parts to infinity.
   \draw[dashed,line width=1pt,-{latex[length=2.9mm]}] (calc.north) -- node[left,ann] {逼近} (onto);
 
   % Lower diamonds
-  \node[draw=orange,line width=1.2pt,fill=lightyellow,rounded corners=10pt,text width=1.9cm,minimum height=0.82cm,main] (epist) at (10.9,1.10) {认识论\\动力因:熵梯度\\物理世界};
+  \node[draw=orange,line width=1.2pt,fill=yellow!25,rounded corners=10pt,text width=1.9cm,minimum height=0.82cm,main] (epist) at (10.9,1.10) {认识论\\动力因:熵梯度\\物理世界};
 
-  \node[draw=orange,line width=1.2pt,fill=lightyellow,rounded corners=10pt,text width=1.9cm,minimum height=0.82cm,main] (ethic) at (17.1,1.10) {伦理学\\目的因:完满性\\道德世界};
+  \node[draw=orange,line width=1.2pt,fill=yellow!25,rounded corners=10pt,text width=1.9cm,minimum height=0.82cm,main] (ethic) at (17.1,1.10) {伦理学\\目的因:完满性\\道德世界};
 
   \draw[dotted,line width=1.2pt,-{latex[length=2.9mm]},black] (onto.south) -- (epist);
   \draw[dotted,line width=1.2pt,-{latex[length=2.9mm]},black] (onto.south) -- (ethic);
