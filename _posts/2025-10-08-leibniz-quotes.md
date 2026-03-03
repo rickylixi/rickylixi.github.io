@@ -235,7 +235,7 @@ math: true
 > possibles, that is, everything that expresses essence or possible
 > reality, strive with equal right for existence in proportion to the
 > amount of essence or reality or the degree of perfection they contain,
-> for perfection is nothing but the amount of essence.
+> for perfection is nothing but the amount of essence.[^quantum]
 >
 > Hence it is very clearly understood that out of the infinite
 > combinations and series of possible things, one exists through which
@@ -2233,5 +2233,26 @@ division of the parts to infinity.
         5. A proof that the *calculus ratiocinator* is **consistent**.
 
     -   Compute all descriptions of possible worlds that can be expressed with the primitive notions. And the possible worlds will all have some propensity to exist.
-    
+
     -   Compute the probabilities of disputed hypotheses relative to the available data. As we learn more our probability assignments will asymptotically tend to a maximum for the real world, i.e. the possibility with the highest actual propensity.
+
+[^quantum]: 单子论形而上学 vs 路径积分
+
+    | **Leibniz's Monadology** | **Feynman's Path Integral** |
+    | --- | --- |
+    | Amount of existence | Square of probability amplitude |
+    | Measure of necessity of individual possibility | Probability |
+    | Collision or competition of possibilities | Interference or summation of probability amplitudes |
+    | Coexisting or compatible essences | Superposition of coherent paths |
+    | Maximal degree of existence | Observed path |
+
+    $$P=\left|\langle q_2,t_2\mid q_1,t_1\rangle\right|^2$$
+    $$\langle q_2,t_2\mid q_1,t_1\rangle=\int_{q_1}^{q_2}\!\! \varphi[q]\mathcal{D}q$$
+    $$\varphi[q]\propto \mathrm{e}^{\frac{\mathrm{i}}{\hbar}S[q]}$$
+    $$S[q]=\int_{t_1}^{t_2}\!\!\!L[q(t),\dot{q}(t)] \,\mathrm{d}t$$
+    $$\delta S=0$$
+
+    - Probability of the actual path $=$ maximum
+    - Action of the actual path $=$ minimum
+
+    The absolute square of the sum of probability amplitudes over all possible paths.
