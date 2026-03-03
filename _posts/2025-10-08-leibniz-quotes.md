@@ -2219,18 +2219,19 @@ division of the parts to infinity.
 [^freedom]: 莱布尼茨是个自由意志相容论者, 他区分了行动自由和意志自由. 一个不受阻碍地运动的小球也是行动自由的, 但它没有意志自由. 一个自愿留在上锁房间里的人, 虽然没有行动自由, 但仍然可以是意志自由的. 意志自由不是问"我是否能不受约束地做我想做的", 而是问"我的意志本身是否有足够的独立性". 意志自由是基于理性的慎思(摆脱了激情和本能的奴役)、遵循知性所认可的善的动机而进行的自我决定, 这动机驱动其倾向而非必然做某种决定. 被决定$\ne$必然. 在必然和偶然之间, 其被决定的方式是有区别的. 逻辑和形而上学的后果是必然的. 物理和道德的后果有倾向性但不必然. 被决定指: 给定当前状态, 未来只有一种自然发展可能. 莱布尼茨的决定论不是基于"事件因果", 而是基于"主体因果". 即使被决定, 但只要主体的行为是由自己的本性决定的, 而不是由外部事件决定的, 就依然是自由的.
 
 [^logic]: 莱布尼茨的演绎与归纳逻辑.
-    1. Characteristica Universalis & Calculus Ratiocinator.
+    -   Characteristica Universalis & Calculus Ratiocinator.
         1. **the coordination of knowledge in an encyclopedia** --- collect all present knowledge so we could sift through it for what is fundamental. With the set of ideas that it generated, we could formulate the *characteristica universalis* (which form the alphabet of human thought).
+
         2. ***characteristica universalis*** --- a **universal ideal language** whose rules of composition directly expresses the structure of the world.
 
-      $$
-      \text{sign}\rightleftarrows\text{idea}
-      $$
-
-      encyclopedia $\Rightarrow$ fundamental principles $\Rightarrow$ primitive notions
+            $$\text{sign}\rightleftarrows\text{idea}$$
 
         3. ***calculus ratiocinator*** --- the arrangement of **all true propositions** in an **axiomatic system**.
+        
         4. **decision procedure** --- an algorithm which, when applied to any formula of the *characteristica universalis*, would determine whether or not that formula were true. **A procedure for the rapid enlargement of knowledge: replace reasoning by computation, the art of invention, and free mind from intuition.**
+
         5. A proof that the *calculus ratiocinator* is **consistent**.
-    2. Compute all descriptions of possible worlds that can be expressed with the primitive notions. And the possible worlds will all have some propensity to exist.
-    3. Compute the probabilities of disputed hypotheses relative to the available data. As we learn more our probability assignments will asymptotically tend to a maximum for the real world, i.e. the possibility with the highest actual propensity.
+
+    -   Compute all descriptions of possible worlds that can be expressed with the primitive notions. And the possible worlds will all have some propensity to exist.
+    
+    -   Compute the probabilities of disputed hypotheses relative to the available data. As we learn more our probability assignments will asymptotically tend to a maximum for the real world, i.e. the possibility with the highest actual propensity.
