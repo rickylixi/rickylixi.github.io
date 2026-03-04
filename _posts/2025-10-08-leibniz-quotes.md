@@ -1874,10 +1874,10 @@ division of the parts to infinity.
 
 <iframe
   src="/image/leibnizprogram.pdf"
-  width="100%"
-  height="900"
-  style="border: 1px solid #ddd; border-radius: 8px;"
-></iframe>
+  width="100%" 
+  height="800" 
+  style="border: none;">
+</iframe>
 
 [^1]: How to create the world?
 
