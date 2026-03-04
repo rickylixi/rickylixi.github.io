@@ -1872,65 +1872,7 @@ division of the parts to infinity.
 > "He who knows me only through what I have published does not know me."
 >
 
-<script type="text/tikz">
-\begin{tikzpicture}[x=0.65cm,y=0.82cm,>=latex,line join=round,line cap=round,font=\small]
-  \tikzset{
-    ann/.style={font=\scriptsize,align=center},
-    main/.style={font=\bfseries\scriptsize,align=center,inner xsep=1.5pt,inner ysep=1.5pt}
-  }
-
-  % Left chain (top-left)
-  \node[draw=green,line width=1pt,fill=green!25,rounded corners=5pt,main] (law) at (1.2,6.25) {矛盾律(逻辑)\\充足理由律(序)};
-
-  \node[draw=green,line width=1.1pt,fill=cyan!20,inner sep=2pt] (monad) at (4.85,6.25) {单子库};
-
-  \node[draw=green,line width=1.1pt,fill=green!25,rounded corners=5pt,main] (world) at (8.5,6.25) {可能世界\\(紧致空间)\\信道};
-
-  \draw[-,line width=1.9pt,green] (law.east) -- node[ann,above] {上} (monad.west);
-  \draw[-latex,line width=1.9pt,green] (monad.east) -- node[ann,above] {帝} (world.west);
-
-  % Top principles frame
-
-  \draw[line width=1.9pt,green,-latex] (law.north) -- ([yshift=.7cm]law.north |- world.north) -| (world.north);
-  \draw[line width=1.9pt,green,-latex] (law.south) -- ([yshift=-.7cm]law.south |- world.south) -| (world.south);
-  \node[ann,text=green] at (4.8,7.95) {不可分辨者的同一性原则};
-  \node[ann,text=green] at (4.8,7.35) {连续律-效果是假设的连续函数};
-  \node[ann,text=green] at (4.8,5.1) {完满性原则-越完满越具有存在倾向};
-
-  % Ontology and right title (top-right)
-  \node[draw=green,line width=1.1pt,fill=green!25,rounded corners=5pt,main] (onto) at (14.5,6.35) {本体论\\\textcolor{red}{极简假设-极大效果}\\现实世界};
-
-  \draw[-latex,line width=1.9pt,green] (world.east) -- node[ann,text=green,above]{“最优性原则”\\极值存在且唯一\\最小作用量原理\\路径积分} ([yshift=-2pt]onto.west);
-  
-  % Middle band
-  \node[ann,text=red] (calc) at (10.9,2.2) {通用文字/理性演算\\(演绎/归纳)};
-
-  \draw[dashed,line width=1pt,-latex] (calc.north) -- node[right,ann] {刻画} (world);
-  \draw[dashed,line width=1pt,-latex] (calc.north) -- node[left,ann] {逼近} (onto);
-
-  % Lower diamonds
-  \node[draw=orange,line width=1.2pt,fill=yellow!25,rounded corners=5pt,main] (epist) at (10.9,1.10) {认识论\\动力因:熵梯度\\物理世界};
-
-  \node[draw=orange,line width=1.2pt,fill=yellow!25,rounded corners=5pt,main] (ethic) at (17.1,1.10) {伦理学\\目的因:完满性\\道德世界};
-
-  \draw[dotted,line width=1.2pt,-latex,black] (onto.south) -- (epist);
-  \draw[dotted,line width=1.2pt,-latex,black] (onto.south) -- (ethic);
-
-  \node[draw=red,dotted,fill=orange!20,ann] at (14.25,3) {前定和谐幻象};
-
-  % Long green diagonal and Bayes
-
-  \draw[orange,line width=1.2pt,-latex] ([yshift=-2pt]epist.east) -- node[ann,above,text=red] {贝叶斯博弈} ([yshift=-2pt]ethic.west);
-
-  % Predetermined harmony loop
-  \draw[line width=1.9pt,green,-latex] ([yshift=-.95cm]monad.south) -- ([yshift=-.8cm]monad.south |- epist.south) -| (epist.south);
-  \draw[line width=1.9pt,green,-latex] ([yshift=-.8cm]epist.south) -| (ethic.south);
-  \node[text=green,font=\bfseries\fontsize{10}{10}\selectfont,above] at (8,-.4) {通用先验};
-  \node[text=green,font=\bfseries\fontsize{10}{10}\selectfont,above] at (14.25,-.4) {前定和谐};
-
-  \node[circle,draw=green,line width=0.95pt,font=\bfseries\fontsize{7}{7}\selectfont] at (5.7,0.2) {不动点};
-\end{tikzpicture}
-</script>
+{% pdf "/image/leibnizprogram.pdf" %}
 
 [^1]: How to create the world?
 
