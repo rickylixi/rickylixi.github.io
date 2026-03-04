@@ -1872,7 +1872,12 @@ division of the parts to infinity.
 > "He who knows me only through what I have published does not know me."
 >
 
-{% pdf "/image/leibnizprogram.pdf" %}
+<iframe
+  src="/image/leibnizprogram.pdf"
+  width="100%"
+  height="900"
+  style="border: 1px solid #ddd; border-radius: 8px;"
+></iframe>
 
 [^1]: How to create the world?
 
