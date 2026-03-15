@@ -37,6 +37,32 @@ document.addEventListener("DOMContentLoaded", () => {
           "https://giscus.app",
         );
       }
+
+      // Track theme change in GA4
+      if (typeof trackThemeChange === 'function') {
+        trackThemeChange(newTheme);
+      }
     });
   }
+  
+  // Track navigation clicks
+  document.addEventListener('click', function(e) {
+    const navLink = e.target.closest('nav a[href]');
+    if (navLink) {
+      const linkText = navLink.textContent.trim();
+      const linkUrl = navLink.getAttribute('href');
+      if (typeof trackNavigationClick === 'function') {
+        trackNavigationClick(linkText, linkUrl);
+      }
+    }
+    
+    // Track social link clicks
+    const socialLink = e.target.closest('a.social-link[href]');
+    if (socialLink) {
+      const platform = socialLink.getAttribute('title') || socialLink.getAttribute('aria-label');
+      if (typeof trackSocialClick === 'function' && platform) {
+        trackSocialClick(platform);
+      }
+    }
+  });
 });

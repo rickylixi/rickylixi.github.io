@@ -43,3 +43,28 @@ exclude:
 sitemap:
   changefreq: monthly
   priority: 0.8
+  exclude:
+    - "/supabase/"
+    - "/node_modules/"
+    - "/.github/"
+    - "/assets/asset-manifest.json"
+    - "/*.pdf"
+    - "/*.tex"
+
+# Theme configuration
+theme:
+  colors:
+    primary: "#16a34a"
+    primary_hover: "#15803d"
+    accent: "#8b5cf6"
+  fonts:
+    sans: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
+    mono: "'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace"
+  max_width: "800px"
+  border_radius: "8px"
+
+# Google Analytics
+google_analytics: "G-GNJD50R0Z7"
+
+# API Configuration
+api_timeout: 8000

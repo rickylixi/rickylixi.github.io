@@ -5,25 +5,74 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
-  <meta name="theme-color" content="#39c">
+  <meta name="theme-color" content="#16a34a">
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="stylesheet" href="{{ "/stylesheets/styles.min.css" | relative_url }}">
   {% seo %}
   {% include seo-meta.html %}
 
+  <!-- Critical CSS (inlined for faster rendering) -->
+  <style>
+    :root {
+      --color-primary: #16a34a; --color-primary-hover: #15803d;
+      --color-text: #374151; --color-text-light: #6b7280;
+      --color-heading: #111827; --color-background: #ffffff;
+      --color-surface: #f9fafb; --color-border: #e5e7eb;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      margin: 0; padding: 0;
+    }
+    [data-theme="dark"] {
+      --color-primary: #63d69f; --color-primary-hover: #86dfb4;
+      --color-text: #c8d2df; --color-text-light: #97a7ba;
+      --color-heading: #f9fafb; --color-background: #0f172a;
+      --color-surface: #1e293b; --color-border: #334155;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: var(--font-sans);
+      margin: 0; padding: 0;
+      background: var(--color-background);
+      color: var(--color-text);
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .wrapper { max-width: 1150px; margin: 0 auto; padding: 2rem; }
+    .theme-toggle {
+      position: fixed; top: 20px; right: 20px; z-index: 1000;
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      color: var(--color-text); padding: 8px; border-radius: 50%;
+      cursor: pointer; width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .icon-moon { display: none; }
+    [data-theme="dark"] .icon-sun { display: none; }
+    [data-theme="dark"] .icon-moon { display: block; }
+    .loading { opacity: 0.7; }
+    .visitor-count { transition: opacity 0.3s ease; }
+  </style>
+
   <!-- Web App Manifest -->
   <link rel="manifest" href="{{ "/manifest.json" | relative_url }}">
   <link rel="icon" type="image/png" href="{{ "/image/x-logo.png" | relative_url }}">
   <link rel="apple-touch-icon" href="{{ "/image/x-logo.png" | relative_url }}">
 
-  <!-- New GA4 tracking code -->
+  <!-- GA4 tracking -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GNJD50R0Z7"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-GNJD50R0Z7', { 'anonymize_ip': true });
+
+    // Utility for optional event tracking from other scripts
+    function trackEvent(event_name, event_params) {
+      gtag('event', event_name, event_params);
+    }
+    function trackThemeChange(theme) {
+      trackEvent('theme_toggle', { 'theme_selected': theme });
+    }
   </script>
 
   <!-- MathJax for math rendering (load only when page.math is true) -->
