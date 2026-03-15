@@ -43,7 +43,7 @@ jobs:
           https://rickylixi.github.io/research.html
           https://rickylixi.github.io/blog/
         budgetPath: ./.github/lighthouse-budget.json
-        uploadArtifacts: true
+        uploadArtifacts: false
         temporaryPublicStorage: true
         runs: 3
         
