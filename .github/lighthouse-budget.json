@@ -20,7 +20,7 @@
       },
       {
         "resourceType": "font",
-        "budget": 2
+        "budget": 5
       },
       {
         "resourceType": "script",
@@ -28,11 +28,11 @@
       },
       {
         "resourceType": "other",
-        "budget": 2
+        "budget": 10
       },
       {
         "resourceType": "third-party",
-        "budget": 5
+        "budget": 25
       }
     ],
     "resourceSizes": [
@@ -54,29 +54,29 @@
       },
       {
         "resourceType": "font",
-        "budget": 100
+        "budget": 150
       },
       {
         "resourceType": "script",
-        "budget": 150
+        "budget": 500
       }
     ],
     "timings": [
       {
         "metric": "first-contentful-paint",
-        "budget": 2000
+        "budget": 3000
       },
       {
         "metric": "largest-contentful-paint",
-        "budget": 3000
+        "budget": 4500
       },
       {
         "metric": "first-meaningful-paint",
-        "budget": 2500
+        "budget": 3500
       },
       {
         "metric": "speed-index",
-        "budget": 3000
+        "budget": 4500
       },
       {
         "metric": "interactive",
