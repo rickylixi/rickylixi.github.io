@@ -28,8 +28,8 @@
 
   /* Spacing & Layout */
   --spacing-unit: 8px;
-  --sidebar-width: 280px;
-  --content-max-width: 720px;
+  --sidebar-width: 250px;
+  --content-max-width: 820px;
   --border-radius: 8px;
   margin: 0;
   padding: 0;
