@@ -1,0 +1,61 @@
+name: Deploy Jekyll Site
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.1'
+        bundler-cache: true
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: |
+        npm ci
+        bundle install
+        
+    - name: Build CSS
+      run: npm run build
+      
+    - name: Build Jekyll site
+      run: bundle exec jekyll build
+      env:
+        JEKYLL_ENV: production
+        
+    - name: Run Lighthouse CI
+      if: github.event_name == 'push'
+      run: |
+        npm install -g @lhci/cli@0.12.x
+        lhci autorun || echo "Lighthouse CI failed, continuing..."
+      env:
+        LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+        
+    - name: Deploy to GitHub Pages
+      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./_site
+        
+    - name: Notify deployment success
+      if: success() && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+      run: |
+        echo "🎉 Deployment successful!"
+        echo "Site will be available at: https://rickylixi.github.io"
