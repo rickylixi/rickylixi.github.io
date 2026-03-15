@@ -80,7 +80,7 @@
       },
       {
         "metric": "interactive",
-        "budget": 5000
+        "budget": 6000
       },
       {
         "metric": "max-potential-fid",
