@@ -58,90 +58,21 @@
   <link rel="icon" type="image/png" href="{{ "/image/x-logo.png" | relative_url }}">
   <link rel="apple-touch-icon" href="{{ "/image/x-logo.png" | relative_url }}">
 
-  <!-- New GA4 tracking code -->
+  <!-- GA4 tracking -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GNJD50R0Z7"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'G-GNJD50R0Z7', { 
-      'anonymize_ip': true,
-      'custom_map': {
-        'dimension1': 'page_type',
-        'dimension2': 'theme_preference',
-        'dimension3': 'interaction_type'
-      }
-    });
-    
-    // Track custom events
+    gtag('config', 'G-GNJD50R0Z7', { 'anonymize_ip': true });
+
+    // Utility for optional event tracking from other scripts
     function trackEvent(event_name, event_params) {
       gtag('event', event_name, event_params);
     }
-    
-    // Track page engagement
-    document.addEventListener('DOMContentLoaded', function() {
-      // Track scroll depth
-      let maxScroll = 0;
-      window.addEventListener('scroll', function() {
-        const scrollPercent = Math.round((window.scrollY + window.innerHeight) / document.body.scrollHeight * 100);
-        if (scrollPercent > maxScroll && scrollPercent % 25 === 0) {
-          maxScroll = scrollPercent;
-          trackEvent('scroll_depth', {
-            'percent_scrolled': scrollPercent,
-            'page_type': document.body.className || 'default'
-          });
-        }
-      });
-      
-      // Track time on page
-      let timeOnPage = 0;
-      setInterval(function() {
-        timeOnPage += 10;
-        if (timeOnPage % 30 === 0) { // Track every 30 seconds
-          trackEvent('time_on_page', {
-            'seconds': timeOnPage,
-            'page_type': document.body.className || 'default'
-          });
-        }
-      }, 10000); // Check every 10 seconds
-    });
-    
-    // Track theme changes
     function trackThemeChange(theme) {
-      trackEvent('theme_toggle', {
-        'theme_selected': theme,
-        'theme_preference': localStorage.getItem('theme') || 'system'
-      });
+      trackEvent('theme_toggle', { 'theme_selected': theme });
     }
-    
-    // Track navigation clicks
-    function trackNavigationClick(link_text, url) {
-      trackEvent('navigation_click', {
-        'link_text': link_text,
-        'link_url': url,
-        'interaction_type': 'navigation'
-      });
-    }
-    
-    // Track social link clicks
-    function trackSocialClick(platform) {
-      trackEvent('social_link_click', {
-        'platform': platform,
-        'interaction_type': 'social'
-      });
-    }
-    
-    // Track external link clicks
-    document.addEventListener('click', function(e) {
-      const link = e.target.closest('a[href^="http"]');
-      if (link && !link.href.includes('rickylixi.github.io')) {
-        trackEvent('external_link_click', {
-          'link_url': link.href,
-          'link_text': link.textContent.trim().substring(0, 50),
-          'interaction_type': 'external_link'
-        });
-      }
-    });
   </script>
 
   <!-- MathJax for math rendering (load only when page.math is true) -->
