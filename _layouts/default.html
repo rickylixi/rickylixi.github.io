@@ -75,28 +75,6 @@
     }
   </script>
 
-  <!-- MathJax for math rendering (load only when page.math is true) -->
-  {% if page.math %}
-  <script>
-    window.MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']]
-      },
-      options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-      }
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  {% endif %}
-
-  <!-- TikZJax for TikZ rendering (load only when page.tikz is true) -->
-  {% if page.tikz %}
-  <link rel="stylesheet" href="https://tikzjax.com/v1/fonts.css">
-  <script src="https://tikzjax.com/v1/tikzjax.js"></script>
-  {% endif %}
-
   <!-- Structured Data for SEO -->
   {% include structured-data.html %}
 </head>
@@ -191,6 +169,51 @@
   <script src="{{ "/assets/js/theme.js" | relative_url }}" defer></script>
 
   <script src="{{ "/assets/js/visitor-counter.js" | relative_url }}" defer></script>
+  {% if page.math or page.tikz %}
+  <script>
+    (function () {
+      function whenIdle(callback) {
+        window.addEventListener('load', function () {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(callback, { timeout: 2500 });
+          } else {
+            setTimeout(callback, 1200);
+          }
+        });
+      }
+
+      function appendScript(src) {
+        var script = document.createElement('script');
+        script.src = src;
+        script.async = true;
+        document.head.appendChild(script);
+      }
+
+      whenIdle(function () {
+        {% if page.math %}
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']]
+          },
+          options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+        };
+        appendScript('https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js');
+        {% endif %}
+
+        {% if page.tikz %}
+        var tikzFonts = document.createElement('link');
+        tikzFonts.rel = 'stylesheet';
+        tikzFonts.href = 'https://tikzjax.com/v1/fonts.css';
+        document.head.appendChild(tikzFonts);
+        appendScript('https://tikzjax.com/v1/tikzjax.js');
+        {% endif %}
+      });
+    })();
+  </script>
+  {% endif %}
 </body>
 
 </html>
