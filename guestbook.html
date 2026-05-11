@@ -217,11 +217,7 @@ image: "/image/optimized/turing-machine1.avif"
     });
     if (!result.error) return result;
 
-    // Temporary compatibility fallback: if RPC is missing, write directly.
-    // Keep this only until submit_guestbook_message is deployed.
-    return await _supabase
-      .from('guestbook_messages')
-      .insert([{ name, message }]);
+    return result;
   }
 
   async function handleFormSubmit(event) {

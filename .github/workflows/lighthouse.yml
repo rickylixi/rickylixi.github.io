@@ -34,14 +34,26 @@ jobs:
       run: |
         npm run build
         bundle exec jekyll build
-        
+
+    - name: Serve built site
+      run: |
+        ruby -run -e httpd _site -p 4000 > /tmp/jekyll-static.log 2>&1 &
+        for i in {1..30}; do
+          if curl -fsS http://127.0.0.1:4000/ > /dev/null; then
+            exit 0
+          fi
+          sleep 1
+        done
+        cat /tmp/jekyll-static.log
+        exit 1
+
     - name: Run Lighthouse CI
       uses: treosh/lighthouse-ci-action@v10
       with:
         urls: |
-          https://rickylixi.github.io/
-          https://rickylixi.github.io/research.html
-          https://rickylixi.github.io/blog/
+          http://127.0.0.1:4000/
+          http://127.0.0.1:4000/research.html
+          http://127.0.0.1:4000/blog/
         budgetPath: ./.github/lighthouse-budget.json
         uploadArtifacts: false
         temporaryPublicStorage: true
@@ -53,4 +65,3 @@ jobs:
       with:
         name: lighthouse_results
         path: .lighthouseci/
-          

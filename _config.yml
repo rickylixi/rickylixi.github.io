@@ -40,6 +40,84 @@ exclude:
   - "Gemfile.lock"
   - "supabase"
 
+defaults:
+  - scope:
+      path: "image/leibnizprogram.pdf"
+    values:
+      sitemap: false
+  - scope:
+      path: "research/carnap-solomonoff.pdf"
+    values:
+      sitemap: false
+  - scope:
+      path: "research/ethics.pdf"
+    values:
+      sitemap: false
+  - scope:
+      path: "research/from-complexity-to-intelligence.pdf"
+    values:
+      sitemap: false
+  - scope:
+      path: "research/lawvere.pdf"
+    values:
+      sitemap: false
+  - scope:
+      path: "research/leibniz-ai.pdf"
+    values:
+      sitemap: false
+  - scope:
+      path: "research/leibniz-computationalism.pdf"
+    values:
+      sitemap: false
+  - scope:
+      path: "research/newcomb.pdf"
+    values:
+      sitemap: false
+  - scope:
+      path: "research/self-improvement.pdf"
+    values:
+      sitemap: false
+  - scope:
+      path: "research/why-solomonoff.pdf"
+    values:
+      sitemap: false
+  - scope:
+      path: "teaching/answers.pdf"
+    values:
+      sitemap: false
+  - scope:
+      path: "teaching/exam-ai.pdf"
+    values:
+      sitemap: false
+  - scope:
+      path: "teaching/exam-logic.pdf"
+    values:
+      sitemap: false
+  - scope:
+      path: "teaching/s-game.pdf"
+    values:
+      sitemap: false
+  - scope:
+      path: "teaching/s-logic-intro.pdf"
+    values:
+      sitemap: false
+  - scope:
+      path: "teaching/s-logic.pdf"
+    values:
+      sitemap: false
+  - scope:
+      path: "teaching/s-uai-intro.pdf"
+    values:
+      sitemap: false
+  - scope:
+      path: "teaching/s-uai.pdf"
+    values:
+      sitemap: false
+  - scope:
+      path: "teaching/template.pdf"
+    values:
+      sitemap: false
+
 sitemap:
   changefreq: monthly
   priority: 0.8
@@ -51,8 +129,8 @@ sitemap:
     - "/*.pdf"
     - "/*.tex"
 
-# Theme configuration
-theme:
+# Visual theme configuration
+theme_settings:
   colors:
     primary: "#16a34a"
     primary_hover: "#15803d"

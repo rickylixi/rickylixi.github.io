@@ -161,7 +161,6 @@ async function build() {
   const finalHash = hashObj.digest("hex").slice(0, 10);
 
   const manifest = {
-    generatedAt: new Date().toISOString(),
     styles: "/stylesheets/styles.min.css",
     hash: finalHash,
   };

@@ -94,13 +94,14 @@ lhci autorun
 
 ### GitHub Actions Workflows:
 
-1. **Deploy** (`.github/workflows/deploy.yml`):
-   - Triggers on push to main/master
-   - Builds site and deploys to GitHub Pages
-   - Runs Lighthouse CI
+1. **Deploy** (`.github/workflows/build-blog.yml`):
+   - Triggers on push to main
+   - Builds frontend assets and the Jekyll site
+   - Deploys `_site` to GitHub Pages
 
 2. **Lighthouse CI** (`.github/workflows/lighthouse.yml`):
    - Performance testing on every PR
+   - Tests the locally built `_site`, not the already-deployed production site
    - Uploads results as artifacts
    - Enforces performance budgets
 
@@ -127,6 +128,15 @@ git push origin main
 - **`package.json`**: Node.js dependencies and scripts
 - **`Gemfile`**: Ruby dependencies
 - **`sw.js`**: Service Worker for offline support
+- **`supabase/migrations/`**: Database schema, RLS, RPC functions, and rate limits
+
+## Supabase Setup
+
+Apply the current migration from `supabase/migrations/20260214_guestbook_and_counter_hardening.sql` in the Supabase SQL editor or with the Supabase CLI. The helper below prints the migration SQL without using the public anon key to execute database setup:
+
+```bash
+node scripts/setup-supabase.js --print
+```
 
 ## 🐛 Troubleshooting
 

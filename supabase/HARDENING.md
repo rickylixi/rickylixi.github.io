@@ -16,7 +16,7 @@ Concrete migration included:
 - Keep direct table writes blocked.
 - Expose only controlled RPC functions:
   - `increment_page_view(page_slug text)`
-  - `submit_guestbook_message(name text, message text, honeypot text default '')`
+  - `submit_guestbook_message(p_name text, p_message text, p_honeypot text default '')`
 
 Each RPC should validate:
 
