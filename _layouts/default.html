@@ -73,6 +73,12 @@
     function trackThemeChange(theme) {
       trackEvent('theme_toggle', { 'theme_selected': theme });
     }
+    function trackNavigationClick(text, url) {
+      trackEvent('navigation_click', { 'link_text': text, 'link_url': url });
+    }
+    function trackSocialClick(platform) {
+      trackEvent('social_click', { 'platform': platform });
+    }
   </script>
 
   <!-- Structured Data for SEO -->

@@ -129,7 +129,7 @@ self.addEventListener('install', event => {
       log('Caching core assets...', 'blue');
       for (const url of CORE_STATIC_URLS) {
         try {
-          const response = await fetch(url, { cache: 'no-cache', mode: 'no-cors' });
+          const response = await fetch(url, { cache: 'no-cache' });
           if (response && response.ok) {
             await cache.put(url, response.clone());
             successCount++;
@@ -147,7 +147,7 @@ self.addEventListener('install', event => {
       log('Caching extended assets...', 'blue');
       for (const url of EXTENDED_STATIC_URLS) {
         try {
-          const response = await fetch(url, { cache: 'no-cache', mode: 'no-cors' });
+          const response = await fetch(url, { cache: 'no-cache' });
           if (response && response.ok) {
             await cache.put(url, response.clone());
             successCount++;

@@ -97,12 +97,19 @@ function getSessionDedupKey(slug) {
 function shouldIncrement(slug) {
   const key = getSessionDedupKey(slug);
   try {
-    if (localStorage.getItem(key) === "1") return false;
-    localStorage.setItem(key, "1");
-    return true;
+    return localStorage.getItem(key) !== "1";
   } catch (e) {
     // If storage is unavailable, still proceed once per page load.
     return true;
+  }
+}
+
+function markAsIncremented(slug) {
+  const key = getSessionDedupKey(slug);
+  try {
+    localStorage.setItem(key, "1");
+  } catch (e) {
+    // Ignore storage errors (private mode, quota, etc.)
   }
 }
 
@@ -150,6 +157,9 @@ async function incrementPageView(config, slug) {
 
     throw new Error(`Increment failed: HTTP ${response.status}`);
   }
+
+  // Mark as successfully incremented in client storage
+  markAsIncremented(slug);
 
   // Check if response is valid JSON (some RPC calls return empty responses)
   const contentType = response.headers.get('content-type');
