@@ -1,7 +1,9 @@
 ---
 layout: default
 title: "Teaching | Courses and Reading Groups"
-description: "Teaching materials and courses by Xi Li at Central South University: Mathematical Logic, Philosophy of Artificial Intelligence, Game Theory and Ethics, Universal Induction, and Causal Inference. Includes lecture slides, textbooks, and exam materials."
+description: "Teaching materials and courses by Xi Li at Central South University: Mathematical Logic, Philosophy of
+Artificial Intelligence, Game Theory and Ethics, Universal Induction, and Causal Inference. Includes lecture slides,
+textbooks, and exam materials."
 accordion: true
 sitemap: true
 sitemap_priority: 0.8
@@ -25,10 +27,11 @@ image: "/image/optimized/turing-machine1.avif"
 {{ course.description }}
 {% if course.advanced_material %}
 <button class="accordion">
-  Advanced material
+  Advanced Material
 </button>
 <div class="panel">
-  <p><a href="{{ course.advanced_material.link | relative_url }}" target="_blank" rel="noopener noreferrer">{{ course.advanced_material.text }}</a></p>
+  <p><a href="{{ course.advanced_material.link | relative_url }}" target="_blank" rel="noopener noreferrer">{{
+      course.advanced_material.text }}</a></p>
 </div>
 {% endif %}
 <ul>
