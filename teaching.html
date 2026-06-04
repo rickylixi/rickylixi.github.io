@@ -11,7 +11,7 @@ image: "/image/optimized/turing-machine1.avif"
 lang: "zh-Hans"
 ---
 <h1>Teaching Experience</h1>
-<p><a href="{{ '/teaching/template.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">哲学论文写作指南</a> <small>(PDF, 160 KB)</small></p>
+<p><a href="{{ '/teaching/template.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">哲学论文写作指南</a></p>
 <p><a href="https://www.logicmatters.net/latex-for-logicians/" target="_blank" rel="noopener noreferrer">LaTeX</a></p>
 <p><a href="{{ '/teaching/latex-article.tex' | relative_url }}" target="_blank" rel="noopener noreferrer">An Article
     Template</a></p>
@@ -32,12 +32,12 @@ lang: "zh-Hans"
 </button>
 <div class="panel">
   <p><a href="{{ course.advanced_material.link | relative_url }}" target="_blank" rel="noopener noreferrer">{{
-      course.advanced_material.text }}</a>{% if course.advanced_material.size %} <small>({{ course.advanced_material.size }})</small>{% endif %}</p>
+      course.advanced_material.text }}</a></p>
 </div>
 {% endif %}
 <ul>
   {% for resource in course.resources %}
-  <li><a href="{{ resource.link | relative_url }}" target="_blank" rel="noopener noreferrer">{{ resource.title }}</a>{% if resource.size %} <small>({{ resource.size }})</small>{% endif %}
+  <li><a href="{{ resource.link | relative_url }}" target="_blank" rel="noopener noreferrer">{{ resource.title }}</a>
   </li>
   {% endfor %}
 </ul>
