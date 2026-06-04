@@ -1,13 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
 
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
   <meta name="theme-color" content="#16a34a">
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="stylesheet" href="{{ '/stylesheets/styles.min.css' | relative_url }}">
   {% seo %}
   {% include seo-meta.html %}
@@ -59,30 +57,51 @@
   <link rel="apple-touch-icon" href="{{ '/image/x-logo.png' | relative_url }}">
 
   <!-- GA4 tracking -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GNJD50R0Z7"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-GNJD50R0Z7', { 'anonymize_ip': true });
+    (function () {
+      const GA_ID = 'G-GNJD50R0Z7';
 
-    // Utility for optional event tracking from other scripts
-    function trackEvent(event_name, event_params) {
-      gtag('event', event_name, event_params);
-    }
-    function trackThemeChange(theme) {
-      trackEvent('theme_toggle', { 'theme_selected': theme });
-    }
-    function trackNavigationClick(text, url) {
-      trackEvent('navigation_click', { 'link_text': text, 'link_url': url });
-    }
-    function trackSocialClick(platform) {
-      trackEvent('social_click', { 'platform': platform });
-    }
+      function analyticsAllowed() {
+        return !(
+          navigator.doNotTrack === '1' ||
+          window.doNotTrack === '1' ||
+          navigator.globalPrivacyControl === true
+        );
+      }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+
+      window.trackEvent = function (event_name, event_params) {
+        if (!analyticsAllowed()) return;
+        window.gtag('event', event_name, event_params);
+      };
+      window.trackThemeChange = function (theme) {
+        window.trackEvent('theme_toggle', { 'theme_selected': theme });
+      };
+      window.trackNavigationClick = function (text, url) {
+        window.trackEvent('navigation_click', { 'link_text': text, 'link_url': url });
+      };
+      window.trackSocialClick = function (platform) {
+        window.trackEvent('social_click', { 'platform': platform });
+      };
+
+      if (!analyticsAllowed()) return;
+
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+      document.head.appendChild(script);
+
+      window.gtag('js', new Date());
+      window.gtag('config', GA_ID, { 'anonymize_ip': true });
+    })();
   </script>
 
-  <!-- Structured Data for SEO -->
+  <!-- Supplemental structured data for the homepage. jekyll-seo-tag handles page/post JSON-LD. -->
+  {% if page.url == "/" %}
   {% include structured-data.html %}
+  {% endif %}
 </head>
 
 <body>

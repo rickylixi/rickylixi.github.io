@@ -1,6 +1,8 @@
 title: "李熙 | Xi Li"
 description: "Associate Professor of Logic at Central South University. Research in Kolmogorov Complexity, Solomonoff Induction, Causal Inference, Rational Decision Theory, and AI Philosophy."
 author: "Xi Li"
+lang: "en"
+locale: "en_US"
 twitter:
   username: rickylixi
 logo: "/image/optimized/ai-xi.avif"

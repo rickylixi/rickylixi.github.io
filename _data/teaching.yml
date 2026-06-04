@@ -4,15 +4,19 @@ logic:
   advanced_material:
     link: "/teaching/s-logic.pdf"
     text: "Advanced Lecture Notes"
+    size: "PDF, 20.8 MB"
   resources:
     - title: "Textbook"
       link: "https://builds.openlogicproject.org/"
     - title: "Slides"
       link: "/teaching/s-logic-intro.pdf"
+      size: "PDF, 6.8 MB"
     - title: "Answers to the Exercises"
       link: "/teaching/answers.pdf"
+      size: "PDF, 25 KB"
     - title: "Sample Exam Questions"
       link: "/teaching/exam-logic.pdf"
+      size: "PDF, 97 KB"
 
 philosophy_ai:
   title: "Philosophy of Artificial Intelligence"
@@ -20,13 +24,16 @@ philosophy_ai:
   advanced_material:
     link: "/teaching/s-uai.pdf"
     text: "Advanced Lecture Notes"
+    size: "PDF, 44.5 MB"
   resources:
     - title: "Textbook"
       link: "https://www.hutter1.net/publ/uaibook2.pdf"
     - title: "Slides"
       link: "/teaching/s-uai-intro.pdf"
+      size: "PDF, 27.3 MB"
     - title: "Sample Exam Questions"
       link: "/teaching/exam-ai.pdf"
+      size: "PDF, 71 KB"
 
 game_theory:
   title: "Game Theory and Ethics"
@@ -36,6 +43,7 @@ game_theory:
       link: "https://www.masfoundations.org/mas.pdf"
     - title: "Slides"
       link: "/teaching/s-game.pdf"
+      size: "PDF, 1.2 MB"
 
 causality_reading_group:
   info:

@@ -5,6 +5,7 @@ const CACHE_VERSION = (ASSET_MANIFEST && ASSET_MANIFEST.hash) ? ASSET_MANIFEST.h
 const STATIC_CACHE = `rickylixi-static-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `rickylixi-runtime-${CACHE_VERSION}`;
 const OFFLINE_CACHE = 'rickylixi-offline';
+const DEBUG_SERVICE_WORKER = false;
 
 // Core static assets - critical for offline functionality
 const CORE_STATIC_URLS = [
@@ -29,6 +30,8 @@ const STATIC_URLS = [...CORE_STATIC_URLS, ...EXTENDED_STATIC_URLS];
 
 // Logging utility
 function log(message, type = 'info') {
+  if (!DEBUG_SERVICE_WORKER) return;
+
   const prefix = '[Service Worker]';
   const timestamp = new Date().toISOString().substr(11, 8);
   

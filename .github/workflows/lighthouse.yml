@@ -17,7 +17,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '22'
         cache: 'npm'
         
     - name: Install dependencies
@@ -53,6 +53,7 @@ jobs:
         urls: |
           http://127.0.0.1:4000/
           http://127.0.0.1:4000/research.html
+          http://127.0.0.1:4000/teaching.html
           http://127.0.0.1:4000/blog/
         budgetPath: ./.github/lighthouse-budget.json
         uploadArtifacts: false

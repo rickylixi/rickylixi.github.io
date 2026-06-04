@@ -1,27 +1,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  {% if page.layout == 'post' %}
-  "@type": "BlogPosting",
-  "headline": "{{ page.title | escape }}",
-  "datePublished": "{{ page.date | date_to_xmlschema }}",
-  "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
-  "description": "{{ page.description | default: page.excerpt | strip_html | normalize_whitespace | escape }}",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "{{ page.url | absolute_url }}"
-  },
-  "author": {
-    "@type": "Person",
-    "name": "Xi Li",
-    "url": "{{ "/" | absolute_url }}"
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "Xi Li"
-  },
-  "image": "{{ page.image | default: "/image/optimized/turing-machine1.avif" | absolute_url }}"
-  {% else %}
   "@type": "Person",
   "name": "李熙",
   "givenName": "熙",
@@ -82,6 +61,5 @@
     "occupationalCategory": "25-1199.00",
     "educationRequirements": "PhD in Logic"
   }
-  {% endif %}
 }
 </script>

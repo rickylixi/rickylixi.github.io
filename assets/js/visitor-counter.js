@@ -9,6 +9,29 @@ const REQUEST_TIMEOUT_MS = 8000;
 const MAX_RETRIES = 3;
 const RATE_LIMIT_WINDOW_MS = 60000; // 1 minute
 const MAX_REQUESTS_PER_WINDOW = 10;
+const DEBUG_VISITOR_COUNTER = (() => {
+  try {
+    return localStorage.getItem("visitor-counter:debug") === "1";
+  } catch (e) {
+    return false;
+  }
+})();
+
+function debugWarn(...args) {
+  if (DEBUG_VISITOR_COUNTER) console.warn(...args);
+}
+
+function debugError(...args) {
+  if (DEBUG_VISITOR_COUNTER) console.error(...args);
+}
+
+function trackingAllowed() {
+  return !(
+    navigator.doNotTrack === "1" ||
+    window.doNotTrack === "1" ||
+    navigator.globalPrivacyControl === true
+  );
+}
 
 // Client-side rate limiter
 class RateLimiter {
@@ -39,7 +62,7 @@ function getSupabaseConfig() {
       const cfg = JSON.parse(configEl.textContent || "{}");
       if (cfg.supabaseUrl && cfg.supabaseAnonKey) return cfg;
     } catch (e) {
-      console.error("Failed to parse Supabase config:", e);
+      debugError("Failed to parse Supabase config:", e);
     }
   }
   return null;
@@ -83,7 +106,7 @@ async function fetchWithRetry(url, options, maxRetries = MAX_RETRIES) {
       if (error.name === 'AbortError' || (error.response && error.response.status >= 400 && error.response.status < 500)) {
         throw error;
       }
-      console.warn(`Request failed (attempt ${i + 1}/${maxRetries}):`, error);
+      debugWarn(`Request failed (attempt ${i + 1}/${maxRetries}):`, error);
     }
   }
   throw lastError;
@@ -118,7 +141,7 @@ async function incrementPageView(config, slug) {
 
   // Check rate limit
   if (!rateLimiter.canMakeRequest()) {
-    console.warn("Rate limit exceeded for incrementPageView");
+    debugWarn("Rate limit exceeded for incrementPageView");
     throw new Error("Rate limit exceeded. Please try again later.");
   }
   rateLimiter.recordRequest();
@@ -144,7 +167,7 @@ async function incrementPageView(config, slug) {
 
   if (!response.ok) {
     const errorBody = await response.text().catch(() => 'Unable to read error response');
-    console.error(`Increment failed: HTTP ${response.status}`, errorBody);
+    debugError(`Increment failed: HTTP ${response.status}`, errorBody);
 
     // Handle specific error cases
     if (response.status === 429) {
@@ -173,7 +196,7 @@ async function incrementPageView(config, slug) {
 async function fetchViewCount(config, slug) {
   // Check rate limit
   if (!rateLimiter.canMakeRequest()) {
-    console.warn("Rate limit exceeded for fetchViewCount");
+    debugWarn("Rate limit exceeded for fetchViewCount");
     throw new Error("Rate limit exceeded. Please try again later.");
   }
   rateLimiter.recordRequest();
@@ -193,7 +216,7 @@ async function fetchViewCount(config, slug) {
 
   if (!response.ok) {
     const errorBody = await response.text().catch(() => 'Unable to read error response');
-    console.error(`Fetch count failed: HTTP ${response.status}`, errorBody);
+    debugError(`Fetch count failed: HTTP ${response.status}`, errorBody);
 
     if (response.status === 404) {
       // Page not found in database, return 0
@@ -209,7 +232,7 @@ async function fetchViewCount(config, slug) {
   try {
     data = await response.json();
   } catch (error) {
-    console.error("Failed to parse JSON response:", error);
+    debugError("Failed to parse JSON response:", error);
     throw new Error("Invalid response format from server");
   }
 
@@ -238,25 +261,21 @@ function renderCount(counterEl, count) {
   }
 }
 
-function handleCounterFailure(counterEl, error) {
+function handleCounterFailure(counterEl) {
   if (!counterEl) return;
 
-  // Remove loading state
   counterEl.classList.remove('loading');
 
-  // For page-views, hide on error
   if (counterEl.id === "page-views") {
     counterEl.style.display = "none";
     return;
   }
 
-  // For visitor-count, show fallback
-  counterEl.innerText = "--";
-  counterEl.style.opacity = "1";
-
-  // Add error tooltip for debugging (optional)
-  if (error && error.message) {
-    counterEl.title = `Error: ${error.message}`;
+  const badge = counterEl.closest(".visitor-badge");
+  if (badge) {
+    badge.style.display = "none";
+  } else {
+    counterEl.style.display = "none";
   }
 }
 
@@ -284,8 +303,8 @@ async function processCounter(counterEl, config) {
     // Render the count
     renderCount(counterEl, count);
   } catch (error) {
-    console.error("View counter error for", counterEl.id || slug, error);
-    handleCounterFailure(counterEl, error);
+    debugError("View counter error for", counterEl.id || slug, error);
+    handleCounterFailure(counterEl);
   }
 }
 
@@ -296,9 +315,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("page-views"),
   ].filter(Boolean);
 
+  if (!trackingAllowed()) {
+    counters.forEach(handleCounterFailure);
+    return;
+  }
+
   if (!config) {
-    console.warn("Supabase config not found. Visitor counter disabled.");
-    counters.forEach(el => handleCounterFailure(el, new Error("Configuration missing")));
+    debugWarn("Supabase config not found. Visitor counter disabled.");
+    counters.forEach(handleCounterFailure);
     return;
   }
 
@@ -307,7 +331,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
       await processCounter(counterEl, config);
     } catch (error) {
-      console.error(`Failed to process counter ${counterEl.id}:`, error);
+      debugError(`Failed to process counter ${counterEl.id}:`, error);
     }
   }
 });
