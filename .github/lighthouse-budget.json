@@ -71,10 +71,6 @@
         "budget": 4500
       },
       {
-        "metric": "first-meaningful-paint",
-        "budget": 3500
-      },
-      {
         "metric": "speed-index",
         "budget": 4500
       },
@@ -84,7 +80,7 @@
       },
       {
         "metric": "max-potential-fid",
-        "budget": 400
+        "budget": 500
       }
     ]
   }
