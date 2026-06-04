@@ -62,7 +62,9 @@
       const GA_ID = 'G-GNJD50R0Z7';
 
       function analyticsAllowed() {
+        const localHosts = ['localhost', '127.0.0.1', '::1'];
         return !(
+          localHosts.includes(window.location.hostname) ||
           navigator.doNotTrack === '1' ||
           window.doNotTrack === '1' ||
           navigator.globalPrivacyControl === true
@@ -185,7 +187,7 @@
   </script>
   <!-- Register Service Worker -->
   <script>
-    if ('serviceWorker' in navigator) {
+    if ('serviceWorker' in navigator && !['localhost', '127.0.0.1', '::1'].includes(window.location.hostname)) {
       window.addEventListener('load', function () {
         navigator.serviceWorker.register('{{ "/sw.js" | relative_url }}');
       });
@@ -197,6 +199,9 @@
   {% if page.math or page.tikz %}
   <script>
     (function () {
+      var mathJaxPromise = null;
+      var tikzPromise = null;
+
       function whenIdle(callback) {
         window.addEventListener('load', function () {
           if ('requestIdleCallback' in window) {
@@ -208,34 +213,87 @@
       }
 
       function appendScript(src) {
-        var script = document.createElement('script');
-        script.src = src;
-        script.async = true;
-        document.head.appendChild(script);
+        return new Promise(function (resolve, reject) {
+          var existing = document.querySelector('script[src="' + src + '"]');
+          if (existing) {
+            existing.addEventListener('load', resolve, { once: true });
+            existing.addEventListener('error', reject, { once: true });
+            return;
+          }
+
+          var script = document.createElement('script');
+          script.src = src;
+          script.async = true;
+          script.onload = resolve;
+          script.onerror = reject;
+          document.head.appendChild(script);
+        });
       }
 
+      {% if page.math %}
+      window.loadDeferredMath = function (target) {
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex: {
+              inlineMath: [['$', '$'], ['\\(', '\\)']],
+              displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            options: {
+              skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            },
+            startup: {
+              typeset: false
+            }
+          };
+        }
+
+        if (!mathJaxPromise) {
+          mathJaxPromise = appendScript('https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js')
+            .then(function () {
+              if (window.MathJax && window.MathJax.startup && window.MathJax.startup.promise) {
+                return window.MathJax.startup.promise.then(function () {
+                  return window.MathJax;
+                });
+              }
+              return window.MathJax;
+            });
+        }
+
+        return mathJaxPromise.then(function (MathJax) {
+          if (!MathJax || typeof MathJax.typesetPromise !== 'function') return null;
+          return MathJax.typesetPromise(target ? [target] : undefined);
+        }).catch(function () {
+          return null;
+        });
+      };
+      {% endif %}
+
+      {% if page.tikz %}
+      window.loadDeferredTikz = function () {
+        if (!tikzPromise) {
+          var tikzFonts = document.createElement('link');
+          tikzFonts.rel = 'stylesheet';
+          tikzFonts.href = 'https://tikzjax.com/v1/fonts.css';
+          document.head.appendChild(tikzFonts);
+          tikzPromise = appendScript('https://tikzjax.com/v1/tikzjax.js').catch(function () {
+            return null;
+          });
+        }
+        return tikzPromise;
+      };
+      {% endif %}
+
+      {% unless page.accordion %}
       whenIdle(function () {
         {% if page.math %}
-        window.MathJax = {
-          tex: {
-            inlineMath: [['$', '$'], ['\\(', '\\)']],
-            displayMath: [['$$', '$$'], ['\\[', '\\]']]
-          },
-          options: {
-            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-          }
-        };
-        appendScript('https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js');
+        window.loadDeferredMath(document.body);
         {% endif %}
 
         {% if page.tikz %}
-        var tikzFonts = document.createElement('link');
-        tikzFonts.rel = 'stylesheet';
-        tikzFonts.href = 'https://tikzjax.com/v1/fonts.css';
-        document.head.appendChild(tikzFonts);
-        appendScript('https://tikzjax.com/v1/tikzjax.js');
+        window.loadDeferredTikz();
         {% endif %}
       });
+      {% endunless %}
     })();
   </script>
   {% endif %}

@@ -31,6 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
       accordion.setAttribute("aria-expanded", String(isExpanded));
       panel.classList.toggle("show");
       panel.hidden = !isExpanded;
+
+      if (isExpanded && typeof window.loadDeferredMath === "function") {
+        window.loadDeferredMath(panel);
+      }
     }
   });
 });

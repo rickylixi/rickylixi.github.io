@@ -26,7 +26,9 @@ function debugError(...args) {
 }
 
 function trackingAllowed() {
+  const localHosts = ["localhost", "127.0.0.1", "::1"];
   return !(
+    localHosts.includes(window.location.hostname) ||
     navigator.doNotTrack === "1" ||
     window.doNotTrack === "1" ||
     navigator.globalPrivacyControl === true
