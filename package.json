@@ -2,10 +2,6 @@
   "name": "rickylixi.github.io",
   "version": "1.0.0",
   "description": "Xi's Website.",
-  "scripts": {
-    "test": "npm run build",
-    "build": "node build.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rickylixi/rickylixi.github.io.git"

@@ -1,6 +1,6 @@
 ---
 ---
-const ASSET_MANIFEST = {{ site.data['asset-manifest'] | jsonify }};
+const ASSET_MANIFEST = {{ site.data['asset-manifest'] | default: '{}' | jsonify }};
 const CACHE_VERSION = (ASSET_MANIFEST && ASSET_MANIFEST.hash) ? ASSET_MANIFEST.hash : 'v5';
 const STATIC_CACHE = `rickylixi-static-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `rickylixi-runtime-${CACHE_VERSION}`;
