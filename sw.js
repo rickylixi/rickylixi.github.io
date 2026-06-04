@@ -4,7 +4,6 @@ const ASSET_MANIFEST = {{ site.data['asset-manifest'] | jsonify }};
 const CACHE_VERSION = (ASSET_MANIFEST && ASSET_MANIFEST.hash) ? ASSET_MANIFEST.hash : 'v5';
 const STATIC_CACHE = `rickylixi-static-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `rickylixi-runtime-${CACHE_VERSION}`;
-const OFFLINE_CACHE = 'rickylixi-offline';
 const DEBUG_SERVICE_WORKER = false;
 
 // Core static assets - critical for offline functionality
@@ -33,7 +32,7 @@ function log(message, type = 'info') {
   if (!DEBUG_SERVICE_WORKER) return;
 
   const prefix = '[Service Worker]';
-  const timestamp = new Date().toISOString().substr(11, 8);
+  const timestamp = new Date().toISOString().substring(11, 19);
   
   switch(type) {
     case 'error':
@@ -237,56 +236,4 @@ self.addEventListener('fetch', event => {
   // Default: cache first for other same-origin requests
   log(`Other request: ${url.pathname}`, 'info');
   event.respondWith(cacheFirst(request));
-});
-
-// Background sync for analytics (optional)
-self.addEventListener('sync', event => {
-  if (event.tag === 'analytics-sync') {
-    log('Background sync triggered', 'cyan');
-    event.waitUntil(
-      // Send cached analytics data when back online
-      Promise.resolve()
-    );
-  }
-});
-
-// Push notifications (optional)
-self.addEventListener('push', event => {
-  log('Push notification received', 'cyan');
-  const options = {
-    body: event.data ? event.data.text() : 'New content available!',
-    icon: '/image/x-logo.png',
-    badge: '/image/x-logo.png',
-    vibrate: [200, 100, 200],
-    data: {
-      dateOfArrival: Date.now(),
-      primaryKey: 1
-    },
-    actions: [
-      {
-        action: 'explore',
-        title: 'View',
-        icon: '/image/x-logo.png'
-      },
-      {
-        action: 'close',
-        title: 'Close'
-      }
-    ]
-  };
-
-  event.waitUntil(
-    self.registration.showNotification('Xi Li Website', options)
-  );
-});
-
-self.addEventListener('notificationclick', event => {
-  log('Notification clicked', 'cyan');
-  event.notification.close();
-
-  if (event.action === 'explore') {
-    event.waitUntil(
-      clients.openWindow('/')
-    );
-  }
 });
