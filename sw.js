@@ -174,8 +174,7 @@ self.addEventListener('activate', event => {
       const deletePromises = names.map(name => {
         const isOldCache = name.startsWith('rickylixi-') && 
                           name !== STATIC_CACHE && 
-                          name !== RUNTIME_CACHE &&
-                          name !== OFFLINE_CACHE;
+                          name !== RUNTIME_CACHE;
         
         if (isOldCache) {
           log(`🗑️ Deleting old cache: ${name}`, 'yellow');

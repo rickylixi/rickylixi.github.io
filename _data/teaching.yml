@@ -19,8 +19,8 @@ philosophy_ai:
   description: "Graduate course on Universal Induction and Causal Inference"
   advanced_material:
     link: "/teaching/s-uai.pdf"
-      text: "Advanced Lecture Notes"
-    resources:
+    text: "Advanced Lecture Notes"
+  resources:
     - title: "Textbook"
       link: "https://www.hutter1.net/publ/uaibook2.pdf"
     - title: "Slides"
