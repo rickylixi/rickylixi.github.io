@@ -273,9 +273,9 @@
         if (!tikzPromise) {
           var tikzFonts = document.createElement('link');
           tikzFonts.rel = 'stylesheet';
-          tikzFonts.href = 'https://tikzjax.com/v1/fonts.css';
+          tikzFonts.href = '{{ '/assets/tikzjax/fonts.css' | relative_url }}';
           document.head.appendChild(tikzFonts);
-          tikzPromise = appendScript('https://tikzjax.com/v1/tikzjax.js').catch(function () {
+          tikzPromise = appendScript('{{ '/assets/tikzjax/tikzjax.js' | relative_url }}').catch(function () {
             return null;
           });
         }
