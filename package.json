@@ -19,7 +19,10 @@
   "devDependencies": {
     "lightningcss": "^1.31.1",
     "minimist": "^1.2.8",
-    "sharp": "^0.34.5",
-    "purgecss": "^6.0.0"
+    "purgecss": "^6.0.0",
+    "sharp": "^0.34.5"
+  },
+  "dependencies": {
+    "node-tikzjax": "^1.0.5"
   }
 }
