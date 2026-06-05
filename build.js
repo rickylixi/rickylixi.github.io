@@ -40,7 +40,7 @@ async function purgeUnusedCSS(css) {
         if (!fs.existsSync(dir)) return [];
         return fs.readdirSync(dir, { recursive: true })
           .map(f => path.join(dir, f))
-          .filter(f => f.endsWith('.html') || f.endsWith('.js'));
+          .filter(f => (f.endsWith('.html') || f.endsWith('.js')) && fs.statSync(f).isFile());
       } catch {
         return [];
       }
