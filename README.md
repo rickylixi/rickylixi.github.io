@@ -219,7 +219,7 @@ MIT License - see LICENSE file for details
 ## ✉️ Contact
 
 - **Email**: xieshenlixi@163.com
-- **Twitter**: [@rickylixi](https://twitter.com/rickylixi)
+- **X (Twitter)**: [@rickylixi](https://x.com/rickylixi)
 - **GitHub**: [rickylixi](https://github.com/rickylixi)
 
 ---
