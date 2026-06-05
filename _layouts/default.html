@@ -275,9 +275,19 @@
           tikzFonts.rel = 'stylesheet';
           tikzFonts.href = 'https://tikzjax.com/v1/fonts.css';
           document.head.appendChild(tikzFonts);
-          tikzPromise = appendScript('https://tikzjax.com/v1/tikzjax.js').catch(function () {
-            return null;
-          });
+          tikzPromise = appendScript('https://tikzjax.com/v1/tikzjax.js')
+            .then(function () {
+              if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                if (typeof window.onload === 'function') {
+                  var originalOnload = window.onload;
+                  window.onload = null; // Prevent duplicate execution
+                  return originalOnload();
+                }
+              }
+            })
+            .catch(function () {
+              return null;
+            });
         }
         return tikzPromise;
       };
