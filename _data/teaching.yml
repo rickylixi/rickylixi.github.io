@@ -52,6 +52,8 @@ causality_reading_group:
       link: "https://csss.uw.edu/files/working-papers/2013/wp128.pdf"
     - title: "决策论因果模型"
       link: "https://arxiv.org/abs/2004.12493"
+    - title: "概率论因果"
+      link: "https://arxiv.org/abs/2512.23408"
     - title: "因果效应识别"
       link: "https://causalinference.gitlab.io/causal-reasoning-book-chapter3/"
     - title: "因果反事实推理"
