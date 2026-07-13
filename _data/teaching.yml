@@ -123,6 +123,8 @@ causality_reading_group:
       link: "https://sites.google.com/view/ocis"
     - title: "Elias Bareinboim"
       link: "https://causalai.net"
+    - title: "Causal Inference Theory for AI Safety"
+      link: "https://docs.google.com/document/d/1uU9VDwioWKv00HrSw4EubEtt2ygaNLirNZW6LXJLtY0/edit?tab=t.0#heading=h.5y36amkbgka"
 
   books:
     intro: "因果方面的书有很多, 推荐以下几本作为参考, 以帮助我们了解因果科学的整体框架、基本概念、模型与方法:"
