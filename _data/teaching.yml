@@ -28,6 +28,15 @@ philosophy_ai:
     - title: "Sample Exam Questions"
       link: "/teaching/exam-ai.pdf"
 
+philosophy_introduction:
+  title: "Introduction to Philosophy"
+  description: "Graduate course on Introduction to Philosophy"
+  resources:
+    - title: "Textbook"
+      link: "https://www.researchgate.net/publication/340870248_The_Philosophy_Major's_Introduction_to_Philosophy_Concepts_and_Distinctions?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InByb2ZpbGUiLCJwYWdlIjoicHJvZmlsZSJ9fQ"
+    - title: "Slides"
+      link: "/teaching/s-philo.pdf"
+
 game_theory:
   title: "Game Theory and Ethics"
   description: "Undergraduate course on Game Theory"
