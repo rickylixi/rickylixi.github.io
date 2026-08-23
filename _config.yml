@@ -39,6 +39,9 @@ exclude:
   - "Gemfile"
   - "Gemfile.lock"
   - "supabase"
+  # Local tooling that must never be published with the site.
+  - "scripts"
+  - "build.js"
 
 defaults:
   - scope:
@@ -106,6 +109,10 @@ defaults:
     values:
       sitemap: false
   - scope:
+      path: "teaching/s-philo.pdf"
+    values:
+      sitemap: false
+  - scope:
       path: "teaching/s-uai-intro.pdf"
     values:
       sitemap: false
@@ -118,16 +125,12 @@ defaults:
     values:
       sitemap: false
 
-sitemap:
-  changefreq: monthly
-  priority: 0.8
-  exclude:
-    - "/supabase/"
-    - "/node_modules/"
-    - "/.github/"
-    - "/assets/asset-manifest.json"
-    - "/*.pdf"
-    - "/*.tex"
+# NOTE: jekyll-sitemap does not support a `sitemap:` config block or top-level
+# `sitemap_priority` front matter. PDF exclusion is handled by the per-file
+# defaults above (sitemap: false). To set per-page priority/changefreq, use:
+#   sitemap:
+#     priority: 0.8
+#     changefreq: monthly
 
-# Google Analytics
+# Google Analytics (consumed by _layouts/default.html)
 google_analytics: "G-GNJD50R0Z7"

@@ -3,14 +3,15 @@
 
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
   <meta name="theme-color" content="#16a34a">
   <link rel="stylesheet" href="{{ '/stylesheets/styles.min.css' | relative_url }}">
   {% seo %}
   {% include seo-meta.html %}
 
-  <!-- Critical CSS (inlined for faster rendering) -->
+  <!-- Critical CSS (inlined for faster rendering).
+       NOTE: the palette below duplicates :root/[data-theme] in stylesheets/styles.css
+       and offline.html — update all three together when changing theme colors. -->
   <style>
     :root {
       --color-primary: #16a34a; --color-primary-hover: #15803d;
@@ -53,13 +54,14 @@
 
   <!-- Web App Manifest -->
   <link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
-  <link rel="icon" type="image/png" href="{{ '/image/x-logo.png' | relative_url }}">
-  <link rel="apple-touch-icon" href="{{ '/image/x-logo.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/image/x-logo-32.png' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/image/apple-touch-icon.png' | relative_url }}">
 
-  <!-- GA4 tracking -->
+  <!-- GA4 tracking (measurement ID from _config.yml) -->
+  {% if site.google_analytics %}
   <script>
     (function () {
-      const GA_ID = 'G-GNJD50R0Z7';
+      const GA_ID = '{{ site.google_analytics }}';
 
       function analyticsAllowed() {
         const localHosts = ['localhost', '127.0.0.1', '::1'];
@@ -99,6 +101,7 @@
       window.gtag('config', GA_ID, { 'anonymize_ip': true });
     })();
   </script>
+  {% endif %}
 
   <!-- Supplemental structured data for the homepage. jekyll-seo-tag handles page/post JSON-LD. -->
   {% if page.url == "/" %}

@@ -97,7 +97,7 @@ async function fetchWithRetry(url, options, maxRetries = MAX_RETRIES) {
   let lastError;
   for (let i = 0; i < maxRetries; i++) {
     try {
-      // Exponential backoff: 100ms, 400ms, 900ms
+      // Exponential backoff between retries: 100ms, 400ms
       if (i > 0) {
         await new Promise(resolve => setTimeout(resolve, i * i * 100));
       }
@@ -252,8 +252,10 @@ async function fetchViewCount(config, slug) {
 function renderCount(counterEl, count) {
   if (count === null) return;
 
-  // Remove loading state if present
+  // Remove loading state and reveal the counter (it starts hidden so that
+  // users without JavaScript never see a stale "Loading views..." label).
   counterEl.classList.remove('loading');
+  counterEl.hidden = false;
 
   if (counterEl.id === "visitor-count") {
     counterEl.innerText = count.toLocaleString();

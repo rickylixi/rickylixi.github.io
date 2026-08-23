@@ -1,5 +1,7 @@
 :root {
-  /* Color Palette - Light Mode */
+  /* Color Palette - Light Mode
+     NOTE: duplicated as inline critical CSS in _layouts/default.html and in
+     offline.html — keep all three in sync when changing theme colors. */
   --color-primary: #16a34a;
   /* Green 600 */
   --color-primary-hover: #15803d;
@@ -305,14 +307,6 @@ img {
   max-width: 100%;
   height: auto;
   border-radius: var(--border-radius);
-  transition:
-    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 0.3s ease;
-}
-
-img:hover {
-  transform: scale(1.02);
-  box-shadow: var(--shadow-hover);
 }
 
 .responsive-img {
@@ -857,7 +851,6 @@ div.panel.show {
 
   .social-row a:hover,
   .theme-toggle:hover,
-  img:hover,
   button.accordion:hover,
   .error-home-btn:hover,
   .gb-submit-btn:hover:not(:disabled),

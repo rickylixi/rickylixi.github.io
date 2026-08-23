@@ -1,7 +1,18 @@
+# Jekyll/Liquid templates — Prettier cannot parse Liquid tags reliably.
 *.html
-_layouts/*.html
-_inode_modules/
+
+# Build artifacts and caches
 _site/
-*.html
-_includes/*.html
-_layouts/*.htmlml
+.jekyll-cache/
+.sass-cache/
+node_modules/
+
+# Generated files
+stylesheets/styles.min.css
+assets/asset-manifest.json
+_data/asset-manifest.json
+image/optimized/
+
+# Non-web assets
+*.pdf
+*.tex

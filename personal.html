@@ -5,14 +5,13 @@ description: "Personal interests, hobbies, and book recommendations by Xi Li. In
 Ted Chiang, Orwell) and science books on Kolmogorov Complexity, Causality, and Universal AI. Contact information
 available."
 sitemap: true
-sitemap_priority: 0.7
 image: "/image/optimized/ai-xi.avif"
 ---
 <picture id="portrait-toggle" data-current="ai-xi">
   <source id="portrait-avif" type="image/avif" srcset="{{ '/image/optimized/ai-xi.avif' | strip | relative_url }}">
   <source id="portrait-webp" type="image/webp" srcset="{{ '/image/optimized/ai-xi.webp' | strip | relative_url }}">
-  <img id="portrait-img" src="{{ '/image/ai-xi.png' | strip | relative_url }}" alt="Portrait of Xi Li" loading="lazy"
-    class="responsive-img" style="cursor: pointer;" title="Click to switch portrait">
+  <img id="portrait-img" src="{{ '/image/ai-xi.jpg' | strip | relative_url }}" alt="Portrait of Xi Li" loading="lazy"
+    class="responsive-img" style="cursor: pointer;" title="Click to switch portrait" width="1023" height="1537">
 </picture>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
@@ -27,12 +26,12 @@ image: "/image/optimized/ai-xi.avif"
       "ai-xi": {
         avif: "{{ '/image/optimized/ai-xi.avif' | strip | relative_url }}",
         webp: "{{ '/image/optimized/ai-xi.webp' | strip | relative_url }}",
-        png: "{{ '/image/ai-xi.png' | strip | relative_url }}"
+        jpg: "{{ '/image/ai-xi.jpg' | strip | relative_url }}"
       },
       "ai-xili": {
         avif: "{{ '/image/optimized/ai-xili.avif' | strip | relative_url }}",
         webp: "{{ '/image/optimized/ai-xili.webp' | strip | relative_url }}",
-        png: "{{ '/image/ai-xili.png' | strip | relative_url }}"
+        jpg: "{{ '/image/ai-xili.jpg' | strip | relative_url }}"
       }
     };
 
@@ -43,7 +42,7 @@ image: "/image/optimized/ai-xi.avif"
 
       avifSource.setAttribute("srcset", portraits[next].avif);
       webpSource.setAttribute("srcset", portraits[next].webp);
-      img.setAttribute("src", portraits[next].png);
+      img.setAttribute("src", portraits[next].jpg);
     });
   });
 </script>

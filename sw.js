@@ -6,6 +6,10 @@ const STATIC_CACHE = `rickylixi-static-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `rickylixi-runtime-${CACHE_VERSION}`;
 const DEBUG_SERVICE_WORKER = false;
 
+// Keep the runtime cache bounded so large files (e.g. teaching PDFs) cannot
+// grow it without limit. Oldest entries are evicted first.
+const MAX_RUNTIME_CACHE_ENTRIES = 30;
+
 // Core static assets - critical for offline functionality
 const CORE_STATIC_URLS = [
   '/',
@@ -42,8 +46,7 @@ function log(message, type = 'info') {
       console.warn(`${prefix} [${timestamp}] ⚠️ ${message}`);
       break;
     case 'success':
-      console.log(`${prefix} [${timestamp}] ✅ ${message}`);
-      break;
+    case 'green':
     case 'cyan':
     case 'blue':
     case 'yellow':
@@ -71,18 +74,32 @@ function isStaticAssetRequest(requestUrl) {
   );
 }
 
+// Evict oldest entries once the runtime cache exceeds maxEntries.
+async function trimCache(cacheName, maxEntries) {
+  const cache = await caches.open(cacheName);
+  const keys = await cache.keys();
+  if (keys.length <= maxEntries) return;
+  await cache.delete(keys[0]);
+  return trimCache(cacheName, maxEntries);
+}
+
+function cacheResponse(request, response) {
+  if (!response || !response.ok) return;
+  const copy = response.clone();
+  caches.open(RUNTIME_CACHE)
+    .then(cache => cache.put(request, copy))
+    .then(() => trimCache(RUNTIME_CACHE, MAX_RUNTIME_CACHE_ENTRIES));
+}
+
 function networkFirst(request) {
   return fetch(request)
     .then(response => {
-      if (response && response.ok) {
-        const copy = response.clone();
-        caches.open(RUNTIME_CACHE).then(cache => cache.put(request, copy));
-      }
+      cacheResponse(request, response);
       return response;
     })
-    .catch(() => 
-      caches.match(request).then(cached => 
-        cached || caches.match('/').then(home => 
+    .catch(() =>
+      caches.match(request).then(cached =>
+        cached || caches.match('/').then(home =>
           home || caches.match('/offline.html')
         )
       )
@@ -92,12 +109,9 @@ function networkFirst(request) {
 function cacheFirst(request) {
   return caches.match(request).then(cached => {
     if (cached) return cached;
-    
+
     return fetch(request).then(response => {
-      if (response && response.ok) {
-        const copy = response.clone();
-        caches.open(RUNTIME_CACHE).then(cache => cache.put(request, copy));
-      }
+      cacheResponse(request, response);
       return response;
     });
   });
@@ -107,10 +121,7 @@ function staleWhileRevalidate(request) {
   return caches.match(request).then(cached => {
     const networkPromise = fetch(request)
       .then(response => {
-        if (response && response.ok) {
-          const copy = response.clone();
-          caches.open(RUNTIME_CACHE).then(cache => cache.put(request, copy));
-        }
+        cacheResponse(request, response);
         return response;
       })
       .catch(() => null);
@@ -201,27 +212,11 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // Skip Supabase API requests
-  if (url.pathname.startsWith('/rest/v1/') || url.pathname.startsWith('/auth/v1/')) {
-    log(`Skipping Supabase API: ${url.pathname}`, 'info');
-    return;
-  }
-
-  // Handle navigation requests (pages)
+  // Handle navigation requests (pages).
+  // networkFirst() already falls back to cache → offline.html internally.
   if (isNavigationalRequest(request)) {
     log(`Navigational request: ${url.pathname}`, 'cyan');
-    event.respondWith(
-      networkFirst(request)
-        .catch(error => {
-          log(`Navigation failed, serving offline page: ${error.message}`, 'error');
-          return caches.match('/offline.html').then(offlinePage => {
-            return offlinePage || new Response(
-              '<h1>Offline</h1><p>You are currently offline. Please check your internet connection.</p>',
-              { headers: { 'Content-Type': 'text/html' } }
-            );
-          });
-        })
-    );
+    event.respondWith(networkFirst(request));
     return;
   }
 

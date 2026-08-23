@@ -58,7 +58,8 @@ npm run build && bundle exec jekyll build
 
 ## 🖼️ Image Optimization
 
-Convert images to modern formats (WebP, AVIF):
+Convert images to modern formats (WebP, AVIF). The script never writes an
+output larger than its source and prunes stale oversized outputs:
 
 ```bash
 # Optimize all images in image/ directory
@@ -67,11 +68,12 @@ node scripts/convert-images.js \
   --out=image/optimized \
   --formats=webp,avif
 
-# Single image
+# Optionally downscale sources wider than 1640px before encoding
 node scripts/convert-images.js \
-  --src=image/photo.png \
+  --src=image \
   --out=image/optimized \
-  --formats=webp,avif
+  --formats=webp,avif \
+  --max-width=1640
 ```
 
 ## 🔍 Performance Testing
@@ -85,10 +87,11 @@ lhci autorun
 
 ### Performance budgets (see `.github/lighthouse-budget.json`):
 
-- **First Contentful Paint**: < 2s
-- **Largest Contentful Paint**: < 3s
-- **Speed Index**: < 3s
-- **Time to Interactive**: < 5s
+- **First Contentful Paint**: < 3s
+- **Largest Contentful Paint**: < 4.5s
+- **Speed Index**: < 4.5s
+- **Interactive**: < 6s
+- **Max Potential FID**: < 500ms
 
 ## 🚀 CI/CD & Automation
 
@@ -183,7 +186,7 @@ Your content here...
 
 ### Adding Research Papers:
 
-Update `_data/research.yml` with new publication details.
+Update `_data/publications.yml` with new publication details.
 
 ### Adding Books:
 
@@ -194,9 +197,9 @@ Update `_data/books.yml` with fiction and science book recommendations.
 - ✅ PurgeCSS removes unused styles (30-50% reduction)
 - ✅ Images lazy loaded with `loading="lazy"`
 - ✅ Google Fonts with `display=swap`
-- ✅ Minified CSS and JS
-- ✅ Optimized images (WebP, AVIF formats)
-- ✅ Service Worker caching strategies
+- ✅ Minified, PurgeCSS-processed CSS
+- ✅ Optimized images (WebP/AVIF, never larger than the original)
+- ✅ Service Worker caching with bounded runtime cache
 - ✅ Gzip compression enabled
 
 ## 📚 References
@@ -214,7 +217,7 @@ Update `_data/books.yml` with fiction and science book recommendations.
 
 ## 📄 License
 
-MIT License - see LICENSE file for details
+ISC (see `package.json`).
 
 ## ✉️ Contact
 
@@ -224,6 +227,6 @@ MIT License - see LICENSE file for details
 
 ---
 
-**Last Updated**: 2025-01-15
-**Version**: 2.0.0
+**Last Updated**: 2025-10-27
+**Version**: 1.0.0
 **Status**: ✅ Production Ready
