@@ -6,3 +6,5 @@ node_modules/
 stylesheets/dist/
 assets/asset-manifest.json
 _data/asset-manifest.json
+.workbuddy/
+.vscode/
