@@ -32,10 +32,10 @@ image: "/image/optimized/turing-machine1.avif"
         <p id="gb-status" class="gb-status" role="status" aria-live="polite" hidden></p>
     </form>
 
-    <!-- Messages List -->
+    <!-- Messages List (loading text is inserted by JS so no-JS users
+         never see a misleading "Loading..." next to the noscript note) -->
     <h3>Recent Messages</h3>
     <div id="gb-messages">
-        <p>Loading messages...</p>
         <noscript>
           <p>The guestbook requires JavaScript to load and post messages.</p>
         </noscript>
@@ -323,6 +323,7 @@ image: "/image/optimized/turing-machine1.avif"
     });
     formEl.addEventListener('submit', handleFormSubmit);
 
+    messagesContainer.innerHTML = '<p>Loading messages...</p>';
     await ensureSupabaseSdk();
     const config = resolveSupabaseConfig();
     if (config) {
