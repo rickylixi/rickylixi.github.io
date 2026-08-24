@@ -5,7 +5,14 @@
 -- and legacy clients that call a void function are unaffected because
 -- PostgREST simply omits the JSON body either way.
 --
--- Safe to run multiple times.
+-- Safe to run multiple times. The return type changed from void to integer,
+-- so the old function must be dropped first (PostgreSQL cannot ALTER a
+-- function's return type in place). Wrapped in a transaction so callers
+-- never observe the function missing.
+
+begin;
+
+drop function if exists public.increment_page_view(text);
 
 create or replace function public.increment_page_view(page_slug text)
 returns integer
@@ -46,3 +53,5 @@ end;
 $$;
 
 grant execute on function public.increment_page_view(text) to anon, authenticated;
+
+commit;
