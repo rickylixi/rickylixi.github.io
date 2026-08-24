@@ -2,6 +2,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const toggleButton = document.getElementById("theme-toggle");
   const root = document.documentElement;
 
+  // Browser chrome (mobile address bar) follows this color.
+  const THEME_COLORS = { light: "#16a34a", dark: "#0f172a" };
+
+  function syncThemeColor(theme) {
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) {
+      meta.setAttribute("content", THEME_COLORS[theme] || THEME_COLORS.light);
+    }
+  }
+
   function syncPressedState(theme) {
     if (toggleButton) {
       toggleButton.setAttribute("aria-pressed", String(theme === "dark"));
@@ -9,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   syncPressedState(root.getAttribute("data-theme") || "light");
+  syncThemeColor(root.getAttribute("data-theme") || "light");
 
   if (toggleButton) {
     toggleButton.addEventListener("click", () => {
@@ -17,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       root.setAttribute("data-theme", newTheme);
       syncPressedState(newTheme);
+      syncThemeColor(newTheme);
       try {
         localStorage.setItem("theme", newTheme);
       } catch (e) {

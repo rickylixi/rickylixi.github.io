@@ -110,6 +110,7 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <script>
     // Keep legacy initialization behavior for visual consistency
     (function() {
@@ -172,7 +173,7 @@
       </nav>
     </header>
 
-    <section>
+    <section id="main-content" tabindex="-1">
       {% include breadcrumb.html %}
       {{ content }}
     </section>

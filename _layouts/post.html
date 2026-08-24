@@ -109,7 +109,9 @@ layout: default
         script.setAttribute('data-input-position', 'top');
         var siteTheme = document.documentElement.getAttribute('data-theme') || 'light';
         script.setAttribute('data-theme', siteTheme === 'dark' ? 'dark' : 'light');
-        script.setAttribute('data-lang', 'zh-CN');
+        {% assign giscus_lang = 'en' %}
+        {% if page.lang == 'zh-Hans' %}{% assign giscus_lang = 'zh-CN' %}{% endif %}
+        script.setAttribute('data-lang', '{{ giscus_lang }}');
         script.setAttribute('data-loading', 'lazy');
         
         script.onload = function() {

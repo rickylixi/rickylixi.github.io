@@ -25,6 +25,7 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: '22'
+          cache: 'npm'
 
       - name: Build frontend assets
         run: |
@@ -48,3 +49,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
           enable_jekyll: false
+          # Keep gh-pages at a single commit per deploy. Without this every
+          # deploy appends a full _site snapshot (incl. ~100MB of teaching
+          # PDFs) and the branch grows forever.
+          force_orphan: true

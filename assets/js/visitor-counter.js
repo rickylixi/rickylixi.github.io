@@ -139,7 +139,7 @@ function markAsIncremented(slug) {
 }
 
 async function incrementPageView(config, slug) {
-  if (!shouldIncrement(slug)) return;
+  if (!shouldIncrement(slug)) return null;
 
   // Check rate limit
   if (!rateLimiter.canMakeRequest()) {
@@ -150,6 +150,7 @@ async function incrementPageView(config, slug) {
 
   const headers = buildHeaders(config.supabaseAnonKey);
   let response;
+  let count = null;
 
   try {
     response = await fetchWithRetry(
@@ -186,13 +187,18 @@ async function incrementPageView(config, slug) {
   // Mark as successfully incremented in client storage
   markAsIncremented(slug);
 
-  // Check if response is valid JSON (some RPC calls return empty responses)
+  // Newer RPC returns the updated count directly (saves a SELECT round-trip).
+  // Legacy void-returning RPC yields no JSON body, leaving count as null.
   const contentType = response.headers.get('content-type');
   if (contentType && contentType.includes('application/json')) {
-    await response.json().catch(() => {
+    await response.json().then((value) => {
+      if (typeof value === 'number' && value >= 0) count = value;
+    }).catch(() => {
       // Ignore JSON parse errors for empty responses
     });
   }
+
+  return count;
 }
 
 async function fetchViewCount(config, slug) {
@@ -298,11 +304,17 @@ async function processCounter(counterEl, config) {
   showLoadingState(counterEl);
 
   try {
-    // Increment view count
-    await incrementPageView(config, slug);
+    // Increment view count. Returns the new total when the RPC supports it,
+    // null otherwise (legacy function or already-counted session).
+    const counted = await incrementPageView(config, slug);
 
-    // Fetch updated count
-    const count = await fetchViewCount(config, slug);
+    let count;
+    if (typeof counted === 'number' && counted >= 0) {
+      count = counted;
+    } else {
+      // Fall back to a separate fetch (also covers deduplicated sessions).
+      count = await fetchViewCount(config, slug);
+    }
 
     // Render the count
     renderCount(counterEl, count);

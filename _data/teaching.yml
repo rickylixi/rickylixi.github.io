@@ -108,7 +108,8 @@ causality_reading_group:
     - title: "因果博弈"
       link: "https://arxiv.org/abs/2301.02324"
     - title: "因果说服"
-      link: "http://aburkovskaya.com/pdf/causality.pdf"
+      # Upgraded from http://; click-check this link after deploy.
+      link: "https://aburkovskaya.com/pdf/causality.pdf"
     - title: "因果世界模型"
       link: "https://arxiv.org/abs/2402.10877"
     - title: "因果范畴"

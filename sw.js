@@ -15,7 +15,7 @@ const CORE_STATIC_URLS = [
   '/',
   '/stylesheets/styles.min.css',
   '/assets/js/theme.js',
-  '/image/x-logo.png',
+  '/image/x-logo-192.png',
   '/manifest.json',
   '/offline.html'
 ];
@@ -26,7 +26,11 @@ const EXTENDED_STATIC_URLS = [
   '/javascripts/accordion.js',
   '/image/optimized/ai-xi.avif',
   '/image/optimized/turing-machine1.avif',
-  '/assets/asset-manifest.json'
+  '/assets/asset-manifest.json',
+  '/favicon.ico',
+  '/image/x-logo-32.png',
+  '/image/x-logo-512.png',
+  '/image/apple-touch-icon.png'
 ];
 
 const STATIC_URLS = [...CORE_STATIC_URLS, ...EXTENDED_STATIC_URLS];

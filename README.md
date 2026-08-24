@@ -135,7 +135,7 @@ git push origin main
 
 ## Supabase Setup
 
-Apply the current migration from `supabase/migrations/20260214_guestbook_and_counter_hardening.sql` in the Supabase SQL editor or with the Supabase CLI. The helper below prints the migration SQL without using the public anon key to execute database setup:
+Apply every migration from `supabase/migrations/` in filename order in the Supabase SQL editor or with the Supabase CLI. The helper below prints a migration's SQL without using the public anon key to execute database setup:
 
 ```bash
 node scripts/setup-supabase.js --print

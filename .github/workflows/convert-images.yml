@@ -3,8 +3,16 @@ name: Generate optimized images
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'image/**'
+      - 'scripts/convert-images.js'
+      - '.github/workflows/convert-images.yml'
   pull_request:
     branches: [ main ]
+    paths:
+      - 'image/**'
+      - 'scripts/convert-images.js'
+      - '.github/workflows/convert-images.yml'
   workflow_dispatch: {}
 
 permissions:
