@@ -26,6 +26,7 @@ plugins:
   - jekyll-paginate
   - jekyll-redirect-from
   - jekyll-seo-tag
+  - jekyll-feed
 paginate: 5
 paginate_path: "/blog/page:num/"
 
@@ -44,84 +45,30 @@ exclude:
   - "build.js"
 
 defaults:
+  # Directory-level scopes replace the old 19 per-file PDF entries.
+  # research/ contains only PDFs; teaching/ contains PDFs and .tex sources —
+  # none belong in the sitemap. Note the trailing slash: it prevents the
+  # scope from matching top-level pages like teaching.html / research.html.
   - scope:
       path: "image/leibnizprogram.pdf"
     values:
       sitemap: false
   - scope:
-      path: "research/carnap-solomonoff.pdf"
+      path: "research/"
     values:
       sitemap: false
   - scope:
-      path: "research/ethics.pdf"
+      path: "teaching/"
+    values:
+      sitemap: false
+  # Search-engine ownership verification files are not content — keep them
+  # out of the sitemap.
+  - scope:
+      path: "google39aaf1b852e972c8.html"
     values:
       sitemap: false
   - scope:
-      path: "research/from-complexity-to-intelligence.pdf"
-    values:
-      sitemap: false
-  - scope:
-      path: "research/lawvere.pdf"
-    values:
-      sitemap: false
-  - scope:
-      path: "research/leibniz-ai.pdf"
-    values:
-      sitemap: false
-  - scope:
-      path: "research/leibniz-computationalism.pdf"
-    values:
-      sitemap: false
-  - scope:
-      path: "research/newcomb.pdf"
-    values:
-      sitemap: false
-  - scope:
-      path: "research/self-improvement.pdf"
-    values:
-      sitemap: false
-  - scope:
-      path: "research/why-solomonoff.pdf"
-    values:
-      sitemap: false
-  - scope:
-      path: "teaching/answers.pdf"
-    values:
-      sitemap: false
-  - scope:
-      path: "teaching/exam-ai.pdf"
-    values:
-      sitemap: false
-  - scope:
-      path: "teaching/exam-logic.pdf"
-    values:
-      sitemap: false
-  - scope:
-      path: "teaching/s-game.pdf"
-    values:
-      sitemap: false
-  - scope:
-      path: "teaching/s-logic-intro.pdf"
-    values:
-      sitemap: false
-  - scope:
-      path: "teaching/s-logic.pdf"
-    values:
-      sitemap: false
-  - scope:
-      path: "teaching/s-philo.pdf"
-    values:
-      sitemap: false
-  - scope:
-      path: "teaching/s-uai-intro.pdf"
-    values:
-      sitemap: false
-  - scope:
-      path: "teaching/s-uai.pdf"
-    values:
-      sitemap: false
-  - scope:
-      path: "teaching/template.pdf"
+      path: "yandex_1c34ea3d45b3678b.html"
     values:
       sitemap: false
 

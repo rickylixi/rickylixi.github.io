@@ -1,3 +1,29 @@
+/* Self-hosted Inter (variable, weights 400-600).
+   Replaces the Google Fonts CDN dependency, which is unreliable in mainland
+   China. Files live in assets/fonts/ and are served from this origin.
+   NOTE: build.js re-inserts these @font-face blocks after PurgeCSS (its
+   fontFace option drops them because pages reference var(--font-sans)). */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('/assets/fonts/inter-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('/assets/fonts/inter-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
   /* Color Palette - Light Mode
      NOTE: duplicated as inline critical CSS in _layouts/default.html and in
@@ -832,6 +858,21 @@ div.panel.show {
   .social-row a {
     padding: 6px 10px;
     background-color: var(--color-surface);
+  }
+
+  /* Smaller, tighter toggle on phones: the 40px button at 20px offsets sits
+     exactly on top of the wrapper's 20px padding and can cover heading text. */
+  .theme-toggle {
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.18);
+  }
+
+  .theme-toggle svg {
+    width: 18px;
+    height: 18px;
   }
 }
 

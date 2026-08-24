@@ -3,8 +3,7 @@
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
 <!-- Site ownership is verified via the HTML file method (google39aaf1b852e972c8.html at repo root). -->
-<!-- Premium Web Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
+<!-- Self-hosted Inter variable font (latin subset preloaded; latin-ext and
+     other subsets load on demand via unicode-range in stylesheets/styles.css).
+     Google Fonts CDN was removed: unreliable for mainland-China visitors. -->
+<link rel="preload" href="{{ '/assets/fonts/inter-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>

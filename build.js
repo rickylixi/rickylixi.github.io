@@ -134,16 +134,23 @@ async function purgeUnusedCSS(css) {
 
   const purgedCSS = purgeResults[0].css;
 
+  // PurgeCSS's `fontFace` option only keeps @font-face blocks whose
+  // font-family appears in a KEPT font-family declaration. Our pages use
+  // font-family via var(--font-sans), so the self-hosted Inter faces would
+  // be dropped. Re-insert them from the source instead.
+  const fontFaceBlocks = (css.toString().match(/@font-face\s*\{[^}]*\}/g) || []).join("\n");
+  const finalCSS = fontFaceBlocks ? fontFaceBlocks + "\n" + purgedCSS : purgedCSS;
+
   // Safety net: a purged stylesheet missing core layout selectors means the
   // content scan failed. Fail loudly instead of deploying a broken page.
-  const missing = ESSENTIAL_SELECTORS.filter(sel => !purgedCSS.includes(sel));
+  const missing = ESSENTIAL_SELECTORS.filter(sel => !finalCSS.includes(sel));
   if (missing.length) {
     throw new Error(
       `PurgeCSS removed essential selectors: ${missing.join(", ")} — aborting build.`
     );
   }
   console.log(`  ✓ PurgeCSS 完成: 移除了未使用的样式（关键选择器校验通过）`);
-  return purgedCSS;
+  return finalCSS;
 }
 
 async function buildStyles() {
