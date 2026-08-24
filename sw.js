@@ -114,10 +114,16 @@ function cacheFirst(request) {
   return caches.match(request).then(cached => {
     if (cached) return cached;
 
-    return fetch(request).then(response => {
-      cacheResponse(request, response);
-      return response;
-    });
+    return fetch(request)
+      .then(response => {
+        cacheResponse(request, response);
+        return response;
+      })
+      .catch(() =>
+        // Network failed and nothing cached: serve the offline fallback
+        // instead of letting respondWith() reject into a browser error page.
+        caches.match('/offline.html').then(offline => offline || Response.error())
+      );
   });
 }
 
@@ -176,9 +182,8 @@ self.addEventListener('install', event => {
       
       log(`✅ Cached ${successCount} assets, ${failCount} failed`, successCount > 0 ? 'green' : 'yellow');
     })
+      .then(() => self.skipWaiting())
   );
-  
-  self.skipWaiting();
 });
 
 self.addEventListener('activate', event => {
@@ -200,10 +205,9 @@ self.addEventListener('activate', event => {
       
       await Promise.all(deletePromises);
       log('✅ Cache cleanup complete', 'green');
+      await self.clients.claim();
     })
   );
-  
-  self.clients.claim();
 });
 
 self.addEventListener('fetch', event => {

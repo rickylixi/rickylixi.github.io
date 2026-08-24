@@ -4,7 +4,9 @@ node_modules/
 .jekyll-cache/
 .sass-cache/
 stylesheets/dist/
-assets/asset-manifest.json
-_data/asset-manifest.json
+# NOTE: assets/asset-manifest.json and _data/asset-manifest.json are build
+# outputs but MUST stay tracked in git — sw.js reads the _data copy at Jekyll
+# build time for cache versioning, and the SW install step fetches the assets
+# copy. Do not ignore them.
 .workbuddy/
 .vscode/

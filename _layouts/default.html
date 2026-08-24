@@ -111,25 +111,6 @@
 
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
-  <script>
-    // Keep legacy initialization behavior for visual consistency
-    (function() {
-      let savedTheme = null;
-      try {
-        savedTheme = localStorage.getItem('theme');
-      } catch (e) {
-        savedTheme = null;
-      }
-
-      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-      if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-      }
-    })();
-  </script>
 
   <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle Dark Mode" aria-pressed="false">
     <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -148,6 +129,35 @@
     </svg>
   </button>
 
+  <script>
+    // Keep legacy initialization behavior for visual consistency.
+    // NOTE: this script sits AFTER the toggle button so it can also sync the
+    // button's initial aria-pressed state — dark-mode users otherwise get a
+    // stale aria-pressed="false" until theme.js runs.
+    (function() {
+      let savedTheme = null;
+      try {
+        savedTheme = localStorage.getItem('theme');
+      } catch (e) {
+        savedTheme = null;
+      }
+
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+
+      var themeToggle = document.getElementById('theme-toggle');
+      if (themeToggle) {
+        themeToggle.setAttribute('aria-pressed',
+          String(document.documentElement.getAttribute('data-theme') === 'dark'));
+      }
+    })();
+  </script>
+
   <div class="wrapper">
     <header>
       <h1><a href="{{ '/' | relative_url }}">李熙 | Xi Li</a></h1>
@@ -157,15 +167,17 @@
       </div>
 
       <nav class="social-row" aria-label="Main navigation">
-        <a href="{{ '/research.html' | relative_url }}" {% if page.url contains 'research' %}class="active" {% endif %}
+        {% comment %}page.url is extensionless on Jekyll 4 (e.g. "/research");
+          match both forms so nav highlighting never depends on permalink style.{% endcomment %}
+        <a href="{{ '/research.html' | relative_url }}" {% if page.url == '/research' or page.url == '/research.html' %}class="active" {% endif %}
           aria-label="Research publications and projects">Research</a>
-        <a href="{{ '/teaching.html' | relative_url }}" {% if page.url contains 'teaching' %}class="active" {% endif %}
+        <a href="{{ '/teaching.html' | relative_url }}" {% if page.url == '/teaching' or page.url == '/teaching.html' %}class="active" {% endif %}
           aria-label="Teaching materials and courses">Teaching</a>
-        <a href="{{ '/personal.html' | relative_url }}" {% if page.url contains 'personal' %}class="active" {% endif %}
+        <a href="{{ '/personal.html' | relative_url }}" {% if page.url == '/personal' or page.url == '/personal.html' %}class="active" {% endif %}
           aria-label="Personal interests and recommendations">Personal</a>
         <a href="{{ '/blog/' | relative_url }}" class="nav-blog{% if page.url contains '/blog/' %} active{% endif %}"
           aria-label="Blog articles">Blog</a>
-        <a href="{{ '/guestbook.html' | relative_url }}" {% if page.url contains 'guestbook' %}class="active" {% endif %} aria-label="Guestbook">Guestbook</a>
+        <a href="{{ '/guestbook.html' | relative_url }}" {% if page.url == '/guestbook' or page.url == '/guestbook.html' %}class="active" {% endif %} aria-label="Guestbook">Guestbook</a>
       </nav>
 
       <nav class="social-row" aria-label="Social media links">

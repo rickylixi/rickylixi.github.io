@@ -36,17 +36,23 @@ image: "/image/optimized/turing-machine1.avif"
     <h3>Recent Messages</h3>
     <div id="gb-messages">
         <p>Loading messages...</p>
+        <noscript>
+          <p>The guestbook requires JavaScript to load and post messages.</p>
+        </noscript>
     </div>
 
   </div>
 </article>
 
-<!-- Supabase SDK (loaded only on guestbook page; with CDN fallback) -->
+<!-- Supabase SDK (loaded only on guestbook page; with CDN fallback).
+     Version is pinned so an upstream breaking release cannot silently
+     break the guestbook. Bump deliberately after testing. -->
 <script>
   let _supabase = null;
+  const SUPABASE_SDK_VERSION = '2.112.3';
   const SUPABASE_SDK_SOURCES = [
-    'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2',
-    'https://unpkg.com/@supabase/supabase-js@2'
+    `https://cdn.jsdelivr.net/npm/@supabase/supabase-js@${SUPABASE_SDK_VERSION}`,
+    `https://unpkg.com/@supabase/supabase-js@${SUPABASE_SDK_VERSION}`
   ];
 
   function hasSupabaseClient() {

@@ -9,7 +9,7 @@ image: "/image/optimized/turing-machine1.avif"
 
 <ul>
 {% for post in paginator.posts %}
-  <li><em><a href="{{ post.url }}">{{ post.title }}</a></em> <small>{{ post.date | date: "%Y-%m-%d"}}</small></li>
+  <li><em><a href="{{ post.url | relative_url }}">{{ post.title }}</a></em> <small>{{ post.date | date: "%Y-%m-%d"}}</small></li>
 {% endfor %}
 </ul>
 
