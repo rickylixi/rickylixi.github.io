@@ -17,34 +17,69 @@ function ensureDir(dirPath) {
   }
 }
 
+// Directories that must never be walked when collecting PurgeCSS content:
+// dependency trees (deep paths can throw), binary assets, and build output.
+const PURGE_SKIP_DIRS = new Set([
+  "node_modules",
+  "supabase",
+  "image",
+  "research",
+  "teaching",
+  "_site",
+]);
+
+// Walk the repo collecting every .html/.js file that may reference classes.
+// Per-entry error handling: one unreadable file must never void the whole
+// content list (an empty list makes PurgeCSS strip the entire stylesheet).
+function collectContentFiles(rootDir) {
+  const files = [];
+  const stack = [rootDir];
+  while (stack.length) {
+    const dir = stack.pop();
+    let entries;
+    try {
+      entries = fs.readdirSync(dir, { withFileTypes: true });
+    } catch (e) {
+      console.warn(`  ⚠ 无法读取目录（已跳过）: ${dir} (${e.message})`);
+      continue;
+    }
+    for (const entry of entries) {
+      const full = path.join(dir, entry.name);
+      if (entry.name.startsWith(".")) continue; // .git, .jekyll-cache, ...
+      if (entry.isDirectory()) {
+        if (PURGE_SKIP_DIRS.has(entry.name)) continue;
+        stack.push(full);
+        continue;
+      }
+      if (!entry.isFile()) continue;
+      if (!/\.(html|js)$/i.test(entry.name)) continue;
+      files.push(full);
+    }
+  }
+  return files;
+}
+
+// Selectors whose removal would visibly break the site. PurgeCSS output is
+// verified against this list so a broken content scan fails the build loudly
+// instead of silently shipping a skeletal stylesheet.
+const ESSENTIAL_SELECTORS = [
+  ".wrapper",
+  ".social-row",
+  ".skip-link",
+  ".accordion",
+  ".gb-form",
+];
+
 async function purgeUnusedCSS(css) {
   console.log("  → 正在清理未使用的 CSS ...");
 
-  // Define content sources for PurgeCSS
-  const content = [
-    path.join(ROOT, "_layouts", "**", "*.html"),
-    path.join(ROOT, "_includes", "**", "*.html"),
-    path.join(ROOT, "*.html"),
-    path.join(ROOT, "blog", "**", "*.html"),
-    path.join(ROOT, "assets", "js", "**", "*.js"),
-    path.join(ROOT, "javascripts", "**", "*.js"),
-  ]
-    .filter(p => fs.existsSync(p) || fs.existsSync(path.dirname(p)))
-    .flatMap(pattern => {
-      try {
-        if (fs.existsSync(pattern) && fs.statSync(pattern).isFile()) {
-          return [pattern];
-        }
-        const dir = path.dirname(pattern);
-        const basename = path.basename(pattern);
-        if (!fs.existsSync(dir)) return [];
-        return fs.readdirSync(dir, { recursive: true })
-          .map(f => path.join(dir, f))
-          .filter(f => (f.endsWith('.html') || f.endsWith('.js')) && fs.statSync(f).isFile());
-      } catch {
-        return [];
-      }
-    });
+  const content = collectContentFiles(ROOT);
+  if (content.length < 5) {
+    throw new Error(
+      `PurgeCSS content scan found only ${content.length} files — refusing to purge (would destroy the stylesheet).`
+    );
+  }
+  console.log(`  ✓ 扫描到 ${content.length} 个内容文件`);
 
   const purgeResults = await new PurgeCSS().purge({
     content: content,
@@ -98,7 +133,16 @@ async function purgeUnusedCSS(css) {
   });
 
   const purgedCSS = purgeResults[0].css;
-  console.log(`  ✓ PurgeCSS 完成: 移除了未使用的样式`);
+
+  // Safety net: a purged stylesheet missing core layout selectors means the
+  // content scan failed. Fail loudly instead of deploying a broken page.
+  const missing = ESSENTIAL_SELECTORS.filter(sel => !purgedCSS.includes(sel));
+  if (missing.length) {
+    throw new Error(
+      `PurgeCSS removed essential selectors: ${missing.join(", ")} — aborting build.`
+    );
+  }
+  console.log(`  ✓ PurgeCSS 完成: 移除了未使用的样式（关键选择器校验通过）`);
   return purgedCSS;
 }
 
