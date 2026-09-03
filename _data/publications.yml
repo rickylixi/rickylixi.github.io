@@ -167,7 +167,7 @@
   bibtex: |
     @inproceedings{lixi-ethics2018,
     author = {李熙},
-    title = {通用强化学习中的"善"与"先验"},
+    title = {通用强化学习中的“善”与“先验”},
     booktitle = {人工智能与大数据伦理},
     editor = {李伦},
     publisher = {科学出版社},

@@ -267,6 +267,8 @@ function renderCount(counterEl, count) {
     counterEl.innerText = count.toLocaleString();
     counterEl.style.opacity = "1";
   } else {
+    const wrapper = document.getElementById("page-views-wrapper");
+    if (wrapper) wrapper.hidden = false;
     counterEl.innerText = `${count} views`;
   }
 }
@@ -277,6 +279,8 @@ function handleCounterFailure(counterEl) {
   counterEl.classList.remove('loading');
 
   if (counterEl.id === "page-views") {
+    const wrapper = document.getElementById("page-views-wrapper");
+    if (wrapper) wrapper.style.display = "none";
     counterEl.style.display = "none";
     return;
   }

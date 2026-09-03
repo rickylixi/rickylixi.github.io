@@ -17,7 +17,8 @@ const CORE_STATIC_URLS = [
   '/assets/js/theme.js',
   '/image/x-logo-192.png',
   '/manifest.json',
-  '/offline.html'
+  '/offline.html',
+  '/404.html'
 ];
 
 // Extended static assets - nice to have but not critical
@@ -28,6 +29,8 @@ const EXTENDED_STATIC_URLS = [
   '/image/optimized/turing-machine1.avif',
   '/assets/asset-manifest.json',
   '/favicon.ico',
+  '/assets/fonts/inter-latin.woff2',
+  '/assets/fonts/inter-latin-ext.woff2',
   '/image/x-logo-32.png',
   '/image/x-logo-512.png',
   '/image/apple-touch-icon.png'

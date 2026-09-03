@@ -46,9 +46,10 @@
       display: flex; align-items: center; justify-content: center;
       transition: all 0.3s ease;
     }
+    .icon-sun,
     .icon-moon { display: none; }
-    [data-theme="dark"] .icon-sun { display: none; }
-    [data-theme="dark"] .icon-moon { display: block; }
+    [data-theme="light"] .icon-moon { display: block; }
+    [data-theme="dark"] .icon-sun { display: block; }
     .loading { opacity: 0.7; }
     .visitor-count { transition: opacity 0.3s ease; }
   </style>
@@ -161,7 +162,14 @@
 
   <div class="wrapper">
     <header>
-      <h1><a href="{{ '/' | relative_url }}">李熙 | Xi Li</a></h1>
+      {% comment %}The site name is a top-level heading only on the homepage,
+        where no other page title exists. Everywhere else it stays a paragraph
+        so each page keeps exactly one top-level heading.{% endcomment %}
+      {% if page.url == "/" %}
+      <h1 class="site-title"><a href="{{ '/' | relative_url }}">李熙 | Xi Li</a></h1>
+      {% else %}
+      <p class="site-title"><a href="{{ '/' | relative_url }}">李熙 | Xi Li</a></p>
+      {% endif %}
       <div class="university-info">
         <p class="uni-dept">中南大学哲学系</p>
         <p class="uni-school">Central South University</p>

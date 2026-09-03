@@ -16,6 +16,13 @@ sitemap: false
   --border-radius: 8px;
 }
 
+[data-theme="dark"] {
+  --color-primary: #63d69f;
+  --color-primary-hover: #86dfb4;
+  --color-heading: #f9fafb;
+  --color-text-light: #97a7ba;
+}
+
 .offline-container {
   text-align: center;
   padding: 4rem 2rem;
@@ -118,7 +125,7 @@ sitemap: false
     <button class="offline-btn" onclick="window.location.reload()">
       🔄 Try Again
     </button>
-    <a href="/" class="offline-btn offline-btn-secondary">
+    <a href="{{ '/' | relative_url }}" class="offline-btn offline-btn-secondary">
       🏠 Go to Homepage
     </a>
   </div>

@@ -10,12 +10,12 @@ image: "/image/optimized/turing-machine1.avif"
 lang: "zh-Hans"
 ---
 <h1>Teaching Experience</h1>
-<p><a href="{{ '/teaching/template.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">哲学论文写作指南</a></p>
-<p><a href="https://www.logicmatters.net/latex-for-logicians/" target="_blank" rel="noopener noreferrer">LaTeX</a></p>
-<p><a href="{{ '/teaching/latex-article.tex' | relative_url }}" target="_blank" rel="noopener noreferrer">An Article
-    Template</a></p>
-<p><a href="{{ '/teaching/latex-beamer.tex' | relative_url }}" target="_blank" rel="noopener noreferrer">A Beamer
-    Template</a></p>
+<ul>
+  <li><a href="{{ '/teaching/template.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">哲学论文写作指南</a></li>
+  <li><a href="https://www.logicmatters.net/latex-for-logicians/" target="_blank" rel="noopener noreferrer">LaTeX</a></li>
+  <li><a href="{{ '/teaching/latex-article.tex' | relative_url }}" target="_blank" rel="noopener noreferrer">An Article Template</a></li>
+  <li><a href="{{ '/teaching/latex-beamer.tex' | relative_url }}" target="_blank" rel="noopener noreferrer">A Beamer Template</a></li>
+</ul>
 
 <hr />
 
@@ -23,7 +23,7 @@ lang: "zh-Hans"
 {% assign course = course_key[1] %}
 {% if course_key[0] == 'causality_reading_group' or course_key[0] == 'prospective_students' %}{% continue %}{% endif %}
 
-<h2><b>{{ course.title }}</b></h2>
+<h2>{{ course.title }}</h2>
 {{ course.description }}
 {% if course.advanced_material %}
 <button class="accordion">
@@ -44,9 +44,9 @@ lang: "zh-Hans"
 
 <hr />
 {% assign group = site.data.teaching.causality_reading_group %}
-<h2><b>{{ group.title | default: "Causality Reading Group" }}</b></h2>
+<h2>{{ group.title | default: "Causality Reading Group" }}</h2>
 
-<h2>因果读书会基本信息</h2>
+<h3>基本信息</h3>
 <ul class="level-1">
   {% for info in group.info %}
   <li>{{ info }}</li>
@@ -88,7 +88,7 @@ lang: "zh-Hans"
 <hr />
 {% assign prospective = site.data.teaching.prospective_students %}
 {% if prospective %}
-<h2><b>{{ prospective.title }}</b></h2>
+<h2>{{ prospective.title }}</h2>
 
 <p>{{ prospective.content }}</p>
 {% endif %}

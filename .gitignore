@@ -10,3 +10,4 @@ stylesheets/dist/
 # copy. Do not ignore them.
 .workbuddy/
 .vscode/
+.tooling-tmp/

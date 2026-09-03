@@ -52,7 +52,7 @@ function collectContentFiles(rootDir) {
         continue;
       }
       if (!entry.isFile()) continue;
-      if (!/\.(html|js)$/i.test(entry.name)) continue;
+      if (!/\.(html|js|md)$/i.test(entry.name)) continue;
       files.push(full);
     }
   }
@@ -68,7 +68,29 @@ const ESSENTIAL_SELECTORS = [
   ".skip-link",
   ".accordion",
   ".gb-form",
+  // Added after the first five proved too narrow: a broken content scan could
+  // silently drop these core classes without tripping the safety net.
+  ".site-title",
+  ".breadcrumb",
+  ".publication-entry",
+  ".responsive-img",
 ];
+// NOTE: every entry above must exist in stylesheets/styles.css — this check
+// catches a broken content scan, not a missing rule. Do NOT add classes that
+// appear only in markup (e.g. .post-title), or the build fails every time.
+
+// Browser targets for the CSS minifier. lightningcss defaults to "latest
+// everything" and emits modern range syntax (@media (width<=700px)), which
+// Safari < 16.4 (i.e. iOS 16.3 and older) does not understand — every
+// responsive rule is silently dropped there. Pinning conservative targets
+// keeps the classic max-width syntax. Verified cost: ~120 bytes.
+// Encoding is (major << 16) | (minor << 8) | patch.
+const CSS_TARGETS = {
+  safari: (15 << 16) | (6 << 8), // Safari 15.6
+  chrome: (109 << 16),
+  firefox: (110 << 16),
+  edge: (109 << 16),
+};
 
 async function purgeUnusedCSS(css) {
   console.log("  → 正在清理未使用的 CSS ...");
@@ -113,6 +135,9 @@ async function purgeUnusedCSS(css) {
         /^tikz/,
         // Visitor counter
         /^visitor-/,
+        // Blog figures & annotated elements
+        /^annotated-line/,
+        /^marker/,
       ],
       deep: [],
       greedy: [
@@ -165,6 +190,7 @@ async function buildStyles() {
     code: Buffer.from(purgedCSS),
     minify: true,
     sourceMap: false,
+    targets: CSS_TARGETS,
   });
 
   const hash = crypto
