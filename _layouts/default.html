@@ -166,10 +166,9 @@
           var script = document.createElement('script');
           script.src = src;
           script.async = true;
-          // SRI pins the exact third-party bytes we reviewed. mathjax@3.2.2 on
-          // jsDelivr is immutable; tikzjax.com serves an unversioned file, so
-          // if upstream ever changes it the promise rejects and the callers
-          // below fall back gracefully instead of executing unverified code.
+          // SRI pins the exact third-party bytes we reviewed. Only used for
+          // hosts that send CORS headers (jsDelivr does; tikzjax.com does
+          // not, so TikZJax below must load without integrity/crossorigin).
           if (integrity) {
             script.integrity = integrity;
             script.crossOrigin = 'anonymous';
@@ -224,10 +223,12 @@
           var tikzFonts = document.createElement('link');
           tikzFonts.rel = 'stylesheet';
           tikzFonts.href = 'https://tikzjax.com/v1/fonts.css';
-          tikzFonts.integrity = 'sha384-KSXgPd0P1GmC/VQrpEvYi+aSaRMAX5EZEAm1HAJJG8tvxjKHY+SwK9WLbjhNrULv';
-          tikzFonts.crossOrigin = 'anonymous';
           document.head.appendChild(tikzFonts);
-          tikzPromise = appendScript('https://tikzjax.com/v1/tikzjax.js', 'sha384-2lGJmjt7wJzF9t2G/L47a2YPC4lrAWh6pKm/tb759qGAJLMdM0ozlF93mfMSglF9')
+          // NOTE: no SRI here — tikzjax.com does not send CORS headers
+          // (Access-Control-Allow-Origin), so integrity + crossorigin would
+          // make the browser block the script entirely. Loading without
+          // crossorigin is the only working option short of self-hosting.
+          tikzPromise = appendScript('https://tikzjax.com/v1/tikzjax.js')
             .then(function () { return null; })
             .catch(function () {
               return null;
