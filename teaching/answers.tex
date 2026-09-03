@@ -1,0 +1,318 @@
+%!Mode:: "TeX:UTF-8"
+%!TEX encoding=UTF-8 Unicode
+\documentclass[UTF8,11pt,colorlinks,aspectratio=43]{beamer}%aspectratio=169 %169宽屏 43窄屏[handout]
+
+\setbeamersize{text margin left=.025\paperwidth,text margin right=.025\paperwidth}
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{frametitle}[default][center]
+\setbeamertemplate{blocks}[rounded]
+
+%%%%%%%%%%% 自定义颜色 %%%%%%%%%%%
+\definecolor{background}{RGB}{255,255,255}
+\definecolor{red}{RGB}{220,50,47}
+\definecolor{green}{RGB}{0,128,0}
+\definecolor{yellow}{RGB}{181,137,0}
+\definecolor{orange}{RGB}{203,75,22}
+\definecolor{pink}{RGB}{247,0,94}
+\definecolor{cyan}{RGB}{42,161,152}
+\definecolor{blue}{RGB}{9,132,227}
+\definecolor{lightgreen}{RGB}{199,237,204}
+\definecolor{lightyellow}{RGB}{253,246,227}
+%%%%%%%%%%%%%% 颜色设置 %%%%%%%%%%%%%%
+\setbeamercolor{normal text}{bg=background}
+\setbeamercolor{structure}{fg=orange,bg=lightgreen!25}
+\setbeamercolor{block body}{bg=lightgreen!7}
+\setbeamercolor{block title example}{fg=orange,bg=lightgreen!25}
+\setbeamercolor{block body example}{bg=lightgreen!7}
+%\setbeamercolor{button}{bg=purple}
+%\setbeamercolor{title}{fg=orange}
+%\setbeamercolor{frametitle}{fg=orange,bg=background!85}
+%\setbeamercolor{block title}{fg=orange,bg=background!85}
+%\setbeamercolor{block title alerted}{fg=orange,bg=background!85}
+%\setbeamercolor{block body alerted}{bg=background!85}
+
+%%%%%%%%%%%%%%%% 宏包 %%%%%%%%%%%%%%%%
+\usepackage[UTF8,heading=false,scheme=plain]{ctex}
+\usefonttheme{professionalfonts}%解决Beamer字体冲突
+\usepackage[english]{babel}%断字
+\usepackage[toc]{multitoc}%多栏目录
+\usepackage{newtxmath} %\let\openbox\relax
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{proof}%\infer
+\usepackage{centernot}
+\usepackage{cancel}%删除线
+\usepackage{marvosym}%阴阳符号
+\usepackage{csquotes}
+%\usepackage{pdfpages}%添加pdf页\includepdf{}
+\usepackage[backend=biber,style=alphabetic]{biblatex}%doi=false,isbn=false,url=false
+\addbibresource{ref.bib}
+\usepackage{hyperref}
+\hypersetup{pdfstartview=FitV,bookmarksopenlevel=0,}
+
+%%%%%%%%%%%% 表格支持宏包 %%%%%%%%%%%%
+\usepackage{varwidth}
+\usepackage{multirow}
+\usepackage{makecell}
+
+%%%%%%%%%%%% 图形支持宏包 %%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{tikz}
+\usetikzlibrary{cd,decorations.pathmorphing,positioning,fit,shapes,automata,circuits.ee.IEC,tikzmark}
+
+\tikzset{
+ opencirc/.style={circle,draw,dashed,minimum size=0.3cm},
+ openbox/.style={rectangle,draw,dashed,minimum size=0.3cm},
+ commutative diagrams/.cd,
+ arrow style=tikz,
+ diagrams={>=latex},
+ ampersand replacement=\&,
+ background color=background,
+}
+
+%%%%%%%%%%%% 定理环境 %%%%%%%%%%%
+\newtheorem{proposition}{Proposition}
+\newtheorem{postulate}{Postulate}
+\newtheorem{remark}{Remark}
+\newtheorem{exercise}{Exercise}
+\newtheorem{thesis}{Thesis}
+\newtheorem{assumption}{Assumption}
+
+%%%%%%%%%%%% 定义 %%%%%%%%%%%
+\newcommand{\eqa}{\,\smash{\stackrel{\raisebox{0.8ex}{$\scriptstyle+$}}{\smash=}}\,}
+\newcommand{\leqa}{\,\smash{\stackrel{\raisebox{1ex}{$\scriptstyle\!\!\;+$}}{\smash\leq}}\,}
+\newcommand{\geqa}{\,\smash{\stackrel{\raisebox{1ex}{$\scriptstyle+\!\!\;$}}{\smash\geq}}\,}
+\newcommand{\eqm}{\,\smash{\stackrel{\raisebox{0.6ex}{$\scriptstyle\times$}}{\smash=}}\,}
+\newcommand{\leqm}{\,\smash{\stackrel{\raisebox{1ex}{$\scriptstyle\!\!\;\times$}}{\smash\leq}}\,}
+\newcommand{\geqm}{\,\smash{\stackrel{\raisebox{1ex}{$\scriptstyle\times\!\!\;$}}{\smash\geq}}\,}
+
+\newcommand{\slashedrightarrow}{\relbar\joinrel\mapstochar\joinrel\rightarrow}%profunctor
+
+\newcommand{\biject}{\rightarrowtail\hspace{-10.6pt}\twoheadrightarrow}
+
+\newcommand{\with}{\,\&\,}
+\newcommand{\parr}{\,\rotatebox[origin=c]{180}{\&}\,}
+
+\newcommand{\bcircle}{\raisebox{2.6pt}{\;\circle{5.5}\!}}
+
+\newcommand{\MapUp}[1]{\Big\Uparrow\rlap{$\vcenter{\hbox{$\scriptstyle#1$}}$}}
+\newcommand{\MapDown}[1]{\Big\Downarrow\rlap{$\vcenter{\hbox{$\scriptstyle#1$}}$}}
+
+\let\aechar\ae
+\renewcommand{\ae}{\text{\sl\aechar}}
+
+%%%%%%%%%%%% bisimulation %%%%%%%%%%%
+\newcommand{\bisim}{\mathrel{\mathchoice
+		{\raisebox{.3ex}{$\,
+				\underline{\makebox[.7em]{$\leftrightarrow$}}\,$}}
+		{\raisebox{.3ex}{$\,
+				\underline{\makebox[.7em]{$\leftrightarrow$}}\,$}}
+		{\raisebox{.2ex}{$\,
+				\underline{\makebox[.5em]{\scriptsize$\leftrightarrow$}}\,$}}
+		{\raisebox{.2ex}{$\,
+				\underline{\makebox[.5em]{\scriptsize$\leftrightarrow$}}\,$}}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\powerset}{\mathtt{P}}
+\renewcommand{\Re}{\mathtt{Re}}
+\renewcommand{\Im}{\mathtt{Im}}
+\newcommand{\doo}{\mathtt{do}}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Cst}{Cst}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Wff}{Wff}
+\DeclareMathOperator{\Formula}{Form}
+\DeclareMathOperator{\Prog}{Prog}
+\DeclareMathOperator{\eval}{eval}
+\DeclareMathOperator{\Lin}{Lin}
+\DeclareMathOperator{\truth}{truth}
+\DeclareMathOperator{\sat}{sat}
+\DeclareMathOperator{\subst}{subst}
+\DeclareMathOperator{\Fv}{Fv}
+\DeclareMathOperator{\Bv}{Bv}
+\DeclareMathOperator{\Ord}{Ord}
+\DeclareMathOperator{\Card}{Card}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\cf}{cf}
+\DeclareMathOperator{\crit}{crit}
+\DeclareMathOperator{\Con}{Con}
+\DeclareMathOperator{\BB}{BB}
+\DeclareMathOperator{\Def}{Def}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Nat}{Nat}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Th}{Th}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\Cn}{Cn}
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\prf}{prf}
+\DeclareMathOperator{\prflen}{prflen}
+\DeclareMathOperator{\prov}{prov}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\mor}{mor}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Sub}{Sub}
+\DeclareMathOperator{\Lan}{Lan}
+\DeclareMathOperator{\Ran}{Ran}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\eq}{eq}
+\DeclareMathOperator{\coeq}{coeq}
+\DeclareMathOperator{\sk}{sk}
+\DeclareMathOperator{\cosk}{cosk}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\spec}{spec}
+\DeclareMathOperator{\Sh}{Sh}
+\DeclareMathOperator{\Disc}{Disc}
+\DeclareMathOperator{\Indisc}{Indisc}
+\DeclareMathOperator{\Multi}{Multi}
+\DeclareMathOperator{\List}{List}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\res}{res}
+\DeclareMathOperator{\germ}{germ}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Loss}{Loss}
+\DeclareMathOperator{\app}{app}
+\DeclareMathOperator{\lam}{lam}
+\DeclareMathOperator{\NOT}{NOT}
+\DeclareMathOperator{\CNOT}{CNOT}
+\DeclareMathOperator{\CCNOT}{CCNOT}
+\DeclareMathOperator{\SWAP}{SWAP}
+\DeclareMathOperator{\CSWAP}{CSWAP}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\Pa}{Pa}
+\DeclareMathOperator{\pa}{pa}
+\DeclareMathOperator{\Ch}{Ch}
+\DeclareMathOperator{\An}{An}
+\DeclareMathOperator{\Desc}{Desc}
+\DeclareMathOperator*{\argmax}{\arg\!\max}
+\DeclareMathOperator*{\argmin}{\arg\!\min}
+
+%%%%%%%%%%%%% 标题 %%%%%%%%%%%%%
+\title{Answers to the Exercises}
+\author[Xi Li]{Xi Li\\
+\small Department of Philosophy \\ 
+\small Central South University\\
+\scriptsize xieshenlixi@163.com\\
+\scriptsize \href{https://rickylixi.github.io/teaching.html}{github}}
+
+\begin{document}
+\maketitle
+
+%%%%%%%%%%%% 节前目录 %%%%%%%%%%%
+\AtBeginSection[]
+{
+\frame[shrink]{{Contents}
+%\begin{multicols}{2}
+\tableofcontents[currentsection,hideallsubsections]
+%\end{multicols}
+}
+\addtocounter{framenumber}{-1} %目录页不计页码
+}
+\AtBeginSubsection[]
+{
+\frame[shrink]{{Contents}
+\begin{multicols}{2}
+\tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded/hide,subsubsectionstyle=hide]
+\end{multicols}
+}
+\addtocounter{framenumber}{-1} %目录页不计页码
+}
+
+
+
+\begin{frame}\frametitle{Answers to the Exercises --- Translation}
+\begin{enumerate}
+  \item $\neg E\to\neg U$
+  \item $U\to F$
+  \item $\neg U\wedge\neg M$
+  \item $\neg S\to B$
+  \item $(W\to T)\to\neg S$
+  \item $\neg L\to(\neg S\to P)$
+  \item $(A\to B)\to(W\to B)$
+  \item $\neg A\wedge\neg B\to M\to N$ 
+  \item $\neg E\to(P\wedge\neg K\to A)$
+  \item $(\neg R\to B)\wedge(R\to P\vee S)$
+  \item $(S\wedge\neg C\to B)\wedge(\neg(S\wedge\neg C)\to P\vee S)$
+  \item $(E\to H)\wedge\neg(H\to E)$
+\end{enumerate}
+\end{frame}
+
+\begin{frame}\frametitle{Answers to the Exercises --- Translation}
+\begin{enumerate}
+ \item $\forall x\forall y(Hxy\to Uxy)$
+ \item $\forall x\big(\neg Sx\to\exists y(Eyx\wedge \neg Sy)\big)$
+ \item $\forall x(Mx\vee Wx\to Ax)$
+ \item $\neg\forall x(Jx\to Dx)$
+ \item $\forall x(Jx\to\neg Dx)$
+ \item $\forall x\big(\neg (Rx\wedge Bx)\to \neg Ex\big)$
+ \item $Hs\wedge Hp\wedge\forall x(Hx\to x=s\vee x=p)$
+ \item $\forall x(x\ne s\wedge x\ne p\to Hx)$
+ \item $\forall x\big(Bx\to \exists y\exists z(Gy\wedge Gz\wedge y\ne z\wedge Lxy\wedge Lxz)\big)$
+ \item $\neg\forall x\big(\mathsf{Glitter}(x)\to\mathsf{Gold}(x)\big)$
+ \item $\forall xyz(\mathsf{City}(z)\wedge \mathsf{In}(x,z)\wedge \mathsf{In}(y,z)\to \mathsf{first}(\mathsf{code}(x))=\mathsf{first}(\mathsf{code}(y))$
+ \item $\forall x\forall y(Bx\wedge Gy\wedge Fyx\to Hx)$
+ \item $\forall x\forall y(Bx\wedge Gy\wedge Fyx\to Cxy)$
+ \item $\forall x(Ex\to Dx2)\wedge \exists x (Ex\wedge Dx4)\wedge \exists x (Ex\wedge\neg Dx4)$
+\end{enumerate}
+\end{frame}
+
+\begin{frame}\frametitle{Answers to the Exercises --- Translation}
+\begin{enumerate}\setcounter{enumi}{14}
+ \item $\forall x(Bx\wedge\forall y(Gy\to Lxy)\to\neg\exists z(Gz\wedge Lzx))$
+ \item $\forall x(Cx\to\exists y(Iyx\wedge\forall z(Izx\to Lzy)))$
+ \item $\forall x(Dx\to Ax)\to\forall x\big(\exists y(Dy\wedge Hxy)\to\exists y(Ay\wedge Hxy)\big)$\\
+ $\forall x(Dx\to Ax)\to\forall x(Dx\to\exists y(Ay\wedge hx=hy))$
+ \item $\forall x\big(\neg D(x,f(w(s)))\to x=m(w(s))\big)$
+ \item $\forall x\exists y\exists z(Gy\wedge Gz\wedge y\ne z\wedge Lxy\wedge Lxz\to x=d)$
+ \item $\forall x(\neg Lxx\to Lhx)$
+ \item $\exists x(Gx\wedge Lxq\wedge\forall y(Gy\wedge Lyq\to y=x)\wedge Lqx\wedge \forall y(Lqy\to y=x))$
+ \item $\exists x(Lxw\wedge\forall y(Lyw\to y=x)\wedge\exists y(Lwy\wedge\forall z(Lwz\to z=y)\wedge x\ne y))$
+ \item $\exists x\Big(Bx\wedge \forall z(Bz\to Txz)\wedge \exists y\big(Gy\wedge\forall z(Gz\to Tzy)\wedge Lxy\big)\Big)$
+ \item $\forall x(Cx\wedge Ex\to\neg\exists y(Py\wedge Sy)\to Dx)$
+ \item $\forall x\big(Bx\to \neg\exists y(Ty\wedge Axy)\vee \forall y(Ty\to Axy)\big)$
+ \item $\forall x\Big(Mx\wedge \exists y\exists z(Cyz\wedge Lxy)\to\exists yCyx\Big)$
+ \item $\exists x\exists y\exists z(Mxa\wedge Myb\wedge Mzx\wedge Mzy)\wedge\forall u\forall v\forall x\forall y(Mua\wedge Mvb\wedge Mxu\wedge Myv\to x=y)$\hfill $m(m(a))=m(m(b))$
+ \item $\exists x\big(Gx\wedge Lxb\wedge\forall y(Gy\wedge Lyb\to y=x)\wedge\exists y(y\ne x\wedge Sy)\big)$
+\end{enumerate}
+\end{frame}
+
+\begin{frame}\frametitle{Answers to the Exercises --- Validity}
+\begin{enumerate}
+ \item $\exists xJx, \neg\exists x(Ax\wedge Jx)\vdash \exists x\neg Ax$
+ \item $\forall x(Cx\vee Ax\to Lxa), \forall x(Zx\to Cx\vee Ax)\vdash \forall x(Zx\to Lxa)$
+ \item $\forall x(\neg Ax\wedge Mx\to Vx\vee Fx), \forall x(Px\to \neg Ax\wedge \neg Vx\wedge\neg Fx)\vdash\forall x(Px\to\neg Mx)$
+ \item $\forall x(Dx\to Ax)\to\forall x\big(\exists y(Dy\wedge Hxy)\to\exists y(Ay\wedge Hxy)\big)$
+ \item $\forall x(Px\to x=a), Pb\wedge Sb\vdash Sa$
+ \item $Lab, Lbc, Ma, \neg Mc\vdash \exists x\exists y(Mx\wedge\neg My\wedge Lxy)$
+ \item $\forall xLxa, \forall x(Lax\to x=i)\vdash \forall xLxi$
+ \item $\forall x\forall y(\exists zLyz\to Lxy)\vdash Lrj\to Lum$
+ \item $\neg\exists x\big(Bx\wedge\forall y(Sxy\leftrightarrow\neg Syy)\big)$
+ \item $\forall x\forall y(Fx\wedge Fy\wedge Bxy\to Sxy)\to	\exists x(Fx\wedge\forall y(Fy\to Bxy))\to\exists x(Fx\wedge\forall y(Fy\to Sxy))$
+ \item $\forall x(Sx\to Kx), \exists xSx, \forall x(Kx\to x=a)\vdash Sa$
+\end{enumerate}
+\end{frame}
+
+\begin{frame}\frametitle{Answers to the Exercises --- Validity}
+\begin{enumerate}\setcounter{enumi}{11}
+ \item $\neg\exists x\exists y(Gx\wedge Sy\wedge Lxy), Ga\wedge\forall x(Lxa\to Lax), Lba\vdash\neg Sb$
+ \item $\forall xCx\to\neg\exists xNx,	\forall x\neg Cx\to\neg\exists xEx\vdash \exists x(Nx\wedge Ex)\to \exists xCx\wedge\exists x\neg Cx$
+ \item $\neg\exists x\forall y(Txy\leftrightarrow \neg\exists z(Tyz\wedge Tzy))$
+ \item $Ri\wedge Pi, \forall x\forall y(Px\wedge Axy\to Py), \neg \exists x(Px\wedge\neg Ex), \forall x(Ex\wedge Rx\to\exists y(Gy\wedge Axy)), \forall x(Ex\to Sx)\vdash\exists x(Gx\wedge Sx)$
+ \item $\exists x\forall y\big((Ky\leftrightarrow y=x)\wedge Bx\big), \forall x(Bx\to Sx)\vdash \forall x(Kx\to Sx)$
+ \item $Aac\wedge Abc\wedge a\ne b\wedge\forall x(Axc\to x=a\vee x=b), \forall x(Axc\leftrightarrow Lxc)\vdash\exists x\exists y(Lxc\wedge Lyc\wedge x\ne y\wedge\forall z(Lzc\to z=x\vee z=y))$
+ \item $\forall x\forall y(Sxy\to\exists zIzxy), \forall x\forall y\forall z(Izxy\to Kzx\wedge Kzy), \forall x Sxa\vdash \forall x\exists y(Iyxa\wedge Kya)$
+\end{enumerate}
+\end{frame}
+
+
+
+\end{document}
