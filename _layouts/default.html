@@ -229,7 +229,22 @@
           // make the browser block the script entirely. Loading without
           // crossorigin is the only working option short of self-hosting.
           tikzPromise = appendScript('https://tikzjax.com/v1/tikzjax.js')
-            .then(function () { return null; })
+            .then(function () {
+              // TikZJax renders every text/tikz block inside a `window.onload`
+              // handler. Because we inject this script only after the page's own
+              // `load` event has already fired (deferred loading at idle), that
+              // handler would never be dispatched by the browser. Invoke it
+              // directly: it processes every text/tikz block currently in the
+              // DOM and is idempotent — each block is replaced by its rendered
+              // SVG — so a later duplicate trigger is harmless. No other script
+              // on this site assigns window.onload, so there is no conflict.
+              if (typeof window.onload === 'function') {
+                try {
+                  Promise.resolve(window.onload()).catch(function () {});
+                } catch (e) { /* ignore */ }
+              }
+              return null;
+            })
             .catch(function () {
               return null;
             });

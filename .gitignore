@@ -11,3 +11,4 @@ stylesheets/dist/
 .workbuddy/
 .vscode/
 .tooling-tmp/
+.playwright-cli/
