@@ -4,17 +4,20 @@ const ASSET_MANIFEST = {{ site.data['asset-manifest'] | jsonify }};
 const CACHE_VERSION = (ASSET_MANIFEST && ASSET_MANIFEST.hash) ? ASSET_MANIFEST.hash : 'v5';
 const STATIC_CACHE = `rickylixi-static-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `rickylixi-runtime-${CACHE_VERSION}`;
+const PAGE_CACHE = `rickylixi-pages-${CACHE_VERSION}`;
 const DEBUG_SERVICE_WORKER = false;
 
 // Keep the runtime cache bounded so large files (e.g. teaching PDFs) cannot
 // grow it without limit. Oldest entries are evicted first.
 const MAX_RUNTIME_CACHE_ENTRIES = 30;
+const MAX_PAGE_CACHE_ENTRIES = 10;
 
 // Core static assets - critical for offline functionality
 const CORE_STATIC_URLS = [
   '/',
   '/stylesheets/styles.min.css',
   '/assets/js/theme.js',
+  '/assets/js/privacy-consent.js',
   '/image/x-logo-192.png',
   '/manifest.json',
   '/offline.html',
@@ -90,18 +93,20 @@ async function trimCache(cacheName, maxEntries) {
   return trimCache(cacheName, maxEntries);
 }
 
-function cacheResponse(request, response) {
+function cacheResponse(request, response, cacheName, maxEntries, event) {
   if (!response || !response.ok) return;
   const copy = response.clone();
-  caches.open(RUNTIME_CACHE)
+  const write = caches.open(cacheName)
     .then(cache => cache.put(request, copy))
-    .then(() => trimCache(RUNTIME_CACHE, MAX_RUNTIME_CACHE_ENTRIES));
+    .then(() => trimCache(cacheName, maxEntries))
+    .catch(() => undefined);
+  event.waitUntil(write);
 }
 
-function networkFirst(request) {
+function networkFirst(request, event) {
   return fetch(request)
     .then(response => {
-      cacheResponse(request, response);
+      cacheResponse(request, response, PAGE_CACHE, MAX_PAGE_CACHE_ENTRIES, event);
       return response;
     })
     .catch(() =>
@@ -113,13 +118,13 @@ function networkFirst(request) {
     );
 }
 
-function cacheFirst(request) {
+function cacheFirst(request, event) {
   return caches.match(request).then(cached => {
     if (cached) return cached;
 
     return fetch(request)
       .then(response => {
-        cacheResponse(request, response);
+        cacheResponse(request, response, RUNTIME_CACHE, MAX_RUNTIME_CACHE_ENTRIES, event);
         return response;
       })
       .catch(() =>
@@ -130,16 +135,20 @@ function cacheFirst(request) {
   });
 }
 
-function staleWhileRevalidate(request) {
+function staleWhileRevalidate(request, event) {
   return caches.match(request).then(cached => {
     const networkPromise = fetch(request)
       .then(response => {
-        cacheResponse(request, response);
+        cacheResponse(request, response, RUNTIME_CACHE, MAX_RUNTIME_CACHE_ENTRIES, event);
         return response;
       })
       .catch(() => null);
 
-    return cached || networkPromise;
+    if (cached) {
+      event.waitUntil(networkPromise);
+      return cached;
+    }
+    return networkPromise;
   });
 }
 
@@ -197,7 +206,8 @@ self.addEventListener('activate', event => {
       const deletePromises = names.map(name => {
         const isOldCache = name.startsWith('rickylixi-') && 
                           name !== STATIC_CACHE && 
-                          name !== RUNTIME_CACHE;
+                           name !== RUNTIME_CACHE &&
+                           name !== PAGE_CACHE;
         
         if (isOldCache) {
           log(`🗑️ Deleting old cache: ${name}`, 'yellow');
@@ -227,18 +237,18 @@ self.addEventListener('fetch', event => {
   // networkFirst() already falls back to cache → offline.html internally.
   if (isNavigationalRequest(request)) {
     log(`Navigational request: ${url.pathname}`, 'cyan');
-    event.respondWith(networkFirst(request));
+    event.respondWith(networkFirst(request, event));
     return;
   }
 
   // Handle static asset requests
   if (isStaticAssetRequest(url)) {
     log(`Static asset: ${url.pathname}`, 'info');
-    event.respondWith(staleWhileRevalidate(request));
+    event.respondWith(staleWhileRevalidate(request, event));
     return;
   }
 
   // Default: cache first for other same-origin requests
   log(`Other request: ${url.pathname}`, 'info');
-  event.respondWith(cacheFirst(request));
+  event.respondWith(cacheFirst(request, event));
 });

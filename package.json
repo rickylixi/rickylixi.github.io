@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "Xi's Website.",
   "scripts": {
-    "build": "node build.js"
+    "build": "node build.js",
+    "test": "node scripts/check-javascript.js",
+    "validate:site": "node scripts/validate-site.js _site",
+    "audit:dependencies": "npm audit --audit-level=high"
   },
   "repository": {
     "type": "git",
@@ -19,7 +22,7 @@
   "devDependencies": {
     "lightningcss": "^1.31.1",
     "minimist": "^1.2.8",
-    "purgecss": "^6.0.0",
-    "sharp": "^0.34.5"
+    "purgecss": "^8.0.0",
+    "sharp": "^0.35.4"
   }
 }

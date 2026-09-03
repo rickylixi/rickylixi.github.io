@@ -10,100 +10,10 @@
   {% feed_meta %}
   {% include seo-meta.html %}
 
-  <!-- Critical CSS (inlined for faster rendering).
-       NOTE: the palette below duplicates :root/[data-theme] in stylesheets/styles.css
-       and offline.html — update all three together when changing theme colors. -->
-  <style>
-    :root {
-      --color-primary: #16a34a; --color-primary-hover: #15803d;
-      --color-text: #374151; --color-text-light: #6b7280;
-      --color-heading: #111827; --color-background: #ffffff;
-      --color-surface: #f9fafb; --color-border: #e5e7eb;
-      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      margin: 0; padding: 0;
-    }
-    [data-theme="dark"] {
-      --color-primary: #63d69f; --color-primary-hover: #86dfb4;
-      --color-text: #c8d2df; --color-text-light: #97a7ba;
-      --color-heading: #f9fafb; --color-background: #0f172a;
-      --color-surface: #1e293b; --color-border: #334155;
-    }
-    * { box-sizing: border-box; }
-    body {
-      font-family: var(--font-sans);
-      margin: 0; padding: 0;
-      background: var(--color-background);
-      color: var(--color-text);
-      line-height: 1.6;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-    .wrapper { max-width: 1150px; margin: 0 auto; padding: 2rem; }
-    .theme-toggle {
-      position: fixed; top: 20px; right: 20px; z-index: 1000;
-      background: var(--color-surface); border: 1px solid var(--color-border);
-      color: var(--color-text); padding: 8px; border-radius: 50%;
-      cursor: pointer; width: 40px; height: 40px;
-      display: flex; align-items: center; justify-content: center;
-      transition: all 0.3s ease;
-    }
-    .icon-sun,
-    .icon-moon { display: none; }
-    [data-theme="light"] .icon-moon { display: block; }
-    [data-theme="dark"] .icon-sun { display: block; }
-    .loading { opacity: 0.7; }
-    .visitor-count { transition: opacity 0.3s ease; }
-  </style>
-
   <!-- Web App Manifest -->
   <link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ '/image/x-logo-32.png' | relative_url }}">
   <link rel="apple-touch-icon" href="{{ '/image/apple-touch-icon.png' | relative_url }}">
-
-  <!-- GA4 tracking (measurement ID from _config.yml) -->
-  {% if site.google_analytics %}
-  <script>
-    (function () {
-      const GA_ID = '{{ site.google_analytics }}';
-
-      function analyticsAllowed() {
-        const localHosts = ['localhost', '127.0.0.1', '::1'];
-        return !(
-          localHosts.includes(window.location.hostname) ||
-          navigator.doNotTrack === '1' ||
-          window.doNotTrack === '1' ||
-          navigator.globalPrivacyControl === true
-        );
-      }
-
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = function () { dataLayer.push(arguments); };
-
-      window.trackEvent = function (event_name, event_params) {
-        if (!analyticsAllowed()) return;
-        window.gtag('event', event_name, event_params);
-      };
-      window.trackThemeChange = function (theme) {
-        window.trackEvent('theme_toggle', { 'theme_selected': theme });
-      };
-      window.trackNavigationClick = function (text, url) {
-        window.trackEvent('navigation_click', { 'link_text': text, 'link_url': url });
-      };
-      window.trackSocialClick = function (platform) {
-        window.trackEvent('social_click', { 'platform': platform });
-      };
-
-      if (!analyticsAllowed()) return;
-
-      const script = document.createElement('script');
-      script.async = true;
-      script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
-      document.head.appendChild(script);
-
-      window.gtag('js', new Date());
-      window.gtag('config', GA_ID, { 'anonymize_ip': true });
-    })();
-  </script>
-  {% endif %}
 
   <!-- Supplemental structured data for the homepage. jekyll-seo-tag handles page/post JSON-LD. -->
   {% if page.url == "/" %}
@@ -200,7 +110,7 @@
     </section>
 
     <footer>
-      <p>&copy; {{ site.time | date: "%Y" }} Xi Li <span class="footer-sep">|</span> <span class="visitor-badge">👀 <span id="visitor-count" class="visitor-count" data-slug="site-total">...</span></span></p>
+      <p>&copy; {{ site.time | date: "%Y" }} Xi Li <span class="footer-sep">|</span> <span id="visitor-badge" class="visitor-badge" hidden>👀 <span id="visitor-count" class="visitor-count" data-slug="site-total">...</span></span></p>
     </footer>
   </div>
 
@@ -210,6 +120,14 @@
   <script id="supabase-config" type="application/json">
     {"supabaseUrl":"https://dtiivkyoieucoqkivfha.supabase.co","supabaseAnonKey":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0aWl2a3lvaWV1Y29xa2l2ZmhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU3MjAzMjAsImV4cCI6MjA4MTI5NjMyMH0.KbmvXU1aUft7adEAhVNPEDp8dVdY-4QwkrK8vHyLfII"}
   </script>
+  <div id="privacy-config" data-google-analytics-id="{{ site.google_analytics | escape }}" data-visitor-counter-src="{{ '/assets/js/visitor-counter.js' | relative_url }}" hidden></div>
+  <section id="privacy-consent" class="privacy-consent" role="region" aria-label="Optional services preference" hidden>
+    <p>Optional analytics and the visitor counter are off by default. Allow them to help improve this site?</p>
+    <div class="privacy-consent-actions">
+      <button id="privacy-allow" type="button">Allow optional services</button>
+      <button id="privacy-decline" type="button">No thanks</button>
+    </div>
+  </section>
   <!-- Register Service Worker -->
   <script>
     if ('serviceWorker' in navigator && !['localhost', '127.0.0.1', '::1'].includes(window.location.hostname)) {
@@ -219,8 +137,7 @@
     }
   </script>
   <script src="{{ '/assets/js/theme.js' | relative_url }}" defer></script>
-
-  <script src="{{ '/assets/js/visitor-counter.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/privacy-consent.js' | relative_url }}" defer></script>
   {% if page.math or page.tikz %}
   <script>
     (function () {
@@ -237,7 +154,7 @@
         });
       }
 
-      function appendScript(src) {
+      function appendScript(src, integrity) {
         return new Promise(function (resolve, reject) {
           var existing = document.querySelector('script[src="' + src + '"]');
           if (existing) {
@@ -249,6 +166,14 @@
           var script = document.createElement('script');
           script.src = src;
           script.async = true;
+          // SRI pins the exact third-party bytes we reviewed. mathjax@3.2.2 on
+          // jsDelivr is immutable; tikzjax.com serves an unversioned file, so
+          // if upstream ever changes it the promise rejects and the callers
+          // below fall back gracefully instead of executing unverified code.
+          if (integrity) {
+            script.integrity = integrity;
+            script.crossOrigin = 'anonymous';
+          }
           script.onload = resolve;
           script.onerror = reject;
           document.head.appendChild(script);
@@ -273,7 +198,7 @@
         }
 
         if (!mathJaxPromise) {
-          mathJaxPromise = appendScript('https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js')
+          mathJaxPromise = appendScript('https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js', 'sha384-Wuix6BuhrWbjDBs24bXrjf4ZQ5aFeFWBuKkFekO2t8xFU0iNaLQfp2K6/1Nxveei')
             .then(function () {
               if (window.MathJax && window.MathJax.startup && window.MathJax.startup.promise) {
                 return window.MathJax.startup.promise.then(function () {
@@ -299,17 +224,11 @@
           var tikzFonts = document.createElement('link');
           tikzFonts.rel = 'stylesheet';
           tikzFonts.href = 'https://tikzjax.com/v1/fonts.css';
+          tikzFonts.integrity = 'sha384-KSXgPd0P1GmC/VQrpEvYi+aSaRMAX5EZEAm1HAJJG8tvxjKHY+SwK9WLbjhNrULv';
+          tikzFonts.crossOrigin = 'anonymous';
           document.head.appendChild(tikzFonts);
-          tikzPromise = appendScript('https://tikzjax.com/v1/tikzjax.js')
-            .then(function () {
-              if (document.readyState === 'complete' || document.readyState === 'interactive') {
-                if (typeof window.onload === 'function') {
-                  var originalOnload = window.onload;
-                  window.onload = null; // Prevent duplicate execution
-                  return originalOnload();
-                }
-              }
-            })
+          tikzPromise = appendScript('https://tikzjax.com/v1/tikzjax.js', 'sha384-2lGJmjt7wJzF9t2G/L47a2YPC4lrAWh6pKm/tb759qGAJLMdM0ozlF93mfMSglF9')
+            .then(function () { return null; })
             .catch(function () {
               return null;
             });

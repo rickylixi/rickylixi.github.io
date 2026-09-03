@@ -25,16 +25,6 @@ function debugError(...args) {
   if (DEBUG_VISITOR_COUNTER) console.error(...args);
 }
 
-function trackingAllowed() {
-  const localHosts = ["localhost", "127.0.0.1", "::1"];
-  return !(
-    localHosts.includes(window.location.hostname) ||
-    navigator.doNotTrack === "1" ||
-    window.doNotTrack === "1" ||
-    navigator.globalPrivacyControl === true
-  );
-}
-
 // Client-side rate limiter
 class RateLimiter {
   constructor(maxRequests = MAX_REQUESTS_PER_WINDOW, windowMs = RATE_LIMIT_WINDOW_MS) {
@@ -266,6 +256,8 @@ function renderCount(counterEl, count) {
   if (counterEl.id === "visitor-count") {
     counterEl.innerText = count.toLocaleString();
     counterEl.style.opacity = "1";
+    const badge = document.getElementById("visitor-badge");
+    if (badge) badge.hidden = false;
   } else {
     const wrapper = document.getElementById("page-views-wrapper");
     if (wrapper) wrapper.hidden = false;
@@ -328,14 +320,14 @@ async function processCounter(counterEl, config) {
   }
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
+async function initializeVisitorCounters() {
   const config = getSupabaseConfig();
   const counters = [
     document.getElementById("visitor-count"),
     document.getElementById("page-views"),
   ].filter(Boolean);
 
-  if (!trackingAllowed()) {
+  if (!window.sitePrivacy?.isOptionalServiceAllowed?.()) {
     counters.forEach(handleCounterFailure);
     return;
   }
@@ -354,4 +346,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       debugError(`Failed to process counter ${counterEl.id}:`, error);
     }
   }
-});
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initializeVisitorCounters, { once: true });
+} else {
+  initializeVisitorCounters();
+}

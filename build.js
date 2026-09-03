@@ -225,6 +225,7 @@ async function build() {
   const filesToHash = [
     path.join(ROOT, "assets", "js", "visitor-counter.js"),
     path.join(ROOT, "assets", "js", "theme.js"),
+    path.join(ROOT, "assets", "js", "privacy-consent.js"),
     path.join(ROOT, "javascripts", "accordion.js"),
     path.join(ROOT, "sw.js")
   ];

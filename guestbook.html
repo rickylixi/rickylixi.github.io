@@ -44,55 +44,9 @@ image: "/image/optimized/turing-machine1.avif"
   </div>
 </article>
 
-<!-- Supabase SDK (loaded only on guestbook page; with CDN fallback).
-     Version is pinned so an upstream breaking release cannot silently
-     break the guestbook. Bump deliberately after testing. -->
 <script>
-  let _supabase = null;
-  const SUPABASE_SDK_VERSION = '2.112.3';
-  const SUPABASE_SDK_SOURCES = [
-    `https://cdn.jsdelivr.net/npm/@supabase/supabase-js@${SUPABASE_SDK_VERSION}`,
-    `https://unpkg.com/@supabase/supabase-js@${SUPABASE_SDK_VERSION}`
-  ];
-
-  function hasSupabaseClient() {
-    return Boolean(window.supabase && typeof window.supabase.createClient === 'function');
-  }
-
-  function loadScript(src) {
-    return new Promise((resolve, reject) => {
-      const existing = document.querySelector(`script[src="${src}"]`);
-      if (existing) {
-        if (hasSupabaseClient()) {
-          resolve();
-          return;
-        }
-        existing.addEventListener('load', resolve, { once: true });
-        existing.addEventListener('error', () => reject(new Error(`Failed to load ${src}`)), { once: true });
-        return;
-      }
-
-      const script = document.createElement('script');
-      script.src = src;
-      script.async = true;
-      script.onload = resolve;
-      script.onerror = () => reject(new Error(`Failed to load ${src}`));
-      document.head.appendChild(script);
-    });
-  }
-
-  async function ensureSupabaseSdk() {
-    if (hasSupabaseClient()) return true;
-    for (const src of SUPABASE_SDK_SOURCES) {
-      try {
-        await loadScript(src);
-      } catch (e) {
-        // Try next CDN.
-      }
-      if (hasSupabaseClient()) return true;
-    }
-    return hasSupabaseClient();
-  }
+  let supabaseConfig = null;
+  const REQUEST_TIMEOUT_MS = 8000;
 
   function resolveSupabaseConfig() {
     let cfg = {};
@@ -105,11 +59,32 @@ image: "/image/optimized/turing-machine1.avif"
       }
     }
 
-    const supabaseUrl = cfg.supabaseUrl || window.SUPABASE_URL;
-    const supabaseKey = cfg.supabaseAnonKey || window.SUPABASE_KEY;
+    const supabaseUrl = cfg.supabaseUrl;
+    const supabaseKey = cfg.supabaseAnonKey;
     if (!supabaseUrl || !supabaseKey) return null;
-    if (!window.supabase || typeof window.supabase.createClient !== 'function') return null;
     return { supabaseUrl, supabaseKey };
+  }
+
+  function headers() {
+    return {
+      'apikey': supabaseConfig.supabaseKey,
+      'Authorization': `Bearer ${supabaseConfig.supabaseKey}`,
+      'Content-Type': 'application/json'
+    };
+  }
+
+  async function request(path, options = {}) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+    try {
+      return await fetch(`${supabaseConfig.supabaseUrl}${path}`, {
+        ...options,
+        headers: { ...headers(), ...(options.headers || {}) },
+        signal: controller.signal,
+      });
+    } finally {
+      clearTimeout(timer);
+    }
   }
 
   const messagesContainer = document.getElementById('gb-messages');
@@ -153,30 +128,25 @@ image: "/image/optimized/turing-machine1.avif"
   // Load Messages
   async function loadMessages() {
     if (!messagesContainer) return;
-    if (!_supabase) {
+    if (!supabaseConfig) {
       messagesContainer.innerHTML = '<p>Guestbook is temporarily unavailable.</p>';
       return;
     }
 
-    let result = null;
+    let response;
     try {
-      result = await _supabase
-        .from('guestbook_messages')
-        .select('name,message,created_at')
-        .order('created_at', { ascending: false })
-        .limit(20);
+      response = await request('/rest/v1/guestbook_messages?select=name,message,created_at&order=created_at.desc&limit=20');
     } catch (e) {
       messagesContainer.innerHTML = '<p>Error loading messages.</p>';
       return;
     }
-    const { data, error } = result;
-
-    if (error) {
+    if (!response.ok) {
       messagesContainer.innerHTML = '<p>Error loading messages.</p>';
       return;
     }
 
-    if (!data || data.length === 0) {
+    const data = await response.json().catch(() => null);
+    if (!Array.isArray(data) || data.length === 0) {
       messagesContainer.innerHTML = '<p>No messages yet. Be the first!</p>';
       return;
     }
@@ -184,7 +154,7 @@ image: "/image/optimized/turing-machine1.avif"
     messagesContainer.innerHTML = data.map((msg) => `
         <div class="gb-message-item">
             <strong>${escapeHtml(msg.name)}</strong>
-            <small>${new Date(msg.created_at).toLocaleDateString()}</small>
+            <small>${formatDate(msg.created_at)}</small>
             <div class="gb-message-text">${escapeHtml(msg.message)}</div>
         </div>
     `).join('');
@@ -196,40 +166,30 @@ image: "/image/optimized/turing-machine1.avif"
     return name.slice(0, 50);
   }
 
+  function formatDate(value) {
+    const date = new Date(value);
+    return Number.isNaN(date.getTime()) ? '' : date.toLocaleDateString();
+  }
+
   function isLikelySpam(message) {
     const lower = message.toLowerCase();
     return lower.includes('http://') || lower.includes('https://') || lower.includes('[url]');
   }
 
   async function submitGuestbookMessage(name, message, honeypot) {
-    // Preferred call (new RPC signature)
-    let result = await _supabase.rpc('submit_guestbook_message', {
-      p_name: name,
-      p_message: message,
-      p_honeypot: honeypot
+    const response = await request('/rest/v1/rpc/submit_guestbook_message', {
+      method: 'POST',
+      body: JSON.stringify({ p_name: name, p_message: message, p_honeypot: honeypot })
     });
-
-    if (!result.error) return result;
-
-    const msg = String(result.error.message || '');
-    const missingFn = msg.includes('Could not find the function public.submit_guestbook_message');
-    if (!missingFn) return result;
-
-    // Compatibility call (legacy argument names, if backend has older function)
-    result = await _supabase.rpc('submit_guestbook_message', {
-      name,
-      message,
-      honeypot
-    });
-    if (!result.error) return result;
-
-    return result;
+    if (response.ok) return { error: null };
+    const body = await response.json().catch(() => ({}));
+    return { error: new Error(body.message || 'Unable to post message.') };
   }
 
   async function handleFormSubmit(event) {
     event.preventDefault();
 
-    if (!_supabase) {
+    if (!supabaseConfig) {
       showStatus('Guestbook is temporarily unavailable.', true);
       return;
     }
@@ -292,8 +252,7 @@ image: "/image/optimized/turing-machine1.avif"
 
   // Utility to prevent XSS
   function escapeHtml(text) {
-    if (!text) return text;
-    return text
+    return String(text ?? '')
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;")
@@ -324,11 +283,7 @@ image: "/image/optimized/turing-machine1.avif"
     formEl.addEventListener('submit', handleFormSubmit);
 
     messagesContainer.innerHTML = '<p>Loading messages...</p>';
-    await ensureSupabaseSdk();
-    const config = resolveSupabaseConfig();
-    if (config) {
-      _supabase = supabase.createClient(config.supabaseUrl, config.supabaseKey);
-    }
+    supabaseConfig = resolveSupabaseConfig();
     await loadMessages();
   });
 </script>

@@ -1,0 +1,8 @@
+{% assign image_name = include.src | split: '/' | last | split: '.' | first %}
+<picture>
+  <source type="image/avif" srcset="{{ '/image/optimized/' | append: image_name | append: '.avif' | relative_url }}">
+  {% unless include.webp == false %}
+  <source type="image/webp" srcset="{{ '/image/optimized/' | append: image_name | append: '.webp' | relative_url }}">
+  {% endunless %}
+  <img src="{{ include.src | relative_url }}" alt="{{ include.alt }}" class="{{ include.class | default: 'responsive-img' }}" loading="{{ include.loading | default: 'lazy' }}" width="{{ include.width }}" height="{{ include.height }}">
+</picture>

@@ -25,9 +25,8 @@
 }
 
 :root {
-  /* Color Palette - Light Mode
-     NOTE: duplicated as inline critical CSS in _layouts/default.html and in
-     offline.html — keep all three in sync when changing theme colors. */
+  /* Color Palette - Light Mode. offline.html is intentionally standalone and
+     retains the small fallback palette required when this stylesheet is unavailable. */
   --color-primary: #16a34a;
   /* Green 600 */
   --color-primary-hover: #15803d;
@@ -843,6 +842,50 @@ div.panel.show {
   width: 1px;
   height: 1px;
   overflow: hidden;
+}
+
+.privacy-consent {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1100;
+  max-width: 32rem;
+  padding: 1rem;
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-soft);
+}
+
+.privacy-consent p {
+  margin: 0 0 0.75rem;
+}
+
+.privacy-consent-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.privacy-consent button {
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 4px;
+  background: var(--color-primary);
+  color: #fff;
+  cursor: pointer;
+}
+
+.privacy-consent #privacy-decline {
+  background: transparent;
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.privacy-consent button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
 .gb-message-item {
