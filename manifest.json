@@ -1,0 +1,37 @@
+{
+  "name": "李熙 | Xi Li - Associate Professor of Logic",
+  "short_name": "Xi Li",
+  "description": "Associate Professor of Logic at Central South University. Research in Kolmogorov Complexity, Solomonoff Induction, Causal Inference, Rational Decision Theory, and AI Philosophy.",
+  "start_url": "/",
+  "id": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#16a34a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/image/x-logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/image/x-logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/image/x-logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": [
+    "education",
+    "science"
+  ],
+  "lang": "en",
+  "dir": "ltr"
+}
