@@ -46,6 +46,7 @@ image: "/image/optimized/turing-machine1.avif"
 </article>
 
 <script>
+(function () {
   let supabaseConfig = null;
   const REQUEST_TIMEOUT_MS = 8000;
 
@@ -287,4 +288,5 @@ image: "/image/optimized/turing-machine1.avif"
     supabaseConfig = resolveSupabaseConfig();
     await loadMessages();
   });
+})();
 </script>
