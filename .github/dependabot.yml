@@ -8,3 +8,11 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    ignore:
+      # purgecss 8.x pulls in fast-glob -> micromatch -> braces. braces has no
+      # patched release (GHSA-vfj7-8cjw-p6xm, affects <=3.0.3 = latest), so 8.x
+      # always fails `npm audit --audit-level=high` and blocks deployment.
+      # purgecss 7.0.2 uses glob@11 instead and produces byte-identical CSS.
+      # Remove this ignore once braces ships a fixed version.
+      - dependency-name: "purgecss"
+        versions: ["8.x"]
