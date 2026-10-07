@@ -128,7 +128,7 @@ git push origin main
 
 - **`_config.yml`**: Jekyll configuration
 - **`build.js`**: CSS build pipeline with PurgeCSS
-- **`package.json`**: Node.js dependencies and scripts
+- **`package.json`**: Node.js dependencies and scripts (see `overrides` below)
 - **`Gemfile`**: Ruby dependencies
 - **`sw.js`**: Service Worker for offline support
 - **`supabase/migrations/`**: Database schema, RLS, RPC functions, and rate limits
@@ -154,6 +154,18 @@ bundle exec jekyll clean
 # 2. Unregister Service Worker
 # 3. Reload page
 ```
+
+### Dependency Security Notes:
+
+`npm run audit:dependencies` runs in CI and fails on any high severity advisory, so
+dev dependencies are pinned with `overrides` in `package.json`:
+
+- `postcss-selector-parser` → `^7.1.6` and `source-map-js` → `^1.2.2` force the patched
+  transitive versions pulled in by PurgeCSS/postcss.
+- `purgecss` stays on `^7.0.2`. v8 swaps `glob` for `fast-glob`, whose transitive
+  `braces` dependency currently has **no patched release** (GHSA-vfj7-8cjw-p6xm /
+  CVE-2026-93687), so upgrading would re-break the CI audit. Revisit the upgrade once
+  `braces` ships a fixed version.
 
 ### Build Errors:
 
