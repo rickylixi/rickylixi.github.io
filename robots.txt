@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Jekyll source directories (_includes, _layouts, scripts, etc.) are never
+# published, so no Disallow rules are needed for them.
+
+Sitemap: https://rickylixi.github.io/sitemap.xml
