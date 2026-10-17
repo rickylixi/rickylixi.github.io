@@ -46,7 +46,7 @@ jobs:
           if [ -d image/optimized ]; then ls -l image/optimized || true; else echo "No optimized dir"; fi
 
       - name: Upload optimized images artifact
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: optimized-images
           path: image/optimized
