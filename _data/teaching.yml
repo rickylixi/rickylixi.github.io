@@ -110,6 +110,8 @@ causality_reading_group:
     - title: "因果说服"
       # Upgraded from http://; click-check this link after deploy.
       link: "https://aburkovskaya.com/pdf/causality.pdf"
+    - title: "因果干扰"
+      link: "https://arxiv.org/pdf/2411.01371"
     - title: "因果世界模型"
       link: "https://arxiv.org/abs/2402.10877"
     - title: "因果范畴"
