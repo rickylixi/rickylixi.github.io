@@ -53,7 +53,7 @@ science:
     author: "Brendan Fong and David I. Spivak"
     link: "https://arxiv.org/pdf/1803.05316"
 
-popular science:
+popular:
   - title: "Gödel, Escher, Bach: An Eternal Golden Braid"
     author: "Douglas Hofstadter"
     link: "https://www.physixfan.com/wp-content/files/GEBen.pdf"

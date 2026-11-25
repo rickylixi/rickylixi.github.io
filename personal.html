@@ -69,13 +69,22 @@ image: "/image/optimized/ai-xi.avif"
 <ul>
   {% for book in site.data.books.fiction %}
   <li>
-    <em><a href="{{ book.link }}" target="_blank" rel="noopener noreferrer">{{ book.title }}</a></em>{% if book.extra_book %} and <em><a href="{{ book.extra_book.link }}" target="_blank" rel="noopener noreferrer">{{ book.extra_book.title }}</a></em>{% endif %}, by {{ book.author }}
+    <em><a href="{{ book.link }}" target="_blank" rel="noopener noreferrer">{{ book.title }}</a></em>{% if
+    book.extra_book %} and <em><a href="{{ book.extra_book.link }}" target="_blank" rel="noopener noreferrer">{{
+        book.extra_book.title }}</a></em>{% endif %}, by {{ book.author }}
   </li>
   {% endfor %}
 </ul>
 <h3>Science</h3>
 <ul>
   {% for book in site.data.books.science %}
+  <li><em><a href="{{ book.link }}" target="_blank" rel="noopener noreferrer">{{ book.title }}</a></em>, by {{
+    book.author }}</li>
+  {% endfor %}
+</ul>
+<h3>Science</h3>
+<ul>
+  {% for book in site.data.books.popular %}
   <li><em><a href="{{ book.link }}" target="_blank" rel="noopener noreferrer">{{ book.title }}</a></em>, by {{
     book.author }}</li>
   {% endfor %}
