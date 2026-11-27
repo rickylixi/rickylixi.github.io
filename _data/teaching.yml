@@ -116,6 +116,8 @@ causality_reading_group:
       link: "https://arxiv.org/abs/2402.10877"
     - title: "因果范畴"
       link: "https://arxiv.org/abs/2204.04821"
+    - title: "信息论因果效应"
+      link: "https://www.mdpi.com/1099-4300/21/10/975"
     - title: "事实因果"
       link: "https://www.cs.cornell.edu/home/halpern/papers/causalitybook-ch1-3.html"
     - title: "回溯因果"
